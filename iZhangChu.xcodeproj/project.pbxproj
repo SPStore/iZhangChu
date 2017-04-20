@@ -16,10 +16,6 @@
 		0952C0391EA84E41002DA69E /* UIView+Frame.m in Sources */ = {isa = PBXBuildFile; fileRef = 0952BFF11EA84E41002DA69E /* UIView+Frame.m */; };
 		0952C03A1EA84E41002DA69E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0952BFF41EA84E41002DA69E /* AppDelegate.m */; };
 		0952C03B1EA84E41002DA69E /* ZCConst.m in Sources */ = {isa = PBXBuildFile; fileRef = 0952BFF81EA84E41002DA69E /* ZCConst.m */; };
-		0952C03C1EA84E41002DA69E /* ZCBasicViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0952BFFE1EA84E41002DA69E /* ZCBasicViewController.m */; };
-		0952C03D1EA84E41002DA69E /* ZCNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0952C0001EA84E41002DA69E /* ZCNavigationController.m */; };
-		0952C03E1EA84E41002DA69E /* ZCTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0952C0021EA84E41002DA69E /* ZCTabBarController.m */; };
-		0952C03F1EA84E41002DA69E /* ZCBasicModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0952C0051EA84E41002DA69E /* ZCBasicModel.m */; };
 		0952C0401EA84E41002DA69E /* ZCCommunityHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0952C00B1EA84E41002DA69E /* ZCCommunityHomeViewController.m */; };
 		0952C0411EA84E41002DA69E /* ZCLohasHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0952C0121EA84E41002DA69E /* ZCLohasHomeViewController.m */; };
 		0952C0421EA84E41002DA69E /* ZCMineHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0952C0181EA84E41002DA69E /* ZCMineHomeViewController.m */; };
@@ -34,6 +30,10 @@
 		0952C0691EA86CDC002DA69E /* SPCarouselScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0952C0611EA86CDC002DA69E /* SPCarouselScrollView.m */; };
 		0952C06A1EA86CDC002DA69E /* SPHTTPSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 0952C0641EA86CDC002DA69E /* SPHTTPSessionManager.m */; };
 		0952C06B1EA86CDC002DA69E /* SPPageMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 0952C0671EA86CDC002DA69E /* SPPageMenu.m */; };
+		0952C0781EA86E5A002DA69E /* ZCBasicViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0952C06F1EA86E5A002DA69E /* ZCBasicViewController.m */; };
+		0952C0791EA86E5A002DA69E /* ZCNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0952C0711EA86E5A002DA69E /* ZCNavigationController.m */; };
+		0952C07A1EA86E5A002DA69E /* ZCTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0952C0731EA86E5A002DA69E /* ZCTabBarController.m */; };
+		0952C07B1EA86E5A002DA69E /* ZCBasicModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0952C0761EA86E5A002DA69E /* ZCBasicModel.m */; };
 		F2F4CD81E2787577D4A4EF9C /* libPods-iZhangChu.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1578D2F11D0D4E3759AD292C /* libPods-iZhangChu.a */; };
 /* End PBXBuildFile section */
 
@@ -77,14 +77,6 @@
 		0952BFF81EA84E41002DA69E /* ZCConst.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZCConst.m; sourceTree = "<group>"; };
 		0952BFF91EA84E41002DA69E /* ZCHeaderFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZCHeaderFile.h; sourceTree = "<group>"; };
 		0952BFFA1EA84E41002DA69E /* ZCMacro.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZCMacro.h; sourceTree = "<group>"; };
-		0952BFFD1EA84E41002DA69E /* ZCBasicViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZCBasicViewController.h; sourceTree = "<group>"; };
-		0952BFFE1EA84E41002DA69E /* ZCBasicViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZCBasicViewController.m; sourceTree = "<group>"; };
-		0952BFFF1EA84E41002DA69E /* ZCNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZCNavigationController.h; sourceTree = "<group>"; };
-		0952C0001EA84E41002DA69E /* ZCNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZCNavigationController.m; sourceTree = "<group>"; };
-		0952C0011EA84E41002DA69E /* ZCTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZCTabBarController.h; sourceTree = "<group>"; };
-		0952C0021EA84E41002DA69E /* ZCTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZCTabBarController.m; sourceTree = "<group>"; };
-		0952C0041EA84E41002DA69E /* ZCBasicModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZCBasicModel.h; sourceTree = "<group>"; };
-		0952C0051EA84E41002DA69E /* ZCBasicModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZCBasicModel.m; sourceTree = "<group>"; };
 		0952C00A1EA84E41002DA69E /* ZCCommunityHomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZCCommunityHomeViewController.h; sourceTree = "<group>"; };
 		0952C00B1EA84E41002DA69E /* ZCCommunityHomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZCCommunityHomeViewController.m; sourceTree = "<group>"; };
 		0952C0111EA84E41002DA69E /* ZCLohasHomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZCLohasHomeViewController.h; sourceTree = "<group>"; };
@@ -113,6 +105,14 @@
 		0952C0641EA86CDC002DA69E /* SPHTTPSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPHTTPSessionManager.m; sourceTree = "<group>"; };
 		0952C0661EA86CDC002DA69E /* SPPageMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPPageMenu.h; sourceTree = "<group>"; };
 		0952C0671EA86CDC002DA69E /* SPPageMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPPageMenu.m; sourceTree = "<group>"; };
+		0952C06E1EA86E5A002DA69E /* ZCBasicViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZCBasicViewController.h; sourceTree = "<group>"; };
+		0952C06F1EA86E5A002DA69E /* ZCBasicViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZCBasicViewController.m; sourceTree = "<group>"; };
+		0952C0701EA86E5A002DA69E /* ZCNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZCNavigationController.h; sourceTree = "<group>"; };
+		0952C0711EA86E5A002DA69E /* ZCNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZCNavigationController.m; sourceTree = "<group>"; };
+		0952C0721EA86E5A002DA69E /* ZCTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZCTabBarController.h; sourceTree = "<group>"; };
+		0952C0731EA86E5A002DA69E /* ZCTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZCTabBarController.m; sourceTree = "<group>"; };
+		0952C0751EA86E5A002DA69E /* ZCBasicModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZCBasicModel.h; sourceTree = "<group>"; };
+		0952C0761EA86E5A002DA69E /* ZCBasicModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZCBasicModel.m; sourceTree = "<group>"; };
 		13912BF85C230D428BDD7D11 /* Pods-iZhangChu.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iZhangChu.debug.xcconfig"; path = "Pods/Target Support Files/Pods-iZhangChu/Pods-iZhangChu.debug.xcconfig"; sourceTree = "<group>"; };
 		1578D2F11D0D4E3759AD292C /* libPods-iZhangChu.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-iZhangChu.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FBD2129A70688F68B8DFE385 /* Pods-iZhangChu.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iZhangChu.release.xcconfig"; path = "Pods/Target Support Files/Pods-iZhangChu/Pods-iZhangChu.release.xcconfig"; sourceTree = "<group>"; };
@@ -212,7 +212,6 @@
 				0952C05B1EA86CDC002DA69E /* Libs(依赖库) */,
 				0952BFF51EA84E41002DA69E /* Macro(宏) */,
 				0952C02D1EA84E41002DA69E /* Tools(工具) */,
-				0952BFFB1EA84E41002DA69E /* Main(主要) */,
 				0952C0071EA84E41002DA69E /* Modules(模块) */,
 			);
 			path = Classes;
@@ -241,57 +240,19 @@
 		0952BFF51EA84E41002DA69E /* Macro(宏) */ = {
 			isa = PBXGroup;
 			children = (
-				0952BFF61EA84E41002DA69E /* Singleton.h */,
+				0952BFFA1EA84E41002DA69E /* ZCMacro.h */,
+				0952BFF91EA84E41002DA69E /* ZCHeaderFile.h */,
 				0952BFF71EA84E41002DA69E /* ZCConst.h */,
 				0952BFF81EA84E41002DA69E /* ZCConst.m */,
-				0952BFF91EA84E41002DA69E /* ZCHeaderFile.h */,
-				0952BFFA1EA84E41002DA69E /* ZCMacro.h */,
+				0952BFF61EA84E41002DA69E /* Singleton.h */,
 			);
 			path = "Macro(宏)";
-			sourceTree = "<group>";
-		};
-		0952BFFB1EA84E41002DA69E /* Main(主要) */ = {
-			isa = PBXGroup;
-			children = (
-				0952BFFC1EA84E41002DA69E /* Controllers */,
-				0952C0031EA84E41002DA69E /* Models */,
-				0952C0061EA84E41002DA69E /* Views */,
-			);
-			path = "Main(主要)";
-			sourceTree = "<group>";
-		};
-		0952BFFC1EA84E41002DA69E /* Controllers */ = {
-			isa = PBXGroup;
-			children = (
-				0952BFFD1EA84E41002DA69E /* ZCBasicViewController.h */,
-				0952BFFE1EA84E41002DA69E /* ZCBasicViewController.m */,
-				0952BFFF1EA84E41002DA69E /* ZCNavigationController.h */,
-				0952C0001EA84E41002DA69E /* ZCNavigationController.m */,
-				0952C0011EA84E41002DA69E /* ZCTabBarController.h */,
-				0952C0021EA84E41002DA69E /* ZCTabBarController.m */,
-			);
-			path = Controllers;
-			sourceTree = "<group>";
-		};
-		0952C0031EA84E41002DA69E /* Models */ = {
-			isa = PBXGroup;
-			children = (
-				0952C0041EA84E41002DA69E /* ZCBasicModel.h */,
-				0952C0051EA84E41002DA69E /* ZCBasicModel.m */,
-			);
-			path = Models;
-			sourceTree = "<group>";
-		};
-		0952C0061EA84E41002DA69E /* Views */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Views;
 			sourceTree = "<group>";
 		};
 		0952C0071EA84E41002DA69E /* Modules(模块) */ = {
 			isa = PBXGroup;
 			children = (
+				0952C06C1EA86E5A002DA69E /* Main(主要) */,
 				0952C01B1EA84E41002DA69E /* Recipes(食谱) */,
 				0952C00F1EA84E41002DA69E /* Lohas(乐活) */,
 				0952C0081EA84E41002DA69E /* Community(社区) */,
@@ -506,6 +467,45 @@
 			path = SPPageMenu;
 			sourceTree = "<group>";
 		};
+		0952C06C1EA86E5A002DA69E /* Main(主要) */ = {
+			isa = PBXGroup;
+			children = (
+				0952C06D1EA86E5A002DA69E /* Controllers */,
+				0952C0741EA86E5A002DA69E /* Models */,
+				0952C0771EA86E5A002DA69E /* Views */,
+			);
+			path = "Main(主要)";
+			sourceTree = "<group>";
+		};
+		0952C06D1EA86E5A002DA69E /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				0952C06E1EA86E5A002DA69E /* ZCBasicViewController.h */,
+				0952C06F1EA86E5A002DA69E /* ZCBasicViewController.m */,
+				0952C0701EA86E5A002DA69E /* ZCNavigationController.h */,
+				0952C0711EA86E5A002DA69E /* ZCNavigationController.m */,
+				0952C0721EA86E5A002DA69E /* ZCTabBarController.h */,
+				0952C0731EA86E5A002DA69E /* ZCTabBarController.m */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		0952C0741EA86E5A002DA69E /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				0952C0751EA86E5A002DA69E /* ZCBasicModel.h */,
+				0952C0761EA86E5A002DA69E /* ZCBasicModel.m */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		0952C0771EA86E5A002DA69E /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		3DDC8A0948BF91E6B8CCE968 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -714,16 +714,15 @@
 				0952C03A1EA84E41002DA69E /* AppDelegate.m in Sources */,
 				0952C0391EA84E41002DA69E /* UIView+Frame.m in Sources */,
 				0952C0681EA86CDC002DA69E /* SPButton.m in Sources */,
-				0952C03C1EA84E41002DA69E /* ZCBasicViewController.m in Sources */,
 				0952C0381EA84E41002DA69E /* NSObject+Property.m in Sources */,
-				0952C03E1EA84E41002DA69E /* ZCTabBarController.m in Sources */,
-				0952C03D1EA84E41002DA69E /* ZCNavigationController.m in Sources */,
+				0952C0781EA86E5A002DA69E /* ZCBasicViewController.m in Sources */,
 				0952C0471EA84E41002DA69E /* ZCRecommendBannerModel.m in Sources */,
 				0952C0411EA84E41002DA69E /* ZCLohasHomeViewController.m in Sources */,
 				0952C03B1EA84E41002DA69E /* ZCConst.m in Sources */,
 				0952C0491EA84E41002DA69E /* ZCRecommendHeaderView.m in Sources */,
+				0952C0791EA86E5A002DA69E /* ZCNavigationController.m in Sources */,
 				0952C06A1EA86CDC002DA69E /* SPHTTPSessionManager.m in Sources */,
-				0952C03F1EA84E41002DA69E /* ZCBasicModel.m in Sources */,
+				0952C07A1EA86E5A002DA69E /* ZCTabBarController.m in Sources */,
 				0952C06B1EA86CDC002DA69E /* SPPageMenu.m in Sources */,
 				0952BFBB1EA84DD3002DA69E /* main.m in Sources */,
 				0952C0421EA84E41002DA69E /* ZCMineHomeViewController.m in Sources */,
@@ -731,6 +730,7 @@
 				0952C0441EA84E41002DA69E /* ZCIngredientsViewController.m in Sources */,
 				0952C0691EA86CDC002DA69E /* SPCarouselScrollView.m in Sources */,
 				0952C0431EA84E41002DA69E /* ZCCategoryViewController.m in Sources */,
+				0952C07B1EA86E5A002DA69E /* ZCBasicModel.m in Sources */,
 				0952C0451EA84E41002DA69E /* ZCRecipesHomeViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
