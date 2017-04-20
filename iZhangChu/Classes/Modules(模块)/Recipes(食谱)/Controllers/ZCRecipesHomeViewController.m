@@ -1,0 +1,104 @@
+//
+//  ZCRecipesHomeViewController.m
+//  掌厨
+//
+//  Created by Libo on 17/4/17.
+//  Copyright © 2017年 iDress. All rights reserved.
+//
+
+#import "ZCRecipesHomeViewController.h"
+#import "ZCRecipesNavigationView.h"
+#import "ZCRecommendViewController.h"
+#import "ZCIngredientsViewController.h"
+#import "ZCCategoryViewController.h"
+
+
+#define hostUrl @"http://api.izhangchu.com"
+
+
+@interface ZCRecipesHomeViewController () <SPPageMenuDelegate,UIScrollViewDelegate>
+@property (nonatomic, strong) ZCRecipesNavigationView *recipesNavgationView;
+@property (nonatomic, strong) UIScrollView *scrollView;
+
+@end
+
+@implementation ZCRecipesHomeViewController
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+
+    // 先添加好3个子控制器（推荐、食材、分类）
+    [self addChildViewController:[[ZCRecommendViewController alloc] init]];
+    [self addChildViewController:[[ZCIngredientsViewController alloc] init]];
+    [self addChildViewController:[[ZCCategoryViewController alloc] init]];
+    
+    self.navigationView = (ZCNavigationView *)self.recipesNavgationView;
+    [self.view addSubview:self.scrollView];
+} 
+
+
+// pageMenu的代理方法
+- (void)pageMenu:(SPPageMenu *)pageMenu buttonClickedFromIndex:(NSInteger)fromIndex toIndex:(NSInteger)toIndex {
+    // 如果上一次点击的button下标与当前点击的buton下标之差大于等于2,说明跨界面移动了,此时不动画.
+    if (labs(toIndex - fromIndex) >= 2) {
+        [self.scrollView setContentOffset:CGPointMake(_scrollView.frame.size.width * toIndex, 0) animated:NO];
+    } else {
+        [self.scrollView setContentOffset:CGPointMake(_scrollView.frame.size.width * toIndex, 0) animated:YES];
+    }
+    
+    UIViewController *targetViewController = self.childViewControllers[toIndex];
+    // 如果已经加载过，就不再加载
+    if ([targetViewController isViewLoaded]) return;
+    
+    targetViewController.view.frame = CGRectMake(_scrollView.frame.size.width * toIndex, 0, _scrollView.frame.size.width, _scrollView.frame.size.height);
+    [_scrollView addSubview:targetViewController.view];
+}
+
+- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
+    NSInteger index = scrollView.contentOffset.x / scrollView.frame.size.width;
+    // 手动滑scrollView,pageMenu会根据传进去的index选中index对应的button
+    [self.recipesNavgationView.pageMenu selectButtonAtIndex:index];
+}
+
+// 扫描
+- (void)scan:(UIButton *)sender {
+    
+}
+
+// 搜索
+- (void)search:(UIButton *)sender {
+    
+}
+
+- (UIScrollView *)scrollView {
+    if (!_scrollView) {
+         _scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 64, kScreenW, kScreenH-64)];
+        _scrollView.pagingEnabled = YES;
+        _scrollView.bounces = NO;
+        _scrollView.delegate = self;
+        _scrollView.contentSize = CGSizeMake(kScreenW*self.childViewControllers.count, 0);
+        [_scrollView addSubview:self.childViewControllers.firstObject.view];
+    }
+    return _scrollView;
+}
+
+// 顶部导航栏
+- (ZCRecipesNavigationView *)recipesNavgationView {
+    if (!_recipesNavgationView) {
+        _recipesNavgationView = [[ZCRecipesNavigationView alloc] initWithFrame:CGRectMake(0, 0, kScreenW, 64)];
+        _recipesNavgationView.pageMenu.delegate = self;
+        [_recipesNavgationView.scanButton addTarget:self action:@selector(scan:) forControlEvents:UIControlEventTouchUpInside];
+        [_recipesNavgationView.searchButton addTarget:self action:@selector(search:) forControlEvents:UIControlEventTouchUpInside];
+    }
+    return _recipesNavgationView;
+}
+
+
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
+
+
+
+@end

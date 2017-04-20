@@ -1,12 +1,13 @@
 //
 //  AppDelegate.m
-//  iZhangChu
+//  掌厨
 //
-//  Created by Libo on 17/4/20.
+//  Created by Libo on 17/4/17.
 //  Copyright © 2017年 iDress. All rights reserved.
 //
 
 #import "AppDelegate.h"
+#import "ZCTabBarController.h"
 
 @interface AppDelegate ()
 
@@ -16,7 +17,12 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
+    self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
+    self.window.backgroundColor = [UIColor whiteColor];
+    ZCTabBarController *tabBarVC = [[ZCTabBarController alloc] init];
+    self.window.rootViewController = tabBarVC;
+    [self.window makeKeyAndVisible];
+    
     return YES;
 }
 
