@@ -30,9 +30,10 @@
 		0952C0471EA84E41002DA69E /* ZCRecommendBannerModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0952C0271EA84E41002DA69E /* ZCRecommendBannerModel.m */; };
 		0952C0481EA84E41002DA69E /* ZCRecipesNavigationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0952C02A1EA84E41002DA69E /* ZCRecipesNavigationView.m */; };
 		0952C0491EA84E41002DA69E /* ZCRecommendHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0952C02C1EA84E41002DA69E /* ZCRecommendHeaderView.m */; };
-		0952C04B1EA84E41002DA69E /* SPHTTPSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 0952C0341EA84E41002DA69E /* SPHTTPSessionManager.m */; };
-		0952C04C1EA84E41002DA69E /* SPPageMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 0952C0371EA84E41002DA69E /* SPPageMenu.m */; };
-		0952C04F1EA8505A002DA69E /* SPCarouselScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0952C04E1EA8505A002DA69E /* SPCarouselScrollView.m */; };
+		0952C0681EA86CDC002DA69E /* SPButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 0952C05E1EA86CDC002DA69E /* SPButton.m */; };
+		0952C0691EA86CDC002DA69E /* SPCarouselScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0952C0611EA86CDC002DA69E /* SPCarouselScrollView.m */; };
+		0952C06A1EA86CDC002DA69E /* SPHTTPSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 0952C0641EA86CDC002DA69E /* SPHTTPSessionManager.m */; };
+		0952C06B1EA86CDC002DA69E /* SPPageMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 0952C0671EA86CDC002DA69E /* SPPageMenu.m */; };
 		F2F4CD81E2787577D4A4EF9C /* libPods-iZhangChu.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1578D2F11D0D4E3759AD292C /* libPods-iZhangChu.a */; };
 /* End PBXBuildFile section */
 
@@ -104,12 +105,14 @@
 		0952C02A1EA84E41002DA69E /* ZCRecipesNavigationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZCRecipesNavigationView.m; sourceTree = "<group>"; };
 		0952C02B1EA84E41002DA69E /* ZCRecommendHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZCRecommendHeaderView.h; sourceTree = "<group>"; };
 		0952C02C1EA84E41002DA69E /* ZCRecommendHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZCRecommendHeaderView.m; sourceTree = "<group>"; };
-		0952C0331EA84E41002DA69E /* SPHTTPSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPHTTPSessionManager.h; sourceTree = "<group>"; };
-		0952C0341EA84E41002DA69E /* SPHTTPSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPHTTPSessionManager.m; sourceTree = "<group>"; };
-		0952C0361EA84E41002DA69E /* SPPageMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPPageMenu.h; sourceTree = "<group>"; };
-		0952C0371EA84E41002DA69E /* SPPageMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPPageMenu.m; sourceTree = "<group>"; };
-		0952C04D1EA8505A002DA69E /* SPCarouselScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPCarouselScrollView.h; sourceTree = "<group>"; };
-		0952C04E1EA8505A002DA69E /* SPCarouselScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPCarouselScrollView.m; sourceTree = "<group>"; };
+		0952C05D1EA86CDC002DA69E /* SPButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPButton.h; sourceTree = "<group>"; };
+		0952C05E1EA86CDC002DA69E /* SPButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPButton.m; sourceTree = "<group>"; };
+		0952C0601EA86CDC002DA69E /* SPCarouselScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPCarouselScrollView.h; sourceTree = "<group>"; };
+		0952C0611EA86CDC002DA69E /* SPCarouselScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPCarouselScrollView.m; sourceTree = "<group>"; };
+		0952C0631EA86CDC002DA69E /* SPHTTPSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPHTTPSessionManager.h; sourceTree = "<group>"; };
+		0952C0641EA86CDC002DA69E /* SPHTTPSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPHTTPSessionManager.m; sourceTree = "<group>"; };
+		0952C0661EA86CDC002DA69E /* SPPageMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPPageMenu.h; sourceTree = "<group>"; };
+		0952C0671EA86CDC002DA69E /* SPPageMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPPageMenu.m; sourceTree = "<group>"; };
 		13912BF85C230D428BDD7D11 /* Pods-iZhangChu.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iZhangChu.debug.xcconfig"; path = "Pods/Target Support Files/Pods-iZhangChu/Pods-iZhangChu.debug.xcconfig"; sourceTree = "<group>"; };
 		1578D2F11D0D4E3759AD292C /* libPods-iZhangChu.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-iZhangChu.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FBD2129A70688F68B8DFE385 /* Pods-iZhangChu.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iZhangChu.release.xcconfig"; path = "Pods/Target Support Files/Pods-iZhangChu/Pods-iZhangChu.release.xcconfig"; sourceTree = "<group>"; };
@@ -204,13 +207,13 @@
 		0952BFEC1EA84E41002DA69E /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				0952BFED1EA84E41002DA69E /* Category(分类) */,
 				0952BFF21EA84E41002DA69E /* Enter(入口) */,
+				0952BFED1EA84E41002DA69E /* Category(分类) */,
+				0952C05B1EA86CDC002DA69E /* Libs(依赖库) */,
 				0952BFF51EA84E41002DA69E /* Macro(宏) */,
+				0952C02D1EA84E41002DA69E /* Tools(工具) */,
 				0952BFFB1EA84E41002DA69E /* Main(主要) */,
 				0952C0071EA84E41002DA69E /* Modules(模块) */,
-				0952C02D1EA84E41002DA69E /* Tools(工具) */,
-				0952C02E1EA84E41002DA69E /* Vender(第三方) */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -289,10 +292,10 @@
 		0952C0071EA84E41002DA69E /* Modules(模块) */ = {
 			isa = PBXGroup;
 			children = (
-				0952C0081EA84E41002DA69E /* Community(社区) */,
-				0952C00F1EA84E41002DA69E /* Lohas(乐活) */,
-				0952C0151EA84E41002DA69E /* Mine(我的) */,
 				0952C01B1EA84E41002DA69E /* Recipes(食谱) */,
+				0952C00F1EA84E41002DA69E /* Lohas(乐活) */,
+				0952C0081EA84E41002DA69E /* Community(社区) */,
+				0952C0151EA84E41002DA69E /* Mine(我的) */,
 			);
 			path = "Modules(模块)";
 			sourceTree = "<group>";
@@ -456,39 +459,49 @@
 			path = "Tools(工具)";
 			sourceTree = "<group>";
 		};
-		0952C02E1EA84E41002DA69E /* Vender(第三方) */ = {
+		0952C05B1EA86CDC002DA69E /* Libs(依赖库) */ = {
 			isa = PBXGroup;
 			children = (
-				0952C02F1EA84E41002DA69E /* SPCarouselScrollView */,
-				0952C0321EA84E41002DA69E /* SPHTTPSessionManager */,
-				0952C0351EA84E41002DA69E /* SPPageMenu */,
+				0952C05C1EA86CDC002DA69E /* SPButton */,
+				0952C05F1EA86CDC002DA69E /* SPCarouselScrollView */,
+				0952C0621EA86CDC002DA69E /* SPHTTPSessionManager */,
+				0952C0651EA86CDC002DA69E /* SPPageMenu */,
 			);
-			path = "Vender(第三方)";
+			path = "Libs(依赖库)";
 			sourceTree = "<group>";
 		};
-		0952C02F1EA84E41002DA69E /* SPCarouselScrollView */ = {
+		0952C05C1EA86CDC002DA69E /* SPButton */ = {
 			isa = PBXGroup;
 			children = (
-				0952C04D1EA8505A002DA69E /* SPCarouselScrollView.h */,
-				0952C04E1EA8505A002DA69E /* SPCarouselScrollView.m */,
+				0952C05D1EA86CDC002DA69E /* SPButton.h */,
+				0952C05E1EA86CDC002DA69E /* SPButton.m */,
+			);
+			path = SPButton;
+			sourceTree = "<group>";
+		};
+		0952C05F1EA86CDC002DA69E /* SPCarouselScrollView */ = {
+			isa = PBXGroup;
+			children = (
+				0952C0601EA86CDC002DA69E /* SPCarouselScrollView.h */,
+				0952C0611EA86CDC002DA69E /* SPCarouselScrollView.m */,
 			);
 			path = SPCarouselScrollView;
 			sourceTree = "<group>";
 		};
-		0952C0321EA84E41002DA69E /* SPHTTPSessionManager */ = {
+		0952C0621EA86CDC002DA69E /* SPHTTPSessionManager */ = {
 			isa = PBXGroup;
 			children = (
-				0952C0331EA84E41002DA69E /* SPHTTPSessionManager.h */,
-				0952C0341EA84E41002DA69E /* SPHTTPSessionManager.m */,
+				0952C0631EA86CDC002DA69E /* SPHTTPSessionManager.h */,
+				0952C0641EA86CDC002DA69E /* SPHTTPSessionManager.m */,
 			);
 			path = SPHTTPSessionManager;
 			sourceTree = "<group>";
 		};
-		0952C0351EA84E41002DA69E /* SPPageMenu */ = {
+		0952C0651EA86CDC002DA69E /* SPPageMenu */ = {
 			isa = PBXGroup;
 			children = (
-				0952C0361EA84E41002DA69E /* SPPageMenu.h */,
-				0952C0371EA84E41002DA69E /* SPPageMenu.m */,
+				0952C0661EA86CDC002DA69E /* SPPageMenu.h */,
+				0952C0671EA86CDC002DA69E /* SPPageMenu.m */,
 			);
 			path = SPPageMenu;
 			sourceTree = "<group>";
@@ -700,22 +713,23 @@
 				0952C0481EA84E41002DA69E /* ZCRecipesNavigationView.m in Sources */,
 				0952C03A1EA84E41002DA69E /* AppDelegate.m in Sources */,
 				0952C0391EA84E41002DA69E /* UIView+Frame.m in Sources */,
+				0952C0681EA86CDC002DA69E /* SPButton.m in Sources */,
 				0952C03C1EA84E41002DA69E /* ZCBasicViewController.m in Sources */,
 				0952C0381EA84E41002DA69E /* NSObject+Property.m in Sources */,
 				0952C03E1EA84E41002DA69E /* ZCTabBarController.m in Sources */,
 				0952C03D1EA84E41002DA69E /* ZCNavigationController.m in Sources */,
-				0952C04F1EA8505A002DA69E /* SPCarouselScrollView.m in Sources */,
 				0952C0471EA84E41002DA69E /* ZCRecommendBannerModel.m in Sources */,
 				0952C0411EA84E41002DA69E /* ZCLohasHomeViewController.m in Sources */,
 				0952C03B1EA84E41002DA69E /* ZCConst.m in Sources */,
 				0952C0491EA84E41002DA69E /* ZCRecommendHeaderView.m in Sources */,
-				0952C04C1EA84E41002DA69E /* SPPageMenu.m in Sources */,
+				0952C06A1EA86CDC002DA69E /* SPHTTPSessionManager.m in Sources */,
 				0952C03F1EA84E41002DA69E /* ZCBasicModel.m in Sources */,
+				0952C06B1EA86CDC002DA69E /* SPPageMenu.m in Sources */,
 				0952BFBB1EA84DD3002DA69E /* main.m in Sources */,
 				0952C0421EA84E41002DA69E /* ZCMineHomeViewController.m in Sources */,
 				0952C0461EA84E41002DA69E /* ZCRecommendViewController.m in Sources */,
 				0952C0441EA84E41002DA69E /* ZCIngredientsViewController.m in Sources */,
-				0952C04B1EA84E41002DA69E /* SPHTTPSessionManager.m in Sources */,
+				0952C0691EA86CDC002DA69E /* SPCarouselScrollView.m in Sources */,
 				0952C0431EA84E41002DA69E /* ZCCategoryViewController.m in Sources */,
 				0952C0451EA84E41002DA69E /* ZCRecipesHomeViewController.m in Sources */,
 			);
