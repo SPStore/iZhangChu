@@ -35,7 +35,7 @@
 
 - (void)requestData:(NSMutableDictionary *)params {
     
-    [[SPHTTPSessionManager shareInstance] POST:ZCHostURL params:params success:^(id  _Nonnull responseObject) {
+    [[SPHTTPSessionManager shareInstance] POST:ZCHOSTURL params:params success:^(id  _Nonnull responseObject) {
         
         self.sectionArray = [ZCIngredientsDataModel mj_objectArrayWithKeyValuesArray:responseObject[@"data"][@"data"]];
         [self.tableView reloadData];
@@ -86,6 +86,9 @@
         _tableView.backgroundColor = ZCBackgroundColor;
         _tableView.sectionHeaderHeight = 0.0f;
         _tableView.sectionFooterHeight = 0.0f;
+        // 如果tableView是grouped样式，且没有自定义tableHeaderView，那么tableView的顶部会多出一段头部高度，这段高度无法修改。只能通过创建一张自定义的view，给个很小很小的高度，然后赋值给tableHeaderView即可。注意：这张自定义的view的高度不能直接给0，给0的话仍然是默认系统头部高度，要给一个无限接近于0的高度
+        UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 0, CGFLOAT_MIN)];
+        _tableView.tableHeaderView = view;
     }
     return _tableView;
 }

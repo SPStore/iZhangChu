@@ -7,14 +7,10 @@
 //
 
 #import "ZCRecommendHeaderView.h"
-#import "SPCarouselScrollView.h"
 #import "ZCMacro.h"
 #import "ZCRecommendBannerModel.h"
 
-@interface ZCRecommendHeaderView ()<SPCarouseScrollViewDelegate>
-
-// 轮播图
-@property (nonatomic, strong) SPCarouselScrollView *carouselScrollView;
+@interface ZCRecommendHeaderView ()
 // 搜索框
 @property (nonatomic, strong) UITextField *searchBar;
 
@@ -71,7 +67,6 @@
 - (SPCarouselScrollView *)carouselScrollView {
     if (!_carouselScrollView) {
         _carouselScrollView = [[SPCarouselScrollView alloc] init];
-        _carouselScrollView.delegate = self;
         _carouselScrollView.pageContolAliment = SPCarouseScrollViewPageContolAlimentRight;
         _carouselScrollView.currentPageControlColor = ZCGlobalColor;
         _carouselScrollView.pageControlColor = [UIColor whiteColor];

@@ -16,14 +16,15 @@
 #import "ZCRecommendCanScrollModel.h"
 #import "ZCRecommendVideoModel.h"
 #import "ZCRecommendImageVideoModel.h"
-#import "ZCRecommendImageVideoModel.h"
 #import "ZCRecommendEmptyModel.h"
 #import "ZCRecommendMasterListModel.h"
 #import "ZCRecommendHaveHeaderIconImageModel.h"
 #import "ZCRecommendImageViewTitleModel.h"
 #import "ZCRecommendBasicCell.h"
 
-@interface ZCRecommendViewController () <UITableViewDelegate,UITableViewDataSource>
+#import "ZCCourseViewController.h"
+
+@interface ZCRecommendViewController () <UITableViewDelegate,UITableViewDataSource, SPCarouseScrollViewDelegate>
 @property (nonatomic, strong) UITableView *tableView;
 @property (nonatomic, strong) ZCRecommendHeaderView *headerView;
 @property (nonatomic, strong) NSArray *banners;
@@ -67,7 +68,7 @@
     params[@"token"] = @"D2B34B72BBEE30ACDA4C4822781D823F";
     params[@"version"] = @4.92;
     
-    [[SPHTTPSessionManager shareInstance] POST:ZCHostURL params:params success:^(id  _Nonnull responseObject) {
+    [[SPHTTPSessionManager shareInstance] POST:ZCHOSTURL params:params success:^(id  _Nonnull responseObject) {
         
         // 头部轮播图数据
         self.banners = [ZCRecommendBannerModel mj_objectArrayWithKeyValuesArray:responseObject[@"data"][@"banner"]];
@@ -170,6 +171,15 @@
     return 10;
 }
 
+#pragma mark - 轮播图的代理方法
+- (void)carouseScrollView:(SPCarouselScrollView *)carouseScrollView atIndex:(NSUInteger)index {
+    ZCRecommendBannerModel *banner = self.banners[index];
+    ZCCourseViewController *courseVc = [[ZCCourseViewController alloc] init];
+    courseVc.banner = banner;
+    [self.navigationController pushViewController:courseVc animated:YES];
+    
+}
+
 - (UITableView *)tableView {
     if (!_tableView) {
         _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, kScreenW, kScreenH-64) style:UITableViewStyleGrouped];
@@ -190,6 +200,7 @@
     if (!_headerView) {
         _headerView = [[ZCRecommendHeaderView alloc] initWithFrame:CGRectMake(0, 0, kScreenW, kCarouselViewHeight+kSearchBarHeight+2*KSearchBarMargin_tb)];
         _headerView.backgroundColor = ZCBackgroundColor;
+        _headerView.carouselScrollView.delegate = self;
     }
     return _headerView;
 }

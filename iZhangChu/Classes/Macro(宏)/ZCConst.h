@@ -8,6 +8,6 @@
 
 #import <Foundation/Foundation.h>
 
-UIKIT_EXTERN NSString * const ZCHostURL;
+UIKIT_EXTERN NSString * const ZCHOSTURL;
 
 

@@ -112,7 +112,7 @@
             break;
         case SPButtonImagePositionRight: {
             _imageRatio = _imageRatio == 0.0 ? 0.5 : _imageRatio;
-            CGFloat titleW = contentRect.size.width * _imageRatio;
+            CGFloat titleW = contentRect.size.width * (1-_imageRatio);
             CGFloat titleH = contentRect.size.height;
             return CGRectMake(0, 0, titleW, titleH);
         }

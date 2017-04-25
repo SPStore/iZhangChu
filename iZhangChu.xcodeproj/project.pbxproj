@@ -28,6 +28,8 @@
 		09511F871EAF14FE002ABD42 /* ZCNavigationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 09511F861EAF14FE002ABD42 /* ZCNavigationView.m */; };
 		09511F8D1EAF17B1002ABD42 /* ZCPlayImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 09511F8C1EAF17B1002ABD42 /* ZCPlayImageView.m */; };
 		09511F8F1EAF18A3002ABD42 /* ZCCourseHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 09511F8E1EAF18A3002ABD42 /* ZCCourseHeaderView.xib */; };
+		09511FD81EAF40DB002ABD42 /* ZCCourseHeaderModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 09511FD71EAF40DB002ABD42 /* ZCCourseHeaderModel.m */; };
+		09511FDB1EAF4104002ABD42 /* ZCCourseEpisodeModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 09511FDA1EAF4104002ABD42 /* ZCCourseEpisodeModel.m */; };
 		0952BFBB1EA84DD3002DA69E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 0952BFBA1EA84DD3002DA69E /* main.m */; };
 		0952BFC61EA84DD3002DA69E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0952BFC51EA84DD3002DA69E /* Assets.xcassets */; };
 		0952BFC91EA84DD3002DA69E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0952BFC71EA84DD3002DA69E /* LaunchScreen.storyboard */; };
@@ -127,6 +129,10 @@
 		09511F8B1EAF17B1002ABD42 /* ZCPlayImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZCPlayImageView.h; sourceTree = "<group>"; };
 		09511F8C1EAF17B1002ABD42 /* ZCPlayImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZCPlayImageView.m; sourceTree = "<group>"; };
 		09511F8E1EAF18A3002ABD42 /* ZCCourseHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ZCCourseHeaderView.xib; sourceTree = "<group>"; };
+		09511FD61EAF40DB002ABD42 /* ZCCourseHeaderModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZCCourseHeaderModel.h; sourceTree = "<group>"; };
+		09511FD71EAF40DB002ABD42 /* ZCCourseHeaderModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZCCourseHeaderModel.m; sourceTree = "<group>"; };
+		09511FD91EAF4104002ABD42 /* ZCCourseEpisodeModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZCCourseEpisodeModel.h; sourceTree = "<group>"; };
+		09511FDA1EAF4104002ABD42 /* ZCCourseEpisodeModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZCCourseEpisodeModel.m; sourceTree = "<group>"; };
 		0952BFB61EA84DD3002DA69E /* iZhangChu.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iZhangChu.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0952BFBA1EA84DD3002DA69E /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		0952BFC51EA84DD3002DA69E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -262,6 +268,10 @@
 		09511F7D1EAF0E31002ABD42 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				09511FD61EAF40DB002ABD42 /* ZCCourseHeaderModel.h */,
+				09511FD71EAF40DB002ABD42 /* ZCCourseHeaderModel.m */,
+				09511FD91EAF4104002ABD42 /* ZCCourseEpisodeModel.h */,
+				09511FDA1EAF4104002ABD42 /* ZCCourseEpisodeModel.m */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -927,9 +937,11 @@
 				0952C03B1EA84E41002DA69E /* ZCConst.m in Sources */,
 				0952C0491EA84E41002DA69E /* ZCRecommendHeaderView.m in Sources */,
 				090579181EADB786002F2083 /* ZCRecommendEmptyCell.m in Sources */,
+				09511FD81EAF40DB002ABD42 /* ZCCourseHeaderModel.m in Sources */,
 				090579291EADCD3E002F2083 /* UIImage+General.m in Sources */,
 				0952C0791EA86E5A002DA69E /* ZCNavigationController.m in Sources */,
 				09511F811EAF0EFC002ABD42 /* ZCCourseViewController.m in Sources */,
+				09511FDB1EAF4104002ABD42 /* ZCCourseEpisodeModel.m in Sources */,
 				0905793D1EADE07D002F2083 /* ZCRecommendImageViewTitleModel.m in Sources */,
 				0952C06A1EA86CDC002DA69E /* SPHTTPSessionManager.m in Sources */,
 				095825EE1EAA13510072394A /* ZCRecommendWidgetItemImageView.m in Sources */,
@@ -1050,7 +1062,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -1091,7 +1103,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;

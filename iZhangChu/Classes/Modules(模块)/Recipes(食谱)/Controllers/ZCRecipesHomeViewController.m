@@ -12,10 +12,6 @@
 #import "ZCIngredientsViewController.h"
 #import "ZCCategoryViewController.h"
 
-
-#define hostUrl @"http://api.izhangchu.com"
-
-
 @interface ZCRecipesHomeViewController () <SPPageMenuDelegate,UIScrollViewDelegate>
 @property (nonatomic, strong) ZCRecipesNavigationView *recipesNavgationView;
 @property (nonatomic, strong) UIScrollView *scrollView;

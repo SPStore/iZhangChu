@@ -7,7 +7,9 @@
 //
 
 #import "ZCBasicViewController.h"
+#import "ZCRecommendBannerModel.h"
 
 @interface ZCCourseViewController : ZCBasicViewController
 
+@property (nonatomic, strong) ZCRecommendBannerModel *banner;
 @end

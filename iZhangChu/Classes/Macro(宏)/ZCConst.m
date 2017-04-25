@@ -8,4 +8,4 @@
 
 #import <Foundation/Foundation.h>
 
-NSString * const ZCHostURL  = @"http://api.izhangchu.com";
+NSString * const ZCHOSTURL  = @"http://api.izhangchu.com";
