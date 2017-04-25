@@ -9,6 +9,10 @@
 #import "ZCRecipesNavigationView.h"
 #import "ZCMacro.h"
 
+@interface ZCRecipesNavigationView()
+@property (nonatomic, strong) UIView *bottomLine;       // 底部分割线
+@end
+
 @implementation ZCRecipesNavigationView
 
 - (instancetype)initWithFrame:(CGRect)frame {
@@ -16,6 +20,7 @@
         [self addSubview:self.scanButton];
         [self addSubview:self.pageMenu];
         [self addSubview:self.searchButton];
+        [self addSubview:self.bottomLine];
     }
     return self;
 }
@@ -51,5 +56,13 @@
     return _searchButton;
 }
 
+- (UIView *)bottomLine {
+    if (!_bottomLine) {
+        _bottomLine = [[UIView alloc] initWithFrame:CGRectMake(0, 63.5, kScreenW, 0.5)];
+        _bottomLine.alpha = 0.8;
+        _bottomLine.backgroundColor = [UIColor grayColor];
+    }
+    return _bottomLine;
+}
 
 @end

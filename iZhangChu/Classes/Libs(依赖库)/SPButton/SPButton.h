@@ -8,14 +8,22 @@
 
 #import <UIKit/UIKit.h>
 
-@class QYRecommendTab;
-@class QYRecommendCityFunctionItem;
+
+typedef NS_ENUM(NSInteger, SPButtonImagePosition) {
+    SPButtonImagePositionDefault,   // 默认在左边
+    SPButtonImagePositionLeft,      // 图片在左边
+    SPButtonImagePositionTop,       // 图片在上面
+    SPButtonImagePositionRight,     // 图片在右边
+    SPButtonImagePositionBottom     // 图片在下面
+};
+
 @interface SPButton : UIButton
 
 - (instancetype)initWithImageRatio:(CGFloat)ratio;
 
-@property (nonatomic, assign) CGFloat ratio;
+// 图片的高度所占按钮的高度比例,注意要浮点数，如果传分数比如三分之二，要写2.0/3.0，不能写2/3
+@property (nonatomic, assign) CGFloat imageRatio;
 
-
+@property (nonatomic, assign) SPButtonImagePosition imagePosition;
 
 @end

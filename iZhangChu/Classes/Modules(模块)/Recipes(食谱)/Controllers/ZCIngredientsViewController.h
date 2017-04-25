@@ -10,4 +10,6 @@
 
 @interface ZCIngredientsViewController : UIViewController
 
+- (void)requestData:(NSMutableDictionary *)params;
+
 @end

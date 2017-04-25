@@ -6,8 +6,6 @@
 //  Copyright © 2017年 iDress. All rights reserved.
 //
 
-#import "ZCConst.h"
+#import <Foundation/Foundation.h>
 
-@implementation ZCConst
-
-@end
+NSString * const ZCHostURL  = @"http://api.izhangchu.com";

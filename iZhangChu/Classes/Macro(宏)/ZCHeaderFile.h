@@ -11,7 +11,7 @@
 
 #import "UIView+Frame.h"
 #import "NSObject+Property.h"
-
+#import "UIImage+General.h"
 
 #import "SPHTTPSessionManager.h"
 // 先导入这两个宏，mas_可以省略，且mas_equalTo等价于equalTo

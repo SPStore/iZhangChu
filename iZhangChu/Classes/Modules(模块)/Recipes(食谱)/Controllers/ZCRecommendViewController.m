@@ -12,9 +12,15 @@
 #import "ZCRecommendBannerModel.h"
 
 #import "ZCRecommendBasicModel.h"
-#import "ZCRecommendLikeModel.h"
-#import "ZCRecommendLuckyMoneyEnterModel.h"
-#import "ZCRecommendNewProductModel.h"
+#import "ZCRecommendButtonModel.h"
+#import "ZCRecommendCanScrollModel.h"
+#import "ZCRecommendVideoModel.h"
+#import "ZCRecommendImageVideoModel.h"
+#import "ZCRecommendImageVideoModel.h"
+#import "ZCRecommendEmptyModel.h"
+#import "ZCRecommendMasterListModel.h"
+#import "ZCRecommendHaveHeaderIconImageModel.h"
+#import "ZCRecommendImageViewTitleModel.h"
 #import "ZCRecommendBasicCell.h"
 
 @interface ZCRecommendViewController () <UITableViewDelegate,UITableViewDataSource>
@@ -29,22 +35,22 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.tableView.dataSource = self;
-    self.tableView.delegate = self;
-    [self.view addSubview:self.tableView];
-    
-    self.tableView.tableHeaderView = self.headerView;
-    
+    [self setupTableView];
     
     [self resuestData];
     
     [self registerCell];
 }
 
+- (void)setupTableView {
+    [self.view addSubview:self.tableView];
+    self.tableView.tableHeaderView = self.headerView;
+}
+
 - (void)registerCell {
   
     // 存放所有model类名
-    NSArray *modelClassNames = @[@"ZCRecommendLikeModel",@"ZCRecommendLuckyMoneyEnterModel",@"ZCRecommendNewProductModel"];
+    NSArray *modelClassNames = @[@"ZCRecommendButtonModel",@"ZCRecommendCanScrollModel",@"ZCRecommendVideoModel",@"ZCRecommendImageVideoModel",@"ZCRecommendEmptyModel",@"ZCRecommendMasterListModel",@"ZCRecommendHaveHeaderIconImageModel",@"ZCRecommendImageViewTitleModel"];
     for (NSString *modelClassName in modelClassNames) {
         // 由model类名获取cell类名
         NSString *cellClassName = [modelClassName stringByReplacingOccurrencesOfString:@"Model" withString:@"Cell"];
@@ -61,7 +67,7 @@
     params[@"token"] = @"D2B34B72BBEE30ACDA4C4822781D823F";
     params[@"version"] = @4.92;
     
-    [[SPHTTPSessionManager shareInstance] POST:@"http://api.izhangchu.com/?appVersion=4.91&sysVersion=10.2.1&devModel=iPhone" params:params success:^(id  _Nonnull responseObject) {
+    [[SPHTTPSessionManager shareInstance] POST:ZCHostURL params:params success:^(id  _Nonnull responseObject) {
         
         // 头部轮播图数据
         self.banners = [ZCRecommendBannerModel mj_objectArrayWithKeyValuesArray:responseObject[@"data"][@"banner"]];
@@ -73,23 +79,50 @@
             
             switch (basicModdel.widget_type) {
                 case 1: {
-                    ZCRecommendLikeModel *likeModel = [[ZCRecommendLikeModel alloc] init];
-                    likeModel.widget_data = basicModdel.widget_data;
-                    [self.sectionModels addObject:likeModel];
+                    ZCRecommendButtonModel *buttonModel = [ZCRecommendButtonModel mj_objectWithKeyValues:basicModdel.mj_keyValues];
+                    [self.sectionModels addObject:buttonModel];
                 }
                     break;
                 case 2:
                 {
-                    ZCRecommendLuckyMoneyEnterModel *luckyMoneyEnterModel = [[ZCRecommendLuckyMoneyEnterModel alloc] init];
-                    luckyMoneyEnterModel.widget_data = basicModdel.widget_data;
-                    [self.sectionModels addObject:luckyMoneyEnterModel];
+                    ZCRecommendCanScrollModel *scrollModel = [ZCRecommendCanScrollModel mj_objectWithKeyValues:basicModdel.mj_keyValues];
+                    [self.sectionModels addObject:scrollModel];
+                }
+                    break;
+                case 5:
+                {
+                    ZCRecommendVideoModel *videoModel = [ZCRecommendVideoModel mj_objectWithKeyValues:basicModdel.mj_keyValues];
+                    [self.sectionModels addObject:videoModel];
                 }
                     break;
                 case 3:
                 {
-                    ZCRecommendNewProductModel *newProductModel = [[ZCRecommendNewProductModel alloc] init];
-                    newProductModel.widget_data = basicModdel.widget_data;
-                    [self.sectionModels addObject:newProductModel];
+                    ZCRecommendImageVideoModel *mageVideoModel = [ZCRecommendImageVideoModel mj_objectWithKeyValues:basicModdel.mj_keyValues];
+                    [self.sectionModels addObject:mageVideoModel];
+                }
+                    break;
+                case 9:
+                {
+                    ZCRecommendEmptyModel *emptyModel = [ZCRecommendEmptyModel mj_objectWithKeyValues:basicModdel.mj_keyValues];
+                    [self.sectionModels addObject:emptyModel];
+                }
+                    break;
+                case 4:
+                {
+                    ZCRecommendMasterListModel *listModel = [ZCRecommendMasterListModel mj_objectWithKeyValues:basicModdel.mj_keyValues];
+                    [self.sectionModels addObject:listModel];
+                }
+                    break;
+                case 8:
+                {
+                    ZCRecommendHaveHeaderIconImageModel *iconImageModel = [ZCRecommendHaveHeaderIconImageModel mj_objectWithKeyValues:basicModdel.mj_keyValues];
+                    [self.sectionModels addObject:iconImageModel];
+                }
+                    break;
+                case 7:
+                {
+                    ZCRecommendImageViewTitleModel *imgTitleModel = [ZCRecommendImageViewTitleModel mj_objectWithKeyValues:basicModdel.mj_keyValues];
+                    [self.sectionModels addObject:imgTitleModel];
                 }
                     break;
                 default:
@@ -97,11 +130,10 @@
             }
         }
         
-        
         [self.tableView reloadData];
         
     } failure:^(NSError * _Nonnull error) {
-        
+        NSLog(@"%@",error);
     }];
     
 }
@@ -123,24 +155,41 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return 120;
+    ZCRecommendBasicModel *basicModel = self.sectionModels[indexPath.section];
+    return basicModel.cellHeight;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView estimatedHeightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return 200.0f;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
+    if (section == 0 || section == 1) {
+        return 0.0f;
+    }
+    return 10;
 }
 
 - (UITableView *)tableView {
     if (!_tableView) {
-        _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, kScreenW, kScreenH-64) style:UITableViewStylePlain];
+        _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, kScreenW, kScreenH-64) style:UITableViewStyleGrouped];
         _tableView.contentInset = UIEdgeInsetsMake(0, 0, 49, 0);
         _tableView.dataSource = self;
         _tableView.delegate = self;
-        [_tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"x"];
+        _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+        _tableView.showsHorizontalScrollIndicator = NO;
+        _tableView.showsVerticalScrollIndicator = NO;
+        _tableView.backgroundColor = ZCBackgroundColor;
+        _tableView.sectionFooterHeight = 0.0f;
+        _tableView.sectionHeaderHeight = 0.0f;
     }
     return _tableView;
 }
 
 - (ZCRecommendHeaderView *)headerView {
     if (!_headerView) {
-        _headerView = [[ZCRecommendHeaderView alloc] initWithFrame:CGRectMake(0, 0, kScreenW, 200)];
-        
+        _headerView = [[ZCRecommendHeaderView alloc] initWithFrame:CGRectMake(0, 0, kScreenW, kCarouselViewHeight+kSearchBarHeight+2*KSearchBarMargin_tb)];
+        _headerView.backgroundColor = ZCBackgroundColor;
     }
     return _headerView;
 }
@@ -151,6 +200,8 @@
     }
     return _sectionModels;
 }
+
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

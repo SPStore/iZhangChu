@@ -34,7 +34,16 @@
     
     self.navigationView = (ZCNavigationView *)self.recipesNavgationView;
     [self.view addSubview:self.scrollView];
-} 
+    
+    NSInteger count = self.childViewControllers.count;
+    
+    self.scrollView.contentSize = CGSizeMake(kScreenW*count, 0);
+    for (int i = 0; i < count; i++) {
+        UIViewController *viewController = self.childViewControllers[i];
+        viewController.view.frame = CGRectMake(kScreenW*i, 0, kScreenW, kScreenH);
+        [_scrollView addSubview:viewController.view];
+    }
+}
 
 
 // pageMenu的代理方法
@@ -49,9 +58,6 @@
     UIViewController *targetViewController = self.childViewControllers[toIndex];
     // 如果已经加载过，就不再加载
     if ([targetViewController isViewLoaded]) return;
-    
-    targetViewController.view.frame = CGRectMake(_scrollView.frame.size.width * toIndex, 0, _scrollView.frame.size.width, _scrollView.frame.size.height);
-    [_scrollView addSubview:targetViewController.view];
 }
 
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
@@ -76,8 +82,6 @@
         _scrollView.pagingEnabled = YES;
         _scrollView.bounces = NO;
         _scrollView.delegate = self;
-        _scrollView.contentSize = CGSizeMake(kScreenW*self.childViewControllers.count, 0);
-        [_scrollView addSubview:self.childViewControllers.firstObject.view];
     }
     return _scrollView;
 }
