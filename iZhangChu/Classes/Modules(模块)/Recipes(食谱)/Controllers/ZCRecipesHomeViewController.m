@@ -11,6 +11,8 @@
 #import "ZCRecommendViewController.h"
 #import "ZCIngredientsViewController.h"
 #import "ZCCategoryViewController.h"
+#import "ZCRecipesSearchViewController.h"
+#import "ZCNavigationController.h"
 
 @interface ZCRecipesHomeViewController () <SPPageMenuDelegate,UIScrollViewDelegate>
 @property (nonatomic, strong) ZCRecipesNavigationView *recipesNavgationView;
@@ -70,6 +72,10 @@
 // 搜索
 - (void)search:(UIButton *)sender {
     
+    ZCRecipesSearchViewController *searchVc = [[ZCRecipesSearchViewController alloc] init];
+    // 用一个导航控制器包装，因为在搜索控制器中需要push。当然也可以拿到其他导航控制器去push，比如跟控制器的第一个导航控制器，但是那样做，就无法pop回搜索控制器
+    ZCNavigationController *navi = [[ZCNavigationController alloc] initWithRootViewController:searchVc];
+    [self presentViewController:navi animated:YES completion:nil];
 }
 
 - (UIScrollView *)scrollView {

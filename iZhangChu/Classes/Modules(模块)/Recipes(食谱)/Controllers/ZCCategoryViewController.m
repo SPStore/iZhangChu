@@ -6,11 +6,6 @@
 //  Copyright © 2017年 iDress. All rights reserved.
 //
 
-
-
-// 热门搜索
-// http://api.izhangchu.com/?appVersion=4.92&sysVersion=10.2.1&devModel=iPhone
-//  methodName = SearchHot , token=0   user_id=0   version=4.92
 #import "ZCCategoryViewController.h"
 #import "ZCMacro.h"
 
@@ -22,15 +17,20 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.view.backgroundColor = [UIColor greenColor];
+    self.view.backgroundColor = [UIColor whiteColor];
+}
+
+// 重写父类的网络请求方法
+- (void)requestData:(NSMutableDictionary *)params {
+    // 先清空父类的字典
+    [params removeAllObjects];
     
-    NSMutableDictionary *params = [NSMutableDictionary dictionary ];
     params[@"methodName"] = @"CategoryIndex";
     params[@"user_id"] = @"0";
     params[@"token"] = @"0";
     params[@"version"] = @4.92;
-
-    [self requestData:params]; // 调用父类的数据请求方法
+    // 调用父类的网络请求
+    [super requestData:params];
 }
 
 - (void)didReceiveMemoryWarning {

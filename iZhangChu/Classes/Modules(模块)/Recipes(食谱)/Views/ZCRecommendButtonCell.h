@@ -14,7 +14,6 @@
 
 @end
 
-
 // 新建这个button的目的是为了给其绑定模型
 @interface ZCRecommendLikeButton : SPButton
 @property (nonatomic, strong) ZCRecommendWidgetItem *imageItem;

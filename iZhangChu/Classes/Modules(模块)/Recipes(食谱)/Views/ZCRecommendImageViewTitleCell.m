@@ -89,11 +89,13 @@
         make.top.equalTo(kTitleHeight);
     }];
     
-    [self.containerView.subviews makeConstraints:^(MASConstraintMaker *make) {
-        make.left.right.equalTo(0);
-    }];
-    
-    [self.containerView.subviews mas_distributeViewsAlongAxis:MASAxisTypeVertical withFixedSpacing:10 leadSpacing:0 tailSpacing:0];
+    if (self.containerView.subviews.count > 1) {
+        [self.containerView.subviews makeConstraints:^(MASConstraintMaker *make) {
+            make.left.right.equalTo(0);
+        }];
+        
+        [self.containerView.subviews mas_distributeViewsAlongAxis:MASAxisTypeVertical withFixedSpacing:10 leadSpacing:0 tailSpacing:0];
+    }
 
     [super updateConstraints];
 }

@@ -7,6 +7,25 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		090058D01EB374B500973273 /* ZCBasicIntroduceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 090058CF1EB374B500973273 /* ZCBasicIntroduceViewController.m */; };
+		090058D31EB374F500973273 /* ZCIngredientsCollocationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 090058D21EB374F500973273 /* ZCIngredientsCollocationViewController.m */; };
+		090058D61EB3759B00973273 /* ZCSceneRecipesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 090058D51EB3759B00973273 /* ZCSceneRecipesViewController.m */; };
+		090058D91EB375D800973273 /* ZCFoodLiveViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 090058D81EB375D800973273 /* ZCFoodLiveViewController.m */; };
+		090058DC1EB3780500973273 /* ZCScanViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 090058DB1EB3780500973273 /* ZCScanViewController.m */; };
+		090058DF1EB3782900973273 /* ZCRecipesSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 090058DE1EB3782900973273 /* ZCRecipesSearchViewController.m */; };
+		090058E21EB37A5D00973273 /* ZCRecipesSearchCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 090058E11EB37A5D00973273 /* ZCRecipesSearchCell.m */; };
+		090058E91EB3939900973273 /* ZCRecipesSearchGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = 090058E81EB3939900973273 /* ZCRecipesSearchGroup.m */; };
+		090058EC1EB43A7F00973273 /* ZCSearchView.m in Sources */ = {isa = PBXBuildFile; fileRef = 090058EB1EB43A7F00973273 /* ZCSearchView.m */; };
+		090058EE1EB43A8A00973273 /* ZCSearchView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 090058ED1EB43A8A00973273 /* ZCSearchView.xib */; };
+		090058F11EB47D2900973273 /* ZCRecipesSearchResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 090058F01EB47D2900973273 /* ZCRecipesSearchResultViewController.m */; };
+		090058F41EB47D8000973273 /* ZCRecipesSearchResultCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 090058F31EB47D8000973273 /* ZCRecipesSearchResultCell.m */; };
+		090058F61EB47D8B00973273 /* ZCRecipesSearchResultCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 090058F51EB47D8B00973273 /* ZCRecipesSearchResultCell.xib */; };
+		090058F91EB4875100973273 /* ZCRecipesSearchResultModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 090058F81EB4875100973273 /* ZCRecipesSearchResultModel.m */; };
+		0902570D1EB17FD000708FEC /* ZCCourseZanModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0902570C1EB17FD000708FEC /* ZCCourseZanModel.m */; };
+		090257101EB1BE5A00708FEC /* ZCCourseCommentModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0902570F1EB1BE5A00708FEC /* ZCCourseCommentModel.m */; };
+		090257141EB1C1A400708FEC /* ZCCourseCommentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 090257121EB1C1A400708FEC /* ZCCourseCommentCell.m */; };
+		090257151EB1C1A400708FEC /* ZCCourseCommentCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 090257131EB1C1A400708FEC /* ZCCourseCommentCell.xib */; };
+		09033DF41EB077DC0039FECA /* ZCCourseRelateModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 09033DF31EB077DC0039FECA /* ZCCourseRelateModel.m */; };
 		090579181EADB786002F2083 /* ZCRecommendEmptyCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 090579171EADB786002F2083 /* ZCRecommendEmptyCell.m */; };
 		0905791B1EADB7E9002F2083 /* ZCRecommendEmptyModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0905791A1EADB7E9002F2083 /* ZCRecommendEmptyModel.m */; };
 		0905791E1EADBA61002F2083 /* ZCRecommendMasterListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0905791D1EADBA61002F2083 /* ZCRecommendMasterListCell.m */; };
@@ -23,6 +42,7 @@
 		090579401EADF22C002F2083 /* ZCIngredientsDataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0905793F1EADF22C002F2083 /* ZCIngredientsDataModel.m */; };
 		090579431EADF260002F2083 /* ZCIngredientsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 090579421EADF260002F2083 /* ZCIngredientsCell.m */; };
 		090579461EADF88F002F2083 /* ZCIngredientsButtonModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 090579451EADF88F002F2083 /* ZCIngredientsButtonModel.m */; };
+		09065F501EB0AC12005E1CB6 /* NSString+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 09065F4F1EB0AC12005E1CB6 /* NSString+Extension.m */; };
 		09511F811EAF0EFC002ABD42 /* ZCCourseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 09511F801EAF0EFC002ABD42 /* ZCCourseViewController.m */; };
 		09511F841EAF1283002ABD42 /* ZCCourseHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 09511F831EAF1283002ABD42 /* ZCCourseHeaderView.m */; };
 		09511F871EAF14FE002ABD42 /* ZCNavigationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 09511F861EAF14FE002ABD42 /* ZCNavigationView.m */; };
@@ -69,6 +89,10 @@
 		095825DF1EA9CBAA0072394A /* ZCRecommendImageVideoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 095825DE1EA9CBAA0072394A /* ZCRecommendImageVideoCell.m */; };
 		095825E21EA9CBBC0072394A /* ZCRecommendImageVideoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 095825E11EA9CBBC0072394A /* ZCRecommendImageVideoModel.m */; };
 		095825EE1EAA13510072394A /* ZCRecommendWidgetItemImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 095825ED1EAA13510072394A /* ZCRecommendWidgetItemImageView.m */; };
+		09FE4EED1EB73A4900D34F36 /* ZCRecipesAutoSearchCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 09FE4EEC1EB73A4900D34F36 /* ZCRecipesAutoSearchCell.m */; };
+		09FE4EF01EB73AE900D34F36 /* ZCRecipesAutoSearchModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 09FE4EEF1EB73AE900D34F36 /* ZCRecipesAutoSearchModel.m */; };
+		09FE4EF31EB73D0500D34F36 /* ZCRecipesSearchBasicCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 09FE4EF21EB73D0500D34F36 /* ZCRecipesSearchBasicCell.m */; };
+		09FE4EF91EB73FFE00D34F36 /* SaveSearchTextTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 09FE4EF81EB73FFE00D34F36 /* SaveSearchTextTool.m */; };
 		F2F4CD81E2787577D4A4EF9C /* libPods-iZhangChu.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1578D2F11D0D4E3759AD292C /* libPods-iZhangChu.a */; };
 /* End PBXBuildFile section */
 
@@ -90,6 +114,42 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		090058CE1EB374B500973273 /* ZCBasicIntroduceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZCBasicIntroduceViewController.h; sourceTree = "<group>"; };
+		090058CF1EB374B500973273 /* ZCBasicIntroduceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZCBasicIntroduceViewController.m; sourceTree = "<group>"; };
+		090058D11EB374F500973273 /* ZCIngredientsCollocationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZCIngredientsCollocationViewController.h; sourceTree = "<group>"; };
+		090058D21EB374F500973273 /* ZCIngredientsCollocationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZCIngredientsCollocationViewController.m; sourceTree = "<group>"; };
+		090058D41EB3759B00973273 /* ZCSceneRecipesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZCSceneRecipesViewController.h; sourceTree = "<group>"; };
+		090058D51EB3759B00973273 /* ZCSceneRecipesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZCSceneRecipesViewController.m; sourceTree = "<group>"; };
+		090058D71EB375D800973273 /* ZCFoodLiveViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZCFoodLiveViewController.h; sourceTree = "<group>"; };
+		090058D81EB375D800973273 /* ZCFoodLiveViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZCFoodLiveViewController.m; sourceTree = "<group>"; };
+		090058DA1EB3780500973273 /* ZCScanViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZCScanViewController.h; sourceTree = "<group>"; };
+		090058DB1EB3780500973273 /* ZCScanViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZCScanViewController.m; sourceTree = "<group>"; };
+		090058DD1EB3782900973273 /* ZCRecipesSearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZCRecipesSearchViewController.h; sourceTree = "<group>"; };
+		090058DE1EB3782900973273 /* ZCRecipesSearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZCRecipesSearchViewController.m; sourceTree = "<group>"; };
+		090058E01EB37A5D00973273 /* ZCRecipesSearchCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZCRecipesSearchCell.h; sourceTree = "<group>"; };
+		090058E11EB37A5D00973273 /* ZCRecipesSearchCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZCRecipesSearchCell.m; sourceTree = "<group>"; };
+		090058E71EB3939900973273 /* ZCRecipesSearchGroup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZCRecipesSearchGroup.h; sourceTree = "<group>"; };
+		090058E81EB3939900973273 /* ZCRecipesSearchGroup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZCRecipesSearchGroup.m; sourceTree = "<group>"; };
+		090058EA1EB43A7F00973273 /* ZCSearchView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZCSearchView.h; sourceTree = "<group>"; };
+		090058EB1EB43A7F00973273 /* ZCSearchView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZCSearchView.m; sourceTree = "<group>"; };
+		090058ED1EB43A8A00973273 /* ZCSearchView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ZCSearchView.xib; sourceTree = "<group>"; };
+		090058EF1EB47D2900973273 /* ZCRecipesSearchResultViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZCRecipesSearchResultViewController.h; sourceTree = "<group>"; };
+		090058F01EB47D2900973273 /* ZCRecipesSearchResultViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZCRecipesSearchResultViewController.m; sourceTree = "<group>"; };
+		090058F21EB47D8000973273 /* ZCRecipesSearchResultCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZCRecipesSearchResultCell.h; sourceTree = "<group>"; };
+		090058F31EB47D8000973273 /* ZCRecipesSearchResultCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZCRecipesSearchResultCell.m; sourceTree = "<group>"; };
+		090058F51EB47D8B00973273 /* ZCRecipesSearchResultCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ZCRecipesSearchResultCell.xib; sourceTree = "<group>"; };
+		090058F71EB4875100973273 /* ZCRecipesSearchResultModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZCRecipesSearchResultModel.h; sourceTree = "<group>"; };
+		090058F81EB4875100973273 /* ZCRecipesSearchResultModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZCRecipesSearchResultModel.m; sourceTree = "<group>"; };
+		090058FB1EB4BDFC00973273 /* ZCRecomendCellDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZCRecomendCellDelegate.h; sourceTree = "<group>"; };
+		0902570B1EB17FD000708FEC /* ZCCourseZanModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZCCourseZanModel.h; sourceTree = "<group>"; };
+		0902570C1EB17FD000708FEC /* ZCCourseZanModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZCCourseZanModel.m; sourceTree = "<group>"; };
+		0902570E1EB1BE5A00708FEC /* ZCCourseCommentModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZCCourseCommentModel.h; sourceTree = "<group>"; };
+		0902570F1EB1BE5A00708FEC /* ZCCourseCommentModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZCCourseCommentModel.m; sourceTree = "<group>"; };
+		090257111EB1C1A400708FEC /* ZCCourseCommentCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZCCourseCommentCell.h; sourceTree = "<group>"; };
+		090257121EB1C1A400708FEC /* ZCCourseCommentCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZCCourseCommentCell.m; sourceTree = "<group>"; };
+		090257131EB1C1A400708FEC /* ZCCourseCommentCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ZCCourseCommentCell.xib; sourceTree = "<group>"; };
+		09033DF21EB077DC0039FECA /* ZCCourseRelateModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZCCourseRelateModel.h; sourceTree = "<group>"; };
+		09033DF31EB077DC0039FECA /* ZCCourseRelateModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZCCourseRelateModel.m; sourceTree = "<group>"; };
 		090579161EADB786002F2083 /* ZCRecommendEmptyCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZCRecommendEmptyCell.h; sourceTree = "<group>"; };
 		090579171EADB786002F2083 /* ZCRecommendEmptyCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZCRecommendEmptyCell.m; sourceTree = "<group>"; };
 		090579191EADB7E9002F2083 /* ZCRecommendEmptyModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZCRecommendEmptyModel.h; sourceTree = "<group>"; };
@@ -120,6 +180,8 @@
 		090579421EADF260002F2083 /* ZCIngredientsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZCIngredientsCell.m; sourceTree = "<group>"; };
 		090579441EADF88F002F2083 /* ZCIngredientsButtonModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZCIngredientsButtonModel.h; sourceTree = "<group>"; };
 		090579451EADF88F002F2083 /* ZCIngredientsButtonModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZCIngredientsButtonModel.m; sourceTree = "<group>"; };
+		09065F4E1EB0AC12005E1CB6 /* NSString+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Extension.h"; sourceTree = "<group>"; };
+		09065F4F1EB0AC12005E1CB6 /* NSString+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Extension.m"; sourceTree = "<group>"; };
 		09511F7F1EAF0EFC002ABD42 /* ZCCourseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZCCourseViewController.h; sourceTree = "<group>"; };
 		09511F801EAF0EFC002ABD42 /* ZCCourseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZCCourseViewController.m; sourceTree = "<group>"; };
 		09511F821EAF1283002ABD42 /* ZCCourseHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZCCourseHeaderView.h; sourceTree = "<group>"; };
@@ -215,6 +277,14 @@
 		095825E11EA9CBBC0072394A /* ZCRecommendImageVideoModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZCRecommendImageVideoModel.m; sourceTree = "<group>"; };
 		095825EC1EAA13510072394A /* ZCRecommendWidgetItemImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZCRecommendWidgetItemImageView.h; sourceTree = "<group>"; };
 		095825ED1EAA13510072394A /* ZCRecommendWidgetItemImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZCRecommendWidgetItemImageView.m; sourceTree = "<group>"; };
+		09FE4EEB1EB73A4900D34F36 /* ZCRecipesAutoSearchCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZCRecipesAutoSearchCell.h; sourceTree = "<group>"; };
+		09FE4EEC1EB73A4900D34F36 /* ZCRecipesAutoSearchCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZCRecipesAutoSearchCell.m; sourceTree = "<group>"; };
+		09FE4EEE1EB73AE900D34F36 /* ZCRecipesAutoSearchModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZCRecipesAutoSearchModel.h; sourceTree = "<group>"; };
+		09FE4EEF1EB73AE900D34F36 /* ZCRecipesAutoSearchModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZCRecipesAutoSearchModel.m; sourceTree = "<group>"; };
+		09FE4EF11EB73D0500D34F36 /* ZCRecipesSearchBasicCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZCRecipesSearchBasicCell.h; sourceTree = "<group>"; };
+		09FE4EF21EB73D0500D34F36 /* ZCRecipesSearchBasicCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZCRecipesSearchBasicCell.m; sourceTree = "<group>"; };
+		09FE4EF71EB73FFE00D34F36 /* SaveSearchTextTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SaveSearchTextTool.h; sourceTree = "<group>"; };
+		09FE4EF81EB73FFE00D34F36 /* SaveSearchTextTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SaveSearchTextTool.m; sourceTree = "<group>"; };
 		13912BF85C230D428BDD7D11 /* Pods-iZhangChu.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iZhangChu.debug.xcconfig"; path = "Pods/Target Support Files/Pods-iZhangChu/Pods-iZhangChu.debug.xcconfig"; sourceTree = "<group>"; };
 		1578D2F11D0D4E3759AD292C /* libPods-iZhangChu.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-iZhangChu.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FBD2129A70688F68B8DFE385 /* Pods-iZhangChu.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iZhangChu.release.xcconfig"; path = "Pods/Target Support Files/Pods-iZhangChu/Pods-iZhangChu.release.xcconfig"; sourceTree = "<group>"; };
@@ -246,6 +316,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		090058FA1EB4BDCE00973273 /* Tools */ = {
+			isa = PBXGroup;
+			children = (
+				090058FB1EB4BDFC00973273 /* ZCRecomendCellDelegate.h */,
+			);
+			path = Tools;
+			sourceTree = "<group>";
+		};
 		09511F7B1EAF0E31002ABD42 /* Common(共有) */ = {
 			isa = PBXGroup;
 			children = (
@@ -272,6 +350,12 @@
 				09511FD71EAF40DB002ABD42 /* ZCCourseHeaderModel.m */,
 				09511FD91EAF4104002ABD42 /* ZCCourseEpisodeModel.h */,
 				09511FDA1EAF4104002ABD42 /* ZCCourseEpisodeModel.m */,
+				0902570B1EB17FD000708FEC /* ZCCourseZanModel.h */,
+				0902570C1EB17FD000708FEC /* ZCCourseZanModel.m */,
+				09033DF21EB077DC0039FECA /* ZCCourseRelateModel.h */,
+				09033DF31EB077DC0039FECA /* ZCCourseRelateModel.m */,
+				0902570E1EB1BE5A00708FEC /* ZCCourseCommentModel.h */,
+				0902570F1EB1BE5A00708FEC /* ZCCourseCommentModel.m */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -284,6 +368,12 @@
 				09511F821EAF1283002ABD42 /* ZCCourseHeaderView.h */,
 				09511F831EAF1283002ABD42 /* ZCCourseHeaderView.m */,
 				09511F8E1EAF18A3002ABD42 /* ZCCourseHeaderView.xib */,
+				090257111EB1C1A400708FEC /* ZCCourseCommentCell.h */,
+				090257121EB1C1A400708FEC /* ZCCourseCommentCell.m */,
+				090257131EB1C1A400708FEC /* ZCCourseCommentCell.xib */,
+				090058EA1EB43A7F00973273 /* ZCSearchView.h */,
+				090058EB1EB43A7F00973273 /* ZCSearchView.m */,
+				090058ED1EB43A8A00973273 /* ZCSearchView.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -371,6 +461,8 @@
 				0952BFF11EA84E41002DA69E /* UIView+Frame.m */,
 				090579271EADCD3E002F2083 /* UIImage+General.h */,
 				090579281EADCD3E002F2083 /* UIImage+General.m */,
+				09065F4E1EB0AC12005E1CB6 /* NSString+Extension.h */,
+				09065F4F1EB0AC12005E1CB6 /* NSString+Extension.m */,
 			);
 			path = "Category(分类)";
 			sourceTree = "<group>";
@@ -522,6 +614,7 @@
 				0952C01C1EA84E41002DA69E /* Controllers */,
 				0952C0251EA84E41002DA69E /* Models */,
 				0952C0281EA84E41002DA69E /* Views */,
+				090058FA1EB4BDCE00973273 /* Tools */,
 			);
 			path = "Recipes(食谱)";
 			sourceTree = "<group>";
@@ -531,12 +624,26 @@
 			children = (
 				0952C0211EA84E41002DA69E /* ZCRecipesHomeViewController.h */,
 				0952C0221EA84E41002DA69E /* ZCRecipesHomeViewController.m */,
+				090058DD1EB3782900973273 /* ZCRecipesSearchViewController.h */,
+				090058DE1EB3782900973273 /* ZCRecipesSearchViewController.m */,
+				090058EF1EB47D2900973273 /* ZCRecipesSearchResultViewController.h */,
+				090058F01EB47D2900973273 /* ZCRecipesSearchResultViewController.m */,
 				0952C0231EA84E41002DA69E /* ZCRecommendViewController.h */,
 				0952C0241EA84E41002DA69E /* ZCRecommendViewController.m */,
 				0952C01F1EA84E41002DA69E /* ZCIngredientsViewController.h */,
 				0952C0201EA84E41002DA69E /* ZCIngredientsViewController.m */,
 				0952C01D1EA84E41002DA69E /* ZCCategoryViewController.h */,
 				0952C01E1EA84E41002DA69E /* ZCCategoryViewController.m */,
+				090058DA1EB3780500973273 /* ZCScanViewController.h */,
+				090058DB1EB3780500973273 /* ZCScanViewController.m */,
+				090058CE1EB374B500973273 /* ZCBasicIntroduceViewController.h */,
+				090058CF1EB374B500973273 /* ZCBasicIntroduceViewController.m */,
+				090058D11EB374F500973273 /* ZCIngredientsCollocationViewController.h */,
+				090058D21EB374F500973273 /* ZCIngredientsCollocationViewController.m */,
+				090058D41EB3759B00973273 /* ZCSceneRecipesViewController.h */,
+				090058D51EB3759B00973273 /* ZCSceneRecipesViewController.m */,
+				090058D71EB375D800973273 /* ZCFoodLiveViewController.h */,
+				090058D81EB375D800973273 /* ZCFoodLiveViewController.m */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -546,6 +653,12 @@
 			children = (
 				0952C0261EA84E41002DA69E /* ZCRecommendBannerModel.h */,
 				0952C0271EA84E41002DA69E /* ZCRecommendBannerModel.m */,
+				090058E71EB3939900973273 /* ZCRecipesSearchGroup.h */,
+				090058E81EB3939900973273 /* ZCRecipesSearchGroup.m */,
+				09FE4EEE1EB73AE900D34F36 /* ZCRecipesAutoSearchModel.h */,
+				09FE4EEF1EB73AE900D34F36 /* ZCRecipesAutoSearchModel.m */,
+				090058F71EB4875100973273 /* ZCRecipesSearchResultModel.h */,
+				090058F81EB4875100973273 /* ZCRecipesSearchResultModel.m */,
 				0952C08C1EA8794F002DA69E /* ZCRecommendBasicModel.h */,
 				0952C08D1EA8794F002DA69E /* ZCRecommendBasicModel.m */,
 				095825C21EA9A9660072394A /* ZCRecommendWidgetItem.h */,
@@ -581,6 +694,15 @@
 				0952C02A1EA84E41002DA69E /* ZCRecipesNavigationView.m */,
 				0952C02B1EA84E41002DA69E /* ZCRecommendHeaderView.h */,
 				0952C02C1EA84E41002DA69E /* ZCRecommendHeaderView.m */,
+				09FE4EF11EB73D0500D34F36 /* ZCRecipesSearchBasicCell.h */,
+				09FE4EF21EB73D0500D34F36 /* ZCRecipesSearchBasicCell.m */,
+				090058E01EB37A5D00973273 /* ZCRecipesSearchCell.h */,
+				090058E11EB37A5D00973273 /* ZCRecipesSearchCell.m */,
+				09FE4EEB1EB73A4900D34F36 /* ZCRecipesAutoSearchCell.h */,
+				09FE4EEC1EB73A4900D34F36 /* ZCRecipesAutoSearchCell.m */,
+				090058F21EB47D8000973273 /* ZCRecipesSearchResultCell.h */,
+				090058F31EB47D8000973273 /* ZCRecipesSearchResultCell.m */,
+				090058F51EB47D8B00973273 /* ZCRecipesSearchResultCell.xib */,
 				0952C0801EA872AC002DA69E /* ZCRecommendBasicCell.h */,
 				0952C0811EA872AC002DA69E /* ZCRecommendBasicCell.m */,
 				095825C81EA9C94D0072394A /* ZCRecommendButtonCell.h */,
@@ -616,6 +738,8 @@
 		0952C02D1EA84E41002DA69E /* Tools(工具) */ = {
 			isa = PBXGroup;
 			children = (
+				09FE4EF71EB73FFE00D34F36 /* SaveSearchTextTool.h */,
+				09FE4EF81EB73FFE00D34F36 /* SaveSearchTextTool.m */,
 			);
 			path = "Tools(工具)";
 			sourceTree = "<group>";
@@ -846,7 +970,10 @@
 			files = (
 				090579261EADBC59002F2083 /* ZCRecommendMasterListView.xib in Resources */,
 				0952BFC91EA84DD3002DA69E /* LaunchScreen.storyboard in Resources */,
+				090058EE1EB43A8A00973273 /* ZCSearchView.xib in Resources */,
+				090058F61EB47D8B00973273 /* ZCRecipesSearchResultCell.xib in Resources */,
 				09511F8F1EAF18A3002ABD42 /* ZCCourseHeaderView.xib in Resources */,
+				090257151EB1C1A400708FEC /* ZCCourseCommentCell.xib in Resources */,
 				0952BFC61EA84DD3002DA69E /* Assets.xcassets in Resources */,
 				090579311EADD50E002F2083 /* ZCRecommendHaveHeaderIconImageView.xib in Resources */,
 			);
@@ -922,6 +1049,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0952C0401EA84E41002DA69E /* ZCCommunityHomeViewController.m in Sources */,
+				090257141EB1C1A400708FEC /* ZCCourseCommentCell.m in Sources */,
 				0952C0481EA84E41002DA69E /* ZCRecipesNavigationView.m in Sources */,
 				0905792C1EADD452002F2083 /* ZCRecommendHaveHeaderIconImageCell.m in Sources */,
 				0952C03A1EA84E41002DA69E /* AppDelegate.m in Sources */,
@@ -931,33 +1059,48 @@
 				0952C0821EA872AC002DA69E /* ZCRecommendBasicCell.m in Sources */,
 				0952C0381EA84E41002DA69E /* NSObject+Property.m in Sources */,
 				0952C0781EA86E5A002DA69E /* ZCBasicViewController.m in Sources */,
+				09FE4EF91EB73FFE00D34F36 /* SaveSearchTextTool.m in Sources */,
 				0952C0471EA84E41002DA69E /* ZCRecommendBannerModel.m in Sources */,
 				090579461EADF88F002F2083 /* ZCIngredientsButtonModel.m in Sources */,
+				090058EC1EB43A7F00973273 /* ZCSearchView.m in Sources */,
+				090058E91EB3939900973273 /* ZCRecipesSearchGroup.m in Sources */,
 				0952C0411EA84E41002DA69E /* ZCLohasHomeViewController.m in Sources */,
 				0952C03B1EA84E41002DA69E /* ZCConst.m in Sources */,
+				090058DF1EB3782900973273 /* ZCRecipesSearchViewController.m in Sources */,
 				0952C0491EA84E41002DA69E /* ZCRecommendHeaderView.m in Sources */,
 				090579181EADB786002F2083 /* ZCRecommendEmptyCell.m in Sources */,
+				090058F11EB47D2900973273 /* ZCRecipesSearchResultViewController.m in Sources */,
 				09511FD81EAF40DB002ABD42 /* ZCCourseHeaderModel.m in Sources */,
 				090579291EADCD3E002F2083 /* UIImage+General.m in Sources */,
 				0952C0791EA86E5A002DA69E /* ZCNavigationController.m in Sources */,
 				09511F811EAF0EFC002ABD42 /* ZCCourseViewController.m in Sources */,
 				09511FDB1EAF4104002ABD42 /* ZCCourseEpisodeModel.m in Sources */,
 				0905793D1EADE07D002F2083 /* ZCRecommendImageViewTitleModel.m in Sources */,
+				090058DC1EB3780500973273 /* ZCScanViewController.m in Sources */,
 				0952C06A1EA86CDC002DA69E /* SPHTTPSessionManager.m in Sources */,
+				090058F41EB47D8000973273 /* ZCRecipesSearchResultCell.m in Sources */,
 				095825EE1EAA13510072394A /* ZCRecommendWidgetItemImageView.m in Sources */,
+				090058D61EB3759B00973273 /* ZCSceneRecipesViewController.m in Sources */,
 				095825D61EA9CA520072394A /* ZCRecommendCanScrollCell.m in Sources */,
+				09065F501EB0AC12005E1CB6 /* NSString+Extension.m in Sources */,
 				090579341EADD7FB002F2083 /* ZCRecommendHaveHeaderIconImageModel.m in Sources */,
 				0905793A1EADE06C002F2083 /* ZCRecommendImageViewTitleCell.m in Sources */,
 				090579401EADF22C002F2083 /* ZCIngredientsDataModel.m in Sources */,
+				09FE4EF01EB73AE900D34F36 /* ZCRecipesAutoSearchModel.m in Sources */,
+				090058F91EB4875100973273 /* ZCRecipesSearchResultModel.m in Sources */,
+				09033DF41EB077DC0039FECA /* ZCCourseRelateModel.m in Sources */,
 				0952C07A1EA86E5A002DA69E /* ZCTabBarController.m in Sources */,
 				0905791E1EADBA61002F2083 /* ZCRecommendMasterListCell.m in Sources */,
 				095825DC1EA9CB890072394A /* ZCRecommendVideoCell.m in Sources */,
 				090579431EADF260002F2083 /* ZCIngredientsCell.m in Sources */,
+				090058D01EB374B500973273 /* ZCBasicIntroduceViewController.m in Sources */,
 				0952C06B1EA86CDC002DA69E /* SPPageMenu.m in Sources */,
 				095825CA1EA9C94D0072394A /* ZCRecommendButtonCell.m in Sources */,
 				0952BFBB1EA84DD3002DA69E /* main.m in Sources */,
 				095825D91EA9CAD60072394A /* ZCRecommendVideoModel.m in Sources */,
+				090058D91EB375D800973273 /* ZCFoodLiveViewController.m in Sources */,
 				0952C0421EA84E41002DA69E /* ZCMineHomeViewController.m in Sources */,
+				090058E21EB37A5D00973273 /* ZCRecipesSearchCell.m in Sources */,
 				0905791B1EADB7E9002F2083 /* ZCRecommendEmptyModel.m in Sources */,
 				0952C0461EA84E41002DA69E /* ZCRecommendViewController.m in Sources */,
 				095825D31EA9CA2C0072394A /* ZCRecommendCanScrollModel.m in Sources */,
@@ -972,10 +1115,15 @@
 				0952C07B1EA86E5A002DA69E /* ZCBasicModel.m in Sources */,
 				0952C0451EA84E41002DA69E /* ZCRecipesHomeViewController.m in Sources */,
 				095825DF1EA9CBAA0072394A /* ZCRecommendImageVideoCell.m in Sources */,
+				09FE4EF31EB73D0500D34F36 /* ZCRecipesSearchBasicCell.m in Sources */,
 				09511F871EAF14FE002ABD42 /* ZCNavigationView.m in Sources */,
+				090058D31EB374F500973273 /* ZCIngredientsCollocationViewController.m in Sources */,
 				09511F841EAF1283002ABD42 /* ZCCourseHeaderView.m in Sources */,
+				0902570D1EB17FD000708FEC /* ZCCourseZanModel.m in Sources */,
 				0905792F1EADD503002F2083 /* ZCRecommendHaveHeaderIconImageView.m in Sources */,
+				09FE4EED1EB73A4900D34F36 /* ZCRecipesAutoSearchCell.m in Sources */,
 				090579211EADBA7D002F2083 /* ZCRecommendMasterListModel.m in Sources */,
+				090257101EB1BE5A00708FEC /* ZCCourseCommentModel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

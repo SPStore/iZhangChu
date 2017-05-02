@@ -24,7 +24,12 @@
 
 #import "ZCCourseViewController.h"
 
-@interface ZCRecommendViewController () <UITableViewDelegate,UITableViewDataSource, SPCarouseScrollViewDelegate>
+#import "ZCBasicIntroduceViewController.h"
+#import "ZCIngredientsCollocationViewController.h"
+#import "ZCSceneRecipesViewController.h"
+#import "ZCFoodLiveViewController.h"
+
+@interface ZCRecommendViewController () <UITableViewDelegate,UITableViewDataSource, SPCarouseScrollViewDelegate,ZCRecomendCellDelegate>
 @property (nonatomic, strong) UITableView *tableView;
 @property (nonatomic, strong) ZCRecommendHeaderView *headerView;
 @property (nonatomic, strong) NSArray *banners;
@@ -64,12 +69,11 @@
     
     NSMutableDictionary *params = [NSMutableDictionary dictionary ];
     params[@"methodName"] = @"SceneHome";
-    params[@"user_id"] = @"1513438";
-    params[@"token"] = @"D2B34B72BBEE30ACDA4C4822781D823F";
+    params[@"user_id"] = @"0";
+    params[@"token"] = @"0";
     params[@"version"] = @4.92;
     
     [[SPHTTPSessionManager shareInstance] POST:ZCHOSTURL params:params success:^(id  _Nonnull responseObject) {
-        
         // 头部轮播图数据
         self.banners = [ZCRecommendBannerModel mj_objectArrayWithKeyValuesArray:responseObject[@"data"][@"banner"]];
         self.headerView.banners = self.banners;
@@ -152,6 +156,7 @@
     ZCRecommendBasicModel *basicModel = self.sectionModels[indexPath.section];
     ZCRecommendBasicCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass(basicModel.class) forIndexPath:indexPath];
     cell.model = basicModel;
+    cell.delegate = self;
     return cell;
 }
 
@@ -177,7 +182,47 @@
     ZCCourseViewController *courseVc = [[ZCCourseViewController alloc] init];
     courseVc.banner = banner;
     [self.navigationController pushViewController:courseVc animated:YES];
-    
+}
+
+#pragma mark - cell的代理方法
+- (void)buttonOnButtonCellClickedWithButtonType:(ZCRecommendButtonCellButtonType)btnType {
+    switch (btnType) {
+            // 新手入门
+        case ZCRecommendButtonCellButtonTypeBasicIntroduce:
+        {
+            
+            ZCBasicIntroduceViewController *basicIntroduceVc = [[ZCBasicIntroduceViewController alloc] init];
+            [self.navigationController pushViewController:basicIntroduceVc animated:YES];
+        }
+            
+            break;
+            // 食材搭配
+        case ZCRecommendButtonCellButtonTypeIngredientsCollocation:
+        {
+            ZCIngredientsCollocationViewController *ingredientsCollocationVc = [[ZCIngredientsCollocationViewController alloc] init];
+            [self.navigationController pushViewController:ingredientsCollocationVc animated:YES];
+        }
+            break;
+            // 场景菜谱
+        case ZCRecommendButtonCellButtonTypeSceneRecipes:
+        {
+            ZCSceneRecipesViewController *sceneRecipesVC = [[ZCSceneRecipesViewController alloc] init];
+            [self.navigationController pushViewController:sceneRecipesVC animated:YES];
+            
+        }
+            break;
+            // 美食直播
+        case ZCRecommendButtonCellButtonTypeFoodLive:
+        {
+            
+            ZCFoodLiveViewController *foodLiveVc = [[ZCFoodLiveViewController alloc] init];
+            [self.navigationController pushViewController:foodLiveVc animated:YES];
+        }
+            break;
+            
+        default:
+            break;
+    }
 }
 
 - (UITableView *)tableView {
@@ -190,8 +235,11 @@
         _tableView.showsHorizontalScrollIndicator = NO;
         _tableView.showsVerticalScrollIndicator = NO;
         _tableView.backgroundColor = ZCBackgroundColor;
-        _tableView.sectionFooterHeight = 0.0f;
-        _tableView.sectionHeaderHeight = 0.0f;
+        _tableView.sectionFooterHeight = CGFLOAT_MIN;
+        _tableView.sectionHeaderHeight = CGFLOAT_MIN;
+
+        UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 0, CGFLOAT_MIN)];
+        _tableView.tableFooterView = view;
     }
     return _tableView;
 }

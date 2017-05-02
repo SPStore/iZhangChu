@@ -106,11 +106,14 @@
         }
     }];
     
-    [self.videoBigView.subviews makeConstraints:^(MASConstraintMaker *make) {
-        make.top.bottom.equalTo(0);
-    }];
+    if (self.videoBigView.subviews.count > 1) {
+        [self.videoBigView.subviews makeConstraints:^(MASConstraintMaker *make) {
+            make.top.bottom.equalTo(0);
+        }];
+        
+        [self.videoBigView.subviews mas_distributeViewsAlongAxis:MASAxisTypeHorizontal withFixedSpacing:0.5 leadSpacing:0.0 tailSpacing:0.0];
+    }
     
-    [self.videoBigView.subviews mas_distributeViewsAlongAxis:MASAxisTypeHorizontal withFixedSpacing:0.5 leadSpacing:0.0 tailSpacing:0.0];
     
     [super updateConstraints];
 }

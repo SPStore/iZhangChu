@@ -29,6 +29,7 @@
 @end
 
 @implementation ZCRecommendButtonCell
+@synthesize delegate;
 
 - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
@@ -81,7 +82,9 @@
 }
 
 - (void)menuBtnClicked:(UIButton *)sender {
-    
+    if ([self.delegate respondsToSelector:@selector(buttonOnButtonCellClickedWithButtonType:)]) {
+        [self.delegate buttonOnButtonCellClickedWithButtonType:sender.tag];
+    }
 }
 
 - (ZCRecommendLikeButton *)foodLiveBtn {
@@ -91,6 +94,7 @@
         [_foodLiveBtn setTitleColor:kTitleColor forState:UIControlStateNormal];
         _foodLiveBtn.titleLabel.font = kTitleFont;
         _foodLiveBtn.titleLabel.alpha = kTitleAlpha;
+        _foodLiveBtn.tag = 4;
         [_foodLiveBtn addTarget:self action:@selector(menuBtnClicked:) forControlEvents:UIControlEventTouchUpInside];
     }
     return _foodLiveBtn;
@@ -103,6 +107,7 @@
         [_sceneRecipesBtn setTitleColor:kTitleColor forState:UIControlStateNormal];
         _sceneRecipesBtn.titleLabel.font = kTitleFont;
         _sceneRecipesBtn.titleLabel.alpha = kTitleAlpha;
+        _sceneRecipesBtn.tag = 3;
         [_sceneRecipesBtn addTarget:self action:@selector(menuBtnClicked:) forControlEvents:UIControlEventTouchUpInside];
     }
     return _sceneRecipesBtn;
@@ -115,6 +120,7 @@
         _ingredientsCollocationBtn.titleLabel.font = kTitleFont;
         [_ingredientsCollocationBtn setTitleColor:kTitleColor forState:UIControlStateNormal];
         _ingredientsCollocationBtn.titleLabel.alpha = kTitleAlpha;
+        _ingredientsCollocationBtn.tag = 2;
         [_ingredientsCollocationBtn addTarget:self action:@selector(menuBtnClicked:) forControlEvents:UIControlEventTouchUpInside];
     }
     return _ingredientsCollocationBtn;
@@ -127,6 +133,7 @@
         [_basicIntroduceBtn setTitleColor:kTitleColor forState:UIControlStateNormal];
         _basicIntroduceBtn.titleLabel.font = kTitleFont;
         _basicIntroduceBtn.titleLabel.alpha = kTitleAlpha;
+        _basicIntroduceBtn.tag = 1;
         [_basicIntroduceBtn addTarget:self action:@selector(menuBtnClicked:) forControlEvents:UIControlEventTouchUpInside];
     }
     return _basicIntroduceBtn;

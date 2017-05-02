@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "ZCMacro.h"
 #import "ZCRecommendWidgetItemImageView.h"
+#import "ZCRecomendCellDelegate.h"
 
 #define kTitleHeight 40
 
@@ -21,4 +22,9 @@
 @property (nonatomic, copy) NSString *title;
 
 @property (nonatomic, assign) CGFloat titleViewW;
+
+@property (nonatomic, weak) id<ZCRecomendCellDelegate> delegate;
+
 @end
+
+

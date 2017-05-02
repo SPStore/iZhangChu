@@ -50,7 +50,8 @@
         _searchBar.font = [UIFont systemFontOfSize:14];
         _searchBar.textAlignment = NSTextAlignmentCenter;
         _searchBar.textColor = [UIColor grayColor];
-        _searchBar.layer.cornerRadius = 5;
+//        _searchBar.layer.cornerRadius = 5;
+        _searchBar.borderStyle = UITextBorderStyleRoundedRect;
         _searchBar.userInteractionEnabled = NO;
         UIView *leftView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 20, 15)];
         UIImageView *leftImageView = [[UIImageView alloc] initWithFrame:CGRectMake(5, 0, 15, 15)];

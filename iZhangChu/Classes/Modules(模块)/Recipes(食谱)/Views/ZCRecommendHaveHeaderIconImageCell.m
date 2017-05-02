@@ -101,11 +101,13 @@
         make.top.equalTo(kTitleHeight);
     }];
     
-    [self.containerView.subviews makeConstraints:^(MASConstraintMaker *make) {
-        make.top.bottom.equalTo(0);
-    }];
-    
-    [self.containerView.subviews mas_distributeViewsAlongAxis:MASAxisTypeHorizontal withFixedSpacing:0.5 leadSpacing:0 tailSpacing:0];
+    if (self.containerView.subviews.count > 1) {
+        [self.containerView.subviews makeConstraints:^(MASConstraintMaker *make) {
+            make.top.bottom.equalTo(0);
+        }];
+        
+        [self.containerView.subviews mas_distributeViewsAlongAxis:MASAxisTypeHorizontal withFixedSpacing:0.5 leadSpacing:0 tailSpacing:0];
+    }
     
     [self.descLabel makeConstraints:^(MASConstraintMaker *make) {
         make.left.right.bottom.equalTo(0);

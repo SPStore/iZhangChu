@@ -9,7 +9,19 @@
 #import <UIKit/UIKit.h>
 #import "ZCRecommendWidgetItem.h"
 
+typedef NS_ENUM(NSInteger, ZCPlayImageViewPlayButtonPosition) {
+    ZCPlayImageViewPlayButtonPositionCenter,
+    ZCPlayImageViewPlayButtonPositionRightBottom
+};
+
+typedef void(^ClickedBlock)(UITapGestureRecognizer *tap);
+
 @interface ZCPlayImageView : UIImageView
+
+@property (nonatomic, assign) ZCPlayImageViewPlayButtonPosition playButtonPosition;
+
+@property (nonatomic, copy) ClickedBlock clickBlock;
+
 @property (nonatomic, strong) ZCRecommendWidgetItem *imageItem;
 @property (nonatomic, strong) ZCRecommendWidgetItem *videoItem;
 @end

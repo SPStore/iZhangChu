@@ -7,9 +7,9 @@
 //
 
 #import "ZCIngredientsViewController.h"
-#import "ZCMacro.h"
-#import "ZCIngredientsDataModel.h"
 #import "ZCIngredientsCell.h"
+#import "ZCIngredientsDataModel.h"
+#import "ZCMacro.h"
 
 @interface ZCIngredientsViewController () <UITableViewDataSource, UITableViewDelegate>
 @property (nonatomic, strong) UITableView *tableView;
@@ -84,11 +84,14 @@
         _tableView.delegate = self;
         _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
         _tableView.backgroundColor = ZCBackgroundColor;
-        _tableView.sectionHeaderHeight = 0.0f;
-        _tableView.sectionFooterHeight = 0.0f;
-        // 如果tableView是grouped样式，且没有自定义tableHeaderView，那么tableView的顶部会多出一段头部高度，这段高度无法修改。只能通过创建一张自定义的view，给个很小很小的高度，然后赋值给tableHeaderView即可。注意：这张自定义的view的高度不能直接给0，给0的话仍然是默认系统头部高度，要给一个无限接近于0的高度
+        // 如果tableView是grouped样式，且没有自定义tableHeaderView和tableFooterView，那么tableView的顶部和底部会多出一段头部高度，这段高度无法修改。只能通过创建一张自定义的view，给个很小很小的高度，然后赋值给tableHeaderView或tableFooterView即可。注意：这张自定义的view的高度不能直接给0，给0的话仍然是默认系统头部高度，要给一个无限接近于0的高度
         UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 0, CGFLOAT_MIN)];
         _tableView.tableHeaderView = view;
+        _tableView.tableFooterView = view;
+        // 去除表头和表尾高度之后，顶部和尾部还会多出一段高度，那是第一个分区的区头和最后一个分区的区尾造成的，将区头高度和区尾高度设成最小值即可。同样不能设置0，设置0的话系统仍然会强制给默认高度。如果特定分区需要区头高或区尾高度，那在代理方法中写即可
+        _tableView.sectionHeaderHeight = CGFLOAT_MIN;
+        _tableView.sectionFooterHeight = CGFLOAT_MIN;
+        
     }
     return _tableView;
 }

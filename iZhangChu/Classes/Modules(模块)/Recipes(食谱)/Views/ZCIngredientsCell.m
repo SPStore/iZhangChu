@@ -56,6 +56,7 @@
             btn.titleLabel.font = [UIFont systemFontOfSize:14];
             btn.titleLabel.alpha = 0.6;
             btn.titleLabel.numberOfLines = 2;
+            btn.titleLabel.lineBreakMode = NSLineBreakByWordWrapping;
             btn.titleLabel.textAlignment = NSTextAlignmentCenter;
             btn.btnModel = btnModel;
             btn.hidden = NO;

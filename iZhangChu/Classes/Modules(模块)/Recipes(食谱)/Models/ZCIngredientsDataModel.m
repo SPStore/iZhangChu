@@ -23,13 +23,13 @@
             // 如果小于等于6，则button最多只有两行，每行三列
             _cellHeight = kTopMargin + kTitleLabelH + kTopMargin + kButtonH * 2 + kButtonPadding + kBottomMargin;
         } else {
-            
-            if ((count - 6) % 5 == 0) {
-               _cellHeight = kTopMargin + kTitleLabelH + kTopMargin + kButtonH * 2 + kButtonPadding + kButtonPadding + (count - 6) / 5 * kButtonH + ((count - 6) / 5 - 1) * kButtonPadding + kBottomMargin;
+            NSInteger rows = 0;
+            if ((count - 6) % kMaxCol == 0) {
+                rows = (count - 6) / kMaxCol;
             } else {
-               _cellHeight = kTopMargin + kTitleLabelH + kTopMargin + kButtonH * 2 + kButtonPadding + kButtonPadding + ((count - 6) / 5 + 1) * kButtonH + ((count - 6) / 5) * kButtonPadding + kBottomMargin;
+                rows = (count - 6) / kMaxCol + 1;
             }
-            
+            _cellHeight = kTopMargin + kTitleLabelH + kTopMargin + kButtonH * 2 + kButtonPadding + kButtonPadding + rows * kButtonH + (rows - 1) * kButtonPadding + kBottomMargin;
         }
         
     }

@@ -11,7 +11,7 @@
 @implementation ZCRecommendCanScrollModel
 - (float)cellHeight {
     if (!_cellHeight) {
-        _cellHeight = 85.0f;
+        _cellHeight = 70.0f;
     }
     return _cellHeight;
 }
