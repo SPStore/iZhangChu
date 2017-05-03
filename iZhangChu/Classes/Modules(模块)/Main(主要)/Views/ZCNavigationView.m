@@ -56,7 +56,7 @@ SingletonM(Instance);
 - (UIButton *)leftButton {
     if (!_leftButton) {
         _leftButton = [UIButton buttonWithType:UIButtonTypeCustom];
-        _leftButton.frame = CGRectMake(16, 27, 60, 30);
+        _leftButton.frame = CGRectMake(16, 27, 30, 30);
         _leftButton.titleLabel.font = [UIFont systemFontOfSize:14];
         [_leftButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
         _leftButton.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;

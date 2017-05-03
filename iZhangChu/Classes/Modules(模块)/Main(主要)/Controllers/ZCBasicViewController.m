@@ -50,9 +50,4 @@
 
 
 
-@interface ZCNavigationView() {
-    UIView *_centerView;
-}
-@property (nonatomic, strong) UILabel *titleLabel;
-@end
 
