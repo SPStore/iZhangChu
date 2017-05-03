@@ -38,15 +38,13 @@ static NSString * const recipesSearchCellID = @"recipesSearchCell";
     
     [self.tableView registerClass:[ZCRecipesSearchCell class] forCellReuseIdentifier:NSStringFromClass([ZCRecipesSearchGroup class])];
     [self.tableView registerClass:[ZCRecipesAutoSearchCell class] forCellReuseIdentifier:NSStringFromClass([ZCRecipesAutoSearchModel class])];
-    
-    
-    [self requestHotSearchData];
-    
+ 
 }
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     [self getDataFromSandBox];
+    [self requestHotSearchData];
 }
 
 // 从沙盒中取出数据
@@ -171,7 +169,11 @@ static NSString * const recipesSearchCellID = @"recipesSearchCell";
     }
     
     if (indexPath.section == 0) {
-        
+        ZCRecipesAutoSearchCell *autoCell = (ZCRecipesAutoSearchCell *)cell;
+        ZCRecipesAutoSearchModel *autoModel = (ZCRecipesAutoSearchModel *)autoCell.group;
+        ZCRecipesSearchResultViewController *searchResultVc = [[ZCRecipesSearchResultViewController alloc] init];
+        searchResultVc.dishes = autoModel.data;
+        [self.navigationController pushViewController:searchResultVc animated:YES];
         
     } else {
         ZCRecipesAutoSearchCell *autoCell = (ZCRecipesAutoSearchCell *)cell;

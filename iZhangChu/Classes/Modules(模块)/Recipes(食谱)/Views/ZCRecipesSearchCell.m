@@ -63,12 +63,12 @@
                 button.layer.borderColor = ZCGlobalColor.CGColor;
                 [button setTitleColor:ZCGlobalColor forState:UIControlStateNormal];
             } else {
-                button.layer.borderColor = [UIColor blackColor].CGColor;
-                [button setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+                button.layer.borderColor = [UIColor grayColor].CGColor;
+                [button setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
             }
             
             [button addTarget:self action:@selector(buttonAction:) forControlEvents:UIControlEventTouchUpInside];
-            buttonW = [button.titleLabel.text sizeWithFont:[UIFont systemFontOfSize:12]].width+40;
+            buttonW = [button.titleLabel.text sizeWithFont:[UIFont systemFontOfSize:15]].width+15;
             buttonX = lastButtonMaxX + padding;
             button.frame = CGRectMake(buttonX, buttonY, buttonW, buttonH);
             

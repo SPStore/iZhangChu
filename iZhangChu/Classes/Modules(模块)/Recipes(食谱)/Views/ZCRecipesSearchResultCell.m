@@ -29,25 +29,26 @@
 
 @implementation ZCRecipesSearchResultCell
 
-- (void)setModel:(ZCRecipesSearchResultModel *)model {
-    _model = model;
+- (void)setModel:(NSObject *)model {
+    [super setModel:model];
+    ZCRecipesSearchResultModel *searchResult = (ZCRecipesSearchResultModel *)model;
     
     self.selectionStyle = UITableViewCellSelectionStyleNone;
     
-    [self.dishPlayImageView sd_setImageWithURL:[NSURL URLWithString:model.image] placeholderImage:nil];
+    [self.dishPlayImageView sd_setImageWithURL:[NSURL URLWithString:searchResult.image] placeholderImage:nil];
     
     // 给标题和描述内容中与搜索关键字相同的字符赋予颜色
-    NSMutableAttributedString *mutableTitle = [[NSMutableAttributedString alloc] initWithString:model.title];
-    [mutableTitle addAttribute:NSForegroundColorAttributeName value:ZCGlobalColor range:[model.title rangeOfString:self.keyword]];
+    NSMutableAttributedString *mutableTitle = [[NSMutableAttributedString alloc] initWithString:searchResult.title];
+    [mutableTitle addAttribute:NSForegroundColorAttributeName value:ZCGlobalColor range:[searchResult.title rangeOfString:self.keyword]];
     self.titleLabel.attributedText = mutableTitle;
     
-    NSMutableAttributedString *mutableDesc = [[NSMutableAttributedString alloc] initWithString:model.desc];
-    [mutableDesc addAttribute:NSForegroundColorAttributeName value:ZCGlobalColor range:[model.desc rangeOfString:self.keyword]];
+    NSMutableAttributedString *mutableDesc = [[NSMutableAttributedString alloc] initWithString:searchResult.desc];
+    [mutableDesc addAttribute:NSForegroundColorAttributeName value:ZCGlobalColor range:[searchResult.desc rangeOfString:self.keyword]];
     self.descLabel.attributedText = mutableDesc;
     
-    self.difficultyLabel.text = [@"难度:" stringByAppendingString:model.hard_level];
-    self.tasteLabel.text = [@"味道:" stringByAppendingString:model.taste];
-    self.timeLabel.text = [@"烹饪时间:" stringByAppendingString:model.cooking_time];
+    self.difficultyLabel.text = [@"难度:" stringByAppendingString:searchResult.hard_level];
+    self.tasteLabel.text = [@"味道:" stringByAppendingString:searchResult.taste];
+    self.timeLabel.text = [@"烹饪时间:" stringByAppendingString:searchResult.cooking_time];
 }
 
 - (void)awakeFromNib {

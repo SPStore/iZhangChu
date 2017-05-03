@@ -4,7 +4,7 @@
 //
 //  Created by Libo on 17/5/1.
 //  Copyright © 2017年 iDress. All rights reserved.
-//
+//  搜索cell和自动搜索cell的基类
 
 #import <UIKit/UIKit.h>
 

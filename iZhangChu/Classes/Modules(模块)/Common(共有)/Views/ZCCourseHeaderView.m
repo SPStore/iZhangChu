@@ -262,10 +262,8 @@
         [self layoutIfNeeded];
     }];
  
-    if ([self.delegate respondsToSelector:@selector(headerViewContentFoldingButtonClicked:)]) {
-        self.zc_height = CGRectGetMaxY(self.commentButton.frame) + selfBottomMargin;
-        [self.delegate headerViewContentFoldingButtonClicked:sender];
-    }
+    self.zc_height = CGRectGetMaxY(self.commentButton.frame) + selfBottomMargin;
+
 }
 
 // 更新至第几集的按钮被点击(折叠)
@@ -285,11 +283,8 @@
     [UIView animateWithDuration:0.25 animations:^{
         [self layoutIfNeeded];
     }];
-    
-    if ([self.delegate respondsToSelector:@selector(headerViewUpdateFoldingButtonClicked:)]) {
-        self.zc_height = CGRectGetMaxY(self.commentButton.frame) + selfBottomMargin;
-        [self.delegate headerViewUpdateFoldingButtonClicked:sender];
-    }
+
+    self.zc_height = CGRectGetMaxY(self.commentButton.frame) + selfBottomMargin;
 }
 
 // 赞的按钮被点击

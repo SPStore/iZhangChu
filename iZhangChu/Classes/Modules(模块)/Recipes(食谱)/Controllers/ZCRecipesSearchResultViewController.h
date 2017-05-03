@@ -12,4 +12,6 @@
 
 @property (nonatomic, copy) NSString *keyword;
 
+@property (nonatomic, strong) NSArray *dishes;
+
 @end

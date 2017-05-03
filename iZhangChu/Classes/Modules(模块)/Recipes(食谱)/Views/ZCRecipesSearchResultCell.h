@@ -4,16 +4,12 @@
 //
 //  Created by Libo on 17/4/29.
 //  Copyright © 2017年 iDress. All rights reserved.
-//
+//  搜索结果的cell
 
-#import <UIKit/UIKit.h>
+#import "ZCRecipesSearchResultBasicCell.h"
 
-@class ZCRecipesSearchResultModel;
 
-@interface ZCRecipesSearchResultCell : UITableViewCell
-
-@property (nonatomic, strong) ZCRecipesSearchResultModel *model;
-@property (nonatomic, copy) NSString *keyword;
+@interface ZCRecipesSearchResultCell : ZCRecipesSearchResultBasicCell
 
 
 @end

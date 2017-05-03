@@ -4,7 +4,7 @@
 //
 //  Created by Libo on 17/4/28.
 //  Copyright © 2017年 iDress. All rights reserved.
-//  食谱中的搜索cell
+//  食谱中的搜索cell,展示历史记录和热门搜索
 
 #import "ZCRecipesSearchBasicCell.h"
 #import "ZCRecipesSearchGroup.h"
