@@ -23,7 +23,7 @@
 
 //        self.backgroundColor = ZCBackgroundColor;
         
-        [self addSubview:self.carouselScrollView];
+        [self addSubview:self.carouselView];
         [self addSubview:self.searchBar];
         
     }
@@ -38,7 +38,7 @@
         [urlImages addObject:bannerModel.banner_picture];
     }
     // 给轮播图提数据
-    self.carouselScrollView.urlImages = urlImages;
+    self.carouselView.urlImages = urlImages;
 }
 
 - (UITextField *)searchBar {
@@ -65,18 +65,18 @@
     return _searchBar;
 }
 
-- (SPCarouselScrollView *)carouselScrollView {
-    if (!_carouselScrollView) {
-        _carouselScrollView = [[SPCarouselScrollView alloc] init];
-        _carouselScrollView.pageContolAliment = SPCarouseScrollViewPageContolAlimentRight;
-        _carouselScrollView.currentPageControlColor = ZCGlobalColor;
-        _carouselScrollView.pageControlColor = [UIColor whiteColor];
+- (SPCarouselView *)carouselView {
+    if (!_carouselView) {
+        _carouselView = [[SPCarouselView alloc] init];
+        _carouselView.pageControlPosition = SPPageContolPositionBottomRight;
+        _carouselView.currentPageColor = ZCGlobalColor;
+        _carouselView.pageColor = [UIColor whiteColor];
     }
-    return _carouselScrollView;
+    return _carouselView;
 }
 
 - (void)updateConstraints {
-    [self.carouselScrollView makeConstraints:^(MASConstraintMaker *make) {
+    [self.carouselView makeConstraints:^(MASConstraintMaker *make) {
         make.left.top.right.equalTo(self).offset(0);
         make.height.equalTo(kCarouselViewHeight);
     }];
@@ -84,7 +84,7 @@
     [self.searchBar makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self).offset(30);
         make.right.equalTo(self).offset(-30);
-        make.top.equalTo(self.carouselScrollView.bottom).offset(KSearchBarMargin_tb);
+        make.top.equalTo(self.carouselView.bottom).offset(KSearchBarMargin_tb);
         make.height.equalTo(kSearchBarHeight);
     }];
  

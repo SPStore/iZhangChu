@@ -43,6 +43,7 @@
 		090579431EADF260002F2083 /* ZCIngredientsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 090579421EADF260002F2083 /* ZCIngredientsCell.m */; };
 		090579461EADF88F002F2083 /* ZCIngredientsButtonModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 090579451EADF88F002F2083 /* ZCIngredientsButtonModel.m */; };
 		09065F501EB0AC12005E1CB6 /* NSString+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 09065F4F1EB0AC12005E1CB6 /* NSString+Extension.m */; };
+		093C68C81EBAF4DC003D394C /* SPCarouselView.m in Sources */ = {isa = PBXBuildFile; fileRef = 093C68C71EBAF4DC003D394C /* SPCarouselView.m */; };
 		0943C6181EB9A6F0008E8EE5 /* ZCSceneRecipesCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0943C6161EB9A6F0008E8EE5 /* ZCSceneRecipesCell.m */; };
 		0943C6191EB9A6F0008E8EE5 /* ZCSceneRecipesCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0943C6171EB9A6F0008E8EE5 /* ZCSceneRecipesCell.xib */; };
 		0943C61C1EB9A935008E8EE5 /* ZCSceneRecipesModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0943C61B1EB9A935008E8EE5 /* ZCSceneRecipesModel.m */; };
@@ -73,7 +74,6 @@
 		0952C0481EA84E41002DA69E /* ZCRecipesNavigationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0952C02A1EA84E41002DA69E /* ZCRecipesNavigationView.m */; };
 		0952C0491EA84E41002DA69E /* ZCRecommendHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0952C02C1EA84E41002DA69E /* ZCRecommendHeaderView.m */; };
 		0952C0681EA86CDC002DA69E /* SPButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 0952C05E1EA86CDC002DA69E /* SPButton.m */; };
-		0952C0691EA86CDC002DA69E /* SPCarouselScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0952C0611EA86CDC002DA69E /* SPCarouselScrollView.m */; };
 		0952C06A1EA86CDC002DA69E /* SPHTTPSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 0952C0641EA86CDC002DA69E /* SPHTTPSessionManager.m */; };
 		0952C06B1EA86CDC002DA69E /* SPPageMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 0952C0671EA86CDC002DA69E /* SPPageMenu.m */; };
 		0952C0781EA86E5A002DA69E /* ZCBasicViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0952C06F1EA86E5A002DA69E /* ZCBasicViewController.m */; };
@@ -188,6 +188,8 @@
 		090579451EADF88F002F2083 /* ZCIngredientsButtonModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZCIngredientsButtonModel.m; sourceTree = "<group>"; };
 		09065F4E1EB0AC12005E1CB6 /* NSString+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Extension.h"; sourceTree = "<group>"; };
 		09065F4F1EB0AC12005E1CB6 /* NSString+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Extension.m"; sourceTree = "<group>"; };
+		093C68C61EBAF4DC003D394C /* SPCarouselView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPCarouselView.h; sourceTree = "<group>"; };
+		093C68C71EBAF4DC003D394C /* SPCarouselView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPCarouselView.m; sourceTree = "<group>"; };
 		0943C6151EB9A6F0008E8EE5 /* ZCSceneRecipesCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZCSceneRecipesCell.h; sourceTree = "<group>"; };
 		0943C6161EB9A6F0008E8EE5 /* ZCSceneRecipesCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZCSceneRecipesCell.m; sourceTree = "<group>"; };
 		0943C6171EB9A6F0008E8EE5 /* ZCSceneRecipesCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ZCSceneRecipesCell.xib; sourceTree = "<group>"; };
@@ -250,8 +252,6 @@
 		0952C02C1EA84E41002DA69E /* ZCRecommendHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZCRecommendHeaderView.m; sourceTree = "<group>"; };
 		0952C05D1EA86CDC002DA69E /* SPButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPButton.h; sourceTree = "<group>"; };
 		0952C05E1EA86CDC002DA69E /* SPButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPButton.m; sourceTree = "<group>"; };
-		0952C0601EA86CDC002DA69E /* SPCarouselScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPCarouselScrollView.h; sourceTree = "<group>"; };
-		0952C0611EA86CDC002DA69E /* SPCarouselScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPCarouselScrollView.m; sourceTree = "<group>"; };
 		0952C0631EA86CDC002DA69E /* SPHTTPSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPHTTPSessionManager.h; sourceTree = "<group>"; };
 		0952C0641EA86CDC002DA69E /* SPHTTPSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPHTTPSessionManager.m; sourceTree = "<group>"; };
 		0952C0661EA86CDC002DA69E /* SPPageMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPPageMenu.h; sourceTree = "<group>"; };
@@ -338,6 +338,15 @@
 				090058FB1EB4BDFC00973273 /* ZCRecomendCellDelegate.h */,
 			);
 			path = Tools;
+			sourceTree = "<group>";
+		};
+		093C68C51EBAF4DC003D394C /* SPCarouselView */ = {
+			isa = PBXGroup;
+			children = (
+				093C68C61EBAF4DC003D394C /* SPCarouselView.h */,
+				093C68C71EBAF4DC003D394C /* SPCarouselView.m */,
+			);
+			path = SPCarouselView;
 			sourceTree = "<group>";
 		};
 		09511F7B1EAF0E31002ABD42 /* Common(共有) */ = {
@@ -773,8 +782,8 @@
 		0952C05B1EA86CDC002DA69E /* Libs(依赖库) */ = {
 			isa = PBXGroup;
 			children = (
+				093C68C51EBAF4DC003D394C /* SPCarouselView */,
 				0952C05C1EA86CDC002DA69E /* SPButton */,
-				0952C05F1EA86CDC002DA69E /* SPCarouselScrollView */,
 				0952C0621EA86CDC002DA69E /* SPHTTPSessionManager */,
 				0952C0651EA86CDC002DA69E /* SPPageMenu */,
 			);
@@ -788,15 +797,6 @@
 				0952C05E1EA86CDC002DA69E /* SPButton.m */,
 			);
 			path = SPButton;
-			sourceTree = "<group>";
-		};
-		0952C05F1EA86CDC002DA69E /* SPCarouselScrollView */ = {
-			isa = PBXGroup;
-			children = (
-				0952C0601EA86CDC002DA69E /* SPCarouselScrollView.h */,
-				0952C0611EA86CDC002DA69E /* SPCarouselScrollView.m */,
-			);
-			path = SPCarouselScrollView;
 			sourceTree = "<group>";
 		};
 		0952C0621EA86CDC002DA69E /* SPHTTPSessionManager */ = {
@@ -1099,6 +1099,7 @@
 				0952C0491EA84E41002DA69E /* ZCRecommendHeaderView.m in Sources */,
 				090579181EADB786002F2083 /* ZCRecommendEmptyCell.m in Sources */,
 				090058F11EB47D2900973273 /* ZCRecipesSearchResultViewController.m in Sources */,
+				093C68C81EBAF4DC003D394C /* SPCarouselView.m in Sources */,
 				09511FD81EAF40DB002ABD42 /* ZCCourseHeaderModel.m in Sources */,
 				090579291EADCD3E002F2083 /* UIImage+General.m in Sources */,
 				0952C0791EA86E5A002DA69E /* ZCNavigationController.m in Sources */,
@@ -1138,7 +1139,6 @@
 				095825E21EA9CBBC0072394A /* ZCRecommendImageVideoModel.m in Sources */,
 				0943C6181EB9A6F0008E8EE5 /* ZCSceneRecipesCell.m in Sources */,
 				0952C0441EA84E41002DA69E /* ZCIngredientsViewController.m in Sources */,
-				0952C0691EA86CDC002DA69E /* SPCarouselScrollView.m in Sources */,
 				095825CD1EA9C9C40072394A /* ZCRecommendButtonModel.m in Sources */,
 				0952C0431EA84E41002DA69E /* ZCCategoryViewController.m in Sources */,
 				0952C08E1EA8794F002DA69E /* ZCRecommendBasicModel.m in Sources */,

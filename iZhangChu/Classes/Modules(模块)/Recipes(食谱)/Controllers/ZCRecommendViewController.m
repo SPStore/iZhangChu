@@ -29,7 +29,7 @@
 #import "ZCSceneRecipesViewController.h"
 #import "ZCFoodLiveViewController.h"
 
-@interface ZCRecommendViewController () <UITableViewDelegate,UITableViewDataSource, SPCarouseScrollViewDelegate,ZCRecomendCellDelegate>
+@interface ZCRecommendViewController () <UITableViewDelegate,UITableViewDataSource, SPCarouselViewDelegate,ZCRecomendCellDelegate>
 @property (nonatomic, strong) UITableView *tableView;
 @property (nonatomic, strong) ZCRecommendHeaderView *headerView;
 @property (nonatomic, strong) NSArray *banners;
@@ -177,7 +177,7 @@
 }
 
 #pragma mark - 轮播图的代理方法
-- (void)carouseScrollView:(SPCarouselScrollView *)carouseScrollView atIndex:(NSUInteger)index {
+- (void)carouselView:(SPCarouselView *)carouselView clickedImageAtIndex:(NSUInteger)index {
     ZCRecommendBannerModel *banner = self.banners[index];
     ZCCourseViewController *courseVc = [[ZCCourseViewController alloc] init];
     courseVc.banner = banner;
@@ -248,7 +248,7 @@
     if (!_headerView) {
         _headerView = [[ZCRecommendHeaderView alloc] initWithFrame:CGRectMake(0, 0, kScreenW, kCarouselViewHeight+kSearchBarHeight+2*KSearchBarMargin_tb)];
         _headerView.backgroundColor = ZCBackgroundColor;
-        _headerView.carouselScrollView.delegate = self;
+        _headerView.carouselView.delegate = self;
     }
     return _headerView;
 }

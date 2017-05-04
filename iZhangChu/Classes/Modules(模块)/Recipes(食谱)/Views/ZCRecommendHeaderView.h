@@ -7,7 +7,7 @@
 //  推荐控制器的头部
 
 #import <UIKit/UIKit.h>
-#import "SPCarouselScrollView.h"
+#import "SPCarouselView.h"
 
 // 轮播图的高度
 #define kCarouselViewHeight kScreenW * 209 / 621
@@ -22,6 +22,6 @@
 @property (nonatomic, strong) NSArray *banners;
 
 // 轮播图
-@property (nonatomic, strong) SPCarouselScrollView *carouselScrollView;
+@property (nonatomic, strong) SPCarouselView *carouselView;
 
 @end
