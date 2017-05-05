@@ -30,7 +30,7 @@
         /* 当push的时候自动显示和隐藏tabbar */
         viewController.hidesBottomBarWhenPushed = YES;
         ZCBasicViewController *vc = (ZCBasicViewController *)viewController;
-        [vc.navigationView.leftButton setTitle:@"返回" forState:UIControlStateNormal];
+        [vc.navigationView.leftButton setImage:[UIImage imageNamed:@"nav_back_black"] forState:UIControlStateNormal];
         [vc.navigationView.leftButton addTarget:self action:@selector(back) forControlEvents:UIControlEventTouchUpInside];
     }
     // 必须super

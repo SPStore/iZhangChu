@@ -25,6 +25,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    // 取消tabBar的半透明效果
+    self.tabBar.translucent = NO;
+    
     // 初始化子控制器
     // 微信(首页)
     ZCRecipesHomeViewController *recipesVc = [[ZCRecipesHomeViewController alloc] init];

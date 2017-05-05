@@ -4,4 +4,6 @@ target 'iZhangChu' do
     pod 'SDWebImage'
     pod 'Masonry'
     pod 'MJExtension'
+    pod 'MJRefresh'
+    pod 'FMDB'
 end 
