@@ -22,8 +22,6 @@
 		0941BF651EBC14E000F51A2D /* ZCBasicViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0941BECF1EBC14E000F51A2D /* ZCBasicViewController.m */; };
 		0941BF661EBC14E000F51A2D /* ZCNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0941BED11EBC14E000F51A2D /* ZCNavigationController.m */; };
 		0941BF671EBC14E000F51A2D /* ZCTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0941BED31EBC14E000F51A2D /* ZCTabBarController.m */; };
-		0941BF681EBC14E000F51A2D /* ZCBasicModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0941BED71EBC14E000F51A2D /* ZCBasicModel.m */; };
-		0941BF691EBC14E000F51A2D /* ZCBasicParam.m in Sources */ = {isa = PBXBuildFile; fileRef = 0941BED91EBC14E000F51A2D /* ZCBasicParam.m */; };
 		0941BF6A1EBC14E000F51A2D /* ZCNavigationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0941BEDC1EBC14E000F51A2D /* ZCNavigationView.m */; };
 		0941BF6B1EBC14E000F51A2D /* ZCPlayImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0941BEDE1EBC14E000F51A2D /* ZCPlayImageView.m */; };
 		0941BF6C1EBC14E000F51A2D /* ZCSearchView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0941BEE01EBC14E000F51A2D /* ZCSearchView.m */; };
@@ -57,7 +55,6 @@
 		0941BF881EBC14E100F51A2D /* ZCRecommendVideoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0941BF1E1EBC14E000F51A2D /* ZCRecommendVideoModel.m */; };
 		0941BF891EBC14E100F51A2D /* ZCRecommendWidgetItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 0941BF201EBC14E000F51A2D /* ZCRecommendWidgetItem.m */; };
 		0941BF8A1EBC14E100F51A2D /* ZCSceneRecipesModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0941BF221EBC14E000F51A2D /* ZCSceneRecipesModel.m */; };
-		0941BF8B1EBC14E100F51A2D /* ZCIngredientsSqlite.m in Sources */ = {isa = PBXBuildFile; fileRef = 0941BF251EBC14E000F51A2D /* ZCIngredientsSqlite.m */; };
 		0941BFFA1EBC163800F51A2D /* NSObject+Property.m in Sources */ = {isa = PBXBuildFile; fileRef = 0941BFD91EBC163800F51A2D /* NSObject+Property.m */; };
 		0941BFFB1EBC163800F51A2D /* NSString+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 0941BFDB1EBC163800F51A2D /* NSString+Extension.m */; };
 		0941BFFC1EBC163800F51A2D /* UIImage+General.m in Sources */ = {isa = PBXBuildFile; fileRef = 0941BFDD1EBC163800F51A2D /* UIImage+General.m */; };
@@ -66,7 +63,6 @@
 		0941BFFF1EBC163800F51A2D /* SPCarouselView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0941BFE71EBC163800F51A2D /* SPCarouselView.m */; };
 		0941C0001EBC163800F51A2D /* SPHTTPSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 0941BFEA1EBC163800F51A2D /* SPHTTPSessionManager.m */; };
 		0941C0011EBC163800F51A2D /* SPPageMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 0941BFED1EBC163800F51A2D /* SPPageMenu.m */; };
-		0941C0021EBC163800F51A2D /* SPSqlite.m in Sources */ = {isa = PBXBuildFile; fileRef = 0941BFF01EBC163800F51A2D /* SPSqlite.m */; };
 		0941C0031EBC163800F51A2D /* ZCConst.m in Sources */ = {isa = PBXBuildFile; fileRef = 0941BFF41EBC163800F51A2D /* ZCConst.m */; };
 		0941C0041EBC163800F51A2D /* SaveSearchTextTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 0941BFF91EBC163800F51A2D /* SaveSearchTextTool.m */; };
 		0941C0141EBC18FB00F51A2D /* ZCRecipesAutoSearchCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0941C0071EBC18FB00F51A2D /* ZCRecipesAutoSearchCell.m */; };
@@ -96,12 +92,14 @@
 		0941C04E1EBC19DD00F51A2D /* ZCSceneRecipesCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0941C04C1EBC19DD00F51A2D /* ZCSceneRecipesCell.m */; };
 		0941C04F1EBC19DD00F51A2D /* ZCSceneRecipesCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0941C04D1EBC19DD00F51A2D /* ZCSceneRecipesCell.xib */; };
 		0941C0531EBC1A0600F51A2D /* ZCIngredientsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0941C0521EBC1A0600F51A2D /* ZCIngredientsCell.m */; };
+		0941C0851EBC207200F51A2D /* ZCBasicModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0941C0841EBC207200F51A2D /* ZCBasicModel.m */; };
 		0952BFBB1EA84DD3002DA69E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 0952BFBA1EA84DD3002DA69E /* main.m */; };
 		0952BFC61EA84DD3002DA69E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0952BFC51EA84DD3002DA69E /* Assets.xcassets */; };
 		0952BFC91EA84DD3002DA69E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0952BFC71EA84DD3002DA69E /* LaunchScreen.storyboard */; };
 		0952BFD41EA84DD3002DA69E /* iZhangChuTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0952BFD31EA84DD3002DA69E /* iZhangChuTests.m */; };
 		0952BFDF1EA84DD3002DA69E /* iZhangChuUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0952BFDE1EA84DD3002DA69E /* iZhangChuUITests.m */; };
 		0952C03A1EA84E41002DA69E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0952BFF41EA84E41002DA69E /* AppDelegate.m */; };
+		09FE0ED51EBCA39A00140EB0 /* ZCIngredientSqlite.m in Sources */ = {isa = PBXBuildFile; fileRef = 09FE0ED41EBCA39A00140EB0 /* ZCIngredientSqlite.m */; };
 		F2F4CD81E2787577D4A4EF9C /* libPods-iZhangChu.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1578D2F11D0D4E3759AD292C /* libPods-iZhangChu.a */; };
 /* End PBXBuildFile section */
 
@@ -151,10 +149,6 @@
 		0941BED11EBC14E000F51A2D /* ZCNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZCNavigationController.m; sourceTree = "<group>"; };
 		0941BED21EBC14E000F51A2D /* ZCTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZCTabBarController.h; sourceTree = "<group>"; };
 		0941BED31EBC14E000F51A2D /* ZCTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZCTabBarController.m; sourceTree = "<group>"; };
-		0941BED61EBC14E000F51A2D /* ZCBasicModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZCBasicModel.h; sourceTree = "<group>"; };
-		0941BED71EBC14E000F51A2D /* ZCBasicModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZCBasicModel.m; sourceTree = "<group>"; };
-		0941BED81EBC14E000F51A2D /* ZCBasicParam.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZCBasicParam.h; sourceTree = "<group>"; };
-		0941BED91EBC14E000F51A2D /* ZCBasicParam.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZCBasicParam.m; sourceTree = "<group>"; };
 		0941BEDB1EBC14E000F51A2D /* ZCNavigationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZCNavigationView.h; sourceTree = "<group>"; };
 		0941BEDC1EBC14E000F51A2D /* ZCNavigationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZCNavigationView.m; sourceTree = "<group>"; };
 		0941BEDD1EBC14E000F51A2D /* ZCPlayImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZCPlayImageView.h; sourceTree = "<group>"; };
@@ -220,8 +214,6 @@
 		0941BF201EBC14E000F51A2D /* ZCRecommendWidgetItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZCRecommendWidgetItem.m; sourceTree = "<group>"; };
 		0941BF211EBC14E000F51A2D /* ZCSceneRecipesModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZCSceneRecipesModel.h; sourceTree = "<group>"; };
 		0941BF221EBC14E000F51A2D /* ZCSceneRecipesModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZCSceneRecipesModel.m; sourceTree = "<group>"; };
-		0941BF241EBC14E000F51A2D /* ZCIngredientsSqlite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZCIngredientsSqlite.h; sourceTree = "<group>"; };
-		0941BF251EBC14E000F51A2D /* ZCIngredientsSqlite.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZCIngredientsSqlite.m; sourceTree = "<group>"; };
 		0941BF261EBC14E000F51A2D /* ZCRecomendCellDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZCRecomendCellDelegate.h; sourceTree = "<group>"; };
 		0941BFD81EBC163800F51A2D /* NSObject+Property.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+Property.h"; sourceTree = "<group>"; };
 		0941BFD91EBC163800F51A2D /* NSObject+Property.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+Property.m"; sourceTree = "<group>"; };
@@ -239,8 +231,6 @@
 		0941BFEA1EBC163800F51A2D /* SPHTTPSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPHTTPSessionManager.m; sourceTree = "<group>"; };
 		0941BFEC1EBC163800F51A2D /* SPPageMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPPageMenu.h; sourceTree = "<group>"; };
 		0941BFED1EBC163800F51A2D /* SPPageMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPPageMenu.m; sourceTree = "<group>"; };
-		0941BFEF1EBC163800F51A2D /* SPSqlite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPSqlite.h; sourceTree = "<group>"; };
-		0941BFF01EBC163800F51A2D /* SPSqlite.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPSqlite.m; sourceTree = "<group>"; };
 		0941BFF21EBC163800F51A2D /* Singleton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Singleton.h; sourceTree = "<group>"; };
 		0941BFF31EBC163800F51A2D /* ZCConst.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZCConst.h; sourceTree = "<group>"; };
 		0941BFF41EBC163800F51A2D /* ZCConst.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZCConst.m; sourceTree = "<group>"; };
@@ -297,6 +287,8 @@
 		0941C04D1EBC19DD00F51A2D /* ZCSceneRecipesCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ZCSceneRecipesCell.xib; sourceTree = "<group>"; };
 		0941C0511EBC1A0600F51A2D /* ZCIngredientsCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZCIngredientsCell.h; sourceTree = "<group>"; };
 		0941C0521EBC1A0600F51A2D /* ZCIngredientsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZCIngredientsCell.m; sourceTree = "<group>"; };
+		0941C07E1EBC202300F51A2D /* ZCBasicModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ZCBasicModel.h; path = Basic/ZCBasicModel.h; sourceTree = "<group>"; };
+		0941C0841EBC207200F51A2D /* ZCBasicModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZCBasicModel.m; sourceTree = "<group>"; };
 		0952BFB61EA84DD3002DA69E /* iZhangChu.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iZhangChu.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0952BFBA1EA84DD3002DA69E /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		0952BFC51EA84DD3002DA69E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -310,6 +302,8 @@
 		0952BFE01EA84DD3002DA69E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0952BFF31EA84E41002DA69E /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		0952BFF41EA84E41002DA69E /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		09FE0ED31EBCA39A00140EB0 /* ZCIngredientSqlite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZCIngredientSqlite.h; sourceTree = "<group>"; };
+		09FE0ED41EBCA39A00140EB0 /* ZCIngredientSqlite.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZCIngredientSqlite.m; sourceTree = "<group>"; };
 		13912BF85C230D428BDD7D11 /* Pods-iZhangChu.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iZhangChu.debug.xcconfig"; path = "Pods/Target Support Files/Pods-iZhangChu/Pods-iZhangChu.debug.xcconfig"; sourceTree = "<group>"; };
 		1578D2F11D0D4E3759AD292C /* libPods-iZhangChu.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-iZhangChu.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FBD2129A70688F68B8DFE385 /* Pods-iZhangChu.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iZhangChu.release.xcconfig"; path = "Pods/Target Support Files/Pods-iZhangChu/Pods-iZhangChu.release.xcconfig"; sourceTree = "<group>"; };
@@ -490,20 +484,10 @@
 		0941BED41EBC14E000F51A2D /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				0941BED51EBC14E000F51A2D /* 基类 */,
+				0941C07E1EBC202300F51A2D /* ZCBasicModel.h */,
+				0941C0841EBC207200F51A2D /* ZCBasicModel.m */,
 			);
 			path = Models;
-			sourceTree = "<group>";
-		};
-		0941BED51EBC14E000F51A2D /* 基类 */ = {
-			isa = PBXGroup;
-			children = (
-				0941BED61EBC14E000F51A2D /* ZCBasicModel.h */,
-				0941BED71EBC14E000F51A2D /* ZCBasicModel.m */,
-				0941BED81EBC14E000F51A2D /* ZCBasicParam.h */,
-				0941BED91EBC14E000F51A2D /* ZCBasicParam.m */,
-			);
-			path = "基类";
 			sourceTree = "<group>";
 		};
 		0941BEDA1EBC14E000F51A2D /* Views */ = {
@@ -637,9 +621,9 @@
 		0941BF231EBC14E000F51A2D /* Tools */ = {
 			isa = PBXGroup;
 			children = (
-				0941BF241EBC14E000F51A2D /* ZCIngredientsSqlite.h */,
-				0941BF251EBC14E000F51A2D /* ZCIngredientsSqlite.m */,
 				0941BF261EBC14E000F51A2D /* ZCRecomendCellDelegate.h */,
+				09FE0ED31EBCA39A00140EB0 /* ZCIngredientSqlite.h */,
+				09FE0ED41EBCA39A00140EB0 /* ZCIngredientSqlite.m */,
 			);
 			path = Tools;
 			sourceTree = "<group>";
@@ -739,8 +723,6 @@
 		0941BFEE1EBC163800F51A2D /* SPSqlite */ = {
 			isa = PBXGroup;
 			children = (
-				0941BFEF1EBC163800F51A2D /* SPSqlite.h */,
-				0941BFF01EBC163800F51A2D /* SPSqlite.m */,
 			);
 			path = SPSqlite;
 			sourceTree = "<group>";
@@ -1149,11 +1131,8 @@
 				0941BF5A1EBC14E000F51A2D /* ZCCourseViewController.m in Sources */,
 				0941BF7B1EBC14E000F51A2D /* ZCIngredientsDataModel.m in Sources */,
 				0941C0461EBC195700F51A2D /* ZCRecommendMasterListCell.m in Sources */,
-				0941BF681EBC14E000F51A2D /* ZCBasicModel.m in Sources */,
 				0941C04A1EBC195700F51A2D /* ZCRecommendWidgetItemImageView.m in Sources */,
-				0941BF691EBC14E000F51A2D /* ZCBasicParam.m in Sources */,
 				0941BF671EBC14E000F51A2D /* ZCTabBarController.m in Sources */,
-				0941C0021EBC163800F51A2D /* SPSqlite.m in Sources */,
 				0941C03B1EBC195700F51A2D /* ZCRecipesNavigationView.m in Sources */,
 				0941BF741EBC14E000F51A2D /* ZCRecipesHomeViewController.m in Sources */,
 				0941BF601EBC14E000F51A2D /* ZCCourseCommentCell.m in Sources */,
@@ -1161,10 +1140,12 @@
 				0941BF711EBC14E000F51A2D /* ZCFoodLiveViewController.m in Sources */,
 				0941BF7A1EBC14E000F51A2D /* ZCIngredientsButtonModel.m in Sources */,
 				0941C04E1EBC19DD00F51A2D /* ZCSceneRecipesCell.m in Sources */,
+				09FE0ED51EBCA39A00140EB0 /* ZCIngredientSqlite.m in Sources */,
 				0941BF831EBC14E000F51A2D /* ZCRecommendEmptyModel.m in Sources */,
 				0941C0191EBC18FB00F51A2D /* ZCRecipesSearchResultBasicCell.m in Sources */,
 				0941C03D1EBC195700F51A2D /* ZCRecommendButtonCell.m in Sources */,
 				0941C0471EBC195700F51A2D /* ZCRecommendMasterListView.m in Sources */,
+				0941C0851EBC207200F51A2D /* ZCBasicModel.m in Sources */,
 				0941BF5D1EBC14E000F51A2D /* ZCCourseHeaderModel.m in Sources */,
 				0941C0531EBC1A0600F51A2D /* ZCIngredientsCell.m in Sources */,
 				0941BF641EBC14E000F51A2D /* ZCLohasHomeViewController.m in Sources */,
@@ -1209,7 +1190,6 @@
 				0941BF791EBC14E000F51A2D /* ZCSceneRecipesViewController.m in Sources */,
 				0941C0151EBC18FB00F51A2D /* ZCRecipesAutoSearchTopListCell.m in Sources */,
 				0952BFBB1EA84DD3002DA69E /* main.m in Sources */,
-				0941BF8B1EBC14E100F51A2D /* ZCIngredientsSqlite.m in Sources */,
 				0941BF761EBC14E000F51A2D /* ZCRecipesSearchViewController.m in Sources */,
 				0941BF8A1EBC14E100F51A2D /* ZCSceneRecipesModel.m in Sources */,
 				0941BF5E1EBC14E000F51A2D /* ZCCourseRelateModel.m in Sources */,

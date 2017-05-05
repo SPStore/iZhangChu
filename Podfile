@@ -5,5 +5,4 @@ target 'iZhangChu' do
     pod 'Masonry'
     pod 'MJExtension'
     pod 'MJRefresh'
-    pod 'FMDB'
 end 

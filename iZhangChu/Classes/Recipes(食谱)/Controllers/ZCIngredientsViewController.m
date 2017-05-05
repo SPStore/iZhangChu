@@ -10,9 +10,11 @@
 #import "ZCIngredientsCell.h"
 #import "ZCIngredientsDataModel.h"
 #import "ZCMacro.h"
-#import "SPSqlite.h"
+
 
 #define INGREDIENT_TABLE @"ingredients"
+
+#define SQLITE_TABLENAME NSStringFromClass([self class])
 
 @interface ZCIngredientsViewController () <UITableViewDataSource, UITableViewDelegate>
 @property (nonatomic, strong) UITableView *tableView;
@@ -38,39 +40,18 @@
 
 - (void)requestData:(NSMutableDictionary *)params {
     
-    NSMutableArray *allData = [[SPSqlite shareSqlite] queryWithTableName:INGREDIENT_TABLE].mutableCopy;
-    if (allData.count != 0) {  // 有数据
-        NSString *a = allData.firstObject[@"my"];
-        
-        self.sectionArray = [ZCIngredientsDataModel mj_objectArrayWithKeyValuesArray:a];
-        
+    [[SPHTTPSessionManager shareInstance] POST:ZCHOSTURL params:params success:^(id  _Nonnull responseObject) {
+
+        self.sectionArray = [ZCIngredientsDataModel mj_objectArrayWithKeyValuesArray:responseObject[@"data"][@"data"]];
         [self.tableView reloadData];
         
-    } else {
-        [[SPHTTPSessionManager shareInstance] POST:ZCHOSTURL params:params success:^(id  _Nonnull responseObject) {
-            
-            NSArray *dataArr = responseObject[@"data"][@"data"];
-       
-            NSDictionary *dic = @{@"my":dataArr};
-            // 建表
-            BOOL creatFlag = [[SPSqlite shareSqlite] createTableWithTableName:INGREDIENT_TABLE keys:dic.allKeys];
-            if (creatFlag) {
-                ZCLog(@"建表成功");
-            }
-            BOOL insertFlag = [[SPSqlite shareSqlite] insertIntoTableName:INGREDIENT_TABLE Dict:dic];
-            if (insertFlag) {
-                ZCLog(@"插入成功");
-            }
-            
-            self.sectionArray = [ZCIngredientsDataModel mj_objectArrayWithKeyValuesArray:dataArr];
-            [self.tableView reloadData];
-            
-        } failure:^(NSError * _Nonnull error) {
-            ZCLog(@"error=%@",error);
-        }];
-    }
-    
+    } failure:^(NSError * _Nonnull error) {
+        ZCLog(@"error=%@",error);
+    }];
+
 }
+
+
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return self.sectionArray.count;

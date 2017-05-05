@@ -4,7 +4,7 @@
 //
 //  Created by Libo on 17/4/29.
 //  Copyright © 2017年 iDress. All rights reserved.
-//
+//  推荐中的cell代理
 
 #import <Foundation/Foundation.h>
 
