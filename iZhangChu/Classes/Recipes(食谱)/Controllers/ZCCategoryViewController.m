@@ -30,7 +30,7 @@
     params[@"token"] = @"0";
     params[@"version"] = @4.92;
     // 调用父类的网络请求
-    //[super requestData:params];
+    [super requestData:params];
 }
 
 - (void)didReceiveMemoryWarning {

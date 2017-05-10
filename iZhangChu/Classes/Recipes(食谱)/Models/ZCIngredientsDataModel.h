@@ -37,4 +37,9 @@
  */
 @property (nonatomic, assign) float cellHeight;
 
+/**
+ 用来标记该model对应的cell是否选中
+ */
+@property (nonatomic, assign) BOOL selected;
+
 @end

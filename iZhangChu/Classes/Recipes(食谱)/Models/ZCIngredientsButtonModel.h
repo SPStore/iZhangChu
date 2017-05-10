@@ -14,4 +14,9 @@
 @property (nonatomic, copy) NSString *image;
 @property (nonatomic, copy) NSString *text;
 
+// 标记此模型对应的cell是否选中
+@property (nonatomic, assign) BOOL selected;
+
+@property (nonatomic, assign) NSInteger tag;
+
 @end

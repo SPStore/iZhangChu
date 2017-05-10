@@ -23,13 +23,16 @@ static NSString * const commentCellId = @"courseCommentCell";
 
 @property (nonatomic, strong) ZCCourseHeaderView *headerView;
 @property (nonatomic, strong) UITableView *tableView;
-@property (nonatomic, strong) NSArray *commentArray;
+@property (nonatomic, strong) NSMutableArray *commentArray;
+@property (nonatomic, assign) NSInteger page;
 @end
 
 @implementation ZCCourseViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    self.page = 1; // 默认1
     
     [self.view addSubview:self.tableView];
     self.headerView = [ZCCourseHeaderView courseHeaderView];
@@ -43,8 +46,14 @@ static NSString * const commentCellId = @"courseCommentCell";
     if (parts.count > 1) {
         [self requestData:parts[1]];
         [self requestCommentData:parts[1]];
+        
+        // 上拉加载更多
+        MJRefreshBackNormalFooter *footer = [MJRefreshBackNormalFooter footerWithRefreshingBlock:^{
+            // 加载更多评论
+            [self loadMoreComment:parts[1]];
+        }];
+        self.tableView.mj_footer = footer;
     }
-    
 }
 
 // 头部部分数据
@@ -104,7 +113,6 @@ static NSString * const commentCellId = @"courseCommentCell";
     params[@"version"] = @4.92;
     
     [[SPHTTPSessionManager shareInstance] POST:ZCHOSTURL params:params success:^(id  _Nonnull responseObject) {
-        ZCLog(@"---%@",responseObject);
         ZCCourseZanModel *zanModel = [ZCCourseZanModel mj_objectWithKeyValues:responseObject[@"data"]];
         self.headerView.zanModel = zanModel;
         // 头部数据不需要刷新tableView
@@ -114,12 +122,13 @@ static NSString * const commentCellId = @"courseCommentCell";
     }];
 }
 
+// 评论数据
 - (void)requestCommentData:(NSString *)relate_id {
     NSMutableDictionary *params = [NSMutableDictionary dictionary ];
     params[@"methodName"] = @"CommentList";
     params[@"relate_id"] = relate_id;
-    params[@"page"] = @1;
-    params[@"size"] = @7;
+    params[@"page"] = @(_page);
+    params[@"size"] = @(10);
     params[@"user_id"] = @0;
     params[@"token"] = @0;
     params[@"type"] = @2;
@@ -127,16 +136,31 @@ static NSString * const commentCellId = @"courseCommentCell";
     [[SPHTTPSessionManager shareInstance] POST:ZCHOSTURL params:params success:^(id  _Nonnull responseObject) {
         
         ZCCourseCommentModel *commentModel = [ZCCourseCommentModel mj_objectWithKeyValues:responseObject[@"data"]];
-        self.headerView.commentCount = commentModel.count;
-        // 获得评论数组
-        self.commentArray = commentModel.data;
-        
+        if (commentModel.count <= 0) {
+            [self.tableView.mj_footer endRefreshing];
+            return;
+        } else {
+            self.headerView.commentCount += commentModel.count;
+            // 获得评论数组
+            [self.commentArray addObjectsFromArray:commentModel.data];
+            
+        }
         // 刷新tableView
         [self.tableView reloadData];
+        // 不能调endRefreshingWithNoMoreData,否则即便有更多数据也不会再去加载
+        [self.tableView.mj_footer endRefreshing];
         
     } failure:^(NSError * _Nonnull error) {
         ZCLog(@"error = %@",error);
+        [self.tableView.mj_footer endRefreshing];
     }];
+}
+
+// 加载更多评论
+- (void)loadMoreComment:(NSString *)relate_id {
+    self.page++;
+    [self requestCommentData:relate_id];
+    
 }
 
 #pragma mark - ZCCourseHeaderView的代理方法
@@ -181,6 +205,16 @@ static NSString * const commentCellId = @"courseCommentCell";
     }
     return _tableView;
 }
+
+- (NSMutableArray *)commentArray {
+    
+    if (!_commentArray) {
+        _commentArray = [NSMutableArray array];
+        
+    }
+    return _commentArray;
+}
+
 
 - (void)dealloc {
     ZCLog(@"%s",__func__);

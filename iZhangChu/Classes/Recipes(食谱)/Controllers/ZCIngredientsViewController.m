@@ -10,9 +10,7 @@
 #import "ZCIngredientsCell.h"
 #import "ZCIngredientsDataModel.h"
 #import "ZCMacro.h"
-
-
-#define INGREDIENT_TABLE @"ingredients"
+#import "ZCIngredientSqlite.h"
 
 #define SQLITE_TABLENAME NSStringFromClass([self class])
 
@@ -39,16 +37,28 @@
 }
 
 - (void)requestData:(NSMutableDictionary *)params {
-    
-    [[SPHTTPSessionManager shareInstance] POST:ZCHOSTURL params:params success:^(id  _Nonnull responseObject) {
-
-        self.sectionArray = [ZCIngredientsDataModel mj_objectArrayWithKeyValuesArray:responseObject[@"data"][@"data"]];
+ 
+    // 从数据库中取出数据
+    NSArray *allData = [[ZCIngredientSqlite shareSqlite] queryAllDataOnTable:SQLITE_TABLENAME];
+    if (allData.count != 0) { // 如果数据库中有数据，直接用数据库的
+        self.sectionArray = [ZCIngredientsDataModel mj_objectArrayWithKeyValuesArray:allData];
         [self.tableView reloadData];
-        
-    } failure:^(NSError * _Nonnull error) {
-        ZCLog(@"error=%@",error);
-    }];
 
+    } else { // 如果数据库中没有数据，则去网络请求
+        [[SPHTTPSessionManager shareInstance] POST:ZCHOSTURL params:params success:^(id  _Nonnull responseObject) {
+
+            // 创建数据库表
+            [[ZCIngredientSqlite shareSqlite] creatTableWithTableName:SQLITE_TABLENAME];
+            // 保存数据到数据库，数据类型是一个字典数组。当然也可以先转成模型，再把模型数组存进数据库，这样取出数据时直接取出模型
+            [[ZCIngredientSqlite shareSqlite] saveToTable:SQLITE_TABLENAME dictArray:responseObject[@"data"][@"data"]];
+            // 字典转模型
+            self.sectionArray = [ZCIngredientsDataModel mj_objectArrayWithKeyValuesArray:responseObject[@"data"][@"data"]];
+            [self.tableView reloadData];
+            
+        } failure:^(NSError * _Nonnull error) {
+            ZCLog(@"error=%@",error);
+        }];
+    }
 }
 
 

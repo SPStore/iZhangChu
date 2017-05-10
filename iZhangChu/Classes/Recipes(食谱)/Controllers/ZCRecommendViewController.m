@@ -43,7 +43,7 @@
     
     [self setupTableView];
     
-    [self resuestData];
+    [self requestData];
     
     [self registerCell];
 }
@@ -51,6 +51,23 @@
 - (void)setupTableView {
     [self.view addSubview:self.tableView];
     self.tableView.tableHeaderView = self.headerView;
+
+    // 刷新
+    // block方式
+    self.tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+        [self loadNewData];
+    }];
+    MJRefreshNormalHeader *header = (MJRefreshNormalHeader *)self.tableView.mj_header;
+    header.stateLabel.alpha = header.arrowView.alpha = header.lastUpdatedTimeLabel.alpha = header.stateLabel.alpha = 0.6;
+    header.lastUpdatedTimeLabel.font = [UIFont systemFontOfSize:13];
+    
+    // 方法回调方式
+    /*
+    MJRefreshNormalHeader *header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(loadNewData)];
+    header.stateLabel.alpha = header.arrowView.alpha = header.lastUpdatedTimeLabel.alpha = header.stateLabel.alpha = 0.6;
+    header.lastUpdatedTimeLabel.font = [UIFont systemFontOfSize:13];
+    self.tableView.mj_header = header;
+     */
 }
 
 - (void)registerCell {
@@ -65,7 +82,7 @@
     }
 }
 
-- (void)resuestData {
+- (void)requestData {
     
     NSMutableDictionary *params = [NSMutableDictionary dictionary ];
     params[@"methodName"] = @"SceneHome";
@@ -136,11 +153,17 @@
         }
         
         [self.tableView reloadData];
+        [self.tableView.mj_header endRefreshing];
         
     } failure:^(NSError * _Nonnull error) {
         ZCLog(@"%@",error);
+        [self.tableView.mj_header endRefreshing];
     }];
     
+}
+
+- (void)loadNewData {
+    [self requestData];
 }
 
 

@@ -135,6 +135,7 @@ typedef NS_ENUM(NSInteger, SPCarouseImagesDataStyle){
     _scrollView.contentOffset = CGPointMake(kWidth, 0);
     
     _pageControl.numberOfPages = self.kImageCount;
+    _pageControl.currentPage = 0;
     
     self.nextPhotoIndex = 1;
     self.lastPhotoIndex = _kImageCount - 1;
@@ -155,31 +156,32 @@ typedef NS_ENUM(NSInteger, SPCarouseImagesDataStyle){
 #pragma mark - setter
 // 本地图片
 - (void)setLocalImages:(NSArray<NSString *> *)localImages {
-    if (_localImages != localImages) {
+    if (![_localImages isEqualToArray:localImages]) {
         _localImages = nil;
-        _localImages = localImages;
+        _localImages = [localImages copy];
+        //标记图片来源
+        self.carouseImagesStyle = SPCarouseImagesDataInLocal;
+        //获取数组个数
+        self.kImageCount = _localImages.count;
+        [self configure];
+        
+        [self openTimer];
     }
-    //标记图片来源
-    self.carouseImagesStyle = SPCarouseImagesDataInLocal;
-    //获取数组个数
-    self.kImageCount = _localImages.count;
-    [self configure];
     
-    [self openTimer];
 }
 
 // 网络图片
 - (void)setUrlImages:(NSArray<NSString *> *)urlImages {
-    if (_urlImages != urlImages) {
+    if (![_urlImages isEqualToArray:urlImages]) {
         _urlImages = nil;
-        _urlImages = urlImages;
+        _urlImages = [urlImages copy];
+        //标记图片来源
+        self.carouseImagesStyle = SPCarouseImagesDataInURL;
+        self.kImageCount = _urlImages.count;
+        [self configure];
+        
+        [self openTimer];
     }
-    //标记图片来源
-    self.carouseImagesStyle = SPCarouseImagesDataInURL;
-    self.kImageCount = _urlImages.count;
-    [self configure];
-    
-    [self openTimer];
 }
 
 // 是否自动轮播

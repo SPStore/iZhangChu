@@ -88,8 +88,6 @@
         make.height.equalTo(kSearchBarHeight);
     }];
  
-    
-    
     [super updateConstraints];
 }
 

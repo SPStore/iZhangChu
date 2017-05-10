@@ -37,6 +37,9 @@
 
 #define greaterThaniOS(n) ([[UIDevice currentDevice].systemVersion doubleValue] >= n)
 
+#define WEAKSELF typeof(self) __weak weakSelf = self;
+#define STRONGSELF typeof(weakSelf)__strong strongSelf = weakSelf;
+
 #import "ZCHeaderFile.h"
 #import "ZCConst.h"
 
