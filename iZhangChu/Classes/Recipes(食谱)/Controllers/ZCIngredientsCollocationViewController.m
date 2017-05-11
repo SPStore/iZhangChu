@@ -18,11 +18,11 @@
 #define kInset_lr 25
 #define kPadding 20
 #define kCollectionViewCellW (kScreenW-2*kInset_lr-3*kPadding)/4.0
-#define kCollectionViewCellH kCollectionViewCellW*1.5
+#define kCollectionViewCellH (kCollectionViewCellW+25)
 
 #define kNavigationViewH 64
 #define kBottomViewToolBarH 55
-#define kBottomViewH kScreenH-kCollectionViewCellH-84
+#define kBottomViewH kScreenH-kCollectionViewCellH-kInset_tb-kNavigationViewH-kPadding*0.5
 
 static NSString * const ingredientsCollocationCellID = @"ZCIngredientsCollocationCell";
 
@@ -133,7 +133,10 @@ static NSString * const ingredientsCollocationCellID = @"ZCIngredientsCollocatio
     [self.collectionView reloadData];
     
     if (self.selectedButtonModelArray.count > 3) {
-        NSLog(@"最多只能选3个");
+        
+        // 弹出提示框
+        [self showMBProgressHUD];
+
         // 能进入这个if语句，说明数组中已经有4个模型了，需要删除最后一个模型，并把最后一个模型的selected还原为NO
         ZCIngredientsButtonModel *lastModel = self.selectedButtonModelArray.lastObject;
         lastModel.selected = NO;
@@ -296,6 +299,25 @@ static NSString * const ingredientsCollocationCellID = @"ZCIngredientsCollocatio
         self.bottomAlertView.state = BottomAlertViewStateDefault;
         self.coverView.hidden = YES;
     }
+}
+
+- (void)showMBProgressHUD {
+    MBProgressHUD *hud = [MBProgressHUD showMessage:@"最多只能选择3种食材哦~"];
+    hud.mode = MBProgressHUDModeText;
+    hud.label.font = [UIFont systemFontOfSize:16];
+    // 设置背景框的圆角大小
+    hud.bezelView.layer.cornerRadius = 2;
+    // 下面三行是修改背景框的垂直位置,显示在屏幕3/4的位置，kScreenH是屏幕高度
+    CGPoint offset = hud.offset;
+    offset.y = kScreenH*0.25;
+    hud.offset = offset;
+    
+    // 让bezelView的高度缩小0.7倍
+    hud.bezelView.transform = CGAffineTransformMakeScale(0.9f, 0.7f);
+    // 因为label是bezelView的子控件，bezelView缩小了，label也会跟着缩小，所以会导致label上的文字扁扁的，我们要将label的高度扩大回来
+    hud.label.transform = CGAffineTransformMakeScale(10.0/9.0f, 10.0f/7.0f);
+    // 2秒后消失
+    [hud hideAnimated:YES afterDelay:2.0f];
 }
 
 #pragma mark - lazy

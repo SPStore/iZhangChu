@@ -61,9 +61,8 @@
         
         [self.rightTopButton makeConstraints:^(MASConstraintMaker *make) {
             make.right.top.equalTo(0);
-            make.size.equalTo(CGSizeMake(30, 30));
+            make.size.equalTo(CGSizeMake(35, 25));
         }];
-        self.rightTopButton.backgroundColor = [UIColor redColor];
     }
     return self;
 }
@@ -218,8 +217,6 @@
 - (UIButton *)plusButton {
     if (!_plusButton) {
         _plusButton = [[UIButton alloc] init];
-        _plusButton.backgroundColor = [UIColor greenColor];
-        _plusButton.imageView.backgroundColor = [UIColor redColor];
         [_plusButton setImage:[UIImage imageNamed:@"material_add"] forState:UIControlStateNormal];
     }
     return _plusButton;
@@ -242,9 +239,7 @@
     
     if (!_rightTopButton) {
         _rightTopButton = [UIButton buttonWithType:UIButtonTypeCustom];
-        [_rightTopButton setImage:[UIImage imageNamed:@"material_close"] forState:UIControlStateNormal];
-        _rightTopButton.imageView.backgroundColor = [UIColor greenColor];
-        _rightTopButton.contentMode = UIViewContentModeScaleToFill;
+        [_rightTopButton setBackgroundImage:[UIImage imageNamed:@"material_close"] forState:UIControlStateNormal];
         [_rightTopButton addTarget:self action:@selector(rightTopButtonClicekd:) forControlEvents:UIControlEventTouchUpInside];
         _rightTopButton.hidden = YES;
     }

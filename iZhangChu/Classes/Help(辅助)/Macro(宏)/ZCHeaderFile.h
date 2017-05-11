@@ -13,6 +13,7 @@
 #import "NSObject+Property.h"
 #import "UIImage+General.h"
 #import "NSString+Extension.h"
+#import "MBProgressHUD+SP.h"
 
 #import "SPHTTPSessionManager.h"
 
@@ -22,5 +23,6 @@
 #import <Masonry.h>
 #import <MJExtension.h>
 #import <MJRefresh.h>
+#import <MBProgressHUD.h>
 
 #endif /* ZCHeaderFile_h */

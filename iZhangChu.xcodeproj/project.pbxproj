@@ -95,6 +95,7 @@
 		0941C0851EBC207200F51A2D /* ZCBasicModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0941C0841EBC207200F51A2D /* ZCBasicModel.m */; };
 		09472D281EC15DB500B5C741 /* ZCIngredientsCollocationCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 09472D271EC15DB500B5C741 /* ZCIngredientsCollocationCell.m */; };
 		09472D2B1EC16D0200B5C741 /* ZCIngredientsCollocationBottomAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 09472D2A1EC16D0200B5C741 /* ZCIngredientsCollocationBottomAlertView.m */; };
+		094865721EC40C540009E879 /* MBProgressHUD+SP.m in Sources */ = {isa = PBXBuildFile; fileRef = 094865711EC40C540009E879 /* MBProgressHUD+SP.m */; };
 		0952BFBB1EA84DD3002DA69E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 0952BFBA1EA84DD3002DA69E /* main.m */; };
 		0952BFC61EA84DD3002DA69E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0952BFC51EA84DD3002DA69E /* Assets.xcassets */; };
 		0952BFC91EA84DD3002DA69E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0952BFC71EA84DD3002DA69E /* LaunchScreen.storyboard */; };
@@ -298,6 +299,8 @@
 		09472D271EC15DB500B5C741 /* ZCIngredientsCollocationCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZCIngredientsCollocationCell.m; sourceTree = "<group>"; };
 		09472D291EC16D0200B5C741 /* ZCIngredientsCollocationBottomAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZCIngredientsCollocationBottomAlertView.h; sourceTree = "<group>"; };
 		09472D2A1EC16D0200B5C741 /* ZCIngredientsCollocationBottomAlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZCIngredientsCollocationBottomAlertView.m; sourceTree = "<group>"; };
+		094865701EC40C540009E879 /* MBProgressHUD+SP.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MBProgressHUD+SP.h"; sourceTree = "<group>"; };
+		094865711EC40C540009E879 /* MBProgressHUD+SP.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MBProgressHUD+SP.m"; sourceTree = "<group>"; };
 		0952BFB61EA84DD3002DA69E /* iZhangChu.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iZhangChu.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0952BFBA1EA84DD3002DA69E /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		0952BFC51EA84DD3002DA69E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -675,6 +678,8 @@
 				0941BFDD1EBC163800F51A2D /* UIImage+General.m */,
 				0941BFDE1EBC163800F51A2D /* UIView+Frame.h */,
 				0941BFDF1EBC163800F51A2D /* UIView+Frame.m */,
+				094865701EC40C540009E879 /* MBProgressHUD+SP.h */,
+				094865711EC40C540009E879 /* MBProgressHUD+SP.m */,
 			);
 			path = "Category(分类)";
 			sourceTree = "<group>";
@@ -737,11 +742,11 @@
 		0941BFF11EBC163800F51A2D /* Macro(宏) */ = {
 			isa = PBXGroup;
 			children = (
-				0941BFF21EBC163800F51A2D /* Singleton.h */,
-				0941BFF31EBC163800F51A2D /* ZCConst.h */,
-				0941BFF41EBC163800F51A2D /* ZCConst.m */,
 				0941BFF51EBC163800F51A2D /* ZCHeaderFile.h */,
 				0941BFF61EBC163800F51A2D /* ZCMacro.h */,
+				0941BFF31EBC163800F51A2D /* ZCConst.h */,
+				0941BFF41EBC163800F51A2D /* ZCConst.m */,
+				0941BFF21EBC163800F51A2D /* Singleton.h */,
 			);
 			path = "Macro(宏)";
 			sourceTree = "<group>";
@@ -1139,6 +1144,7 @@
 			files = (
 				0952C03A1EA84E41002DA69E /* AppDelegate.m in Sources */,
 				0941BFFF1EBC163800F51A2D /* SPCarouselView.m in Sources */,
+				094865721EC40C540009E879 /* MBProgressHUD+SP.m in Sources */,
 				0941C0031EBC163800F51A2D /* ZCConst.m in Sources */,
 				0941BF801EBC14E000F51A2D /* ZCRecommendBasicModel.m in Sources */,
 				0941BF751EBC14E000F51A2D /* ZCRecipesSearchResultViewController.m in Sources */,
