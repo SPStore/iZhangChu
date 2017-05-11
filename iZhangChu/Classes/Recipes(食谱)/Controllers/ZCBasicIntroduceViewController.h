@@ -6,9 +6,9 @@
 //  Copyright © 2017年 iDress. All rights reserved.
 //  新手入门控制器
 
-#import "ZCBasicViewController.h"
+#import "ZCWebViewController.h"
 
-@interface ZCBasicIntroduceViewController : ZCBasicViewController
+@interface ZCBasicIntroduceViewController : ZCWebViewController
 
 
 @end

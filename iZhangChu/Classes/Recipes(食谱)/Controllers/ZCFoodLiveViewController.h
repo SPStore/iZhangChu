@@ -6,8 +6,8 @@
 //  Copyright © 2017年 iDress. All rights reserved.
 //  美食直播控制器
 
-#import "ZCBasicViewController.h"
+#import "ZCWebViewController.h"
 
-@interface ZCFoodLiveViewController : ZCBasicViewController
+@interface ZCFoodLiveViewController : ZCWebViewController
 
 @end
