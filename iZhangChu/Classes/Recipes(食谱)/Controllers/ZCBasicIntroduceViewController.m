@@ -25,12 +25,6 @@
     
     [super webView:webView decidePolicyForNavigationAction:navigationAction decisionHandler:decisionHandler];
     
-    if ([webView.URL.absoluteString hasPrefix:@"https://itunes.apple.com"]) {
-        //        [[UIApplication sharedApplication] openURL:navigationAction.request.URL options:nil completionHandler:nil];
-        //        decisionHandler(WKNavigationActionPolicyCancel);
-    }else {
-        decisionHandler(WKNavigationActionPolicyAllow);
-    }
 }
 
 

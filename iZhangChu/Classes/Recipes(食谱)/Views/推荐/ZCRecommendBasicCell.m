@@ -26,6 +26,12 @@
     return self;
 }
 
+- (void)tapTitleLabel:(UITapGestureRecognizer *)tap {
+    if ([self.delegate respondsToSelector:@selector(recommendTitleCellClickedWithModel:)]) {
+        [self.delegate recommendTitleCellClickedWithModel:(ZCRecommendImageViewTitleModel *)self.model];
+    }
+}
+
 - (void)setTitle:(NSString *)title {
     _title = [title copy];
     
@@ -45,6 +51,9 @@
         _bigView = [[UIView alloc] init];
         [_bigView addSubview:self.titleLabel];
         [_bigView addSubview:self.moreImageView];
+        
+        UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapTitleLabel:)];
+        [_bigView addGestureRecognizer:tap];
     }
     return _bigView;
 }
@@ -57,6 +66,7 @@
         _titleLabel.font = [UIFont systemFontOfSize:17];
         _titleLabel.textColor = [UIColor blackColor];
         _titleLabel.alpha = 0.8;
+        _titleLabel.userInteractionEnabled = YES;
         
     }
     return _titleLabel;

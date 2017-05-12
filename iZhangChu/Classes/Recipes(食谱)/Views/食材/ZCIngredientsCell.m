@@ -26,6 +26,20 @@
         self.selectionStyle = UITableViewCellSelectionStyleNone;
         [self.contentView addSubview:self.titleLabel];
         [self.contentView addSubview:self.firstImageView];
+        
+        [self.titleLabel makeConstraints:^(MASConstraintMaker *make) {
+            make.left.equalTo(kLeftMargin);
+            make.right.equalTo(100);
+            make.top.equalTo(kTopMargin);
+            make.height.equalTo(kTitleLabelH);
+        }];
+        
+        [self.firstImageView makeConstraints:^(MASConstraintMaker *make) {
+            make.left.equalTo(self.titleLabel);
+            make.top.equalTo(self.titleLabel.bottom).offset(kTopMargin);
+            make.width.equalTo(kFirstImageViewW);
+            make.height.equalTo(kButtonH * 2 + kButtonPadding);
+        }];
     }
     return self;
 }
@@ -45,27 +59,51 @@
         [self.buttonArray addObject:btn];
     }
     
-    // 这个for循环的最大作用是解决cell的复用，比如第一个cell上有30个button ，第二个cell上有20个button，当第二个cell复用第一个cell时，第二个cell则会显示30个button，我们要将多余的10个隐藏掉
-    for (int i = 0; i < self.buttonArray.count; i++) {
-        ZCIngredientsButton *btn = self.buttonArray[i];
+    /*
+    double date_s = CFAbsoluteTimeGetCurrent();
+    
+    [self.buttonArray enumerateObjectsUsingBlock:^(ZCIngredientsButton * _Nonnull btn, NSUInteger i, BOOL * _Nonnull stop) {
         if (i < count) {
             // 只有显示出来的按钮才去做相关设置
             ZCIngredientsButtonModel *btnModel = model.data[i];
-            btn.backgroundColor = ZCBackgroundColor;
-            [btn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-            btn.titleLabel.font = [UIFont systemFontOfSize:14];
-            btn.titleLabel.alpha = 0.6;
-            btn.titleLabel.numberOfLines = 2;
-            btn.titleLabel.lineBreakMode = NSLineBreakByCharWrapping;
-            btn.titleLabel.textAlignment = NSTextAlignmentCenter;
-            [btn sizeToFit];
+            btn.btnModel = btnModel;
+            btn.hidden = NO;
+        } else {
+            btn.hidden = YES;
+        }
+    }];
+    double date_current = CFAbsoluteTimeGetCurrent() - date_s;
+     NSLog(@"enum Time: %f ms",date_current * 1000);
+    
+    date_s = CFAbsoluteTimeGetCurrent();
+    for (ZCIngredientsButton *btn in self.buttonArray) {
+        NSInteger i = [self.buttonArray indexOfObject:btn];
+        if (i < count) {
+            // 只有显示出来的按钮才去做相关设置
+            ZCIngredientsButtonModel *btnModel = model.data[i];
             btn.btnModel = btnModel;
             btn.hidden = NO;
         } else {
             btn.hidden = YES;
         }
     }
-    // 布局，之所以在这里布局，是因为一定要保证该方法里的buttonArray的元素个数与layoutSubControl方法里的buttonArray的元素个数保持一致。
+
+    date_current = CFAbsoluteTimeGetCurrent() - date_s;
+    NSLog(@"for in Time: %f ms",date_current * 1000);
+    */
+    // 这个for循环的最大作用是解决cell的复用，比如第一个cell上有30个button ，第二个cell上有20个button，当第二个cell复用第一个cell时，第二个cell则会显示30个button，我们要将多余的10个隐藏掉
+    //date_s = CFAbsoluteTimeGetCurrent();
+    for (int i = 0; i < self.buttonArray.count; i++) {
+        ZCIngredientsButton *btn = self.buttonArray[i];
+        if (i < count) {
+            // 只有显示出来的按钮才去做相关设置
+            ZCIngredientsButtonModel *btnModel = model.data[i];
+            btn.btnModel = btnModel;
+            btn.hidden = NO;
+        } else {
+            btn.hidden = YES;
+        }
+    }
     [self layoutSubControl];
 }
 
@@ -101,20 +139,6 @@
 
 - (void)layoutSubControl {
  
-    [self.titleLabel makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(kLeftMargin);
-        make.right.equalTo(100);
-        make.top.equalTo(kTopMargin);
-        make.height.equalTo(kTitleLabelH);
-    }];
-    
-    [self.firstImageView makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(self.titleLabel);
-        make.top.equalTo(self.titleLabel.bottom).offset(kTopMargin);
-        make.width.equalTo(kFirstImageViewW);
-        make.height.equalTo(kButtonH * 2 + kButtonPadding);
-    }];
-    
     NSInteger maxCol = 3;
     __block int i = 0;
     [self.buttonArray makeConstraints:^(MASConstraintMaker *make) {
@@ -144,6 +168,20 @@
 
 
 @implementation ZCIngredientsButton
+
+- (instancetype)initWithFrame:(CGRect)frame {
+    if (self = [super initWithFrame:frame]) {
+        self.backgroundColor = ZCBackgroundColor;
+        [self setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+        self.titleLabel.font = [UIFont systemFontOfSize:14];
+        self.titleLabel.alpha = 0.6;
+        self.titleLabel.numberOfLines = 2;
+        self.titleLabel.lineBreakMode = NSLineBreakByCharWrapping;
+        self.titleLabel.textAlignment = NSTextAlignmentCenter;
+        [self sizeToFit];
+    }
+    return self;
+}
 
 - (void)setBtnModel:(ZCIngredientsButtonModel *)btnModel {
     _btnModel = btnModel;

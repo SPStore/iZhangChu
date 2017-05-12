@@ -15,7 +15,7 @@
              };
 }
 
-// 提前计算cell的高度
+// 提前计算cell的高度,缓存在model中
 - (float)cellHeight {
     if (!_cellHeight) {
         NSUInteger count = self.data.count;
@@ -36,4 +36,9 @@
     return _cellHeight;
 }
 
+
+
 @end
+
+
+

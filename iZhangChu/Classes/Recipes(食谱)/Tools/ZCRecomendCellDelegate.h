@@ -15,10 +15,17 @@ typedef NS_ENUM(NSInteger, ZCRecommendButtonCellButtonType) {
     ZCRecommendButtonCellButtonTypeFoodLive                 // 美食直播
 };
 
+@class ZCRecommendWidgetItem;
+@class ZCRecommendImageViewTitleModel;
+
 @protocol ZCRecomendCellDelegate <NSObject>
 
 @optional;
-- (void)buttonOnButtonCellClickedWithButtonType:(ZCRecommendButtonCellButtonType)btnType;
+- (void)recommendButtonOnButtonCellClickedWithButtonType:(ZCRecommendButtonCellButtonType)btnType;
+
+- (void)recommendCanScrollCellImageClickedWithItem:(ZCRecommendWidgetItem *)item;
+
+- (void)recommendTitleCellClickedWithModel:(ZCRecommendImageViewTitleModel *)model;
 
 @end
 

@@ -11,6 +11,8 @@
 
 @interface ZCWebViewController : ZCBasicViewController<WKNavigationDelegate>
 
+@property (nonatomic, strong) WKWebView *webView;
+
 @property (nonatomic, strong) NSString *urlString;
 
 @end

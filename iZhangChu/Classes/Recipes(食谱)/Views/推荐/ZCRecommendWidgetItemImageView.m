@@ -21,6 +21,8 @@
 - (instancetype)initWithFrame:(CGRect)frame {
     if (self = [super initWithFrame:frame]) {
         
+        self.userInteractionEnabled = YES;
+        
         UIView *maskView = [[UIView alloc] init];
         self.maskView = maskView;
         maskView.backgroundColor = [UIColor blackColor];

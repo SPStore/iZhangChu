@@ -41,6 +41,9 @@
     [self popViewControllerAnimated:YES];
 }
 
+- (UIViewController *)childViewControllerForStatusBarStyle {
+    return self.topViewController;
+}
 
 
 @end

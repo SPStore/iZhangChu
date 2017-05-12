@@ -22,14 +22,19 @@
 #import "ZCRecommendImageViewTitleModel.h"
 #import "ZCRecommendBasicCell.h"
 
+#import "ZCNavigationController.h"
+#import "ZCRecipesSearchViewController.h"
 #import "ZCCourseViewController.h"
 
+#import "ZCWebViewController.h"
 #import "ZCBasicIntroduceViewController.h"
 #import "ZCIngredientsCollocationViewController.h"
 #import "ZCSceneRecipesViewController.h"
 #import "ZCFoodLiveViewController.h"
 
-@interface ZCRecommendViewController () <UITableViewDelegate,UITableViewDataSource, SPCarouselViewDelegate,ZCRecomendCellDelegate>
+#import "ZCSceneInfoViewController.h"
+
+@interface ZCRecommendViewController () <UITableViewDelegate,UITableViewDataSource, SPCarouselViewDelegate,ZCRecomendCellDelegate,UITextFieldDelegate>
 @property (nonatomic, strong) UITableView *tableView;
 @property (nonatomic, strong) ZCRecommendHeaderView *headerView;
 @property (nonatomic, strong) NSArray *banners;
@@ -90,7 +95,12 @@
     params[@"token"] = @"0";
     params[@"version"] = @4.92;
     
+    [MBProgressHUD showMessage:@"加载中..."];
+    
     [[SPHTTPSessionManager shareInstance] POST:ZCHOSTURL params:params success:^(id  _Nonnull responseObject) {
+        
+        [MBProgressHUD hideHUD];
+        
         // 头部轮播图数据
         self.banners = [ZCRecommendBannerModel mj_objectArrayWithKeyValuesArray:responseObject[@"data"][@"banner"]];
         self.headerView.banners = self.banners;
@@ -158,6 +168,7 @@
     } failure:^(NSError * _Nonnull error) {
         ZCLog(@"%@",error);
         [self.tableView.mj_header endRefreshing];
+        [MBProgressHUD hideHUD];
     }];
     
 }
@@ -202,13 +213,30 @@
 #pragma mark - 轮播图的代理方法
 - (void)carouselView:(SPCarouselView *)carouselView clickedImageAtIndex:(NSUInteger)index {
     ZCRecommendBannerModel *banner = self.banners[index];
-    ZCCourseViewController *courseVc = [[ZCCourseViewController alloc] init];
-    courseVc.banner = banner;
-    [self.navigationController pushViewController:courseVc animated:YES];
+    if ([banner.banner_link hasPrefix:@"http"]) {
+        ZCWebViewController *webVc = [[ZCWebViewController alloc] init];
+        webVc.urlString = banner.banner_link;
+        [self.navigationController pushViewController:webVc animated:YES];
+    } else {
+        ZCCourseViewController *courseVc = [[ZCCourseViewController alloc] init];
+        courseVc.banner = banner;
+        [self.navigationController pushViewController:courseVc animated:YES];
+    }
+    
+}
+
+#pragma mark - textField的代理方法 
+
+- (void)textFieldDidBeginEditing:(UITextField *)textField {
+    [textField resignFirstResponder];
+    ZCRecipesSearchViewController *searchVc = [[ZCRecipesSearchViewController alloc] init];
+    // 用一个导航控制器包装，因为在搜索控制器中需要push。当然也可以拿到其他导航控制器去push，比如跟控制器的第一个导航控制器，但是那样做，就无法pop回搜索控制器
+    ZCNavigationController *navi = [[ZCNavigationController alloc] initWithRootViewController:searchVc];
+    [self presentViewController:navi animated:YES completion:nil];
 }
 
 #pragma mark - cell的代理方法
-- (void)buttonOnButtonCellClickedWithButtonType:(ZCRecommendButtonCellButtonType)btnType {
+- (void)recommendButtonOnButtonCellClickedWithButtonType:(ZCRecommendButtonCellButtonType)btnType {
     switch (btnType) {
             // 新手入门
         case ZCRecommendButtonCellButtonTypeBasicIntroduce:
@@ -248,6 +276,22 @@
     }
 }
 
+- (void)recommendCanScrollCellImageClickedWithItem:(ZCRecommendWidgetItem *)item {
+    ZCWebViewController *webVc = [[ZCWebViewController alloc] init];
+    webVc.urlString = item.link;
+    [self.navigationController pushViewController:webVc animated:YES];
+}
+
+- (void)recommendTitleCellClickedWithModel:(ZCRecommendImageViewTitleModel *)model {
+    ZCSceneInfoViewController *sceneInfoVc = [[ZCSceneInfoViewController alloc] init];
+    // 网络请求的参数series_id藏在title_link中
+    NSArray *parts = [model.title_link componentsSeparatedByString:@"#"];
+    if (parts.count > 1) {
+        sceneInfoVc.scene_id = parts[1];
+    }
+    [self.navigationController pushViewController:sceneInfoVc animated:YES];
+}
+
 - (UITableView *)tableView {
     if (!_tableView) {
         _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, kScreenW, kScreenH-64) style:UITableViewStyleGrouped];
@@ -272,6 +316,7 @@
         _headerView = [[ZCRecommendHeaderView alloc] initWithFrame:CGRectMake(0, 0, kScreenW, kCarouselViewHeight+kSearchBarHeight+2*KSearchBarMargin_tb)];
         _headerView.backgroundColor = ZCBackgroundColor;
         _headerView.carouselView.delegate = self;
+        _headerView.searchBar.delegate = self;
     }
     return _headerView;
 }

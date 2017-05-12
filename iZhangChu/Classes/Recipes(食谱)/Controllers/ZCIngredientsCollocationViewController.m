@@ -462,8 +462,4 @@ static NSString * const ingredientsCollocationCellID = @"ZCIngredientsCollocatio
 }
 
 
-#warning not Do
-// MBProgress 弹出提示最多选3道菜
-// 按钮不充满问题
-
 @end

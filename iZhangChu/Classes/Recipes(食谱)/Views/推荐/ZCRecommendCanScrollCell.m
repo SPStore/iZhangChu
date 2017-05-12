@@ -38,6 +38,16 @@
         imageview.showMaskView = NO;
         imageview.item = item;
         [self.myContentView addSubview:imageview];
+        
+        UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapImageView:)];
+        [imageview addGestureRecognizer:tap];
+    }
+}
+
+- (void)tapImageView:(UITapGestureRecognizer *)tap {
+    ZCRecommendWidgetItemImageView *imageView = (ZCRecommendWidgetItemImageView *)tap.view;
+    if ([self.delegate respondsToSelector:@selector(recommendCanScrollCellImageClickedWithItem:)]) {
+        [self.delegate recommendCanScrollCellImageClickedWithItem:imageView.item];
     }
 }
 

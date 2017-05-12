@@ -44,7 +44,7 @@ static NSString * const recipesSearchResultCellID = @"recipesSearchResultCell";
 }
 
 - (void)requestData {
-    NSMutableDictionary *params = [NSMutableDictionary dictionary ];
+    NSMutableDictionary *params = [NSMutableDictionary dictionary];
     params[@"methodName"] = @"SearchDishes";
     params[@"keyword"] = self.keyword;
     params[@"page"] = @1;

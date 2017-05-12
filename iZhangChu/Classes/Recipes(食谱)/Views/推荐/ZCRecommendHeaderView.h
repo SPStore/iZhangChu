@@ -24,4 +24,7 @@
 // 轮播图
 @property (nonatomic, strong) SPCarouselView *carouselView;
 
+// 搜索框
+@property (nonatomic, strong) UITextField *searchBar;
+
 @end

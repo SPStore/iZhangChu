@@ -82,8 +82,8 @@
 }
 
 - (void)menuBtnClicked:(UIButton *)sender {
-    if ([self.delegate respondsToSelector:@selector(buttonOnButtonCellClickedWithButtonType:)]) {
-        [self.delegate buttonOnButtonCellClickedWithButtonType:sender.tag];
+    if ([self.delegate respondsToSelector:@selector(recommendButtonOnButtonCellClickedWithButtonType:)]) {
+        [self.delegate recommendButtonOnButtonCellClickedWithButtonType:sender.tag];
     }
 }
 

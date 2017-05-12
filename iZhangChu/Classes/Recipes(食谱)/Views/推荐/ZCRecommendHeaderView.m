@@ -10,9 +10,8 @@
 #import "ZCMacro.h"
 #import "ZCRecommendBannerModel.h"
 
-@interface ZCRecommendHeaderView ()
-// 搜索框
-@property (nonatomic, strong) UITextField *searchBar;
+@interface ZCRecommendHeaderView () 
+
 
 @end
 
@@ -41,6 +40,10 @@
     self.carouselView.urlImages = urlImages;
 }
 
+- (void)tapSerchBar:(UITapGestureRecognizer *)tap {
+    ZCLog(@"点击了搜索宽 ");
+}
+
 - (UITextField *)searchBar {
     if (!_searchBar) {
         _searchBar = [[UITextField alloc] init];
@@ -50,9 +53,7 @@
         _searchBar.font = [UIFont systemFontOfSize:14];
         _searchBar.textAlignment = NSTextAlignmentCenter;
         _searchBar.textColor = [UIColor grayColor];
-//        _searchBar.layer.cornerRadius = 5;
         _searchBar.borderStyle = UITextBorderStyleRoundedRect;
-        _searchBar.userInteractionEnabled = NO;
         UIView *leftView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 20, 15)];
         UIImageView *leftImageView = [[UIImageView alloc] initWithFrame:CGRectMake(5, 0, 15, 15)];
         [leftView addSubview:leftImageView];
@@ -71,6 +72,7 @@
         _carouselView.pageControlPosition = SPPageContolPositionBottomRight;
         _carouselView.currentPageColor = ZCGlobalColor;
         _carouselView.pageColor = [UIColor whiteColor];
+        _carouselView.duration = 5;
     }
     return _carouselView;
 }
