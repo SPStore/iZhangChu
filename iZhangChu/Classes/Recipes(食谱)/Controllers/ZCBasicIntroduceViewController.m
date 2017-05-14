@@ -2,7 +2,7 @@
 //  ZCBasicIntroduceViewController.m
 //  iZhangChu
 //
-//  Created by Libo on 17/4/28.
+//  Created by Shengping on 17/4/28.
 //  Copyright © 2017年 iDress. All rights reserved.
 //
 
@@ -41,8 +41,14 @@
     [super webView:webView didFinishNavigation:navigation];
     
     // 移除不想要的标签的某个内容，这里去除广告
-#warning 问题:h5中的某个标签类名是由class和id共同决定的，该如何更加标准的找到该标签
-    NSString *str = @"document.getElementsByClassName('footer-app layout-footer')[0].remove();";
+    /*
+     //  h5源码：
+     $(document.body).append('<div class="footer-app layout-footer" id="footer-app"></div>');
+     */
+    // 方法一：
+    NSString *str = @"document.getElementById('footer-app').remove();";
+    // 方法二,注意如果是获取类名，是getElements,不是getElement,getElementsByClassName返回的是一个数组，getElementById返回的是数组的第一个元素
+    //NSString *str = @"document.getElementsByClassName('footer-app layout-footer')[0].remove();";
     [webView evaluateJavaScript:str completionHandler:nil];
     
     // 获取h5中某个标签的内容

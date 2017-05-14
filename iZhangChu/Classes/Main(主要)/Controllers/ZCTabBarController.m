@@ -2,7 +2,7 @@
 //  ZCTabBarController.m
 //  掌厨
 //
-//  Created by Libo on 17/4/17.
+//  Created by Shengping on 17/4/17.
 //  Copyright © 2017年 iDress. All rights reserved.
 //
 
@@ -91,6 +91,7 @@
     [childController.tabBarItem setTitleTextAttributes:selectTextAttrs forState:UIControlStateSelected];
     // 先给外面传进来的小控制器 包装 一个导航控制器
     ZCNavigationController *nav = [[ZCNavigationController alloc] initWithRootViewController:childController];
+    
     // 添加为子控制器
     [self addChildViewController:nav];
 }

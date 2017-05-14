@@ -2,7 +2,7 @@
 //  ZCRecommendImageVideoModel.h
 //  iZhangChu
 //
-//  Created by Libo on 17/4/21.
+//  Created by Shengping on 17/4/21.
 //  Copyright © 2017年 iDress. All rights reserved.
 //  第一张为图片，其余为视频的cell对应的模型
 

@@ -2,9 +2,9 @@
 //  ZCIngredientsCollocationBottomToolBar.h
 //  iZhangChu
 //
-//  Created by Libo on 17/5/10.
+//  Created by Shengping on 17/5/10.
 //  Copyright © 2017年 iDress. All rights reserved.
-//
+//  食材搭配中的底部toolbar
 
 #import <UIKit/UIKit.h>
 

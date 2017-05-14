@@ -2,7 +2,7 @@
 //  ZCSceneInfoListCell.m
 //  iZhangChu
 //
-//  Created by Libo on 17/5/11.
+//  Created by Shengping on 17/5/11.
 //  Copyright © 2017年 iDress. All rights reserved.
 //
 
@@ -74,7 +74,6 @@
             } else {
                 button.hidden = NO;
                 button.layer.hidden = NO;
-                
             }
             
         } else {

@@ -2,7 +2,7 @@
 //  ZCRecipesSearchResultBasicCell.h
 //  iZhangChu
 //
-//  Created by Libo on 17/5/2.
+//  Created by Shengping on 17/5/2.
 //  Copyright © 2017年 iDress. All rights reserved.
 //  搜索结果的cell基类
 

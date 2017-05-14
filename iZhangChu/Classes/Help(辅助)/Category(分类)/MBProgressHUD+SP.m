@@ -38,6 +38,25 @@
     return [self showMessage:message toView:nil];
 }
 
++ (void)showMessageOnScreenBottom:(NSString *)message hideAfterTime:(NSInteger)duration {
+    MBProgressHUD *hud = [MBProgressHUD showMessage:message];
+    hud.mode = MBProgressHUDModeText;
+    hud.label.font = [UIFont systemFontOfSize:16];
+    // 设置背景框的圆角大小
+    hud.bezelView.layer.cornerRadius = 2;
+    // 下面三行是修改背景框的垂直位置,显示在屏幕3/4的位置，kScreenH是屏幕高度
+    CGPoint offset = hud.offset;
+    offset.y =  [UIScreen mainScreen].bounds.size.height*0.25;
+    hud.offset = offset;
+    
+    // 让bezelView的高度缩小0.7倍
+    hud.bezelView.transform = CGAffineTransformMakeScale(0.9f, 0.7f);
+    // 因为label是bezelView的子控件，bezelView缩小了，label也会跟着缩小，所以会导致label上的文字扁扁的，我们要将label的高度扩大回来
+    hud.label.transform = CGAffineTransformMakeScale(10.0/9.0f, 10.0f/7.0f);
+    // 2秒后消失
+    [hud hideAnimated:YES afterDelay:duration];
+}
+
 + (instancetype)showMessage:(NSString *)message toView:(UIView *)view {
     if (view == nil) view = [UIApplication sharedApplication].keyWindow;
     // 快速显示一个提示信息

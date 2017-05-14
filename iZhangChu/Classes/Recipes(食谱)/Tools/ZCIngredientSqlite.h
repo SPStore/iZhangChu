@@ -2,7 +2,7 @@
 //  ZCIngredientSqlite.h
 //  iZhangChu
 //
-//  Created by Libo on 17/5/5.
+//  Created by Shengping on 17/5/5.
 //  Copyright © 2017年 iDress. All rights reserved.
 //  食材数据库，食材专用。没有依赖FMDB。整个工程就食材一处用到数据库，没必要依赖第三方
 

@@ -2,7 +2,7 @@
 //  ZCSceneRecipesModel.h
 //  iZhangChu
 //
-//  Created by Libo on 17/5/3.
+//  Created by Shengping on 17/5/3.
 //  Copyright © 2017年 iDress. All rights reserved.
 //  场景菜谱模型
 

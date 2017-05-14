@@ -2,7 +2,7 @@
 //  ZCCourseViewController.m
 //  iZhangChu
 //
-//  Created by Libo on 17/4/25.
+//  Created by Shengping on 17/4/25.
 //  Copyright © 2017年 iDress. All rights reserved.
 //
 
@@ -41,31 +41,35 @@ static NSString * const commentCellId = @"courseCommentCell";
     
     [self.tableView registerNib:[UINib nibWithNibName:NSStringFromClass([ZCCourseCommentCell class]) bundle:nil] forCellReuseIdentifier:commentCellId];
     
-    // 网络请求的参数series_id藏在banner_link中
-    NSArray *parts = [self.banner.banner_link componentsSeparatedByString:@"#"];
-    if (parts.count > 1) {
-        [self requestData:parts[1]];
-        [self requestCommentData:parts[1]];
-        
-        // 上拉加载更多
-        MJRefreshBackNormalFooter *footer = [MJRefreshBackNormalFooter footerWithRefreshingBlock:^{
-            // 加载更多评论
-            [self loadMoreComment:parts[1]];
-        }];
-        self.tableView.mj_footer = footer;
-    }
+    // 头部部分数据
+    [self requestData:self.series_id];
+    // 评论数据
+    [self requestCommentData:self.series_id];
+    
+    // 上拉加载更多
+    MJRefreshBackNormalFooter *footer = [MJRefreshBackNormalFooter footerWithRefreshingBlock:^{
+        // 加载更多评论
+        [self loadMoreComment:self.series_id];
+    }];
+    self.tableView.mj_footer = footer;
 }
 
 // 头部部分数据
 - (void)requestData:(NSString *)series_id {
     NSMutableDictionary *params = [NSMutableDictionary dictionary ];
-    params[@"methodName"] = @"CourseSeriesView";
+    NSString *urlStrig;
+    if (!self.isJavaApi) {
+        params[@"methodName"] = @"CourseSeriesView";
+        urlStrig = ZCHOSTURL;
+    } else {
+        urlStrig = @"http://javaapi.izhangchu.com:8084/zcmessage/api/lifeCourseSeries/CourseSeriesView?";
+    }
     params[@"series_id"] = series_id;
     params[@"user_id"] = 0;
     params[@"token"] = 0;
     params[@"version"] = @4.92;
     
-    [[SPHTTPSessionManager shareInstance] POST:ZCHOSTURL params:params success:^(id  _Nonnull responseObject) {
+    [[SPHTTPSessionManager shareInstance] POST:urlStrig params:params success:^(id  _Nonnull responseObject) {
         ZCCourseHeaderModel *headerModel = [ZCCourseHeaderModel mj_objectWithKeyValues:responseObject[@"data"]];
         self.headerView.headerModel = headerModel;
         
@@ -82,8 +86,16 @@ static NSString * const commentCellId = @"courseCommentCell";
 
 // 相关课程数据
 - (void)requestCourseRelateData:(NSString *)course_id {
-    NSMutableDictionary *params = [NSMutableDictionary dictionary ];
-    params[@"methodName"] = @"CourseRelate";
+    NSMutableDictionary *params = [NSMutableDictionary dictionary];
+    
+    NSString *urlStrig;
+
+    if (!self.isJavaApi) {
+        params[@"methodName"] = @"CourseRelate";
+        urlStrig = ZCHOSTURL;
+    } else {
+        urlStrig = @"http://javaapi.izhangchu.com:8084/zcmessage/api/lifeCourseSeries/CourseRelate?";
+    }
     params[@"course_id"] = course_id;
     params[@"page"] = @1;
     params[@"size"] = @10;
@@ -91,7 +103,7 @@ static NSString * const commentCellId = @"courseCommentCell";
     params[@"token"] = 0;
     params[@"version"] = @4.92;
     
-    [[SPHTTPSessionManager shareInstance] POST:ZCHOSTURL params:params success:^(id  _Nonnull responseObject) {
+    [[SPHTTPSessionManager shareInstance] POST:urlStrig params:params success:^(id  _Nonnull responseObject) {
         ZCCourseRelateModel *courseRelateModel = [ZCCourseRelateModel mj_objectWithKeyValues:responseObject[@"data"]];
         self.headerView.courseRelateModel = courseRelateModel;
         // 头部数据不需要刷新tableView
@@ -103,8 +115,16 @@ static NSString * const commentCellId = @"courseCommentCell";
 
 // 点赞列表数据
 - (void)requestDianzanListData:(NSString *)post_id {
-    NSMutableDictionary *params = [NSMutableDictionary dictionary ];
-    params[@"methodName"] = @"DianzanList";
+    NSMutableDictionary *params = [NSMutableDictionary dictionary];
+    
+    NSString *urlStrig;
+    
+    if (!self.isJavaApi) {
+        params[@"methodName"] = @"DianzanList";
+        urlStrig = ZCHOSTURL;
+    } else {
+        urlStrig = @"http://javaapi.izhangchu.com:8084/zcmessage/api/lifeCourseSeries/DianzanList?";
+    }
     params[@"post_id"] = post_id;
     params[@"page"] = @1;
     params[@"size"] = @7;
@@ -112,7 +132,7 @@ static NSString * const commentCellId = @"courseCommentCell";
     params[@"token"] = 0;
     params[@"version"] = @4.92;
     
-    [[SPHTTPSessionManager shareInstance] POST:ZCHOSTURL params:params success:^(id  _Nonnull responseObject) {
+    [[SPHTTPSessionManager shareInstance] POST:urlStrig params:params success:^(id  _Nonnull responseObject) {
         ZCCourseZanModel *zanModel = [ZCCourseZanModel mj_objectWithKeyValues:responseObject[@"data"]];
         self.headerView.zanModel = zanModel;
         // 头部数据不需要刷新tableView
@@ -124,8 +144,16 @@ static NSString * const commentCellId = @"courseCommentCell";
 
 // 评论数据
 - (void)requestCommentData:(NSString *)relate_id {
-    NSMutableDictionary *params = [NSMutableDictionary dictionary ];
-    params[@"methodName"] = @"CommentList";
+    NSMutableDictionary *params = [NSMutableDictionary dictionary];
+    
+    NSString *urlStrig;
+    
+    if (!self.isJavaApi) {
+        params[@"methodName"] = @"CommentList";
+        urlStrig = ZCHOSTURL;
+    } else {
+        urlStrig = @"http://javaapi.izhangchu.com:8084/zcmessage/api/lifeCourseSeries/CommentList?";
+    }
     params[@"relate_id"] = relate_id;
     params[@"page"] = @(_page);
     params[@"size"] = @(10);
@@ -133,7 +161,7 @@ static NSString * const commentCellId = @"courseCommentCell";
     params[@"token"] = @0;
     params[@"type"] = @2;
     params[@"version"] = @4.92;
-    [[SPHTTPSessionManager shareInstance] POST:ZCHOSTURL params:params success:^(id  _Nonnull responseObject) {
+    [[SPHTTPSessionManager shareInstance] POST:urlStrig params:params success:^(id  _Nonnull responseObject) {
         
         ZCCourseCommentModel *commentModel = [ZCCourseCommentModel mj_objectWithKeyValues:responseObject[@"data"]];
         if (commentModel.count <= 0) {

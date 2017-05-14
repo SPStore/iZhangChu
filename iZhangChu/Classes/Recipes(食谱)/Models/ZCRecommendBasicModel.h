@@ -2,7 +2,7 @@
 //  ZCRecommendBasicModel.h
 //  iZhangChu
 //
-//  Created by Libo on 17/4/20.
+//  Created by Shengping on 17/4/20.
 //  Copyright © 2017年 iDress. All rights reserved.
 //  根模型
 

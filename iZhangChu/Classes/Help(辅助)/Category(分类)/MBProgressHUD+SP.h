@@ -44,6 +44,14 @@
  *  @param message 信息内容
  */
 + (instancetype)showMessage:(NSString *)message;
+
+/**
+ *  在屏幕的偏底部位置显示普通信息
+ *
+ *  @param message 信息内容
+ */
++ (void)showMessageOnScreenBottom:(NSString *)message hideAfterTime:(NSInteger)deration;
+
 /**
  *  显示普通信息
  *

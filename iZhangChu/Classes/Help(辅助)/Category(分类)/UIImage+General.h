@@ -2,7 +2,7 @@
 //  UIImage+General.h
 //  iWeChat
 //
-//  Created by Libo on 17/4/13.
+//  Created by Shengping on 17/4/13.
 //  Copyright © 2017年 iDress. All rights reserved.
 //
 

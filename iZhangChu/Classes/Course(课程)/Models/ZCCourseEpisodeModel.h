@@ -2,7 +2,7 @@
 //  ZCCourseEpisodeModel.h
 //  iZhangChu
 //
-//  Created by Libo on 17/4/25.
+//  Created by Shengping on 17/4/25.
 //  Copyright © 2017年 iDress. All rights reserved.
 //  视频每一集的model
 

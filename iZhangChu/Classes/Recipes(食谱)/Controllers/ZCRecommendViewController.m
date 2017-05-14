@@ -2,7 +2,7 @@
 //  ZCRecommendViewController.m
 //  掌厨
 //
-//  Created by Libo on 17/4/17.
+//  Created by Shengping on 17/4/17.
 //  Copyright © 2017年 iDress. All rights reserved.
 //
 
@@ -219,8 +219,14 @@
         [self.navigationController pushViewController:webVc animated:YES];
     } else {
         ZCCourseViewController *courseVc = [[ZCCourseViewController alloc] init];
-        courseVc.banner = banner;
+
+        // 网络请求的参数series_id藏在banner_link中
+        NSArray *parts = [banner.banner_link componentsSeparatedByString:@"#"];
+        if (parts.count > 1) {
+            courseVc.series_id = parts[1];
+        }
         [self.navigationController pushViewController:courseVc animated:YES];
+
     }
     
 }

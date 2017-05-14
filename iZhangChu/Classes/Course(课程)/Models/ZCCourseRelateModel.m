@@ -2,7 +2,7 @@
 //  ZCCourseRelateModel.m
 //  iZhangChu
 //
-//  Created by Libo on 17/4/26.
+//  Created by Shengping on 17/4/26.
 //  Copyright © 2017年 iDress. All rights reserved.
 //
 
