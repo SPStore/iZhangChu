@@ -29,14 +29,13 @@
     self.tabBar.translucent = NO;
     
     // 初始化子控制器
-    // 微信(首页)
     ZCRecipesHomeViewController *recipesVc = [[ZCRecipesHomeViewController alloc] init];
     [self addChildController:recipesVc
                        title:@"食谱"
                        image:@"home_normal"
                selectedImage:@"home_select"];
     
-    // 通讯录
+    // 乐活
     ZCLohasHomeViewController *lohasVc = [[ZCLohasHomeViewController alloc] init];
     
     [self addChildController:lohasVc
@@ -44,14 +43,14 @@
                        image:@"shike_normal"
                selectedImage:@"shike_select"];
     
-    // 发现
+    // 社区
     ZCCommunityHomeViewController *communityVc = [[ZCCommunityHomeViewController alloc] init];
     [self addChildController:communityVc
                        title:@"社区"
                        image:@"community_normal"
                selectedImage:@"community_select"];
     
-    // 我
+    // 我的
     ZCMineHomeViewController *mineVc = [[ZCMineHomeViewController alloc] init];
     [self addChildController:mineVc
                        title:@"我的"

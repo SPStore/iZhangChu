@@ -30,6 +30,7 @@
 + (ZCMineBasicGroup *)group0 {
     ZCMineBasicGroup *group = [[ZCMineBasicGroup alloc] init];
     ZCMineBasicModel *model0 = [ZCMineBasicModel modelWithTitle:@"我的消息"];
+    model0.targetControllerClass = NSClassFromString(@"ZCMyMessageViewController");
     group.models = @[model0];
     return group;
 }

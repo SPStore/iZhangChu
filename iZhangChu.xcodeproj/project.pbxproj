@@ -110,6 +110,12 @@
 		094865961EC46CD10009E879 /* ZCTagInfoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 094865951EC46CD10009E879 /* ZCTagInfoModel.m */; };
 		0948835F1EC5740A00D5A549 /* ZCSceneInfoNavigationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0948835E1EC5740A00D5A549 /* ZCSceneInfoNavigationView.m */; };
 		094883611EC5743D00D5A549 /* ZCSceneInfoNavigationView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 094883601EC5743D00D5A549 /* ZCSceneInfoNavigationView.xib */; };
+		094B474F1EC9576A0075EE9D /* ZCLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 094B474E1EC9576A0075EE9D /* ZCLoginViewController.m */; };
+		094B47511EC9585E0075EE9D /* loginBackgroundImage.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 094B47501EC9585E0075EE9D /* loginBackgroundImage.jpg */; };
+		094B47531EC95C050075EE9D /* ZCLoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 094B47521EC95C050075EE9D /* ZCLoginViewController.xib */; };
+		094B47561EC968640075EE9D /* ZCMyMessageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 094B47551EC968640075EE9D /* ZCMyMessageViewController.m */; };
+		094B475A1EC9886E0075EE9D /* ZCRegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 094B47581EC9886E0075EE9D /* ZCRegisterViewController.m */; };
+		094B475B1EC9886E0075EE9D /* ZCRegisterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 094B47591EC9886E0075EE9D /* ZCRegisterViewController.xib */; };
 		0952BFBB1EA84DD3002DA69E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 0952BFBA1EA84DD3002DA69E /* main.m */; };
 		0952BFC61EA84DD3002DA69E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0952BFC51EA84DD3002DA69E /* Assets.xcassets */; };
 		0952BFC91EA84DD3002DA69E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0952BFC71EA84DD3002DA69E /* LaunchScreen.storyboard */; };
@@ -351,6 +357,15 @@
 		0948835D1EC5740A00D5A549 /* ZCSceneInfoNavigationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZCSceneInfoNavigationView.h; sourceTree = "<group>"; };
 		0948835E1EC5740A00D5A549 /* ZCSceneInfoNavigationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZCSceneInfoNavigationView.m; sourceTree = "<group>"; };
 		094883601EC5743D00D5A549 /* ZCSceneInfoNavigationView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ZCSceneInfoNavigationView.xib; sourceTree = "<group>"; };
+		094B474D1EC9576A0075EE9D /* ZCLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZCLoginViewController.h; sourceTree = "<group>"; };
+		094B474E1EC9576A0075EE9D /* ZCLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZCLoginViewController.m; sourceTree = "<group>"; };
+		094B47501EC9585E0075EE9D /* loginBackgroundImage.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = loginBackgroundImage.jpg; sourceTree = "<group>"; };
+		094B47521EC95C050075EE9D /* ZCLoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ZCLoginViewController.xib; sourceTree = "<group>"; };
+		094B47541EC968640075EE9D /* ZCMyMessageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZCMyMessageViewController.h; sourceTree = "<group>"; };
+		094B47551EC968640075EE9D /* ZCMyMessageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZCMyMessageViewController.m; sourceTree = "<group>"; };
+		094B47571EC9886E0075EE9D /* ZCRegisterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZCRegisterViewController.h; sourceTree = "<group>"; };
+		094B47581EC9886E0075EE9D /* ZCRegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZCRegisterViewController.m; sourceTree = "<group>"; };
+		094B47591EC9886E0075EE9D /* ZCRegisterViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ZCRegisterViewController.xib; sourceTree = "<group>"; };
 		0952BFB61EA84DD3002DA69E /* iZhangChu.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iZhangChu.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0952BFBA1EA84DD3002DA69E /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		0952BFC51EA84DD3002DA69E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -632,6 +647,8 @@
 				0941BEE51EBC14E000F51A2D /* ZCMineHomeViewController.m */,
 				09FBE0971EC7414400DB8DD8 /* ZCMineSettingViewController.h */,
 				09FBE0981EC7414400DB8DD8 /* ZCMineSettingViewController.m */,
+				094B47541EC968640075EE9D /* ZCMyMessageViewController.h */,
+				094B47551EC968640075EE9D /* ZCMyMessageViewController.m */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -1050,6 +1067,12 @@
 			children = (
 				0952BFF31EA84E41002DA69E /* AppDelegate.h */,
 				0952BFF41EA84E41002DA69E /* AppDelegate.m */,
+				094B474D1EC9576A0075EE9D /* ZCLoginViewController.h */,
+				094B474E1EC9576A0075EE9D /* ZCLoginViewController.m */,
+				094B47521EC95C050075EE9D /* ZCLoginViewController.xib */,
+				094B47571EC9886E0075EE9D /* ZCRegisterViewController.h */,
+				094B47581EC9886E0075EE9D /* ZCRegisterViewController.m */,
+				094B47591EC9886E0075EE9D /* ZCRegisterViewController.xib */,
 			);
 			path = "Enter(入口)";
 			sourceTree = "<group>";
@@ -1057,6 +1080,7 @@
 		0952C07C1EA86F02002DA69E /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				094B47501EC9585E0075EE9D /* loginBackgroundImage.jpg */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -1193,7 +1217,9 @@
 			files = (
 				0941C0481EBC195700F51A2D /* ZCRecommendMasterListView.xib in Resources */,
 				0941C04F1EBC19DD00F51A2D /* ZCSceneRecipesCell.xib in Resources */,
+				094B475B1EC9886E0075EE9D /* ZCRegisterViewController.xib in Resources */,
 				09FBE0851EC6F75F00DB8DD8 /* ZCMineHomeHeaderView.xib in Resources */,
+				094B47511EC9585E0075EE9D /* loginBackgroundImage.jpg in Resources */,
 				0941BF631EBC14E000F51A2D /* ZCCourseHeaderView.xib in Resources */,
 				094865911EC45B800009E879 /* ZCSceneInfoListCell.xib in Resources */,
 				0941BF6D1EBC14E000F51A2D /* ZCSearchView.xib in Resources */,
@@ -1206,6 +1232,7 @@
 				0952BFC61EA84DD3002DA69E /* Assets.xcassets in Resources */,
 				094883611EC5743D00D5A549 /* ZCSceneInfoNavigationView.xib in Resources */,
 				0941C0161EBC18FB00F51A2D /* ZCRecipesAutoSearchTopListCell.xib in Resources */,
+				094B47531EC95C050075EE9D /* ZCLoginViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1331,6 +1358,7 @@
 				0941BF7F1EBC14E000F51A2D /* ZCRecommendBannerModel.m in Sources */,
 				09FBE0A81EC74F5200DB8DD8 /* ZCLohasLogoModel.m in Sources */,
 				0941BF5B1EBC14E000F51A2D /* ZCCourseCommentModel.m in Sources */,
+				094B47561EC968640075EE9D /* ZCMyMessageViewController.m in Sources */,
 				0941BF6E1EBC14E000F51A2D /* ZCMineHomeViewController.m in Sources */,
 				094865841EC459EA0009E879 /* ZCSceneInfoListModel.m in Sources */,
 				0941BFFC1EBC163800F51A2D /* UIImage+General.m in Sources */,
@@ -1344,6 +1372,8 @@
 				0941BF781EBC14E000F51A2D /* ZCScanViewController.m in Sources */,
 				09FBE09C1EC7418200DB8DD8 /* ZCMineHomeDataSource.m in Sources */,
 				09FBE0991EC7414400DB8DD8 /* ZCMineSettingViewController.m in Sources */,
+				094B475A1EC9886E0075EE9D /* ZCRegisterViewController.m in Sources */,
+				094B474F1EC9576A0075EE9D /* ZCLoginViewController.m in Sources */,
 				0941C0011EBC163800F51A2D /* SPPageMenu.m in Sources */,
 				0941BF651EBC14E000F51A2D /* ZCBasicViewController.m in Sources */,
 				0941C0141EBC18FB00F51A2D /* ZCRecipesAutoSearchCell.m in Sources */,

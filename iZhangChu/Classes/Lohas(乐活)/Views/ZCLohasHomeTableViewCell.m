@@ -38,6 +38,7 @@
         [self.logoImageView setImage:[image circleImage] forState:UIControlStateNormal];
     }];
     
+    
     self.titleLabel.text = [model.series_name componentsSeparatedByString:@"#"][2];
     self.updateLabel.text = [NSString stringWithFormat:@"更新至%zd集",model.episode];
     self.countLabel.text = [NSString stringWithFormat:@"上课人数%zd",model.play];

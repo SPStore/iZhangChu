@@ -11,6 +11,7 @@
 #import "ZCMineHomeCell.h"
 #import "ZCMineHomeHeaderView.h"
 #import "ZCMineSettingViewController.h"
+#import "ZCLoginViewController.h"
 
 static NSString * const mindeHomeCell = @"mindeHomeCell";
 
@@ -63,6 +64,14 @@ static NSString * const mindeHomeCell = @"mindeHomeCell";
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    ZCMineBasicGroup *group = self.groups[indexPath.section];
+    ZCMineBasicModel *model = group.models[indexPath.row];
+    if (model.targetControllerClass) {
+//        UIViewController *viewController = [[model.targetControllerClass alloc] init];
+//        [self.navigationController pushViewController:viewController animated:YES];
+        ZCLoginViewController *loginVc = [[ZCLoginViewController alloc] init];
+        [self.navigationController pushViewController:loginVc animated:YES];
+    }
 }
 
 - (UIStatusBarStyle)preferredStatusBarStyle {
