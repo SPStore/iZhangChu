@@ -33,7 +33,7 @@ static NSString * const recipesSearchCellID = @"recipesSearchCell";
 - (void)viewDidLoad {
     [super viewDidLoad];
         
-    [self.view addSubview:self.searchView];
+    [self.navigationView addSubview:self.searchView];
     [self.view addSubview:self.tableView];
     
     [self.tableView registerClass:[ZCRecipesSearchCell class] forCellReuseIdentifier:NSStringFromClass([ZCRecipesSearchGroup class])];
@@ -200,7 +200,7 @@ static NSString * const recipesSearchCellID = @"recipesSearchCell";
 #pragma mark - ZCSearchViewDelegate
 // 取消
 - (void)searchViewCancelButtonClicked {
-    [self.view endEditing:YES];
+    [self.navigationView endEditing:YES];
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
@@ -211,7 +211,7 @@ static NSString * const recipesSearchCellID = @"recipesSearchCell";
 
 // 键盘回车键
 - (void)searchViewKeyboardSearchButtonClicked:(NSString *)string {
-    [self.view endEditing:YES];
+    [self.navigationView endEditing:YES];
 
     ZCRecipesSearchResultViewController *searchResultVc = [[ZCRecipesSearchResultViewController alloc] init];
     searchResultVc.keyword = string;

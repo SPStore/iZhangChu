@@ -7,13 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ZCNavigationView.h"
 
 typedef void(^ClickedBackButtonBlock)();
 typedef void(^ClickedShareButtonBlock)();
 typedef void(^ClickedSearchButtonBlock)();
 
 
-@interface ZCSceneInfoNavigationView : UIView
+@interface ZCSceneInfoNavigationView : ZCNavigationView
 
 + (instancetype)shareSceneInfoNavigationView;
 
@@ -23,8 +24,6 @@ typedef void(^ClickedSearchButtonBlock)();
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 @property (weak, nonatomic) IBOutlet UIButton *shareButton;
 @property (weak, nonatomic) IBOutlet UIButton *searchButton;
-
-@property (nonatomic, copy) NSString *title;
 
 @property (nonatomic, copy) ClickedBackButtonBlock clickedBackButtonBlock;
 

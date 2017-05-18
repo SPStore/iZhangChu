@@ -25,7 +25,9 @@ static NSString * const sceneRecipesCellID = @"sceneRecipesCell";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
     self.navigationView.title = @"全部场景";
+    
     [self.view addSubview:self.collectionView];
     [self.collectionView registerNib:[UINib nibWithNibName:NSStringFromClass([ZCSceneRecipesCell class]) bundle:nil] forCellWithReuseIdentifier:sceneRecipesCellID];
     [self requestData];
@@ -40,8 +42,6 @@ static NSString * const sceneRecipesCellID = @"sceneRecipesCell";
     params[@"token"] = @"0";
     params[@"version"] = @4.92;
     [[SPHTTPSessionManager shareInstance] POST:ZCHOSTURL params:params success:^(id  _Nonnull responseObject) {
-        
-        [NSObject printPropertyWithDict:responseObject[@"data"][@"data"][0]];
         
         self.dataArray = [ZCSceneRecipesModel mj_objectArrayWithKeyValuesArray:responseObject[@"data"][@"data"]];
         [self.collectionView reloadData];

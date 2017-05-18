@@ -7,105 +7,138 @@
 //
 
 #import "ZCNavigationView.h"
-#import "Singleton.h"
 #import "ZCMacro.h"
 
-@interface ZCNavigationView() {
-    UIView *_centerView;
-}
+#define SCREEN_WIDTH [UIScreen mainScreen].bounds.size.width
+#define kStatusBarH 20
+#define kNavigationViewH 44
+#define kMargin 16
+
+@interface ZCNavigationView()
+// 底部分割线
+@property (nonatomic, strong) UIView *bottomLine;
 @property (nonatomic, strong) UILabel *titleLabel;
 @end
 
 @implementation ZCNavigationView
 
 
-SingletonM(Instance);
-
 - (instancetype)initWithFrame:(CGRect)frame {
     if (self = [super initWithFrame:frame]) {
-        self.frame = CGRectMake(0, 0, kScreenW, 64);
-        [self addSubview:self.leftButton];
-        [self addSubview:self.rightButton];
-        [self addSubview:self.centerView];
-        [self addSubview:self.bottomLine];
+        if (CGRectEqualToRect(frame, CGRectZero)) {
+            // 固定导航栏的高度为64
+            self.frame = CGRectMake(0, 0, SCREEN_WIDTH, kNavigationViewH+kStatusBarH);
+        } else {
+            self.frame = frame;
+        }
+        
+        [self setupSubControls];
+
     }
     return self;
 }
 
+// 设置标题
 - (void)setTitle:(NSString *)title {
-    _title = [title copy];
     
+    if (![_title isEqualToString:title]) {
+        _title = [title copy];
+        [self setupTitleLabelSize];
+    }
     self.titleLabel.text = title;
+
 }
 
 - (void)setTitleColor:(UIColor *)color {
     self.titleLabel.textColor = color;
 }
 
-- (UILabel *)titleLabel {
-    if (!_titleLabel) {
-        _titleLabel = [[UILabel alloc] initWithFrame:self.centerView.bounds];
-        _titleLabel.font = [UIFont boldSystemFontOfSize:18];
-        _titleLabel.textAlignment = NSTextAlignmentCenter;
-        _titleLabel.textColor = [UIColor blackColor];
-        [self.centerView addSubview:self.titleLabel];
-    }
-    return _titleLabel;
-}
-
-- (UIButton *)leftButton {
-    if (!_leftButton) {
-        _leftButton = [UIButton buttonWithType:UIButtonTypeCustom];
-        _leftButton.frame = CGRectMake(16, 27, 30, 30);
-        _leftButton.titleLabel.font = [UIFont systemFontOfSize:14];
-        [_leftButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-        _leftButton.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
-        _leftButton.imageView.contentMode = UIViewContentModeScaleAspectFit;
-    }
-    return _leftButton;
-}
-
-- (UIButton *)rightButton {
-    if (!_rightButton) {
-        _rightButton = [UIButton buttonWithType:UIButtonTypeCustom];
-        _rightButton.frame = CGRectMake(kScreenW-76, 27, 60, 30);
-        _rightButton.titleLabel.font = [UIFont systemFontOfSize:14];
-        [_rightButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-        _rightButton.contentHorizontalAlignment = UIControlContentHorizontalAlignmentRight;
-    }
-    return _rightButton;
-}
-
-- (UIView *)centerView {
-    if (!_centerView) {
-        _centerView = [[UIView alloc] init];
-        _centerView.zc_y = 27;
-        _centerView.zc_x = (self.zc_width-200)*0.5;
-        _centerView.zc_size = CGSizeMake(200, 30);
-    }
-    return _centerView;
-}
-
-- (void)setCenterView:(UIView *)centerView {
-    if (_centerView != centerView) {
-        _centerView = centerView;
-    }
-}
-
-- (UIView *)bottomLine {
-    if (!_bottomLine) {
-        _bottomLine = [[UIView alloc] initWithFrame:CGRectMake(0, 63.5, kScreenW, 0.5)];
-        _bottomLine.alpha = 0.8;
-        _bottomLine.backgroundColor = [UIColor grayColor];
-    }
-    return _bottomLine;
+- (void)setCustomView:(UIView *)customView {
+    _customView = customView;
+    [self addSubview:customView];
 }
 
 - (void)setHideBottomLine:(BOOL)hideBottomLine {
     _hideBottomLine = hideBottomLine;
-    _bottomLine.hidden = hideBottomLine;
-    if (!hideBottomLine) {
-        [self addSubview:self.bottomLine];
+    self.bottomLine.hidden = hideBottomLine;
+}
+
+- (void)setupSubControls {
+    
+    // 添加左边按钮
+    CGFloat leftButtonW = 60;
+    CGFloat leftButtonH = 30;
+    CGFloat leftButtonX = kMargin;
+    CGFloat leftButtonY = kStatusBarH + (kNavigationViewH-leftButtonH)*0.5;
+    
+    self.leftButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    self.leftButton.frame = CGRectMake(leftButtonX, leftButtonY, leftButtonW, leftButtonH);
+    self.leftButton.titleLabel.font = [UIFont systemFontOfSize:14];
+    [self.leftButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    self.leftButton.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
+    [self addSubview:self.leftButton];
+    
+    // 添加右边按钮
+    CGFloat rightButtonW = 60;
+    CGFloat rightButtonH = 30;
+    CGFloat rightButtonX = SCREEN_WIDTH-rightButtonW-kMargin;
+    CGFloat rightButtonY = leftButtonY;
+    
+    self.rightButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    self.rightButton.frame = CGRectMake(rightButtonX, rightButtonY, rightButtonW, rightButtonH);
+    self.rightButton.titleLabel.font = [UIFont systemFontOfSize:14];
+    [self.rightButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    self.rightButton.contentHorizontalAlignment = UIControlContentHorizontalAlignmentRight;
+    [self addSubview:self.rightButton];
+    
+    // 添加底部分割线
+    CGFloat bottomLineW = SCREEN_WIDTH;
+    CGFloat bottomLineH = 0.5f;
+    CGFloat bottomLineX = 0;
+    CGFloat bottomLineY = kStatusBarH + kNavigationViewH - bottomLineH;
+    
+    self.bottomLine = [[UIView alloc] init];
+    self.bottomLine.frame = CGRectMake(bottomLineX, bottomLineY, bottomLineW, bottomLineH);
+    self.bottomLine.backgroundColor = [UIColor grayColor];
+    self.bottomLine.alpha = 0.5;
+    [self addSubview:self.bottomLine];
+
+}
+
+- (UILabel *)titleLabel {
+    
+    if (!_titleLabel) {
+        _titleLabel = [[UILabel alloc] init];
+        [self setupTitleLabelSize];
+        _titleLabel.font = [UIFont systemFontOfSize:18];
+        [self addSubview:_titleLabel];
+    }
+    return _titleLabel;
+}
+
+- (void)setupTitleLabelSize {
+    
+    CGSize titleSize = [self sizeForString:_title];
+
+    CGFloat titleX = (SCREEN_WIDTH - titleSize.width) * 0.5;
+    CGFloat titleY = kStatusBarH + (kNavigationViewH - titleSize.height)*0.5;
+    _titleLabel.frame = (CGRect){{titleX, titleY}, titleSize};
+
+}
+
+- (CGSize)sizeForString:(NSString *)string {
+    CGSize titleSize = [string boundingRectWithSize:CGSizeMake(MAXFLOAT, 30) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:18]} context:nil].size;
+    return titleSize;
+}
+
+- (void)setTitleLabelMaxW:(CGFloat)titleLabelMaxW {
+    _titleLabelMaxW = titleLabelMaxW;
+    
+    CGSize titleSize = [self sizeForString:_title];
+    if (titleSize.width > titleLabelMaxW) {
+        CGRect rect = _titleLabel.frame;
+        rect.size.width = titleLabelMaxW;
+        _titleLabel.frame = rect;
     }
 }
 

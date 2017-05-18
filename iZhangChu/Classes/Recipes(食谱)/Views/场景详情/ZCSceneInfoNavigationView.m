@@ -18,10 +18,6 @@
     return [[NSBundle mainBundle] loadNibNamed:NSStringFromClass(self) owner:nil options:nil].lastObject;
 }
 
-- (void)setTitle:(NSString *)title {
-    _title = [title copy];
-    self.titleLabel.text = title;
-}
 
 - (IBAction)shareButtonAction:(UIButton *)sender {
     if (self.clickedShareButtonBlock) {

@@ -20,11 +20,9 @@
 + (instancetype)shareMineHomeHeaderView {
     return [[NSBundle mainBundle] loadNibNamed:NSStringFromClass(self) owner:nil options:nil].lastObject;
 }
-
-// 设置
 - (IBAction)setting:(UIButton *)sender {
-    if (self.clickedBlock) {
-        self.clickedBlock();
+    if (self.settingBlock) {
+        self.settingBlock();
     }
 }
 

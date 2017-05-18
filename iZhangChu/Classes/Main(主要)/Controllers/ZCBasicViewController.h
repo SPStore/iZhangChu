@@ -10,11 +10,8 @@
 #import "ZCMacro.h"
 #import "ZCNavigationView.h"
 
-@interface ZCBasicViewController : UIViewController {
-    ZCNavigationView *_navigationView;
-}
+@interface ZCBasicViewController : UIViewController
 
-@property (nonatomic, strong) ZCNavigationView  *navigationView; // 自定义的nagationBar
-
+@property (nonatomic, strong) ZCNavigationView  *navigationView; // 自定义的navigationBar
 
 @end

@@ -58,7 +58,7 @@
 }
 
 + (instancetype)showMessage:(NSString *)message toView:(UIView *)view {
-    if (view == nil) view = [UIApplication sharedApplication].keyWindow;
+    if (view == nil) view = [UIApplication sharedApplication].windows.lastObject;
     // 快速显示一个提示信息
     MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:view animated:YES];
     hud.label.text = message;
@@ -88,14 +88,14 @@
 + (BOOL)hideHUDFromView:(UIView *)view {
     
     // 显示的时候添加在keyWindow上，隐藏的时候也要在keyWindow上，要对应起来
-    if (view == nil) view = [UIApplication sharedApplication].keyWindow;
+    if (view == nil) view = [UIApplication sharedApplication].windows.lastObject;
     return [MBProgressHUD hideHUDForView:view animated:YES];
 }
 
 #pragma mark - 私有方法
 + (instancetype)show:(NSString *)text icon:(NSString *)icon view:(UIView *)view {
     
-    if (view == nil) view = [UIApplication sharedApplication].keyWindow;
+    if (view == nil) view = [UIApplication sharedApplication].windows.lastObject;
     // 快速显示一个提示信息
     MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:view animated:YES];
     hud.label.text = text;

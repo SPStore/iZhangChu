@@ -12,13 +12,13 @@
 #import "ZCLohasLogoModel.h"
 #import "ZCLohasListModel.h"
 #import "ZCCourseViewController.h"
-#import "ZCLohasNagationView.h"
+#import "SPPageMenu.h"
 
 #define kCollectionViewH 80
 
 @interface ZCLohasHomeViewController () <UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlowLayout, UITableViewDataSource,UITableViewDelegate,SPPageMenuDelegate>
-
-@property (nonatomic, strong) ZCLohasNagationView *myNagationView;
+@property (nonatomic,strong) SPPageMenu *pageMenu;
+@property (nonatomic, strong) UIButton *searchButton;
 @property (nonatomic, strong) UICollectionView *collectionView;
 @property (nonatomic, strong) UITableView *tableView;
 
@@ -46,9 +46,9 @@
     self.logoMethodName = @"CourseLogo";
     self.page = 1;
     
-    self.automaticallyAdjustsScrollViewInsets = NO;
+    [self setupNavi];
     
-    self.navigationView = (ZCNavigationView *)self.myNagationView;
+    self.automaticallyAdjustsScrollViewInsets = NO;
     
     [self.view addSubview:self.tableView];
 
@@ -67,6 +67,12 @@
     // 上拉加载
     [self upPullLoadMoreData];
     
+}
+
+- (void)setupNavi {
+    self.navigationView.customView = self.pageMenu;
+    [self.navigationView.rightButton setImage:[UIImage imageNamed:@"search"] forState:UIControlStateNormal];
+    [self.navigationView.rightButton addTarget:self action:@selector(searchButtonAction:) forControlEvents:UIControlEventTouchUpInside];
 }
 
 - (void)requestCollectionViewData {
@@ -246,17 +252,6 @@
     
 }
 
-- (ZCLohasNagationView *)myNagationView {
-    
-    if (!_myNagationView) {
-        _myNagationView = [[ZCLohasNagationView alloc] initWithFrame:CGRectMake(0, 0, kScreenW, 64)];
-        _myNagationView.pageMenu.delegate = self;
-        [_myNagationView.searchButton addTarget:self action:@selector(searchButtonAction:) forControlEvents:UIControlEventTouchUpInside];
-        
-    }
-    return _myNagationView;
-}
-
 
 - (UICollectionView *)collectionView {
     
@@ -310,6 +305,23 @@
         self.topView.frame = tFrame;
     }
 }
+
+- (SPPageMenu *)pageMenu {
+    
+    if (!_pageMenu) {
+        _pageMenu = [SPPageMenu pageMenuWithFrame:CGRectMake(60, 20, kScreenW-120, 44) array:@[@"美食IP",@"健康IP",@"台湾IP"]];
+        _pageMenu.delegate = self;
+        _pageMenu.buttonFont = [UIFont boldSystemFontOfSize:17];
+        _pageMenu.selectedTitleColor = [UIColor blackColor];
+        _pageMenu.unSelectedTitleColor = [UIColor grayColor];
+        _pageMenu.showBreakline = NO;
+        _pageMenu.trackerColor = ZCGlobalColor;
+        _pageMenu.equalWidths = YES;
+        _pageMenu.allowBeyondScreen = NO;
+    }
+    return _pageMenu;
+}
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

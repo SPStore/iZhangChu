@@ -60,4 +60,9 @@
 
 - (IBAction)sureButtonAction:(UIButton *)sender {
 }
+
+- (UIStatusBarStyle)preferredStatusBarStyle {
+    return UIStatusBarStyleLightContent;
+}
+
 @end

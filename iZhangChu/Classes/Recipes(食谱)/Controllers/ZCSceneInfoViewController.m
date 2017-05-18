@@ -35,7 +35,7 @@ static NSString * const sceneInfoListCellID = @"sceneInfoListCell";
     [super viewDidLoad];
     
     [self.view addSubview:self.tableView];
-    self.navigationView = (ZCNavigationView *)self.myNavigationView;
+    self.navigationView = self.myNavigationView;
     
     // 如果要实现表头下拉放大，self.headerView不可以赋值给tableView的tableHeaderView
     UIView *headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kScreenW, kHeaderViewH)];

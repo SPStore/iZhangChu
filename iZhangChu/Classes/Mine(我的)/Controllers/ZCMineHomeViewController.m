@@ -13,6 +13,8 @@
 #import "ZCMineSettingViewController.h"
 #import "ZCLoginViewController.h"
 
+#define kHeaderViewH 260
+
 static NSString * const mindeHomeCell = @"mindeHomeCell";
 
 @interface ZCMineHomeViewController () <UITableViewDataSource, UITableViewDelegate>
@@ -30,16 +32,18 @@ static NSString * const mindeHomeCell = @"mindeHomeCell";
     [super viewDidLoad];
     
     self.automaticallyAdjustsScrollViewInsets = NO;
+    self.navigationView.hidden = YES;
     
     self.groups = [ZCMineHomeDataSource dataSource];
     
-    [self.view addSubview:self.tableView];
+    [self.view insertSubview:self.tableView belowSubview:self.navigationView];
     
     self.tableView.tableHeaderView = self.headerView;
     
     [self.tableView registerClass:[ZCMineHomeCell class] forCellReuseIdentifier:mindeHomeCell];
     
 }
+
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return self.groups.count;
@@ -74,6 +78,12 @@ static NSString * const mindeHomeCell = @"mindeHomeCell";
     }
 }
 
+
+- (void)setting:(UIButton *)sender {
+    ZCMineSettingViewController *settingVc = [[ZCMineSettingViewController alloc] init];
+    [self.navigationController pushViewController:settingVc animated:YES];
+}
+
 - (UIStatusBarStyle)preferredStatusBarStyle {
     return UIStatusBarStyleLightContent;
 }
@@ -84,7 +94,7 @@ static NSString * const mindeHomeCell = @"mindeHomeCell";
         _headerView = [ZCMineHomeHeaderView shareMineHomeHeaderView];
         _headerView.frame = CGRectMake(0, 0, kScreenW, 260);
         WEAKSELF;
-        _headerView.clickedBlock = ^(){
+        _headerView.settingBlock = ^(){
             ZCMineSettingViewController *settingVc = [[ZCMineSettingViewController alloc] init];
             [weakSelf.navigationController pushViewController:settingVc animated:YES];
         };

@@ -15,9 +15,19 @@
 
 @implementation ZCNavigationController
 
+- (instancetype)initWithRootViewController:(UIViewController *)rootViewController {
+    if (self = [super initWithRootViewController:rootViewController]) {
+        
+        
+        
+    }
+    return self;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -26,10 +36,12 @@
 }
 
 - (void)pushViewController:(UIViewController *)viewController animated:(BOOL)animated {
+
     if (self.viewControllers.count > 0) {
+        ZCBasicViewController *vc = (ZCBasicViewController *)viewController;
         /* 当push的时候自动显示和隐藏tabbar */
         viewController.hidesBottomBarWhenPushed = YES;
-        ZCBasicViewController *vc = (ZCBasicViewController *)viewController;
+           
         [vc.navigationView.leftButton setImage:[UIImage imageNamed:@"nav_back_black"] forState:UIControlStateNormal];
         [vc.navigationView.leftButton addTarget:self action:@selector(back) forControlEvents:UIControlEventTouchUpInside];
     }

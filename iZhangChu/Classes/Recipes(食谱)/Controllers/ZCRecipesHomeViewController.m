@@ -7,16 +7,16 @@
 //
 
 #import "ZCRecipesHomeViewController.h"
-#import "ZCRecipesNavigationView.h"
 #import "ZCRecommendViewController.h"
 #import "ZCIngredientsViewController.h"
 #import "ZCCategoryViewController.h"
 #import "ZCRecipesSearchViewController.h"
 #import "ZCNavigationController.h"
+#import "SPPageMenu.h"
 
 @interface ZCRecipesHomeViewController () <SPPageMenuDelegate,UIScrollViewDelegate>
-@property (nonatomic, strong) ZCRecipesNavigationView *recipesNavgationView;
 @property (nonatomic, strong) UIScrollView *scrollView;
+@property (nonatomic, strong) SPPageMenu *pageMenu;
 
 @end
 
@@ -24,17 +24,18 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    // 设置导航栏
+    [self setupNavigationView];
 
     // 先添加好3个子控制器（推荐、食材、分类）
     [self addChildViewController:[[ZCRecommendViewController alloc] init]];
     [self addChildViewController:[[ZCIngredientsViewController alloc] init]];
     [self addChildViewController:[[ZCCategoryViewController alloc] init]];
     
-    self.navigationView = (ZCNavigationView *)self.recipesNavgationView;
     [self.view addSubview:self.scrollView];
     
     NSInteger count = self.childViewControllers.count;
-    
     self.scrollView.contentSize = CGSizeMake(kScreenW*count, 0);
     for (int i = 0; i < count; i++) {
         UIViewController *viewController = self.childViewControllers[i];
@@ -43,6 +44,14 @@
     }
 }
 
+// 设置导航栏
+- (void)setupNavigationView {
+    self.navigationView.customView = self.pageMenu;
+    [self.navigationView.leftButton setImage:[UIImage imageNamed:@"saoyisao"] forState:UIControlStateNormal];
+    [self.navigationView.leftButton addTarget:self action:@selector(scan:) forControlEvents:UIControlEventTouchUpInside];
+    [self.navigationView.rightButton setImage:[UIImage imageNamed:@"search"] forState:UIControlStateNormal];
+    [self.navigationView.rightButton addTarget:self action:@selector(search:) forControlEvents:UIControlEventTouchUpInside];
+}
 
 // pageMenu的代理方法
 - (void)pageMenu:(SPPageMenu *)pageMenu buttonClickedFromIndex:(NSInteger)fromIndex toIndex:(NSInteger)toIndex {
@@ -61,7 +70,7 @@
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
     NSInteger index = scrollView.contentOffset.x / scrollView.frame.size.width;
     // 手动滑scrollView,pageMenu会根据传进去的index选中index对应的button
-    [self.recipesNavgationView.pageMenu selectButtonAtIndex:index];
+    [self.pageMenu selectButtonAtIndex:index];
 }
 
 // 扫描
@@ -88,15 +97,21 @@
     return _scrollView;
 }
 
-// 顶部导航栏
-- (ZCRecipesNavigationView *)recipesNavgationView {
-    if (!_recipesNavgationView) {
-        _recipesNavgationView = [[ZCRecipesNavigationView alloc] initWithFrame:CGRectMake(0, 0, kScreenW, 64)];
-        _recipesNavgationView.pageMenu.delegate = self;
-        [_recipesNavgationView.scanButton addTarget:self action:@selector(scan:) forControlEvents:UIControlEventTouchUpInside];
-        [_recipesNavgationView.searchButton addTarget:self action:@selector(search:) forControlEvents:UIControlEventTouchUpInside];
+- (SPPageMenu *)pageMenu {
+    if (!_pageMenu) {
+        _pageMenu = [SPPageMenu pageMenuWithFrame:CGRectMake(70, 27, kScreenW-140, 36) array:@[@"推荐",@"食材",@"分类"]];
+        _pageMenu.backgroundColor = [UIColor whiteColor];
+        _pageMenu.delegate = self;
+        _pageMenu.buttonFont = [UIFont boldSystemFontOfSize:17];
+        _pageMenu.selectedTitleColor = [UIColor blackColor];
+        _pageMenu.unSelectedTitleColor = [UIColor grayColor];
+        _pageMenu.trackerColor = [UIColor orangeColor];
+        _pageMenu.showBreakline = NO;
+        _pageMenu.allowBeyondScreen = NO;
+        _pageMenu.equalWidths = YES;
+        _pageMenu.animationSpeed = 0.1;
     }
-    return _recipesNavgationView;
+    return _pageMenu;
 }
 
 

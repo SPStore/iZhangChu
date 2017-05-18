@@ -8,13 +8,14 @@
 
 #import <UIKit/UIKit.h>
 
-typedef void (^ClickedSettignBlock)();
+typedef void(^SettingBlock)();
 
 @interface ZCMineHomeHeaderView : UIView
+@property (weak, nonatomic) IBOutlet UIImageView *myBackgroundImageView;
 
 + (instancetype)shareMineHomeHeaderView;
 
-@property (nonatomic, copy) ClickedSettignBlock clickedBlock;
+@property (nonatomic, copy) SettingBlock settingBlock;
 
 
 @end

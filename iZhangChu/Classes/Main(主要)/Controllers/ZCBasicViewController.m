@@ -19,27 +19,22 @@
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor whiteColor];
     
+    self.automaticallyAdjustsScrollViewInsets = NO;
+    
     // 隐藏系统的导航栏
     self.navigationController.navigationBar.hidden = YES;
-    
-    // 这行代码是调用navigationView的setter方法和getter方法
-    self.navigationView = self.navigationView;
+
+
 }
 
-// 自定义的navigationBar
 - (ZCNavigationView *)navigationView {
     if (!_navigationView) {
-        _navigationView = [ZCNavigationView sharedInstance];
-        _navigationView.backgroundColor = [UIColor whiteColor];
+        // 不设置frame就是默认(0,0,screenW,64)
+        _navigationView = [[ZCNavigationView alloc] init];
+        [self.view addSubview:_navigationView];
     }
     return _navigationView;
 }
-
-- (void)setNavigationView:(ZCNavigationView *)navigationView {
-    _navigationView = navigationView;
-    [self.view addSubview:self.navigationView];
-}
-
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
