@@ -14,6 +14,7 @@
 #import "UIImage+General.h"
 #import "NSString+Extension.h"
 #import "MBProgressHUD+SP.h"
+#import "UINavigationController+NavAlpha.h"
 
 #import "SPHTTPSessionManager.h"
 

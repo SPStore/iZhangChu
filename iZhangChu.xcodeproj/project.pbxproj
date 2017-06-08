@@ -25,7 +25,6 @@
 		0941BF641EBC14E000F51A2D /* ZCLohasHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0941BEC91EBC14E000F51A2D /* ZCLohasHomeViewController.m */; };
 		0941BF661EBC14E000F51A2D /* ZCNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0941BED11EBC14E000F51A2D /* ZCNavigationController.m */; };
 		0941BF671EBC14E000F51A2D /* ZCTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0941BED31EBC14E000F51A2D /* ZCTabBarController.m */; };
-		0941BF6A1EBC14E000F51A2D /* ZCNavigationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0941BEDC1EBC14E000F51A2D /* ZCNavigationView.m */; };
 		0941BF6B1EBC14E000F51A2D /* ZCPlayImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0941BEDE1EBC14E000F51A2D /* ZCPlayImageView.m */; };
 		0941BF6C1EBC14E000F51A2D /* ZCSearchView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0941BEE01EBC14E000F51A2D /* ZCSearchView.m */; };
 		0941BF6D1EBC14E000F51A2D /* ZCSearchView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0941BEE11EBC14E000F51A2D /* ZCSearchView.xib */; };
@@ -107,14 +106,14 @@
 		094865911EC45B800009E879 /* ZCSceneInfoListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0948658F1EC45B800009E879 /* ZCSceneInfoListCell.xib */; };
 		094865931EC469670009E879 /* ZCSceneInfoHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 094865921EC469670009E879 /* ZCSceneInfoHeaderView.xib */; };
 		094865961EC46CD10009E879 /* ZCTagInfoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 094865951EC46CD10009E879 /* ZCTagInfoModel.m */; };
-		0948835F1EC5740A00D5A549 /* ZCSceneInfoNavigationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0948835E1EC5740A00D5A549 /* ZCSceneInfoNavigationView.m */; };
-		094883611EC5743D00D5A549 /* ZCSceneInfoNavigationView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 094883601EC5743D00D5A549 /* ZCSceneInfoNavigationView.xib */; };
 		094B474F1EC9576A0075EE9D /* ZCLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 094B474E1EC9576A0075EE9D /* ZCLoginViewController.m */; };
 		094B47511EC9585E0075EE9D /* loginBackgroundImage.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 094B47501EC9585E0075EE9D /* loginBackgroundImage.jpg */; };
 		094B47531EC95C050075EE9D /* ZCLoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 094B47521EC95C050075EE9D /* ZCLoginViewController.xib */; };
 		094B47561EC968640075EE9D /* ZCMyMessageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 094B47551EC968640075EE9D /* ZCMyMessageViewController.m */; };
 		094B475A1EC9886E0075EE9D /* ZCRegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 094B47581EC9886E0075EE9D /* ZCRegisterViewController.m */; };
 		094B475B1EC9886E0075EE9D /* ZCRegisterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 094B47591EC9886E0075EE9D /* ZCRegisterViewController.xib */; };
+		094E77171EE8F0A300D7FFB1 /* UINavigationBar+NavAlpha.m in Sources */ = {isa = PBXBuildFile; fileRef = 094E77141EE8F0A300D7FFB1 /* UINavigationBar+NavAlpha.m */; };
+		094E77181EE8F0A300D7FFB1 /* UINavigationController+NavAlpha.m in Sources */ = {isa = PBXBuildFile; fileRef = 094E77161EE8F0A300D7FFB1 /* UINavigationController+NavAlpha.m */; };
 		095006961EDFEDA100B3FB57 /* ZCRecommendTitleModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 095006951EDFEDA100B3FB57 /* ZCRecommendTitleModel.m */; };
 		0952BFBB1EA84DD3002DA69E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 0952BFBA1EA84DD3002DA69E /* main.m */; };
 		0952BFC61EA84DD3002DA69E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0952BFC51EA84DD3002DA69E /* Assets.xcassets */; };
@@ -191,8 +190,6 @@
 		0941BED11EBC14E000F51A2D /* ZCNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZCNavigationController.m; sourceTree = "<group>"; };
 		0941BED21EBC14E000F51A2D /* ZCTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZCTabBarController.h; sourceTree = "<group>"; };
 		0941BED31EBC14E000F51A2D /* ZCTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZCTabBarController.m; sourceTree = "<group>"; };
-		0941BEDB1EBC14E000F51A2D /* ZCNavigationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZCNavigationView.h; sourceTree = "<group>"; };
-		0941BEDC1EBC14E000F51A2D /* ZCNavigationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZCNavigationView.m; sourceTree = "<group>"; };
 		0941BEDD1EBC14E000F51A2D /* ZCPlayImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZCPlayImageView.h; sourceTree = "<group>"; };
 		0941BEDE1EBC14E000F51A2D /* ZCPlayImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZCPlayImageView.m; sourceTree = "<group>"; };
 		0941BEDF1EBC14E000F51A2D /* ZCSearchView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZCSearchView.h; sourceTree = "<group>"; };
@@ -351,9 +348,6 @@
 		094865921EC469670009E879 /* ZCSceneInfoHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ZCSceneInfoHeaderView.xib; sourceTree = "<group>"; };
 		094865941EC46CD10009E879 /* ZCTagInfoModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZCTagInfoModel.h; sourceTree = "<group>"; };
 		094865951EC46CD10009E879 /* ZCTagInfoModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZCTagInfoModel.m; sourceTree = "<group>"; };
-		0948835D1EC5740A00D5A549 /* ZCSceneInfoNavigationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZCSceneInfoNavigationView.h; sourceTree = "<group>"; };
-		0948835E1EC5740A00D5A549 /* ZCSceneInfoNavigationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZCSceneInfoNavigationView.m; sourceTree = "<group>"; };
-		094883601EC5743D00D5A549 /* ZCSceneInfoNavigationView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ZCSceneInfoNavigationView.xib; sourceTree = "<group>"; };
 		094B474D1EC9576A0075EE9D /* ZCLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZCLoginViewController.h; sourceTree = "<group>"; };
 		094B474E1EC9576A0075EE9D /* ZCLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZCLoginViewController.m; sourceTree = "<group>"; };
 		094B47501EC9585E0075EE9D /* loginBackgroundImage.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = loginBackgroundImage.jpg; sourceTree = "<group>"; };
@@ -364,6 +358,10 @@
 		094B47581EC9886E0075EE9D /* ZCRegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZCRegisterViewController.m; sourceTree = "<group>"; };
 		094B47591EC9886E0075EE9D /* ZCRegisterViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ZCRegisterViewController.xib; sourceTree = "<group>"; };
 		094E77121EE8E8FD00D7FFB1 /* ZCPrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZCPrefixHeader.pch; sourceTree = "<group>"; };
+		094E77131EE8F0A300D7FFB1 /* UINavigationBar+NavAlpha.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINavigationBar+NavAlpha.h"; sourceTree = "<group>"; };
+		094E77141EE8F0A300D7FFB1 /* UINavigationBar+NavAlpha.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationBar+NavAlpha.m"; sourceTree = "<group>"; };
+		094E77151EE8F0A300D7FFB1 /* UINavigationController+NavAlpha.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINavigationController+NavAlpha.h"; sourceTree = "<group>"; };
+		094E77161EE8F0A300D7FFB1 /* UINavigationController+NavAlpha.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationController+NavAlpha.m"; sourceTree = "<group>"; };
 		095006941EDFEDA100B3FB57 /* ZCRecommendTitleModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZCRecommendTitleModel.h; sourceTree = "<group>"; };
 		095006951EDFEDA100B3FB57 /* ZCRecommendTitleModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZCRecommendTitleModel.m; sourceTree = "<group>"; };
 		0952BFB61EA84DD3002DA69E /* iZhangChu.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iZhangChu.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -612,8 +610,6 @@
 		0941BEDA1EBC14E000F51A2D /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				0941BEDB1EBC14E000F51A2D /* ZCNavigationView.h */,
-				0941BEDC1EBC14E000F51A2D /* ZCNavigationView.m */,
 				0941BEDD1EBC14E000F51A2D /* ZCPlayImageView.h */,
 				0941BEDE1EBC14E000F51A2D /* ZCPlayImageView.m */,
 				0941BEDF1EBC14E000F51A2D /* ZCSearchView.h */,
@@ -810,6 +806,10 @@
 				0941BFDF1EBC163800F51A2D /* UIView+Frame.m */,
 				094865701EC40C540009E879 /* MBProgressHUD+SP.h */,
 				094865711EC40C540009E879 /* MBProgressHUD+SP.m */,
+				094E77131EE8F0A300D7FFB1 /* UINavigationBar+NavAlpha.h */,
+				094E77141EE8F0A300D7FFB1 /* UINavigationBar+NavAlpha.m */,
+				094E77151EE8F0A300D7FFB1 /* UINavigationController+NavAlpha.h */,
+				094E77161EE8F0A300D7FFB1 /* UINavigationController+NavAlpha.m */,
 			);
 			path = "Category(分类)";
 			sourceTree = "<group>";
@@ -970,9 +970,6 @@
 		0948657B1EC458E90009E879 /* 场景详情 */ = {
 			isa = PBXGroup;
 			children = (
-				0948835D1EC5740A00D5A549 /* ZCSceneInfoNavigationView.h */,
-				0948835E1EC5740A00D5A549 /* ZCSceneInfoNavigationView.m */,
-				094883601EC5743D00D5A549 /* ZCSceneInfoNavigationView.xib */,
 				0948657C1EC459110009E879 /* ZCSceneInfoHeaderView.h */,
 				0948657D1EC459110009E879 /* ZCSceneInfoHeaderView.m */,
 				094865921EC469670009E879 /* ZCSceneInfoHeaderView.xib */,
@@ -1227,7 +1224,6 @@
 				0952BFC91EA84DD3002DA69E /* LaunchScreen.storyboard in Resources */,
 				0941BF611EBC14E000F51A2D /* ZCCourseCommentCell.xib in Resources */,
 				0952BFC61EA84DD3002DA69E /* Assets.xcassets in Resources */,
-				094883611EC5743D00D5A549 /* ZCSceneInfoNavigationView.xib in Resources */,
 				0941C0161EBC18FB00F51A2D /* ZCRecipesAutoSearchTopListCell.xib in Resources */,
 				094B47531EC95C050075EE9D /* ZCLoginViewController.xib in Resources */,
 			);
@@ -1324,6 +1320,7 @@
 				0941BF601EBC14E000F51A2D /* ZCCourseCommentCell.m in Sources */,
 				0941BFFD1EBC163800F51A2D /* UIView+Frame.m in Sources */,
 				0941BF711EBC14E000F51A2D /* ZCFoodLiveViewController.m in Sources */,
+				094E77181EE8F0A300D7FFB1 /* UINavigationController+NavAlpha.m in Sources */,
 				094865901EC45B800009E879 /* ZCSceneInfoListCell.m in Sources */,
 				0941BF7A1EBC14E000F51A2D /* ZCIngredientsButtonModel.m in Sources */,
 				0941C04E1EBC19DD00F51A2D /* ZCSceneRecipesCell.m in Sources */,
@@ -1344,7 +1341,6 @@
 				096485B61EC2EDEE0068FA6D /* ZCIngredientsCollocationBottomToolBar.m in Sources */,
 				0941C0181EBC18FB00F51A2D /* ZCRecipesSearchCell.m in Sources */,
 				0941BF7C1EBC14E000F51A2D /* ZCRecipesAutoSearchModel.m in Sources */,
-				0948835F1EC5740A00D5A549 /* ZCSceneInfoNavigationView.m in Sources */,
 				09FBE0831EC6F72100DB8DD8 /* ZCMineHomeHeaderView.m in Sources */,
 				0941BF891EBC14E100F51A2D /* ZCRecommendWidgetItem.m in Sources */,
 				0941BF851EBC14E000F51A2D /* ZCRecommendImageVideoModel.m in Sources */,
@@ -1378,6 +1374,7 @@
 				0941C0431EBC195700F51A2D /* ZCRecommendHeaderView.m in Sources */,
 				0941BF6C1EBC14E000F51A2D /* ZCSearchView.m in Sources */,
 				0941C0411EBC195700F51A2D /* ZCRecommendHaveHeaderIconImageView.m in Sources */,
+				094E77171EE8F0A300D7FFB1 /* UINavigationBar+NavAlpha.m in Sources */,
 				0941C03F1EBC195700F51A2D /* ZCRecommendEmptyCell.m in Sources */,
 				0941BF811EBC14E000F51A2D /* ZCRecommendButtonModel.m in Sources */,
 				0941C0491EBC195700F51A2D /* ZCRecommendVideoCell.m in Sources */,
@@ -1407,7 +1404,6 @@
 				0941C0171EBC18FB00F51A2D /* ZCRecipesSearchBasicCell.m in Sources */,
 				0941C01A1EBC18FB00F51A2D /* ZCRecipesSearchResultCell.m in Sources */,
 				0941BFFB1EBC163800F51A2D /* NSString+Extension.m in Sources */,
-				0941BF6A1EBC14E000F51A2D /* ZCNavigationView.m in Sources */,
 				0941BF591EBC14E000F51A2D /* ZCCommunityHomeViewController.m in Sources */,
 				0941BF701EBC14E000F51A2D /* ZCCategoryViewController.m in Sources */,
 			);

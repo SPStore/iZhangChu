@@ -11,7 +11,6 @@
 #import "ZCSceneInfoHeaderView.h"
 #import "ZCSceneInfoDataModel.h"
 #import "ZCSceneInfoListModel.h"
-#import "ZCSceneInfoNavigationView.h"
 #import "ZCNavigationController.h"
 #import "ZCRecipesSearchViewController.h"
 #import "ZCMacro.h"
@@ -24,8 +23,10 @@ static NSString * const sceneInfoListCellID = @"sceneInfoListCell";
 // 表头
 @property (nonatomic, strong) ZCSceneInfoHeaderView *headerView;
 @property (nonatomic, strong) UITableView *tableView;
+@property (nonatomic, weak) UIButton *searchButton;
+@property (nonatomic, weak) UIButton *shareButton;
 
-@property (nonatomic, strong) ZCSceneInfoNavigationView *myNavigationView;
+
 @property (nonatomic, strong) NSArray *listModelArray;
 
 @end
@@ -36,8 +37,9 @@ static NSString * const sceneInfoListCellID = @"sceneInfoListCell";
     [super viewDidLoad];
     
     [self.view addSubview:self.tableView];
-    self.navigationItem.titleView = self.myNavigationView;
     
+    [self setupNavi];
+
     // 如果要实现表头下拉放大，self.headerView不可以赋值给tableView的tableHeaderView
     UIView *headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kScreenW, kHeaderViewH)];
     [headerView addSubview:self.headerView];
@@ -46,6 +48,37 @@ static NSString * const sceneInfoListCellID = @"sceneInfoListCell";
     [self.tableView registerClass:[ZCSceneInfoListCell class] forCellReuseIdentifier:sceneInfoListCellID];
     [self.tableView registerNib:[UINib nibWithNibName:NSStringFromClass([ZCSceneInfoListCell class]) bundle:nil] forCellReuseIdentifier:sceneInfoListCellID];
     [self requestData];
+
+}
+
+- (void)setupNavi {
+    // 导航栏的标题颜色
+    self.navTitleColor = [UIColor whiteColor];
+    // 导航栏上的item的颜色，包括item的图片和文字
+    self.navTintColor = [UIColor whiteColor];
+    // 导航栏的背景颜色
+    self.navBarTintColor = [UIColor whiteColor];
+    // 导航栏的背景alpha
+    self.navAlpha = 0;
+    
+    UIView *rightView = [[UIView alloc] initWithFrame:CGRectMake(kScreenW-70, 0, 54, 44)];
+    
+    CGFloat searchButtonW = 22;
+    CGFloat searchButtonH = searchButtonW;
+    UIButton *searchButton = [[UIButton alloc] init];
+    self.searchButton = searchButton;
+    searchButton.frame = CGRectMake(0, 11, searchButtonW, 30);
+    [searchButton setImage:[UIImage imageNamed:@"searchWhite"] forState:UIControlStateNormal];
+    [searchButton addTarget:self action:@selector(search) forControlEvents:UIControlEventTouchUpInside];
+    [rightView addSubview:searchButton];
+    
+    UIButton *shareButton = [[UIButton alloc] init];
+    self.shareButton = shareButton;
+    shareButton.frame = CGRectMake(32, 11, searchButtonW, searchButtonH);
+    [shareButton setImage:[UIImage imageNamed:@"ico_share_white"] forState:UIControlStateNormal];
+    [shareButton addTarget:self action:@selector(share) forControlEvents:UIControlEventTouchUpInside];
+    [rightView addSubview:shareButton];
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:rightView];
 
 }
 
@@ -134,20 +167,22 @@ static NSString * const sceneInfoListCellID = @"sceneInfoListCell";
     
     if (offsetY >= 20) {
        CGFloat alpha = (offsetY-20)/(kHeaderViewH-20-64);
+        // 该属性是设置导航栏背景渐变
+        self.navAlpha = alpha;
 
-        // 由透明色渐变成黑色
-        self.myNavigationView.backgroundColor = [[UIColor whiteColor] colorWithAlphaComponent:alpha];
-        // 实现由白色渐变成黑色
-        self.myNavigationView.titleLabel.textColor = [UIColor colorWithWhite:1-alpha alpha:1];
-        [self.myNavigationView.shareButton setImage:[UIImage imageNamed:@"ico_share_black_p_22x22_"] forState:UIControlStateNormal];
-        [self.myNavigationView.searchButton setImage:[UIImage imageNamed:@"search"] forState:UIControlStateNormal];
-        [self.myNavigationView.realBackButton setImage:[UIImage imageNamed:@"nav_back_black"] forState:UIControlStateNormal];
+        [self.searchButton setImage:[UIImage imageNamed:@"search"] forState:UIControlStateNormal];
+        [self.shareButton setImage:[UIImage imageNamed:@"ico_share_black_p_22x22_"] forState:UIControlStateNormal];
+        self.navTintColor = [UIColor grayColor];
+
+        self.navTitleColor = [UIColor colorWithWhite:1-alpha alpha:1];
+
     } else {
-        self.myNavigationView.backgroundColor = [UIColor clearColor];
-        self.myNavigationView.titleLabel.textColor = [UIColor whiteColor];
-        [self.myNavigationView.shareButton setImage:[UIImage imageNamed:@"ico_share_white"] forState:UIControlStateNormal];
-        [self.myNavigationView.searchButton setImage:[UIImage imageNamed:@"searchWhite"] forState:UIControlStateNormal];
-        [self.myNavigationView.realBackButton setImage:[UIImage imageNamed:@"nav_back_white"] forState:UIControlStateNormal];
+        self.navAlpha = 0;
+        [self.searchButton setImage:[UIImage imageNamed:@"searchWhite"] forState:UIControlStateNormal];
+        [self.shareButton setImage:[UIImage imageNamed:@"ico_share_white"] forState:UIControlStateNormal];
+        
+        self.navTintColor = [UIColor whiteColor];
+        self.navTitleColor = [UIColor whiteColor];
     }
 
 }
@@ -191,27 +226,6 @@ static NSString * const sceneInfoListCellID = @"sceneInfoListCell";
     }
     return _headerView;
 }
-
-- (ZCSceneInfoNavigationView *)myNavigationView {
-    
-    if (!_myNavigationView) {
-        _myNavigationView = [ZCSceneInfoNavigationView shareSceneInfoNavigationView];
-        _myNavigationView.frame = CGRectMake(0, 0, kScreenW, 64);
-        WEAKSELF;
-        _myNavigationView.clickedBackButtonBlock = ^(){
-            [weakSelf back];
-        };
-        _myNavigationView.clickedShareButtonBlock = ^(){
-            [weakSelf share];
-        };
-        _myNavigationView.clickedSearchButtonBlock = ^(){
-            [weakSelf search];
-        };
-        
-    }
-    return _myNavigationView;
-}
-
 
 - (UITableView *)tableView {
     if (!_tableView) {
