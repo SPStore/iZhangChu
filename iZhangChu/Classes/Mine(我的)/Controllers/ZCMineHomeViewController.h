@@ -6,8 +6,8 @@
 //  Copyright © 2017年 iDress. All rights reserved.
 //  我的首页控制器
 
-#import "ZCBasicViewController.h"
+#import <UIKit/UIKit.h>
 
-@interface ZCMineHomeViewController : ZCBasicViewController
+@interface ZCMineHomeViewController : UIViewController
 
 @end

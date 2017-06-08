@@ -62,7 +62,7 @@
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dJV-Pm-s2n">
-                    <rect key="frame" x="30" y="84" width="315" height="207"/>
+                    <rect key="frame" x="30" y="104" width="315" height="207"/>
                     <subviews>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uJB-S2-CSj">
                             <rect key="frame" x="0.0" y="0.0" width="40" height="40"/>
@@ -176,7 +176,7 @@
                     </constraints>
                 </view>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Cpy-ff-r63">
-                    <rect key="frame" x="20" y="321" width="335" height="45"/>
+                    <rect key="frame" x="20" y="341" width="335" height="45"/>
                     <color key="backgroundColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <state key="normal" title="下一步"/>
                 </button>
@@ -188,7 +188,7 @@
                 <constraint firstItem="ou9-km-Kqz" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="Etn-Ni-6mH"/>
                 <constraint firstAttribute="trailing" secondItem="dJV-Pm-s2n" secondAttribute="trailing" constant="30" id="L7y-wO-KyL"/>
                 <constraint firstAttribute="trailing" secondItem="ou9-km-Kqz" secondAttribute="trailing" id="SjH-C9-TjC"/>
-                <constraint firstItem="dJV-Pm-s2n" firstAttribute="top" secondItem="fpK-LX-NxZ" secondAttribute="bottom" constant="20" id="Ujg-m7-erI"/>
+                <constraint firstItem="dJV-Pm-s2n" firstAttribute="top" secondItem="fpK-LX-NxZ" secondAttribute="bottom" constant="40" id="Ujg-m7-erI"/>
                 <constraint firstItem="fpK-LX-NxZ" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="Wkb-e0-y9E"/>
                 <constraint firstAttribute="bottom" secondItem="ou9-km-Kqz" secondAttribute="bottom" id="agl-iF-cAr"/>
                 <constraint firstAttribute="trailing" secondItem="Cpy-ff-r63" secondAttribute="trailing" constant="20" id="gZ2-Ms-5FE"/>

@@ -78,6 +78,8 @@
             listView.hidden = YES;
         }
     }
+    
+    [self layoutSubControls];
 }
 
 - (UIView *)containerView {
@@ -89,7 +91,7 @@
     return _containerView;
 }
 
-- (void)updateConstraints {
+- (void)layoutSubControls {
     [self.containerView makeConstraints:^(MASConstraintMaker *make) {
         make.left.right.bottom.equalTo(0);
         make.top.equalTo(kTitleHeight+0.5);
@@ -103,12 +105,6 @@
         [self.containerView.subviews mas_distributeViewsAlongAxis:MASAxisTypeVertical withFixedSpacing:0 leadSpacing:0 tailSpacing:0];
     }
     
-    [super updateConstraints];
 }
-
-+ (BOOL)requiresConstraintBasedLayout {
-    return YES;
-}
-
 
 @end

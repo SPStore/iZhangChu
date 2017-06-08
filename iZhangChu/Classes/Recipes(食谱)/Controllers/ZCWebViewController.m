@@ -7,7 +7,7 @@
 //
 
 #import "ZCBasicIntroduceViewController.h"
-
+#import "ZCMacro.h"
 
 @interface ZCWebViewController () 
 @property (nonatomic, strong) UIProgressView *progressView;
@@ -91,7 +91,7 @@
     NSString *headerTitle = @"document.getElementsByClassName('header-title')[0].innerText";
     [webView evaluateJavaScript:headerTitle completionHandler:^(NSString *_Nullable title, NSError * _Nullable error) {
         
-        self.navigationView.title = title;
+        self.navigationItem.title = title;
     }];
 }
 

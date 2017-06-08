@@ -75,7 +75,7 @@ static NSString * const commentCellId = @"courseCommentCell";
         
         NSArray *parts = [headerModel.series_name componentsSeparatedByString:@"#"];
         if (parts.count > 1) {
-            self.navigationView.title = parts[1];
+            self.navigationItem.title = parts[1];
         }
         // 头部数据不需要刷新tableView
         
@@ -194,11 +194,18 @@ static NSString * const commentCellId = @"courseCommentCell";
 #pragma mark - ZCCourseHeaderView的代理方法
 // 每集按钮被点击
 - (void)headerViewEpisodeButtonClicked:(ZCCourseEpisodeButton *)episodeButton {
-    [self requestCourseRelateData:[NSString stringWithFormat:@"%ld",episodeButton.episodeModel.course_id]];
+    [self requestCourseRelateData:[NSString stringWithFormat:@"%ld",(long)episodeButton.episodeModel.course_id]];
     
-    [self requestDianzanListData:[NSString stringWithFormat:@"%ld",episodeButton.episodeModel.course_id]];
+    [self requestDianzanListData:[NSString stringWithFormat:@"%ld",(long)episodeButton.episodeModel.course_id]];
     
 }
+
+// 更新至第几集的按钮被点击
+- (void)headerViewUpdateFoldingButtonClicked:(SPButton *)sender {
+    self.tableView.tableHeaderView = self.headerView;
+}
+
+#pragma mark - tableView的代理方法
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return self.commentArray.count;
@@ -214,6 +221,8 @@ static NSString * const commentCellId = @"courseCommentCell";
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     return 100;
 }
+
+#pragma mark - lazy
 
 - (UITableView *)tableView {
     if (!_tableView) {

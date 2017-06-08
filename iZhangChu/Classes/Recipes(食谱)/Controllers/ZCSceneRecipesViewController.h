@@ -6,8 +6,8 @@
 //  Copyright © 2017年 iDress. All rights reserved.
 //  场景菜谱控制器
 
-#import "ZCBasicViewController.h"
+#import <UIKit/UIKit.h>
 
-@interface ZCSceneRecipesViewController : ZCBasicViewController
+@interface ZCSceneRecipesViewController : UIViewController
 
 @end

@@ -16,14 +16,14 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="nuo-vv-V54">
-                    <rect key="frame" x="15" y="27" width="198" height="33"/>
+                    <rect key="frame" x="15" y="7" width="198" height="53"/>
                     <color key="tintColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="textColor"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits" returnKeyType="search"/>
                 </textField>
                 <button opaque="NO" alpha="0.59999999999999998" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JAw-vV-M01">
-                    <rect key="frame" x="223" y="28.5" width="46" height="30"/>
+                    <rect key="frame" x="223" y="18.5" width="46" height="30"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="30" id="OO2-z1-VYW"/>
                         <constraint firstAttribute="width" constant="46" id="QeC-a5-JaH"/>
@@ -44,7 +44,7 @@
                 <constraint firstAttribute="bottom" secondItem="nuo-vv-V54" secondAttribute="bottom" constant="7" id="V2o-rW-cZ4"/>
                 <constraint firstAttribute="trailing" secondItem="JAw-vV-M01" secondAttribute="trailing" constant="15" id="V8p-Az-Y5p"/>
                 <constraint firstItem="nuo-vv-V54" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="15" id="Z4p-j9-RAj"/>
-                <constraint firstItem="nuo-vv-V54" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="27" id="zJv-eF-tJE"/>
+                <constraint firstItem="nuo-vv-V54" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="7" id="zJv-eF-tJE"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>

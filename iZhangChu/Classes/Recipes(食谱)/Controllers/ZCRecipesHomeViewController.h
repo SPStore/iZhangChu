@@ -6,8 +6,8 @@
 //  Copyright © 2017年 iDress. All rights reserved.
 //  食谱首页
 
-#import "ZCBasicViewController.h"
+#import <UIKit/UIKit.h>
 
-@interface ZCRecipesHomeViewController : ZCBasicViewController
+@interface ZCRecipesHomeViewController : UIViewController
 
 @end

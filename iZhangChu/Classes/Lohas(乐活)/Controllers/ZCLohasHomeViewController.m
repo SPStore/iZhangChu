@@ -13,6 +13,7 @@
 #import "ZCLohasListModel.h"
 #import "ZCCourseViewController.h"
 #import "SPPageMenu.h"
+#import "ZCMacro.h"
 
 #define kCollectionViewH 80
 
@@ -70,9 +71,9 @@
 }
 
 - (void)setupNavi {
-    self.navigationView.customView = self.pageMenu;
-    [self.navigationView.rightButton setImage:[UIImage imageNamed:@"search"] forState:UIControlStateNormal];
-    [self.navigationView.rightButton addTarget:self action:@selector(searchButtonAction:) forControlEvents:UIControlEventTouchUpInside];
+
+    self.navigationItem.titleView = self.pageMenu;
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"search"] style:UIBarButtonItemStylePlain target:self action:@selector(searchButtonAction:)];
 }
 
 - (void)requestCollectionViewData {

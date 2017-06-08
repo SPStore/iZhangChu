@@ -6,8 +6,8 @@
 //  Copyright © 2017年 iDress. All rights reserved.
 //
 
-#import "ZCBasicViewController.h"
+#import <UIKit/UIKit.h>
 
-@interface ZCLoginViewController : ZCBasicViewController
+@interface ZCLoginViewController : UIViewController
 
 @end

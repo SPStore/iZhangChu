@@ -49,7 +49,8 @@ static NSString * const ingredientsCollocationCellID = @"ZCIngredientsCollocatio
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.navigationView.title = @"食材搭配";
+    
+    self.navigationItem.title = @"食材搭配";
     
     [self.view addSubview:self.collectionView];
     [self.view addSubview:self.tableView];

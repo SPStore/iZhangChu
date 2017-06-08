@@ -6,9 +6,9 @@
 //  Copyright © 2017年 iDress. All rights reserved.
 //
 
-#import "ZCBasicViewController.h"
+#import <UIKit/UIKit.h>
 
-@interface ZCCourseViewController : ZCBasicViewController
+@interface ZCCourseViewController : UIViewController
 
 
 @property (nonatomic, copy) NSString *series_id;

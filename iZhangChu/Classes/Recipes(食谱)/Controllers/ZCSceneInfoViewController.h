@@ -6,9 +6,9 @@
 //  Copyright © 2017年 iDress. All rights reserved.
 //  场景详情控制器
 
-#import "ZCBasicViewController.h"
+#import <UIKit/UIKit.h>
 
-@interface ZCSceneInfoViewController : ZCBasicViewController
+@interface ZCSceneInfoViewController : UIViewController
 
 @property (nonatomic, copy) NSString *scene_id;
 

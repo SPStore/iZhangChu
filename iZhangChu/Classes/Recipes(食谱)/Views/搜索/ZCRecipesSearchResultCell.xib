@@ -20,7 +20,7 @@
                 <rect key="frame" x="0.0" y="0.0" width="447" height="180.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="0ZB-CJ-YUQ" customClass="ZCPlayImageView">
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="0ZB-CJ-YUQ" customClass="ZCPlayImageView">
                         <rect key="frame" x="18" y="18" width="144.5" height="144.5"/>
                         <constraints>
                             <constraint firstAttribute="width" secondItem="0ZB-CJ-YUQ" secondAttribute="height" multiplier="1:1" id="2dl-d7-lOy"/>

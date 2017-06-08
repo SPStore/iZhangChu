@@ -6,8 +6,8 @@
 //  Copyright © 2017年 iDress. All rights reserved.
 //  食材搭配控制器
 
-#import "ZCBasicViewController.h"
+#import <UIKit/UIKit.h>
 
-@interface ZCIngredientsCollocationViewController : ZCBasicViewController
+@interface ZCIngredientsCollocationViewController : UIViewController
 
 @end

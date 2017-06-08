@@ -19,7 +19,7 @@
 
     self.urlString = @"http://www.meipai.com/user/1047577070";
     
-    self.navigationView.title = @"美食直播";
+    self.navigationItem.title = @"美食直播";
     
     self.webView.frame = CGRectMake(0, 64, kScreenW, kScreenH-64);
 }

@@ -15,11 +15,6 @@
 #define ZCLog(...)
 #endif
 
-// 屏幕尺寸
-#define kScreenSize [UIScreen mainScreen].bounds.size
-#define kScreenW [UIScreen mainScreen].bounds.size.width
-#define kScreenH [UIScreen mainScreen].bounds.size.height
-
 // --------------------- 颜色专区 ----------------------
 // RGB颜色
 #define ZCColorRGBA(r, g, b, a) [UIColor colorWithRed:(r)/255.0 green:(g)/255.0 blue:(b)/255.0 alpha:(a)]
@@ -36,9 +31,6 @@
 
 
 #define greaterThaniOS(n) ([[UIDevice currentDevice].systemVersion doubleValue] >= n)
-
-#define WEAKSELF typeof(self) __weak weakSelf = self;
-#define STRONGSELF typeof(weakSelf)__strong strongSelf = weakSelf;
 
 #import "ZCHeaderFile.h"
 #import "ZCConst.h"

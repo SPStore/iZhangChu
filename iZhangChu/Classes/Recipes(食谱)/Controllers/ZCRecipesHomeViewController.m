@@ -13,6 +13,7 @@
 #import "ZCRecipesSearchViewController.h"
 #import "ZCNavigationController.h"
 #import "SPPageMenu.h"
+#import "UIBarButtonItem+Style.h"
 
 @interface ZCRecipesHomeViewController () <SPPageMenuDelegate,UIScrollViewDelegate>
 @property (nonatomic, strong) UIScrollView *scrollView;
@@ -46,11 +47,14 @@
 
 // 设置导航栏
 - (void)setupNavigationView {
-    self.navigationView.customView = self.pageMenu;
-    [self.navigationView.leftButton setImage:[UIImage imageNamed:@"saoyisao"] forState:UIControlStateNormal];
-    [self.navigationView.leftButton addTarget:self action:@selector(scan:) forControlEvents:UIControlEventTouchUpInside];
-    [self.navigationView.rightButton setImage:[UIImage imageNamed:@"search"] forState:UIControlStateNormal];
-    [self.navigationView.rightButton addTarget:self action:@selector(search:) forControlEvents:UIControlEventTouchUpInside];
+
+    UIBarButtonItem *leftItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"saoyisao"] style:UIBarButtonItemStylePlain target:self action:@selector(scan:)];
+    self.navigationItem.leftBarButtonItem = leftItem;
+    
+    UIBarButtonItem *rightItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"search"] style:UIBarButtonItemStylePlain target:self action:@selector(search:)];
+    self.navigationItem.rightBarButtonItem = rightItem;
+    
+    self.navigationItem.titleView = self.pageMenu;
 }
 
 // pageMenu的代理方法
@@ -99,7 +103,7 @@
 
 - (SPPageMenu *)pageMenu {
     if (!_pageMenu) {
-        _pageMenu = [SPPageMenu pageMenuWithFrame:CGRectMake(70, 27, kScreenW-140, 36) array:@[@"推荐",@"食材",@"分类"]];
+        _pageMenu = [SPPageMenu pageMenuWithFrame:CGRectMake(70, 20, kScreenW-140, 44) array:@[@"推荐",@"食材",@"分类"]];
         _pageMenu.backgroundColor = [UIColor whiteColor];
         _pageMenu.delegate = self;
         _pageMenu.buttonFont = [UIFont boldSystemFontOfSize:17];

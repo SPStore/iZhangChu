@@ -71,6 +71,8 @@
                 videoItemView.descItem = descItem;
                 [self.videoBigView addSubview:videoItemView];
                 // 添加手势
+                UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapVideoItemView)];
+                [self addGestureRecognizer:tap];
             }
         }
     }
@@ -84,7 +86,15 @@
             videoItemView.hidden = YES;
         }
     }
+    
+    [self layoutSubControls];
   
+}
+
+- (void)tapVideoItemView {
+    if ([self.delegate respondsToSelector:@selector(recommendVideoCellVideoItemViewClicked:)]) {
+        //[self.delegate recommendVideoCellVideoImageClicked:];
+    }
 }
 
 - (UIView *)videoBigView {
@@ -95,7 +105,7 @@
     return _videoBigView;
 }
 
-- (void)updateConstraints {
+- (void)layoutSubControls {
     [self.videoBigView makeConstraints:^(MASConstraintMaker *make) {
         make.left.right.equalTo(0);
         make.bottom.equalTo(0);  
@@ -114,12 +124,6 @@
         [self.videoBigView.subviews mas_distributeViewsAlongAxis:MASAxisTypeHorizontal withFixedSpacing:0.5 leadSpacing:0.0 tailSpacing:0.0];
     }
     
-    
-    [super updateConstraints];
-}
-
-+ (BOOL)requiresConstraintBasedLayout {
-    return YES;
 }
 
 @end
@@ -141,9 +145,13 @@
         [self addSubview:self.playImageView];
         [self addSubview:self.titleLabel];
         [self addSubview:self.descLabel];
+        
+        [self layoutSubContrls];
+  
     }
     return self;
 }
+
 
 - (UILabel *)descLabel {
     if (!_descLabel) {
@@ -196,7 +204,7 @@
     self.descLabel.text = descItem.content;
 }
 
-- (void)updateConstraints {
+- (void)layoutSubContrls {
     [self.playImageView makeConstraints:^(MASConstraintMaker *make) {
         make.top.left.right.equalTo(0);
         make.height.equalTo(kImageViewW);
@@ -213,12 +221,8 @@
         make.top.equalTo(self.titleLabel.bottom).offset(kTopMargin);
     }];
     
-    [super updateConstraints];
 }
 
-+ (BOOL)requiresConstraintBasedLayout {
-    return YES;
-}
 @end
 
 

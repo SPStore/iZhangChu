@@ -95,7 +95,7 @@
     params[@"token"] = @"0";
     params[@"version"] = @4.92;
     
-    [MBProgressHUD showMessage:@"加载中..."];
+    //[MBProgressHUD showMessage:@"加载中..."];
     
     [[SPHTTPSessionManager shareInstance] POST:ZCHOSTURL params:params success:^(id  _Nonnull responseObject) {
         
@@ -107,60 +107,72 @@
         
         // cell数据
         NSArray *widgetLists = [ZCRecommendBasicModel mj_objectArrayWithKeyValuesArray:responseObject[@"data"][@"widgetList"]];
+        
+        NSMutableArray *modelArray1 = [NSMutableArray array];
+        NSMutableArray *modelArray2 = [NSMutableArray array];
+        NSMutableArray *modelArray3 = [NSMutableArray array];
+        NSMutableArray *modelArray4 = [NSMutableArray array];
+        NSMutableArray *modelArray5 = [NSMutableArray array];
+        NSMutableArray *modelArray6 = [NSMutableArray array];
+        NSMutableArray *modelArray7 = [NSMutableArray array];
+        
         for (ZCRecommendBasicModel *basicModdel in widgetLists) {
             
             switch (basicModdel.widget_type) {
                 case 1: {
+                    // 这里是要把basicModdel的所有属性赋值给buttonModel,于是先把basicModdel转成字典，然后字典转模型
                     ZCRecommendButtonModel *buttonModel = [ZCRecommendButtonModel mj_objectWithKeyValues:basicModdel.mj_keyValues];
-                    [self.sectionModels addObject:buttonModel];
+                    [modelArray1 addObject:buttonModel];
                 }
                     break;
                 case 2:
                 {
                     ZCRecommendCanScrollModel *scrollModel = [ZCRecommendCanScrollModel mj_objectWithKeyValues:basicModdel.mj_keyValues];
-                    [self.sectionModels addObject:scrollModel];
+                    [modelArray1 addObject:scrollModel];
                 }
                     break;
                 case 5:
                 {
                     ZCRecommendVideoModel *videoModel = [ZCRecommendVideoModel mj_objectWithKeyValues:basicModdel.mj_keyValues];
-                    [self.sectionModels addObject:videoModel];
+                    [modelArray2 addObject:videoModel];
                 }
                     break;
                 case 3:
                 {
                     ZCRecommendImageVideoModel *mageVideoModel = [ZCRecommendImageVideoModel mj_objectWithKeyValues:basicModdel.mj_keyValues];
-                    [self.sectionModels addObject:mageVideoModel];
+                    [modelArray3 addObject:mageVideoModel];
                 }
                     break;
                 case 9:
                 {
                     ZCRecommendEmptyModel *emptyModel = [ZCRecommendEmptyModel mj_objectWithKeyValues:basicModdel.mj_keyValues];
-                    [self.sectionModels addObject:emptyModel];
+                    [modelArray4 addObject:emptyModel];
                 }
                     break;
                 case 4:
                 {
                     ZCRecommendMasterListModel *listModel = [ZCRecommendMasterListModel mj_objectWithKeyValues:basicModdel.mj_keyValues];
-                    [self.sectionModels addObject:listModel];
+                    [modelArray5 addObject:listModel];
                 }
                     break;
                 case 8:
                 {
                     ZCRecommendHaveHeaderIconImageModel *iconImageModel = [ZCRecommendHaveHeaderIconImageModel mj_objectWithKeyValues:basicModdel.mj_keyValues];
-                    [self.sectionModels addObject:iconImageModel];
+                    [modelArray6 addObject:iconImageModel];
                 }
                     break;
                 case 7:
                 {
                     ZCRecommendImageViewTitleModel *imgTitleModel = [ZCRecommendImageViewTitleModel mj_objectWithKeyValues:basicModdel.mj_keyValues];
-                    [self.sectionModels addObject:imgTitleModel];
+                    [modelArray7 addObject:imgTitleModel];
                 }
                     break;
                 default:
                     break;
             }
         }
+        
+        self.sectionModels = @[modelArray1,modelArray2,modelArray3,modelArray4,modelArray5,modelArray6,modelArray7].mutableCopy;
         
         [self.tableView reloadData];
         [self.tableView.mj_header endRefreshing];
@@ -183,11 +195,12 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 1;
+    return [self.sectionModels[section] count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    ZCRecommendBasicModel *basicModel = self.sectionModels[indexPath.section];
+    NSMutableArray *modelArray = self.sectionModels[indexPath.section];
+    ZCRecommendBasicModel *basicModel = modelArray[indexPath.row];
     ZCRecommendBasicCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass(basicModel.class) forIndexPath:indexPath];
     cell.model = basicModel;
     cell.delegate = self;
@@ -195,7 +208,8 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    ZCRecommendBasicModel *basicModel = self.sectionModels[indexPath.section];
+    NSMutableArray *modelArray = self.sectionModels[indexPath.section];
+    ZCRecommendBasicModel *basicModel = modelArray[indexPath.row];
     return basicModel.cellHeight;
 }
 
@@ -204,7 +218,7 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
-    if (section == 0 || section == 1) {
+    if (section == 0) {
         return 0.0f;
     }
     return 10;

@@ -14,6 +14,7 @@
 #import "ZCSceneInfoNavigationView.h"
 #import "ZCNavigationController.h"
 #import "ZCRecipesSearchViewController.h"
+#import "ZCMacro.h"
 
 #define kHeaderViewH 200
 
@@ -35,7 +36,7 @@ static NSString * const sceneInfoListCellID = @"sceneInfoListCell";
     [super viewDidLoad];
     
     [self.view addSubview:self.tableView];
-    self.navigationView = self.myNavigationView;
+    self.navigationItem.titleView = self.myNavigationView;
     
     // 如果要实现表头下拉放大，self.headerView不可以赋值给tableView的tableHeaderView
     UIView *headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kScreenW, kHeaderViewH)];
@@ -65,7 +66,7 @@ static NSString * const sceneInfoListCellID = @"sceneInfoListCell";
         
         ZCSceneInfoDataModel *dataModel = [ZCSceneInfoDataModel mj_objectWithKeyValues:responseObject[@"data"]];
         // 导航栏标题
-        self.navigationView.title = dataModel.scene_title;
+        self.navigationItem.title = dataModel.scene_title;
         // 给表头传递模型
         self.headerView.model = dataModel;
         // cell的列表模型数组

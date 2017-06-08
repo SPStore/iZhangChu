@@ -4,16 +4,18 @@
 //
 //  Created by Shengping on 17/4/21.
 //  Copyright © 2017年 iDress. All rights reserved.
-//  
+//  今日新品
 
 #import "ZCRecommendBasicCell.h"
 #import "ZCRecommendWidgetItem.h"
+
 
 @interface ZCRecommendVideoCell : ZCRecommendBasicCell
 
 @end
 
 
+#import "ZCPlayImageView.h"
 @interface ZCRecommendVideoItemView : UIView
 
 @property (nonatomic, strong) ZCRecommendWidgetItem *imageItem;

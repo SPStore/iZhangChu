@@ -7,6 +7,7 @@
 //
 
 #import "ZCRecipesSearchResultViewController.h"
+#import "ZCMacro.h"
 #import "ZCRecipesSearchResultModel.h"
 #import "ZCRecipesAutoSearchModel.h"
 #import "ZCRecipesSearchResultCell.h"
@@ -25,9 +26,11 @@ static NSString * const recipesSearchResultCellID = @"recipesSearchResultCell";
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.navigationController.navigationBar.hidden = YES;
+    //self.navigationController.navigationBar.hidden = YES;
     
-    self.navigationView.title = @"为你找到";
+    self.view.backgroundColor = [UIColor whiteColor];
+    
+    self.navigationItem.title = @"为你找到";
     
     [self.view addSubview:self.tableView];
     

@@ -32,8 +32,10 @@ static NSString * const recipesSearchCellID = @"recipesSearchCell";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-        
-    [self.navigationView addSubview:self.searchView];
+    
+    // 导航栏上添加搜索框
+    self.navigationItem.titleView = self.searchView;
+    
     [self.view addSubview:self.tableView];
     
     [self.tableView registerClass:[ZCRecipesSearchCell class] forCellReuseIdentifier:NSStringFromClass([ZCRecipesSearchGroup class])];
@@ -200,7 +202,7 @@ static NSString * const recipesSearchCellID = @"recipesSearchCell";
 #pragma mark - ZCSearchViewDelegate
 // 取消
 - (void)searchViewCancelButtonClicked {
-    [self.navigationView endEditing:YES];
+    [self.navigationController.view endEditing:YES];
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
@@ -211,7 +213,7 @@ static NSString * const recipesSearchCellID = @"recipesSearchCell";
 
 // 键盘回车键
 - (void)searchViewKeyboardSearchButtonClicked:(NSString *)string {
-    [self.navigationView endEditing:YES];
+    [self.view endEditing:YES];
 
     ZCRecipesSearchResultViewController *searchResultVc = [[ZCRecipesSearchResultViewController alloc] init];
     searchResultVc.keyword = string;
@@ -231,7 +233,7 @@ static NSString * const recipesSearchCellID = @"recipesSearchCell";
     
     if (!_searchView) {
         _searchView = [ZCSearchView searchView];
-        _searchView.frame = CGRectMake(0, 0, kScreenW, 64);
+        _searchView.frame = CGRectMake(0, 0, kScreenW, 44);
         _searchView.delegate = self;
         _searchView.placeholder = @"输入菜名或食材名搜索";
     }

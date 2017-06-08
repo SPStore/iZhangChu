@@ -82,7 +82,7 @@
     // 设置文字的样式
     NSMutableDictionary *textAttrs = [NSMutableDictionary dictionary];
     // 正常状态下的颜色
-//    textAttrs[NSForegroundColorAttributeName] = ZCColorRGBA(146, 146, 146, 1);
+    textAttrs[NSForegroundColorAttributeName] = ZCColorRGBA(146, 146, 146, 1);
     NSMutableDictionary *selectTextAttrs = [NSMutableDictionary dictionary];
     // 选中状态下的颜色设置为掌厨的主色调
     selectTextAttrs[NSForegroundColorAttributeName] = ZCGlobalColor;

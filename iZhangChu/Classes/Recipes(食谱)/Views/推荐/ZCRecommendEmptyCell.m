@@ -23,7 +23,7 @@
 
 - (void)setModel:(ZCRecommendBasicModel *)model {
     [super setModel:model];
-    self.titleViewW = 150;
+    self.titleViewW = 160;
     self.title = model.title;
     
 }

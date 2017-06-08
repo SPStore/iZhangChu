@@ -9,6 +9,7 @@
 #import "ZCSceneRecipesViewController.h"
 #import "ZCSceneRecipesModel.h"
 #import "ZCSceneRecipesCell.h"
+#import "ZCMacro.h"
 
 #define cellCol 3
 #define cellPadding 1.0f
@@ -26,7 +27,7 @@ static NSString * const sceneRecipesCellID = @"sceneRecipesCell";
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.navigationView.title = @"全部场景";
+    self.navigationItem.title = @"全部场景";
     
     [self.view addSubview:self.collectionView];
     [self.collectionView registerNib:[UINib nibWithNibName:NSStringFromClass([ZCSceneRecipesCell class]) bundle:nil] forCellWithReuseIdentifier:sceneRecipesCellID];

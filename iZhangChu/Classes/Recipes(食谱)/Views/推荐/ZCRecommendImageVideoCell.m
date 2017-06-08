@@ -13,6 +13,7 @@
 #define kDescLabelH 40
 
 @interface ZCRecommendImageVideoCell()
+@property (nonatomic, strong) UIView *containerView;
 @property (nonatomic, strong) ZCRecommendWidgetItemImageView *leftImageView;
 @property (nonatomic, strong) ZCRecommendImageVideoRightBigView *rightBigView;
 @property (nonatomic, strong) UILabel *descLabel;
@@ -23,11 +24,12 @@
 - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
-        
-        [self.contentView addSubview:self.leftImageView];
-        [self.contentView addSubview:self.rightBigView];
-        [self.contentView addSubview:self.descLabel];
-    
+        self.backgroundColor = ZCBackgroundColor;
+        [self.contentView addSubview:self.containerView];
+        [self.containerView addSubview:self.leftImageView];
+        [self.containerView addSubview:self.rightBigView];
+        [self.containerView addSubview:self.descLabel];
+
     }
     return self;
 }
@@ -49,14 +51,27 @@
             break;
         }
     }
+  
+    [self layoutSubControls];
 }
+
+- (UIView *)containerView {
+    
+    if (!_containerView) {
+        _containerView = [[UIView alloc] init];
+        _containerView.backgroundColor = [UIColor whiteColor];
+        _containerView.translatesAutoresizingMaskIntoConstraints = NO;
+    }
+    return _containerView;
+}
+
 
 - (ZCRecommendImageVideoRightBigView *)rightBigView {
     
     if (!_rightBigView) {
         _rightBigView = [[ZCRecommendImageVideoRightBigView alloc] init];
         _rightBigView.translatesAutoresizingMaskIntoConstraints = NO;
-        
+        _rightBigView.layer.masksToBounds = YES;
     }
     return _rightBigView;
 }
@@ -83,7 +98,11 @@
     return _descLabel;
 }
 
-- (void)updateConstraints {
+- (void)layoutSubControls {
+    [self.containerView makeConstraints:^(MASConstraintMaker *make) {
+        make.edges.equalTo(UIEdgeInsetsMake(0, 0, 10, 0));
+    }];
+    
     [self.leftImageView makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(0);
         make.width.equalTo(kScreenW/3-kMargin);
@@ -111,13 +130,9 @@
         make.left.right.bottom.equalTo(0);
         make.height.equalTo(kDescLabelH);
     }];
-    
-    [super updateConstraints];
+
 }
 
-+ (BOOL)requiresConstraintBasedLayout {
-    return YES;
-}
 
 @end
 
@@ -176,10 +191,12 @@
             playImagView.hidden = YES;
         }
     }
+    
+    [self layoutSubControls];
 }
 
 
-- (void)updateConstraints {
+- (void)layoutSubControls {
    
     __block int i = 0;
     
@@ -197,11 +214,6 @@
         i++;
     }];
     
-    [super updateConstraints];
-}
-
-+ (BOOL)requiresConstraintBasedLayout {
-    return YES;
 }
 
 @end

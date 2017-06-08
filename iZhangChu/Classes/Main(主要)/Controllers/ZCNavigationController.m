@@ -7,7 +7,6 @@
 //
 
 #import "ZCNavigationController.h"
-#import "ZCBasicViewController.h"
 
 @interface ZCNavigationController ()
 
@@ -15,13 +14,20 @@
 
 @implementation ZCNavigationController
 
-- (instancetype)initWithRootViewController:(UIViewController *)rootViewController {
-    if (self = [super initWithRootViewController:rootViewController]) {
-        
-        
-        
-    }
-    return self;
++ (void)initialize {
+
+    UINavigationBar *bar = [UINavigationBar appearance];
+    // key：NS****AttributeName
+    NSMutableDictionary *textAttrs = [NSMutableDictionary dictionary];
+    // 设置导航栏的标题颜色
+    textAttrs[NSForegroundColorAttributeName] = [UIColor colorWithWhite:0 alpha:0.8];
+    // 设置导航栏的标题字体,并加粗
+    textAttrs[NSFontAttributeName] = [UIFont boldSystemFontOfSize:16];
+    [bar setTitleTextAttributes:textAttrs];
+    // 设置导航栏的barButtonItem的图片颜色
+    [bar setTintColor:[UIColor grayColor]];
+
+    [bar setBarTintColor:[UIColor whiteColor]];
 }
 
 - (void)viewDidLoad {
@@ -36,14 +42,15 @@
 }
 
 - (void)pushViewController:(UIViewController *)viewController animated:(BOOL)animated {
-
+    // 当第一个子控件为scrollView时，顶部限制压缩64
+    viewController.automaticallyAdjustsScrollViewInsets = NO;
+    
     if (self.viewControllers.count > 0) {
-        ZCBasicViewController *vc = (ZCBasicViewController *)viewController;
         /* 当push的时候自动显示和隐藏tabbar */
         viewController.hidesBottomBarWhenPushed = YES;
-           
-        [vc.navigationView.leftButton setImage:[UIImage imageNamed:@"nav_back_black"] forState:UIControlStateNormal];
-        [vc.navigationView.leftButton addTarget:self action:@selector(back) forControlEvents:UIControlEventTouchUpInside];
+        
+        viewController.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"nav_back_black"] style:UIBarButtonItemStylePlain target:self action:@selector(back)];
+        self.interactivePopGestureRecognizer.delegate = (id)self;
     }
     // 必须super
     [super pushViewController:viewController animated:animated];

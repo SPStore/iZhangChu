@@ -6,10 +6,10 @@
 //  Copyright © 2017年 iDress. All rights reserved.
 //
 
-#import "ZCBasicViewController.h"
+#import <UIKit/UIKit.h>
 #import <WebKit/WebKit.h>
 
-@interface ZCWebViewController : ZCBasicViewController<WKNavigationDelegate>
+@interface ZCWebViewController : UIViewController<WKNavigationDelegate>
 
 @property (nonatomic, strong) WKWebView *webView;
 

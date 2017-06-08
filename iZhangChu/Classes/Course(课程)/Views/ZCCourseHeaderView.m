@@ -127,17 +127,20 @@
     
     // xib中设置的RGB颜色有偏差
     self.commentButton.backgroundColor = ZCColorRGBA(243, 123, 81, 1);
-  
-    // 延迟0.01s的目的是：xib加载完可能frame还没有立即生效，所以延迟一点点
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.01 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        self.zc_height = CGRectGetMaxY(self.commentButton.frame) + selfBottomMargin;
-    });
+ 
+    self.zc_height = CGRectGetMaxY(self.commentButton.frame) + selfBottomMargin;
 }
 
 - (void)setHeaderModel:(ZCCourseHeaderModel *)headerModel {
     _headerModel = headerModel;
     [self.videoImageView sd_setImageWithURL:[NSURL URLWithString:headerModel.series_image] placeholderImage:nil];
     [self.updateFoldingButton setTitle:[NSString stringWithFormat:@"更新至第%zd集",headerModel.episode] forState:UIControlStateNormal];
+    
+    if (headerModel.data.count <= 8) {
+        self.seleceEpisodeViewConstraintH.constant = 30 + 10 + kEpisodeButtonWH + kEpisodeButtonPadding;
+    } else {
+        self.seleceEpisodeViewConstraintH.constant = 30 + 10 + kEpisodeButtonWH*2.0 + 2.0*kEpisodeButtonPadding;
+    }
     
     for (int i = 0; i < headerModel.data.count; i++) {
         ZCCourseEpisodeModel *episodeModel = headerModel.data[i];
@@ -200,7 +203,7 @@
 - (void)setZanModel:(ZCCourseZanModel *)zanModel {
     _zanModel = zanModel;
     
-    self.numbersOfZanLabel.text = [NSString stringWithFormat:@"%ld位厨友觉得很赞",zanModel.data.count];
+    self.numbersOfZanLabel.text = [NSString stringWithFormat:@"%ld位厨友觉得很赞",(unsigned long)zanModel.data.count];
     if (!zanModel.data.count) {
         self.zanListViewConstraintH.constant = 0;
     }  else if (zanModel.data.count > 4) {
@@ -230,7 +233,7 @@
 
 - (void)setCommentCount:(NSInteger)commentCount {
     _commentCount = commentCount;
-    self.numbersOfCommentLabel.text = [NSString stringWithFormat:@"%ld条发言",commentCount];
+    self.numbersOfCommentLabel.text = [NSString stringWithFormat:@"%ld条发言",(long)commentCount];
 }
 
 #pragma mark 按钮点击方法
@@ -268,7 +271,7 @@
 
 // 更新至第几集的按钮被点击(折叠)
 - (IBAction)updateFoldingButtonClicked:(SPButton *)sender {
-    
+
     sender.selected = !sender.selected;
     
     NSInteger count = self.headerModel.data.count;
@@ -276,7 +279,12 @@
     if (sender.selected) {
         self.seleceEpisodeViewConstraintH.constant = 30 + 10 + (count + kMaxCol) / kMaxCol * kEpisodeButtonWH + ((count + kMaxCol) / kMaxCol - 1) * kEpisodeButtonPadding + kEpisodeButtonPadding;
     } else {
-        self.seleceEpisodeViewConstraintH.constant = 30 + 10 + kEpisodeButtonWH*2.0 + 2.0*kEpisodeButtonPadding;
+        if (count > 8) {
+           self.seleceEpisodeViewConstraintH.constant = 30 + 10 + kEpisodeButtonWH*2.0 + 2.0*kEpisodeButtonPadding;
+        } else {
+            self.seleceEpisodeViewConstraintH.constant = 30 + 10 + kEpisodeButtonWH + kEpisodeButtonPadding;
+        }
+        
     }
     
     // UIView动画，以上代码放在UIView的block块内部是无效的
@@ -285,6 +293,10 @@
     }];
 
     self.zc_height = CGRectGetMaxY(self.commentButton.frame) + selfBottomMargin;
+    
+    if ([self.delegate respondsToSelector:@selector(headerViewUpdateFoldingButtonClicked:)]) {
+        [self.delegate headerViewUpdateFoldingButtonClicked:sender];
+    }
 }
 
 // 赞的按钮被点击
@@ -370,6 +382,8 @@
     if (self = [super initWithFrame:frame]) {
         [self addSubview:self.playImageView];
         [self addSubview:self.titleLabel];
+        
+        [self layoutSubControls];
     }
     return self;
 }
@@ -401,7 +415,7 @@
     return _titleLabel;
 }
 
-- (void)updateConstraints {
+- (void)layoutSubControls {
     [self.playImageView makeConstraints:^(MASConstraintMaker *make) {
         make.left.right.top.equalTo(0);
         make.bottom.equalTo(self.titleLabel.top).offset(-5);
@@ -414,12 +428,6 @@
         make.height.equalTo(20);
         make.top.equalTo(self.playImageView.bottom).offset(5);
     }];
-    
-    [super updateConstraints];
-}
-
-+ (BOOL)requiresConstraintBasedLayout {
-    return YES;
 }
 
 @end

@@ -1,0 +1,21 @@
+//
+//  ZCPrefixHeader.pch
+//  iZhangChu
+//
+//  Created by Libo on 17/6/8.
+//  Copyright © 2017年 iDress. All rights reserved.
+//
+
+#ifndef ZCPrefixHeader_pch
+#define ZCPrefixHeader_pch
+
+// 屏幕尺寸
+#define kScreenSize [UIScreen mainScreen].bounds.size
+#define kScreenW [UIScreen mainScreen].bounds.size.width
+#define kScreenH [UIScreen mainScreen].bounds.size.height
+
+#define WEAKSELF typeof(self) __weak weakSelf = self;
+#define STRONGSELF typeof(weakSelf)__strong strongSelf = weakSelf;
+
+
+#endif /* ZCPrefixHeader_pch */

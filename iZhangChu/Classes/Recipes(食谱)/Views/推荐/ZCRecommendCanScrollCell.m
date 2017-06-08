@@ -42,6 +42,8 @@
         UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapImageView:)];
         [imageview addGestureRecognizer:tap];
     }
+    
+    [self layoutSubControls];
 }
 
 - (void)tapImageView:(UITapGestureRecognizer *)tap {
@@ -70,7 +72,7 @@
 }
 
 // 注意：如果采用Masonry框架进行布局，那么当遇到scrollView时，情况有些特殊，如果scrollView的子控件也用masonry布局，那么此时直接设置scrollView的contentSize是没有想要的效果的，必须建立一张contentView作为scrollView的第一个子控件，然后再将其它子控件加在contentView上，并且，contentView的大小应该延伸至最后一个子控件，这样就相当于设置了scrollView的contentSize
-- (void)updateConstraints {
+- (void)layoutSubControls {
     [self.scrollview makeConstraints:^(MASConstraintMaker *make) {
         make.top.left.right.equalTo(0);
         make.bottom.equalTo(0);
@@ -87,14 +89,11 @@
     [self.myContentView makeConstraints:^(MASConstraintMaker *make) {
         make.edges.equalTo(self.scrollview);
         make.height.equalTo(self.scrollview);
-        make.right.equalTo(self.myContentView.subviews.lastObject.right);
+        if (self.myContentView.subviews.count != 0) {
+           make.right.equalTo(self.myContentView.subviews.lastObject.right);
+        }
     }];
     
-    [super updateConstraints];
-}
-
-+ (BOOL)requiresConstraintBasedLayout {
-    return YES;
 }
 
 @end

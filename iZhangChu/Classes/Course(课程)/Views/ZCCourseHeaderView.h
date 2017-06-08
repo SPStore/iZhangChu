@@ -19,6 +19,8 @@
 
 - (void)headerViewEpisodeButtonClicked:(ZCCourseEpisodeButton *)episodeButton;
 
+- (void)headerViewUpdateFoldingButtonClicked:(SPButton *)sender;
+
 @end
 
 @interface ZCCourseHeaderView : UIView

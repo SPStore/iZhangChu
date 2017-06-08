@@ -27,12 +27,22 @@ static NSString * const mindeHomeCell = @"mindeSettingCell";
     
     self.groups = [ZCMineSettingDataSource dataSource];
     
-    self.navigationView.title = @"设置";
+    self.navigationItem.title = @"设置";
     
     [self.view addSubview:self.tableView];
     
     [self.tableView registerClass:[ZCMineHomeCell class] forCellReuseIdentifier:mindeHomeCell];
 
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [self.navigationController setNavigationBarHidden:NO animated:animated];
+}
+
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+    [self.navigationController setNavigationBarHidden:YES animated:animated];
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {

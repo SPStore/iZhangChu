@@ -72,6 +72,8 @@
             iconImageView.hidden = YES;
         }
     }
+    
+    [self layoutSubControls];
 }
 
 - (UILabel *)descLabel {
@@ -94,7 +96,7 @@
     return _containerView;
 }
 
-- (void)updateConstraints {
+- (void)layoutSubControls {
     [self.containerView makeConstraints:^(MASConstraintMaker *make) {
         make.left.right.equalTo(0);
         make.bottom.equalTo(self.descLabel.top).offset(-5);
@@ -114,11 +116,7 @@
         make.height.equalTo(40);
     }];
     
-    [super updateConstraints];
 }
 
-+ (BOOL)requiresConstraintBasedLayout {
-    return YES;
-}
 
 @end

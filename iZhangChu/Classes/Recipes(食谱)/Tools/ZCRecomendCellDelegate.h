@@ -17,6 +17,7 @@ typedef NS_ENUM(NSInteger, ZCRecommendButtonCellButtonType) {
 
 @class ZCRecommendWidgetItem;
 @class ZCRecommendImageViewTitleModel;
+@class ZCRecommendVideoModel;
 
 @protocol ZCRecomendCellDelegate <NSObject>
 
@@ -27,5 +28,7 @@ typedef NS_ENUM(NSInteger, ZCRecommendButtonCellButtonType) {
 
 - (void)recommendTitleCellClickedWithModel:(ZCRecommendImageViewTitleModel *)model;
 
+- (void)recommendVideoCellVideoItemViewClicked:(ZCRecommendVideoModel *)model;
+- (void)recommendVideoCellLabelClicked;
 @end
 

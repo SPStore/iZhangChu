@@ -29,7 +29,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.navigationView.hidden = YES;
     
     
 }

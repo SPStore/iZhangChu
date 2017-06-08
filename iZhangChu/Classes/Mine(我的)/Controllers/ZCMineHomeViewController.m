@@ -12,6 +12,7 @@
 #import "ZCMineHomeHeaderView.h"
 #import "ZCMineSettingViewController.h"
 #import "ZCLoginViewController.h"
+#import "ZCMacro.h"
 
 #define kHeaderViewH 260
 
@@ -31,12 +32,12 @@ static NSString * const mindeHomeCell = @"mindeHomeCell";
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    self.navigationController.navigationBarHidden = YES;
     self.automaticallyAdjustsScrollViewInsets = NO;
-    self.navigationView.hidden = YES;
     
     self.groups = [ZCMineHomeDataSource dataSource];
     
-    [self.view insertSubview:self.tableView belowSubview:self.navigationView];
+    [self.view addSubview:self.tableView];
     
     self.tableView.tableHeaderView = self.headerView;
     

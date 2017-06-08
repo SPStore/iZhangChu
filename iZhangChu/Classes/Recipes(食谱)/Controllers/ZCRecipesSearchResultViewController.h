@@ -6,9 +6,9 @@
 //  Copyright © 2017年 iDress. All rights reserved.
 //  食谱中的搜索结果控制器
 
-#import "ZCBasicViewController.h"
+#import <UIKit/UIKit.h>
 
-@interface ZCRecipesSearchResultViewController : ZCBasicViewController
+@interface ZCRecipesSearchResultViewController : UIViewController
 
 @property (nonatomic, copy) NSString *keyword;
 
