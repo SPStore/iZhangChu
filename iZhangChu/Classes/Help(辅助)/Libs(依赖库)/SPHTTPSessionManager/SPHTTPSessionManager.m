@@ -129,7 +129,7 @@
     
 }
 
-// 下载1(重启app时从0开始开始)
+// 下载1(重启app时从0开始)
 - (NSURLSessionTask *)downloadFromZeroWithURL:(NSString *)urlString
                                      progress:(void (^)(CGFloat))downloadProgressBlock
                                      complete:(void (^)(NSURLResponse *, NSURL *, NSError *))completionHandler {

@@ -336,7 +336,7 @@
                 <outlet property="zanListView" destination="lgD-LU-Pea" id="hf8-8X-s7L"/>
                 <outlet property="zanListViewConstraintH" destination="VID-rl-pdX" id="3mV-Vk-LMh"/>
             </connections>
-            <point key="canvasLocation" x="22" y="392.5"/>
+            <point key="canvasLocation" x="22" y="392"/>
         </view>
     </objects>
 </document>

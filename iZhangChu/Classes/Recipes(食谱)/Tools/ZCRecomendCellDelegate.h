@@ -28,7 +28,7 @@ typedef NS_ENUM(NSInteger, ZCRecommendButtonCellButtonType) {
 
 - (void)recommendTitleCellClickedWithModel:(ZCRecommendImageViewTitleModel *)model;
 
-- (void)recommendVideoCellVideoItemViewClicked:(ZCRecommendVideoModel *)model;
-- (void)recommendVideoCellLabelClicked;
+// 点击了今日新品cell上的view
+- (void)recommendVideoCellVideoItemViewClicked:(ZCRecommendWidgetItem *)item;
 @end
 

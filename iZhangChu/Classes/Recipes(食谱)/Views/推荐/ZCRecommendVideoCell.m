@@ -71,8 +71,11 @@
                 videoItemView.descItem = descItem;
                 [self.videoBigView addSubview:videoItemView];
                 // 添加手势
-                UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapVideoItemView)];
-                [self addGestureRecognizer:tap];
+                UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapPlayImageView:)];
+                [videoItemView addGestureRecognizer:tap];
+                videoItemView.playImageView.playBlock = ^(UIButton *button) {
+                    [self clickedPlayButton];
+                };
             }
         }
     }
@@ -91,10 +94,17 @@
   
 }
 
-- (void)tapVideoItemView {
+- (void)tapPlayImageView:(UITapGestureRecognizer *)tap {
+    
+    ZCRecommendVideoItemView *itemView = (ZCRecommendVideoItemView *)tap.view;
     if ([self.delegate respondsToSelector:@selector(recommendVideoCellVideoItemViewClicked:)]) {
-        //[self.delegate recommendVideoCellVideoImageClicked:];
+        // 跳转到下一级界面需要参数 dishes_id,只有imageItem中的link含有有
+        [self.delegate recommendVideoCellVideoItemViewClicked:itemView.imageItem];
     }
+}
+
+- (void)clickedPlayButton {
+    
 }
 
 - (UIView *)videoBigView {
@@ -131,7 +141,6 @@
 #import "ZCPlayImageView.h"
 
 @interface ZCRecommendVideoItemView()
-@property (nonatomic, strong) ZCPlayImageView *playImageView;
 @property (nonatomic, strong) UILabel *titleLabel;
 @property (nonatomic, strong) UILabel *descLabel;
 @end

@@ -47,7 +47,8 @@
 
 - (void)addSubControl {
     self.playButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    [self.playButton setImage:[UIImage imageNamed:@"play-A"] forState:UIControlStateNormal];
+    [self.playButton setImage:[UIImage imageNamed:@"love_Play_Icon"] forState:UIControlStateNormal];
+    [self.playButton addTarget:self action:@selector(playButtonAction:) forControlEvents:UIControlEventTouchUpInside];
     [self addSubview:self.playButton];
 
 }
@@ -58,8 +59,14 @@
 }
 
 - (void)tapAction:(UITapGestureRecognizer *)tap {
-    if (self.clickBlock) {
-        self.clickBlock(tap);
+    if (self.tapBlock) {
+        self.tapBlock(tap);
+    }
+}
+
+- (void)playButtonAction:(UIButton *)sender {
+    if (self.playBlock) {
+        self.playBlock(sender);
     }
 }
 

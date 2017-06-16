@@ -55,7 +55,7 @@
     [super awakeFromNib];
     
     self.dishPlayImageView.playButtonPosition = ZCPlayImageViewPlayButtonPositionRightBottom;
-    self.dishPlayImageView.clickBlock = ^(UITapGestureRecognizer *tap) {
+    self.dishPlayImageView.tapBlock = ^(UITapGestureRecognizer *tap) {
         // do something
         ZCLog(@"点击了imageView");
     };

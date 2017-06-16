@@ -33,6 +33,7 @@
 #import "ZCFoodLiveViewController.h"
 
 #import "ZCSceneInfoViewController.h"
+#import "ZCDishedInfoViewController.h"
 
 @interface ZCRecommendViewController () <UITableViewDelegate,UITableViewDataSource, SPCarouselViewDelegate,ZCRecomendCellDelegate,UITextFieldDelegate>
 @property (nonatomic, strong) UITableView *tableView;
@@ -296,6 +297,7 @@
     }
 }
 
+// 含有横向滑动的scrollView的cell的代理方法
 - (void)recommendCanScrollCellImageClickedWithItem:(ZCRecommendWidgetItem *)item {
     ZCWebViewController *webVc = [[ZCWebViewController alloc] init];
     webVc.urlString = item.link;
@@ -310,6 +312,15 @@
         sceneInfoVc.scene_id = parts[1];
     }
     [self.navigationController pushViewController:sceneInfoVc animated:YES];
+}
+
+- (void)recommendVideoCellVideoItemViewClicked:(ZCRecommendWidgetItem *)item {
+    ZCDishedInfoViewController *dishInfoVc = [[ZCDishedInfoViewController alloc] init];
+    NSArray *arr = [item.link componentsSeparatedByString:@"#"];
+    if (arr.count > 1) {
+       dishInfoVc.dishes_id = arr[1];
+    }
+    [self.navigationController pushViewController:dishInfoVc animated:YES];
 }
 
 - (UITableView *)tableView {

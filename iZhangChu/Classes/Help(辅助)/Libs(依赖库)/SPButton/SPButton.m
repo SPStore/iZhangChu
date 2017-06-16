@@ -1,6 +1,6 @@
 //
 //  SPButton.m
-//  WeChat
+//  SPButton
 //
 //  Created by leshengping on 16/10/28.
 //  Copyright © 2016年 leshengping. All rights reserved.

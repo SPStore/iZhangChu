@@ -18,6 +18,8 @@
 #import "ZCPlayImageView.h"
 @interface ZCRecommendVideoItemView : UIView
 
+@property (nonatomic, strong) ZCPlayImageView *playImageView;
+
 @property (nonatomic, strong) ZCRecommendWidgetItem *imageItem;
 @property (nonatomic, strong) ZCRecommendWidgetItem *textItem;
 @property (nonatomic, strong) ZCRecommendWidgetItem *videoItem;

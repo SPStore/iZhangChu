@@ -21,7 +21,7 @@ typedef NS_ENUM(NSInteger, SPDownloadWay) {
     4、SPDownloadWayResume支持任何时刻删除已经下载的文件数据，SPDownloadWayRestart不支持在下载过程中删除，只有下载完成时才能删除
     5、SPDownloadWayResume不依赖于AFN，SPDownloadWayRestart依赖AFN
      
-     通俗的讲，SPDownloadWayResume和SPDownloadWayRestart的根本区别就是前者是沙盒模式，后者是内存模式
+     SPDownloadWayResume和SPDownloadWayRestart的根本区别就是前者是沙盒模式，后者是内存模式
      */
     
 };

@@ -200,7 +200,6 @@ static NSInteger tagIndex = 2016;
     self.selectedButton = button;
     
     
-    
     // 让scrollView发生偏移(重点）
     [self moveScrollViewWithSelectedButton:button];
     
@@ -248,7 +247,7 @@ static NSInteger tagIndex = 2016;
     if (offSetX <= 0 || maxOffsetX <= 0) {
         offSetX = 0;
     }
-    // 如果offSetX大于maxOffsetX,说明scrollView已经滑到尽头，此时button也发生任何偏移了
+    // 如果offSetX大于maxOffsetX,说明scrollView已经滑到尽头，此时button也不发生任何偏移了
     else if (offSetX > maxOffsetX){
         offSetX = maxOffsetX;
     }
@@ -311,12 +310,16 @@ static NSInteger tagIndex = 2016;
                 menuButtonW_Sum += menuButtonW;
                 [menuButtonW_Array addObject:@(menuButtonW)];
             }
-            _spacing = (scrollViewWidth - menuButtonW_Sum) / (count+1);
-            
+            _spacing = (scrollViewWidth - menuButtonW_Sum-_firstButtonX*2) / (count-1);
             [self.menuButtonArray enumerateObjectsUsingBlock:^(UIButton * _Nonnull menuButton, NSUInteger idx, BOOL * _Nonnull stop) {
                 CGFloat menuButtonW = [menuButtonW_Array[idx] floatValue];
                 CGFloat menuButtonH = self.scrollView.frame.size.height-1;
-                CGFloat menuButtonX = _spacing + lastMenuButtonMaxX;
+                CGFloat menuButtonX;
+                if (idx == 0) {
+                    menuButtonX = _firstButtonX;
+                } else {
+                    menuButtonX = _spacing + lastMenuButtonMaxX;
+                }
                 CGFloat menuButtonY = 0;
                 menuButton.frame = CGRectMake(menuButtonX, menuButtonY, menuButtonW, menuButtonH);
                 lastMenuButtonMaxX = CGRectGetMaxX(menuButton.frame);
@@ -508,7 +511,7 @@ static NSInteger tagIndex = 2016;
     // 如果不能超出屏幕，且外界没有设置spacing，让间距默认为0.
     if (!self.allowBeyondScreen && !_settedspacing) {
         _spacing = 0.0f;
-        _firstButtonX = 0.0f;
+        //_firstButtonX = 0.0f;
     }
     
     [self resetMenuButtonFrame];

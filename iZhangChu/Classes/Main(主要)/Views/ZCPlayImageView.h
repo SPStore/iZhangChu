@@ -14,13 +14,16 @@ typedef NS_ENUM(NSInteger, ZCPlayImageViewPlayButtonPosition) {
     ZCPlayImageViewPlayButtonPositionRightBottom
 };
 
-typedef void(^ClickedBlock)(UITapGestureRecognizer *tap);
+typedef void(^TapBlock)(UITapGestureRecognizer *tap);
+typedef void(^PlayBlock)(UIButton *button);
+
 
 @interface ZCPlayImageView : UIImageView
 
 @property (nonatomic, assign) ZCPlayImageViewPlayButtonPosition playButtonPosition;
 
-@property (nonatomic, copy) ClickedBlock clickBlock;
+@property (nonatomic, copy) TapBlock tapBlock;
+@property (nonatomic, copy) PlayBlock playBlock;
 
 @property (nonatomic, strong) ZCRecommendWidgetItem *imageItem;
 @property (nonatomic, strong) ZCRecommendWidgetItem *videoItem;
