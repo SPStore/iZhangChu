@@ -8,6 +8,10 @@
 
 #import "ZCMakeStepViewController.h"
 #import "ZCMacro.h"
+#import "ZCDishesMakeStepModel.h"
+#import "ZCMakeStepCell.h"
+
+static NSString * const cell_ID = @"stepCell";
 
 @interface ZCMakeStepViewController ()
 //@property (nonatomic, strong) UITableView *tableView;
@@ -18,34 +22,30 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-//    [self.view addSubview:self.tableView];
+    self.tableView.estimatedRowHeight = 200;
+    self.tableView.rowHeight = UITableViewAutomaticDimension;
+    
+    [self.tableView registerNib:[UINib nibWithNibName:NSStringFromClass([ZCMakeStepCell class]) bundle:nil] forCellReuseIdentifier:cell_ID];
 }
 
-//- (void)setHeaderViewH:(CGFloat)headerViewH {
-//    [super setHeaderViewH:headerViewH];
-//    self.headerView.zc_height = headerViewH;
-//    self.headerView.backgroundColor = [UIColor redColor];
-//    UITableView *tableView = (UITableView *)self.scrollView;
-//    tableView.tableHeaderView = self.headerView;
-//}
+- (void)setSteps:(NSArray *)steps {
+    _steps = steps;
+    
+    [self.tableView reloadData];
+}
 
-//- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-//    return 0;
-//}
-//
-//- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-//    return nil;
-//}
-//
-//- (UITableView *)tableView {
-//    
-//    if (!_tableView) {
-//        _tableView = [[UITableView alloc] initWithFrame:self.view.bounds style:UITableViewStylePlain];
-//        _tableView.dataSource = self;
-//        _tableView.delegate = self;
-//    }
-//    return _tableView;
-//}
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return self.steps.count;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    ZCMakeStepCell *cell = [tableView dequeueReusableCellWithIdentifier: cell_ID forIndexPath:indexPath];
+    cell.model = self.steps[indexPath.row];
+    
+    return cell;
+}
+
 
 
 @end

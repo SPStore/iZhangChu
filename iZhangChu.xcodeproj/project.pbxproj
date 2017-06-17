@@ -146,8 +146,15 @@
 		09FBE0A51EC74A6800DB8DD8 /* ZCLohasHomeTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 09FBE0A41EC74A6800DB8DD8 /* ZCLohasHomeTableViewCell.m */; };
 		09FBE0A81EC74F5200DB8DD8 /* ZCLohasLogoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 09FBE0A71EC74F5200DB8DD8 /* ZCLohasLogoModel.m */; };
 		09FBE0AB1EC7506E00DB8DD8 /* ZCLohasListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 09FBE0AA1EC7506E00DB8DD8 /* ZCLohasListModel.m */; };
+		09FCE95D1EF4CE3D00285F6A /* ZCDishesMaterialModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 09FCE95C1EF4CE3D00285F6A /* ZCDishesMaterialModel.m */; };
+		09FCE9641EF4D25200285F6A /* ZCMaterialItemCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 09FCE9621EF4D25200285F6A /* ZCMaterialItemCell.m */; };
+		09FCE9651EF4D25200285F6A /* ZCMaterialItemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 09FCE9631EF4D25200285F6A /* ZCMaterialItemCell.xib */; };
+		09FCE96C1EF4D28600285F6A /* ZCSpiceItemCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 09FCE96A1EF4D28600285F6A /* ZCSpiceItemCell.m */; };
+		09FCE96D1EF4D28600285F6A /* ZCSpiceItemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 09FCE96B1EF4D28600285F6A /* ZCSpiceItemCell.xib */; };
 		09FE0ED51EBCA39A00140EB0 /* ZCIngredientSqlite.m in Sources */ = {isa = PBXBuildFile; fileRef = 09FE0ED41EBCA39A00140EB0 /* ZCIngredientSqlite.m */; };
 		09FE0ED71EBCB6C200140EB0 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 09FE0ED61EBCB6C200140EB0 /* libsqlite3.tbd */; };
+		09FEE3131EF4211100B7AD90 /* ZCMakeStepCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 09FEE3121EF4211100B7AD90 /* ZCMakeStepCell.m */; };
+		09FEE3151EF4216C00B7AD90 /* ZCMakeStepCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 09FEE3141EF4216C00B7AD90 /* ZCMakeStepCell.xib */; };
 		F2F4CD81E2787577D4A4EF9C /* libPods-iZhangChu.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1578D2F11D0D4E3759AD292C /* libPods-iZhangChu.a */; };
 /* End PBXBuildFile section */
 
@@ -437,9 +444,20 @@
 		09FBE0A71EC74F5200DB8DD8 /* ZCLohasLogoModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZCLohasLogoModel.m; sourceTree = "<group>"; };
 		09FBE0A91EC7506E00DB8DD8 /* ZCLohasListModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZCLohasListModel.h; sourceTree = "<group>"; };
 		09FBE0AA1EC7506E00DB8DD8 /* ZCLohasListModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZCLohasListModel.m; sourceTree = "<group>"; };
+		09FCE95B1EF4CE3D00285F6A /* ZCDishesMaterialModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZCDishesMaterialModel.h; sourceTree = "<group>"; };
+		09FCE95C1EF4CE3D00285F6A /* ZCDishesMaterialModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZCDishesMaterialModel.m; sourceTree = "<group>"; };
+		09FCE9611EF4D25200285F6A /* ZCMaterialItemCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ZCMaterialItemCell.h; path = FashionFox/ZCMaterialItemCell.h; sourceTree = "<group>"; };
+		09FCE9621EF4D25200285F6A /* ZCMaterialItemCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ZCMaterialItemCell.m; path = FashionFox/ZCMaterialItemCell.m; sourceTree = "<group>"; };
+		09FCE9631EF4D25200285F6A /* ZCMaterialItemCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ZCMaterialItemCell.xib; path = FashionFox/ZCMaterialItemCell.xib; sourceTree = "<group>"; };
+		09FCE9691EF4D28600285F6A /* ZCSpiceItemCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZCSpiceItemCell.h; sourceTree = "<group>"; };
+		09FCE96A1EF4D28600285F6A /* ZCSpiceItemCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZCSpiceItemCell.m; sourceTree = "<group>"; };
+		09FCE96B1EF4D28600285F6A /* ZCSpiceItemCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ZCSpiceItemCell.xib; sourceTree = "<group>"; };
 		09FE0ED31EBCA39A00140EB0 /* ZCIngredientSqlite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZCIngredientSqlite.h; sourceTree = "<group>"; };
 		09FE0ED41EBCA39A00140EB0 /* ZCIngredientSqlite.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZCIngredientSqlite.m; sourceTree = "<group>"; };
 		09FE0ED61EBCB6C200140EB0 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
+		09FEE3111EF4211100B7AD90 /* ZCMakeStepCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZCMakeStepCell.h; sourceTree = "<group>"; };
+		09FEE3121EF4211100B7AD90 /* ZCMakeStepCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZCMakeStepCell.m; sourceTree = "<group>"; };
+		09FEE3141EF4216C00B7AD90 /* ZCMakeStepCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ZCMakeStepCell.xib; sourceTree = "<group>"; };
 		13912BF85C230D428BDD7D11 /* Pods-iZhangChu.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iZhangChu.debug.xcconfig"; path = "Pods/Target Support Files/Pods-iZhangChu/Pods-iZhangChu.debug.xcconfig"; sourceTree = "<group>"; };
 		1578D2F11D0D4E3759AD292C /* libPods-iZhangChu.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-iZhangChu.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FBD2129A70688F68B8DFE385 /* Pods-iZhangChu.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iZhangChu.release.xcconfig"; path = "Pods/Target Support Files/Pods-iZhangChu/Pods-iZhangChu.release.xcconfig"; sourceTree = "<group>"; };
@@ -813,6 +831,8 @@
 				0964B7D21EEA6CED008B787A /* ZCDishesInfoModel.m */,
 				0964B7D41EEA8FBB008B787A /* ZCDishesMakeStepModel.h */,
 				0964B7D51EEA8FBB008B787A /* ZCDishesMakeStepModel.m */,
+				09FCE95B1EF4CE3D00285F6A /* ZCDishesMaterialModel.h */,
+				09FCE95C1EF4CE3D00285F6A /* ZCDishesMaterialModel.m */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -1017,6 +1037,15 @@
 				0964B7CC1EEA6C4C008B787A /* ZCDishesInfoHeaderView.xib */,
 				0948AC4C1EF3C94700CA9B81 /* ZCDishesInfoHeaderContentView.h */,
 				0948AC4D1EF3C94700CA9B81 /* ZCDishesInfoHeaderContentView.m */,
+				09FEE3111EF4211100B7AD90 /* ZCMakeStepCell.h */,
+				09FEE3121EF4211100B7AD90 /* ZCMakeStepCell.m */,
+				09FEE3141EF4216C00B7AD90 /* ZCMakeStepCell.xib */,
+				09FCE9611EF4D25200285F6A /* ZCMaterialItemCell.h */,
+				09FCE9621EF4D25200285F6A /* ZCMaterialItemCell.m */,
+				09FCE9631EF4D25200285F6A /* ZCMaterialItemCell.xib */,
+				09FCE9691EF4D28600285F6A /* ZCSpiceItemCell.h */,
+				09FCE96A1EF4D28600285F6A /* ZCSpiceItemCell.m */,
+				09FCE96B1EF4D28600285F6A /* ZCSpiceItemCell.xib */,
 			);
 			path = "推荐";
 			sourceTree = "<group>";
@@ -1279,12 +1308,15 @@
 				094B47511EC9585E0075EE9D /* loginBackgroundImage.jpg in Resources */,
 				0941BF631EBC14E000F51A2D /* ZCCourseHeaderView.xib in Resources */,
 				094865911EC45B800009E879 /* ZCSceneInfoListCell.xib in Resources */,
+				09FCE96D1EF4D28600285F6A /* ZCSpiceItemCell.xib in Resources */,
 				0941BF6D1EBC14E000F51A2D /* ZCSearchView.xib in Resources */,
 				094865931EC469670009E879 /* ZCSceneInfoHeaderView.xib in Resources */,
 				09F1DD7A1EC80E2100CB288B /* ZCLohasHomeTableViewCell.xib in Resources */,
 				0941C01B1EBC18FB00F51A2D /* ZCRecipesSearchResultCell.xib in Resources */,
 				0941C0421EBC195700F51A2D /* ZCRecommendHaveHeaderIconImageView.xib in Resources */,
+				09FEE3151EF4216C00B7AD90 /* ZCMakeStepCell.xib in Resources */,
 				0952BFC91EA84DD3002DA69E /* LaunchScreen.storyboard in Resources */,
+				09FCE9651EF4D25200285F6A /* ZCMaterialItemCell.xib in Resources */,
 				0941BF611EBC14E000F51A2D /* ZCCourseCommentCell.xib in Resources */,
 				0952BFC61EA84DD3002DA69E /* Assets.xcassets in Resources */,
 				0941C0161EBC18FB00F51A2D /* ZCRecipesAutoSearchTopListCell.xib in Resources */,
@@ -1363,6 +1395,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0964B7D31EEA6CED008B787A /* ZCDishesInfoModel.m in Sources */,
+				09FCE95D1EF4CE3D00285F6A /* ZCDishesMaterialModel.m in Sources */,
 				0952C03A1EA84E41002DA69E /* AppDelegate.m in Sources */,
 				0941BFFF1EBC163800F51A2D /* SPCarouselView.m in Sources */,
 				094865721EC40C540009E879 /* MBProgressHUD+SP.m in Sources */,
@@ -1381,6 +1414,7 @@
 				0941BF7B1EBC14E000F51A2D /* ZCIngredientsDataModel.m in Sources */,
 				0941C0461EBC195700F51A2D /* ZCRecommendMasterListCell.m in Sources */,
 				0948657A1EC457690009E879 /* ZCSceneInfoViewController.m in Sources */,
+				09FCE96C1EF4D28600285F6A /* ZCSpiceItemCell.m in Sources */,
 				0941C04A1EBC195700F51A2D /* ZCRecommendWidgetItemImageView.m in Sources */,
 				0941BF671EBC14E000F51A2D /* ZCTabBarController.m in Sources */,
 				0904B2311EC6197500DDC34E /* ZCMineHomeCell.m in Sources */,
@@ -1406,6 +1440,7 @@
 				096485B91EC2F6440068FA6D /* ZCIngredientsCollocationBottomCell.m in Sources */,
 				09FBE0A51EC74A6800DB8DD8 /* ZCLohasHomeTableViewCell.m in Sources */,
 				0941BF641EBC14E000F51A2D /* ZCLohasHomeViewController.m in Sources */,
+				09FEE3131EF4211100B7AD90 /* ZCMakeStepCell.m in Sources */,
 				096485B61EC2EDEE0068FA6D /* ZCIngredientsCollocationBottomToolBar.m in Sources */,
 				0941C0181EBC18FB00F51A2D /* ZCRecipesSearchCell.m in Sources */,
 				0941BF7C1EBC14E000F51A2D /* ZCRecipesAutoSearchModel.m in Sources */,
@@ -1445,6 +1480,7 @@
 				0941C0431EBC195700F51A2D /* ZCRecommendHeaderView.m in Sources */,
 				0941BF6C1EBC14E000F51A2D /* ZCSearchView.m in Sources */,
 				0941C0411EBC195700F51A2D /* ZCRecommendHaveHeaderIconImageView.m in Sources */,
+				09FCE9641EF4D25200285F6A /* ZCMaterialItemCell.m in Sources */,
 				094E77171EE8F0A300D7FFB1 /* UINavigationBar+NavAlpha.m in Sources */,
 				0941C03F1EBC195700F51A2D /* ZCRecommendEmptyCell.m in Sources */,
 				0941BF811EBC14E000F51A2D /* ZCRecommendButtonModel.m in Sources */,

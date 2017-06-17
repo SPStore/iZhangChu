@@ -10,5 +10,6 @@
 
 @interface ZCMakeStepViewController : ZCDishInfoBaseViewController
 
+@property (nonatomic, strong) NSArray *steps;
 
 @end

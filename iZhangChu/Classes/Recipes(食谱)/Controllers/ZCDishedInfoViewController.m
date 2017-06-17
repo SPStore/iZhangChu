@@ -48,9 +48,17 @@
     ZCMakeStepViewController *makeVc = [[ZCMakeStepViewController alloc] init];
     makeVc.headerView = self.headerView;
     [self addChildViewController:makeVc];
-    [self addChildViewController:[[ZCMaterialViewController alloc] init]];
-    [self addChildViewController:[[ZCCommensenseViewController alloc] init]];
-    [self addChildViewController:[[ZCSuitableViewController alloc] init]];
+    
+    ZCMaterialViewController *materialVc = [[ZCMaterialViewController alloc] init];
+    materialVc.dishes_id = self.dishes_id;
+    [self addChildViewController:materialVc];
+    
+    ZCCommensenseViewController *commensenseVc = [[ZCCommensenseViewController alloc] init];
+    [self addChildViewController:commensenseVc];
+    
+    ZCSuitableViewController *suitableVc = [[ZCSuitableViewController alloc] init];
+    [self addChildViewController:suitableVc];
+    
     [self.scrollView addSubview:self.childViewControllers[0].view];
     self.scrollView.contentSize = CGSizeMake(kScreenW*4, 0);
     
@@ -86,12 +94,23 @@
     params[@"version"] = @4.92;
     
     [[SPHTTPSessionManager shareInstance] POST:ZCHOSTURL params:params success:^(id  _Nonnull responseObject) {
+        // 字典转模型
         ZCDishesInfoModel *dishInfoModel = [ZCDishesInfoModel mj_objectWithKeyValues:responseObject[@"data"]];
+        // 标题
         self.navigationItem.title = dishInfoModel.dishes_name;
+        // 给头部传模型
         self.headerView.model = dishInfoModel;
+        // 设置悬浮菜单的初始位置
         self.pageMenu.frame = CGRectMake(0, CGRectGetMaxY(self.headerView.frame), kScreenW, PageMenuH);
+        // 记录头部高度
         _headerViewH = CGRectGetMaxY(self.headerView.frame);
+        self.lastPageMenuY = _headerViewH;
+        // 给每个子控制器的头部赋予高度
         [self setupSubViewControllerHeaderViewH:_headerViewH];
+        // 第一个子控制器的数据来源于该网络请求，故通过传值传过去
+        ZCMakeStepViewController *makeStepVc = self.childViewControllers[0];
+        // dishInfoModel.step是一个数组，里面装着步骤模型
+        makeStepVc.steps = dishInfoModel.step;
         
     } failure:^(NSError * _Nonnull error) {
         [MBProgressHUD hideHUD];
@@ -112,6 +131,8 @@
         CGRect headerFrame = self.headerView.frame;
         headerFrame.origin.x = scrollView.contentOffset.x-kScreenW*_selectedIndex;
         self.headerView.frame = headerFrame;
+        
+        [self configerHeaderY];
     }
 }
 
@@ -197,7 +218,7 @@
     // 取出当前子控制器
     ZCDishInfoBaseViewController *baseVc = self.childViewControllers[_selectedIndex];
     CGRect headerFrame = self.headerView.frame;
-    // 将pageMenu的frame转换到当前正在滑动的scrollView上去（这一步很关键）
+    // 将pageMenu的frame转换到当前正在滑动的scrollView(tableView)上去（这一步很关键）
     CGRect pageMenuFrameInScrollView = [self.pageMenu convertRect:self.pageMenu.bounds toView:baseVc.scrollView];
     // 每个tableView的头视图的y值都等于pageMenu的y值减去头部高度，这是为了保证头部的底部永远跟pageMenu的顶部紧贴
     headerFrame.origin.y = pageMenuFrameInScrollView.origin.y-_headerViewH;
@@ -302,7 +323,7 @@
         _scrollView.pagingEnabled = YES;
         _scrollView.showsVerticalScrollIndicator = NO;
         _scrollView.showsHorizontalScrollIndicator = NO;
-        _scrollView.contentSize = CGSizeMake(kScreenW*4, 0);
+        _scrollView.contentSize = CGSizeMake(kScreenW*(self.childViewControllers.count), 0);
         _scrollView.backgroundColor = [UIColor colorWithWhite:1 alpha:0];
     }
     return _scrollView;

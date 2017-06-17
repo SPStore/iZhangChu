@@ -9,8 +9,7 @@
 #import "ZCDishInfoBaseViewController.h"
 #import "ZCMacro.h"
 
-@interface ZCDishInfoBaseViewController () <UITableViewDataSource,UITableViewDelegate>
-@property (nonatomic, strong) UITableView *tableView;
+@interface ZCDishInfoBaseViewController ()
 @property (nonatomic, strong) ZCDishesInfoHeaderContentView *placeholderHeaderView;
 @end
 
@@ -56,18 +55,19 @@
 }
 
 
+#pragma mark － 这里tableView的代理方法没有实际意义，子控制器会重写
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 30;
+    return 0;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    static NSString *ID = @"cell_1";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:ID];
-    if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:ID];
-    }
-    cell.textLabel.text = [NSString stringWithFormat:@"第%zd行",indexPath.row];
-    return cell;
+//    static NSString *ID = @"cell_1";
+//    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:ID];
+//    if (cell == nil) {
+//        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:ID];
+//    }
+//    cell.textLabel.text = [NSString stringWithFormat:@"第%zd行",indexPath.row];
+    return nil;
 }
 
 - (UITableView *)tableView {
