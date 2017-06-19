@@ -342,7 +342,7 @@ static NSInteger tagIndex = 2016;
     
     self.backgroundView.frame = CGRectMake(0, 0, w, h);
     
-    self.breakline.frame = CGRectMake(0, h - 1, w, 1);
+    self.breakline.frame = CGRectMake(0, h - 0.5, w, 0.5);
     
     // 减_breaklineHeight是为了有分割线的效果
     self.scrollView.frame = CGRectMake(0, 0, w, h);

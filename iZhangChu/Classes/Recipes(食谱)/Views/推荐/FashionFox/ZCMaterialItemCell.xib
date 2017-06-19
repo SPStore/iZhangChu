@@ -19,19 +19,19 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="98.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lkU-uq-UFh">
-                        <rect key="frame" x="10" y="34.5" width="202" height="30"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <label opaque="NO" userInteractionEnabled="NO" alpha="0.59999999999999998" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lkU-uq-UFh">
+                        <rect key="frame" x="15" y="34.5" width="197" height="30"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FQx-LL-tT4">
+                    <label opaque="NO" userInteractionEnabled="NO" alpha="0.59999999999999998" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FQx-LL-tT4">
                         <rect key="frame" x="222" y="34.5" width="80" height="30"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="30" id="FPS-IP-FUC"/>
                             <constraint firstAttribute="width" constant="80" id="r8i-Kj-oMZ"/>
                         </constraints>
-                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
@@ -40,7 +40,7 @@
                     <constraint firstItem="lkU-uq-UFh" firstAttribute="height" secondItem="FQx-LL-tT4" secondAttribute="height" id="18F-6O-PZv"/>
                     <constraint firstItem="lkU-uq-UFh" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="5yq-uQ-jD7"/>
                     <constraint firstItem="FQx-LL-tT4" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="HuH-jF-fp1"/>
-                    <constraint firstItem="lkU-uq-UFh" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="Vj1-GU-5VQ"/>
+                    <constraint firstItem="lkU-uq-UFh" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="Vj1-GU-5VQ"/>
                     <constraint firstAttribute="trailingMargin" secondItem="FQx-LL-tT4" secondAttribute="trailing" constant="10" id="bfZ-Wg-cE6"/>
                     <constraint firstItem="FQx-LL-tT4" firstAttribute="leading" secondItem="lkU-uq-UFh" secondAttribute="trailing" constant="10" id="led-U7-LCu"/>
                 </constraints>

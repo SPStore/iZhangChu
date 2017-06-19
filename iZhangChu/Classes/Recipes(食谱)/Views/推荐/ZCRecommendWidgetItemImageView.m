@@ -28,6 +28,8 @@
         maskView.backgroundColor = [UIColor blackColor];
         maskView.alpha = 0.3;
         [self addSubview:maskView];
+        UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapMaskViewAction:)];
+        [maskView addGestureRecognizer:tap];
         
         UILabel *titleLabel = [[UILabel alloc] init];
         self.titleLabel = titleLabel;
@@ -44,6 +46,12 @@
         [self addSubview:descLabel];
     }
     return self;
+}
+
+- (void)tapMaskViewAction:(UITapGestureRecognizer *)tap {
+    if (self.tapLeftImageViewBlock) {
+        self.tapLeftImageViewBlock();
+    }
 }
 
 - (void)setItem:(ZCRecommendWidgetItem *)item {

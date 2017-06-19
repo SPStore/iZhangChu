@@ -41,7 +41,7 @@
     self.navTintColor = [UIColor whiteColor];
     self.navBarTintColor = [UIColor whiteColor];
     self.navAlpha = 0;
-
+    
     [self.view addSubview:self.scrollView];
     
     // 添加4个控制器
@@ -54,9 +54,11 @@
     [self addChildViewController:materialVc];
     
     ZCCommensenseViewController *commensenseVc = [[ZCCommensenseViewController alloc] init];
+    commensenseVc.dishes_id = self.dishes_id;
     [self addChildViewController:commensenseVc];
     
     ZCSuitableViewController *suitableVc = [[ZCSuitableViewController alloc] init];
+    suitableVc.dishes_id = self.dishes_id;
     [self addChildViewController:suitableVc];
     
     [self.scrollView addSubview:self.childViewControllers[0].view];
@@ -105,6 +107,7 @@
         // 记录头部高度
         _headerViewH = CGRectGetMaxY(self.headerView.frame);
         self.lastPageMenuY = _headerViewH;
+        [self changeStatusBarColor];
         // 给每个子控制器的头部赋予高度
         [self setupSubViewControllerHeaderViewH:_headerViewH];
         // 第一个子控制器的数据来源于该网络请求，故通过传值传过去
@@ -133,6 +136,13 @@
         self.headerView.frame = headerFrame;
         
         [self configerHeaderY];
+        
+        // 如果scrollView的内容很少，在屏幕范围内，则自动回落
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            if (baseVc.scrollView.contentSize.height < kScreenH && [baseVc isViewLoaded]) {
+                [baseVc.scrollView setContentOffset:CGPointMake(0, 0) animated:YES];
+            }
+        });
     }
 }
 
@@ -155,8 +165,10 @@
     
     CGFloat distanceY;
     
-    // 取出的scrollingScrollView并非是唯一的，当有多个子控制器上的scrollView同时滑动时都会发出通知来到这个方法，所以要过滤，只有可见的(肉眼所看在屏幕范围内的)scrollView才让它进入if
-    if ([self isVisibleScrollView:scrollingScrollView]) {
+    // 取出的scrollingScrollView并非是唯一的，当有多个子控制器上的scrollView同时滑动时都会发出通知来到这个方法，所以要过滤
+    ZCDishInfoBaseViewController *baseVc = self.childViewControllers[_selectedIndex];
+    
+    if (scrollingScrollView == baseVc.scrollView && baseVc.isFirstViewLoaded == NO) {
         
         // 让悬浮菜单跟随scrollView滑动
         CGRect pageMenuFrame = self.pageMenu.frame;
@@ -196,6 +208,7 @@
         [self changeColorWithOffsetY:-self.pageMenu.frame.origin.y+_headerViewH];
         [self changeStatusBarColor];
     }
+    baseVc.isFirstViewLoaded = NO;
 }
 
 // 所有子控制器上的特定scrollView同时联动
@@ -225,23 +238,15 @@
     self.headerView.frame = headerFrame;
 }
 
-// 判断scrollView是否显示在屏幕范围内
-- (BOOL)isVisibleScrollView:(UIScrollView *)scrollView {
-    // 不能用window作为参考系，因为self.scrollView的contentSize是四个子scrollView的容量，即便其余scrollView不在屏幕范围内，但是依然默认可见
-    CGRect rectInScrollView = [scrollView convertRect:scrollView.bounds toView:self.scrollView];
-    if (fabs(rectInScrollView.origin.x/kScreenW) == _selectedIndex) {
-        return YES;
-    } else {
-        return NO;
-    }
-}
-
 #pragma mark - SPPageMenuDelegate
 - (void)pageMenu:(SPPageMenu *)pageMenu buttonClickedFromIndex:(NSInteger)fromIndex toIndex:(NSInteger)toIndex {
     _selectedIndex = toIndex;
     // 如果上一次点击的button下标与当前点击的buton下标之差大于等于2,说明跨界面移动了,此时不动画.
     if (labs(toIndex - fromIndex) >= 2) {
-        [self.scrollView setContentOffset:CGPointMake(_scrollView.frame.size.width * toIndex, 0) animated:NO];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self.scrollView setContentOffset:CGPointMake(_scrollView.frame.size.width * toIndex, 0) animated:NO];
+        });
+        
     } else {
         // 如果有动画为yes，则不会走scrollViewDidScroll的代理方法,否则会走
         [self.scrollView setContentOffset:CGPointMake(_scrollView.frame.size.width * toIndex, 0) animated:YES];
@@ -252,8 +257,10 @@
     // 如果已经加载过，就不再加载
     if ([targetViewController isViewLoaded]) return;
     
+    targetViewController.isFirstViewLoaded = YES;
+    
     targetViewController.view.frame = CGRectMake(kScreenW*toIndex, 0, kScreenW, kScreenH);
-    UIScrollView *s = targetViewController.view.subviews[0];
+    UIScrollView *s = targetViewController.scrollView;
     CGPoint contentOffset = s.contentOffset;
     contentOffset.y = -self.pageMenu.frame.origin.y+_headerViewH;
     if (contentOffset.y >= _headerViewH) {
@@ -289,7 +296,7 @@
 
 // 要系统自动调用这个方法，要在导航控制器中实现-(UIViewController *)childViewControllerForStatusBarStyle方法
 - (UIStatusBarStyle)preferredStatusBarStyle {
-    if (self.pageMenu.frame.origin.y < (_headerViewH)) {
+    if (self.pageMenu.frame.origin.y < 300 && self.pageMenu.frame.origin.y > 0) {
         return UIStatusBarStyleDefault;
     } else {
         return UIStatusBarStyleLightContent;
@@ -321,6 +328,7 @@
         _scrollView.frame = CGRectMake(0, 0, kScreenW, kScreenH);
         _scrollView.delegate = self;
         _scrollView.pagingEnabled = YES;
+        _scrollView.bounces = NO;
         _scrollView.showsVerticalScrollIndicator = NO;
         _scrollView.showsHorizontalScrollIndicator = NO;
         _scrollView.contentSize = CGSizeMake(kScreenW*(self.childViewControllers.count), 0);

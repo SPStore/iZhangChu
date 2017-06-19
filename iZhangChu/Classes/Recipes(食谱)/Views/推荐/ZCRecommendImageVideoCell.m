@@ -83,6 +83,12 @@
         _leftImageView = [[ZCRecommendWidgetItemImageView alloc] init];
         _leftImageView.contentMode = UIViewContentModeScaleAspectFill;
         _leftImageView.clipsToBounds = YES;
+        WEAKSELF;
+        _leftImageView.tapLeftImageViewBlock = ^() {
+            if ([weakSelf.delegate respondsToSelector:@selector(recommendTitleCellClickedWithModel:)]) {
+                [weakSelf.delegate recommendTitleCellClickedWithModel:(ZCRecommendImageViewTitleModel *)weakSelf.model];
+            }
+        };
     }
     return _leftImageView;
 }

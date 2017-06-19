@@ -34,6 +34,8 @@
 
 #import "ZCSceneInfoViewController.h"
 #import "ZCDishedInfoViewController.h"
+#import "ZCRecommendMasterViewController.h"
+#import "ZCSelectedWorksViewController.h"
 
 @interface ZCRecommendViewController () <UITableViewDelegate,UITableViewDataSource, SPCarouselViewDelegate,ZCRecomendCellDelegate,UITextFieldDelegate>
 @property (nonatomic, strong) UITableView *tableView;
@@ -305,13 +307,24 @@
 }
 
 - (void)recommendTitleCellClickedWithModel:(ZCRecommendImageViewTitleModel *)model {
-    ZCSceneInfoViewController *sceneInfoVc = [[ZCSceneInfoViewController alloc] init];
-    // 网络请求的参数series_id藏在title_link中
-    NSArray *parts = [model.title_link componentsSeparatedByString:@"#"];
-    if (parts.count > 1) {
-        sceneInfoVc.scene_id = parts[1];
+    if ([model.title containsString:@"全部场景"]) {
+        ZCSceneRecipesViewController *sceneRecipesVc = [[ZCSceneRecipesViewController alloc] init];
+        [self.navigationController pushViewController:sceneRecipesVc animated:YES];
+    } else if([model.title containsString:@"推荐达人"]) {
+        ZCRecommendMasterViewController *masterVc = [[ZCRecommendMasterViewController alloc] init];
+        [self.navigationController pushViewController:masterVc animated:YES];
+    } else if([model.title containsString:@"精选作品"]) {
+        ZCSelectedWorksViewController *selectedWorksVc = [[ZCSelectedWorksViewController alloc] init];
+        [self.navigationController pushViewController:selectedWorksVc animated:YES];
+    } else {
+        ZCSceneInfoViewController *sceneInfoVc = [[ZCSceneInfoViewController alloc] init];
+        // 网络请求的参数series_id藏在title_link中
+        NSArray *parts = [model.title_link componentsSeparatedByString:@"#"];
+        if (parts.count > 1) {
+            sceneInfoVc.scene_id = parts[1];
+        }
+        [self.navigationController pushViewController:sceneInfoVc animated:YES];
     }
-    [self.navigationController pushViewController:sceneInfoVc animated:YES];
 }
 
 - (void)recommendVideoCellVideoItemViewClicked:(ZCRecommendWidgetItem *)item {

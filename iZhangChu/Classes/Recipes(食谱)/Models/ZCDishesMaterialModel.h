@@ -4,7 +4,7 @@
 //
 //  Created by Libo on 17/6/17.
 //  Copyright © 2017年 iDress. All rights reserved.
-//
+//  食材model（制作步骤中的食材）
 
 #import "ZCBasicModel.h"
 

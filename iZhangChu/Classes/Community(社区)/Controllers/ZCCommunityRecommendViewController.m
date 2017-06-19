@@ -1,18 +1,18 @@
 //
-//  ZCCommunityHomeViewController.m
-//  掌厨
+//  ZCCommunityRecommendViewController.m
+//  iZhangChu
 //
-//  Created by Shengping on 17/4/17.
+//  Created by Libo on 17/6/19.
 //  Copyright © 2017年 iDress. All rights reserved.
 //
 
-#import "ZCCommunityHomeViewController.h"
+#import "ZCCommunityRecommendViewController.h"
 
-@interface ZCCommunityHomeViewController ()
+@interface ZCCommunityRecommendViewController ()
 
 @end
 
-@implementation ZCCommunityHomeViewController
+@implementation ZCCommunityRecommendViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];

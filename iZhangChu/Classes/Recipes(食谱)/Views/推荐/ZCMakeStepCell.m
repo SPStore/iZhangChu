@@ -31,7 +31,7 @@
     NSString *descString = [NSString stringWithFormat:@"%@. %@",model.dishes_step_order,model.dishes_step_desc];
     
     NSMutableAttributedString *attString = [[NSMutableAttributedString alloc] initWithString:descString];
-    [attString setAttributes:@{NSForegroundColorAttributeName:[UIColor orangeColor]} range:NSRangeFromString(model.dishes_step_order)];
+    [attString setAttributes:@{NSForegroundColorAttributeName:[UIColor orangeColor]} range:[descString rangeOfString:[NSString stringWithFormat:@"%@.",model.dishes_step_order]]];
     self.descLabel.attributedText = attString;
     
 }

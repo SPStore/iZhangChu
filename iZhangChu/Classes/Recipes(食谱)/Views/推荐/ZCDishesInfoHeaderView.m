@@ -88,7 +88,7 @@
         self.tagButtonViewConstraintH.constant = CGRectGetMaxY(button.frame);
     }
     [self layoutIfNeeded];
-    self.zc_height = CGRectGetMaxY(self.bottomButtonView.frame);
+    self.zc_height = CGRectGetMaxY(self.bottomButtonView.frame)+10;
 
 }
 

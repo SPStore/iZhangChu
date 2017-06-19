@@ -9,10 +9,15 @@
 #import <UIKit/UIKit.h>
 #import "ZCRecommendWidgetItem.h"
 
+typedef void (^TapLeftImageViewBlock)();
+
 @interface ZCRecommendWidgetItemImageView : UIImageView
 
 @property (nonatomic, strong) ZCRecommendWidgetItem *item;
 
 @property (nonatomic) BOOL showMaskView;
+
+@property (nonatomic, copy) TapLeftImageViewBlock tapLeftImageViewBlock;
+
 
 @end

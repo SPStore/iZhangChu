@@ -10,7 +10,9 @@
 #import "ZCDishesInfoHeaderView.h"
 #import "ZCDishesInfoHeaderContentView.h"
 
-@interface ZCDishInfoBaseViewController : UIViewController <UITableViewDataSource,UITableViewDelegate>
+@interface ZCDishInfoBaseViewController : UIViewController <UITableViewDataSource,UITableViewDelegate> {
+    UITableView *_tableView;
+}
 
 @property (nonatomic, assign) CGFloat headerViewH;
 @property (nonatomic, copy) NSString *dishes_id;
@@ -22,7 +24,7 @@
 @property (nonatomic, strong) ZCDishesInfoHeaderView *headerView;
 @property (nonatomic, assign) CGPoint lastContentOffset;
 
-
+@property (nonatomic, assign) BOOL isFirstViewLoaded;
 
 
 @end
