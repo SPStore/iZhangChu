@@ -10,7 +10,7 @@
 #import "SPCarouselView.h"
 
 // 轮播图的高度
-#define kCarouselViewHeight kScreenW * 209 / 621
+#define kCarouselViewHeight kScreenW * 260 / 621
 #define kSearchBarHeight 30
 #define KSearchBarMargin_tb 12
 

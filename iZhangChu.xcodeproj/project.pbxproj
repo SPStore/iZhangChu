@@ -64,7 +64,6 @@
 		0941BFFE1EBC163800F51A2D /* SPButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 0941BFE31EBC163800F51A2D /* SPButton.m */; };
 		0941BFFF1EBC163800F51A2D /* SPCarouselView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0941BFE71EBC163800F51A2D /* SPCarouselView.m */; };
 		0941C0001EBC163800F51A2D /* SPHTTPSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 0941BFEA1EBC163800F51A2D /* SPHTTPSessionManager.m */; };
-		0941C0011EBC163800F51A2D /* SPPageMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 0941BFED1EBC163800F51A2D /* SPPageMenu.m */; };
 		0941C0031EBC163800F51A2D /* ZCConst.m in Sources */ = {isa = PBXBuildFile; fileRef = 0941BFF41EBC163800F51A2D /* ZCConst.m */; };
 		0941C0041EBC163800F51A2D /* SaveSearchTextTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 0941BFF91EBC163800F51A2D /* SaveSearchTextTool.m */; };
 		0941C0141EBC18FB00F51A2D /* ZCRecipesAutoSearchCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0941C0071EBC18FB00F51A2D /* ZCRecipesAutoSearchCell.m */; };
@@ -301,8 +300,6 @@
 		0941BFE71EBC163800F51A2D /* SPCarouselView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPCarouselView.m; sourceTree = "<group>"; };
 		0941BFE91EBC163800F51A2D /* SPHTTPSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPHTTPSessionManager.h; sourceTree = "<group>"; };
 		0941BFEA1EBC163800F51A2D /* SPHTTPSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPHTTPSessionManager.m; sourceTree = "<group>"; };
-		0941BFEC1EBC163800F51A2D /* SPPageMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPPageMenu.h; sourceTree = "<group>"; };
-		0941BFED1EBC163800F51A2D /* SPPageMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPPageMenu.m; sourceTree = "<group>"; };
 		0941BFF21EBC163800F51A2D /* Singleton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Singleton.h; sourceTree = "<group>"; };
 		0941BFF31EBC163800F51A2D /* ZCConst.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZCConst.h; sourceTree = "<group>"; };
 		0941BFF41EBC163800F51A2D /* ZCConst.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZCConst.m; sourceTree = "<group>"; };
@@ -948,8 +945,6 @@
 				0941BFE11EBC163800F51A2D /* SPButton */,
 				0941BFE51EBC163800F51A2D /* SPCarouselView */,
 				0941BFE81EBC163800F51A2D /* SPHTTPSessionManager */,
-				0941BFEB1EBC163800F51A2D /* SPPageMenu */,
-				0941BFEE1EBC163800F51A2D /* SPSqlite */,
 			);
 			path = "Libs(依赖库)";
 			sourceTree = "<group>";
@@ -979,22 +974,6 @@
 				0941BFEA1EBC163800F51A2D /* SPHTTPSessionManager.m */,
 			);
 			path = SPHTTPSessionManager;
-			sourceTree = "<group>";
-		};
-		0941BFEB1EBC163800F51A2D /* SPPageMenu */ = {
-			isa = PBXGroup;
-			children = (
-				0941BFEC1EBC163800F51A2D /* SPPageMenu.h */,
-				0941BFED1EBC163800F51A2D /* SPPageMenu.m */,
-			);
-			path = SPPageMenu;
-			sourceTree = "<group>";
-		};
-		0941BFEE1EBC163800F51A2D /* SPSqlite */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = SPSqlite;
 			sourceTree = "<group>";
 		};
 		0941BFF11EBC163800F51A2D /* Macro(宏) */ = {
@@ -1410,13 +1389,16 @@
 			files = (
 			);
 			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-iZhangChu-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 		6537A22769ED4321B4AF97BA /* [CP] Copy Pods Resources */ = {
@@ -1425,9 +1407,12 @@
 			files = (
 			);
 			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-iZhangChu/Pods-iZhangChu-resources.sh",
+				"${PODS_ROOT}/MJRefresh/MJRefresh/MJRefresh.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -1539,7 +1524,6 @@
 				094B474F1EC9576A0075EE9D /* ZCLoginViewController.m in Sources */,
 				095006961EDFEDA100B3FB57 /* ZCRecommendTitleModel.m in Sources */,
 				09FCE9711EF4F15000285F6A /* ZCCommensenseCell.m in Sources */,
-				0941C0011EBC163800F51A2D /* SPPageMenu.m in Sources */,
 				094D01801EF79BD500C3209E /* ZCVideoViewController.m in Sources */,
 				0941C0141EBC18FB00F51A2D /* ZCRecipesAutoSearchCell.m in Sources */,
 				0941BF6F1EBC14E000F51A2D /* ZCBasicIntroduceViewController.m in Sources */,

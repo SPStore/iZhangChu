@@ -10,7 +10,7 @@
 #import "ZCMacro.h"
 #import "ZCDishesInfoModel.h"
 #import "ZCDishesInfoHeaderView.h"
-#import "SPPageMenu.h"
+#import <SPPageMenu.h>
 #import "ZCMakeStepViewController.h"
 #import "ZCMaterialViewController.h"
 #import "ZCCommensenseViewController.h"
@@ -86,7 +86,6 @@
     suitableVc.headerViewH = h;
 }
 
-
 - (void)requestData {
     NSMutableDictionary *params = [NSMutableDictionary dictionary ];
     params[@"methodName"] = @"DishesView";
@@ -148,10 +147,7 @@
 
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
     if (scrollView == self.scrollView) {
-        NSInteger index = scrollView.contentOffset.x / scrollView.frame.size.width;
-        // 手动滑scrollView,pageMenu会根据传进去的index选中index对应的button
-        [self.pageMenu selectButtonAtIndex:index];
-        
+
         [self configerHeaderY];
     }
 }
@@ -239,7 +235,7 @@
 }
 
 #pragma mark - SPPageMenuDelegate
-- (void)pageMenu:(SPPageMenu *)pageMenu buttonClickedFromIndex:(NSInteger)fromIndex toIndex:(NSInteger)toIndex {
+- (void)pageMenu:(SPPageMenu *)pageMenu itemSelectedFromIndex:(NSInteger)fromIndex toIndex:(NSInteger)toIndex {
     _selectedIndex = toIndex;
     // 如果上一次点击的button下标与当前点击的buton下标之差大于等于2,说明跨界面移动了,此时不动画.
     if (labs(toIndex - fromIndex) >= 2) {
@@ -251,7 +247,9 @@
         // 如果有动画为yes，则不会走scrollViewDidScroll的代理方法,否则会走
         [self.scrollView setContentOffset:CGPointMake(_scrollView.frame.size.width * toIndex, 0) animated:YES];
     }
-    
+    if (!self.childViewControllers.count) {
+        return;
+    }
     ZCDishInfoBaseViewController *targetViewController = self.childViewControllers[toIndex];
     targetViewController.headerView = self.headerView;
     // 如果已经加载过，就不再加载
@@ -306,17 +304,18 @@
 - (SPPageMenu *)pageMenu {
     
     if (!_pageMenu) {
-        _pageMenu = [SPPageMenu pageMenuWithFrame:CGRectMake(0, CGRectGetMaxY(self.headerView.frame) + 10, kScreenW, PageMenuH) array:@[@"做法",@"食材",@"相关常识",@"相宜相克"]];
+        _pageMenu = [SPPageMenu pageMenuWithFrame:CGRectMake(0, CGRectGetMaxY(self.headerView.frame) + 10, kScreenW, PageMenuH) trackerStyle:SPPageMenuTrackerStyleLineLongerThanItem];
         _pageMenu.backgroundColor = [UIColor whiteColor];
+        [_pageMenu setItems:@[@"做法",@"食材",@"相关常识",@"相宜相克"] selectedItemIndex:0];
         _pageMenu.delegate = self;
-        _pageMenu.buttonFont = [UIFont systemFontOfSize:16];
-        _pageMenu.selectedTitleColor = [UIColor blackColor];
-        _pageMenu.unSelectedTitleColor = [UIColor colorWithWhite:0 alpha:0.6];
-        _pageMenu.trackerColor = ZCGlobalColor;
-        _pageMenu.firstButtonX = 15;
-        _pageMenu.allowBeyondScreen = NO;
-        _pageMenu.equalWidths = NO;
-        
+        _pageMenu.itemPadding = 0;
+        _pageMenu.itemTitleFont = [UIFont systemFontOfSize:16];
+        _pageMenu.selectedItemTitleColor = [UIColor blackColor];
+        _pageMenu.unSelectedItemTitleColor = [UIColor colorWithWhite:0 alpha:0.6];
+        _pageMenu.tracker.backgroundColor = ZCGlobalColor;
+        _pageMenu.contentInset = UIEdgeInsetsMake(0, 15, 0, 15);
+        _pageMenu.permutationWay = SPPageMenuPermutationWayNotScrollAdaptContent;
+        _pageMenu.bridgeScrollView = self.scrollView;
     }
     return _pageMenu;
 }

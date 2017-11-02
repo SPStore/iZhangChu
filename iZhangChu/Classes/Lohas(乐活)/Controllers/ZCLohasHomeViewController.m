@@ -234,7 +234,7 @@
     return 270;
 }
 
-- (void)pageMenu:(SPPageMenu *)pageMenu buttonClickedAtIndex:(NSInteger)index {
+- (void)pageMenu:(SPPageMenu *)pageMenu itemSelectedAtIndex:(NSInteger)index {
     if (index == 0) {
         self.methodName = @"CourseIndex";
         self.logoMethodName = @"CourseLogo";
@@ -310,15 +310,19 @@
 - (SPPageMenu *)pageMenu {
     
     if (!_pageMenu) {
-        _pageMenu = [SPPageMenu pageMenuWithFrame:CGRectMake(60, 20, kScreenW-120, 44) array:@[@"美食IP",@"健康IP",@"台湾IP"]];
+
+        _pageMenu = [SPPageMenu pageMenuWithFrame:CGRectMake(70, 20, kScreenW-140, 44) trackerStyle:SPPageMenuTrackerStyleLineLongerThanItem];
+        [_pageMenu setItems:@[@"美食IP",@"健康IP",@"台湾IP"] selectedItemIndex:0];
         _pageMenu.delegate = self;
-        _pageMenu.buttonFont = [UIFont boldSystemFontOfSize:17];
-        _pageMenu.selectedTitleColor = [UIColor blackColor];
-        _pageMenu.unSelectedTitleColor = [UIColor grayColor];
-        _pageMenu.showBreakline = NO;
-        _pageMenu.trackerColor = ZCGlobalColor;
-        _pageMenu.equalWidths = YES;
-        _pageMenu.allowBeyondScreen = NO;
+        _pageMenu.itemTitleFont = [UIFont systemFontOfSize:17];
+        _pageMenu.itemPadding = 0;
+        _pageMenu.selectedItemTitleColor = [UIColor blackColor];
+        _pageMenu.unSelectedItemTitleColor = [UIColor grayColor];
+        _pageMenu.tracker.backgroundColor = [UIColor orangeColor];
+        _pageMenu.dividingLine.hidden = YES;
+        _pageMenu.permutationWay = SPPageMenuPermutationWayNotScrollEqualWidths;
+        _pageMenu.bridgeScrollView = self.tableView;
+        
     }
     return _pageMenu;
 }

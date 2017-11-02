@@ -44,7 +44,7 @@
     
     if (!_collectionView) {
         UICollectionViewFlowLayout *flowLayout = [[UICollectionViewFlowLayout alloc] init];
-        _collectionView = [[UICollectionView alloc] initWithFrame:cgre collectionViewLayout:flowLayout];
+        //_collectionView = [[UICollectionView alloc] initWithFrame:cgre collectionViewLayout:flowLayout];
         _collectionView.delegate = self;
         _collectionView.dataSource = self;
         

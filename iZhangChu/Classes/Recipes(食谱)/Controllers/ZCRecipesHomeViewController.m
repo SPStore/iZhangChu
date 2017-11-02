@@ -26,9 +26,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    // 设置导航栏
-    [self setupNavigationView];
-
     // 先添加好3个子控制器（推荐、食材、分类）
     [self addChildViewController:[[ZCRecommendViewController alloc] init]];
     [self addChildViewController:[[ZCIngredientsViewController alloc] init]];
@@ -43,6 +40,9 @@
         viewController.view.frame = CGRectMake(kScreenW*i, 0, kScreenW, kScreenH);
         [_scrollView addSubview:viewController.view];
     }
+    
+    // 设置导航栏
+    [self setupNavigationView];
 }
 
 // 设置导航栏
@@ -58,7 +58,7 @@
 }
 
 // pageMenu的代理方法
-- (void)pageMenu:(SPPageMenu *)pageMenu buttonClickedFromIndex:(NSInteger)fromIndex toIndex:(NSInteger)toIndex {
+- (void)pageMenu:(SPPageMenu *)pageMenu itemSelectedFromIndex:(NSInteger)fromIndex toIndex:(NSInteger)toIndex {
     // 如果上一次点击的button下标与当前点击的buton下标之差大于等于2,说明跨界面移动了,此时不动画.
     if (labs(toIndex - fromIndex) >= 2) {
         [self.scrollView setContentOffset:CGPointMake(_scrollView.frame.size.width * toIndex, 0) animated:NO];
@@ -71,11 +71,6 @@
     if ([targetViewController isViewLoaded]) return;
 }
 
-- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
-    NSInteger index = scrollView.contentOffset.x / scrollView.frame.size.width;
-    // 手动滑scrollView,pageMenu会根据传进去的index选中index对应的button
-    [self.pageMenu selectButtonAtIndex:index];
-}
 
 // 扫描
 - (void)scan:(UIButton *)sender {
@@ -103,17 +98,17 @@
 
 - (SPPageMenu *)pageMenu {
     if (!_pageMenu) {
-        _pageMenu = [SPPageMenu pageMenuWithFrame:CGRectMake(70, 20, kScreenW-140, 44) array:@[@"推荐",@"食材",@"分类"]];
-        _pageMenu.backgroundColor = [UIColor whiteColor];
+        _pageMenu = [SPPageMenu pageMenuWithFrame:CGRectMake(70, 20, kScreenW-140, 44) trackerStyle:SPPageMenuTrackerStyleLineLongerThanItem];
+        [_pageMenu setItems:@[@"推荐",@"食材",@"分类"] selectedItemIndex:0];
         _pageMenu.delegate = self;
-        _pageMenu.buttonFont = [UIFont boldSystemFontOfSize:17];
-        _pageMenu.selectedTitleColor = [UIColor blackColor];
-        _pageMenu.unSelectedTitleColor = [UIColor grayColor];
-        _pageMenu.trackerColor = [UIColor orangeColor];
-        _pageMenu.showBreakline = NO;
-        _pageMenu.allowBeyondScreen = NO;
-        _pageMenu.equalWidths = YES;
-        _pageMenu.animationSpeed = 0.1;
+        _pageMenu.itemTitleFont = [UIFont systemFontOfSize:17];
+        _pageMenu.itemPadding = 0;
+        _pageMenu.selectedItemTitleColor = [UIColor blackColor];
+        _pageMenu.unSelectedItemTitleColor = [UIColor grayColor];
+        _pageMenu.tracker.backgroundColor = [UIColor orangeColor];
+        _pageMenu.dividingLine.hidden = YES;
+        _pageMenu.permutationWay = SPPageMenuPermutationWayNotScrollEqualWidths;
+        _pageMenu.bridgeScrollView = self.scrollView;
     }
     return _pageMenu;
 }

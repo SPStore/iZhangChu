@@ -72,7 +72,7 @@
         _carouselView.pageControlPosition = SPPageContolPositionBottomRight;
         _carouselView.currentPageColor = ZCGlobalColor;
         _carouselView.pageColor = [UIColor whiteColor];
-        _carouselView.duration = 5;
+        _carouselView.duration = 4;
     }
     return _carouselView;
 }
