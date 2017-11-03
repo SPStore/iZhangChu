@@ -9,6 +9,7 @@
 #import "ZCVideoViewController.h"
 #import <AVFoundation/AVFoundation.h>
 #import "SPVideoPlayer.h"
+#import <Masonry.h>
 
 @interface ZCVideoViewController () <SPVideoPlayerDelegate>
 /** 播放器View的父视图*/
@@ -57,6 +58,9 @@
     
     self.view.backgroundColor = [UIColor whiteColor];
     [self.view addSubview:self.playerFatherView];
+    [self.playerFatherView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.edges.mas_equalTo(0);
+    }];
     // 开始播放，默认不开始播放
     [self.playerView startPlay];
 }
@@ -104,7 +108,8 @@
 - (UIView *)playerFatherView {
     
     if (!_playerFatherView) {
-        _playerFatherView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, ScreenHeight,  ScreenWidth)];
+        _playerFatherView = [[UIView alloc] init];
+        _playerFatherView.translatesAutoresizingMaskIntoConstraints = NO;
     }
     return _playerFatherView;
 }
@@ -137,7 +142,6 @@
     }
     return _videoItems;
 }
-
 
 #pragma mark - SPVideoPlayerDelegate
 
