@@ -64,8 +64,9 @@
         } else {
             self.descLabel.text = item.content;
         }
-        
     }
+    [self setNeedsLayout];
+    [self layoutIfNeeded];
 }
 
 - (void)setShowMaskView:(BOOL)showMaskView{

@@ -22,9 +22,6 @@ typedef void(^PlayBlock)(UIButton *button);
 
 @property (nonatomic, assign) ZCPlayImageViewPlayButtonPosition playButtonPosition;
 
-@property (nonatomic, copy) TapBlock tapBlock;
-@property (nonatomic, copy) PlayBlock playBlock;
-
 @property (nonatomic, strong) ZCRecommendWidgetItem *imageItem;
 @property (nonatomic, strong) ZCRecommendWidgetItem *videoItem;
 @end

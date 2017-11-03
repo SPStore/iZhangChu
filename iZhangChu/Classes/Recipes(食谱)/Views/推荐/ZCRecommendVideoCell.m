@@ -73,9 +73,6 @@
                 // 添加手势
                 UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapPlayImageView:)];
                 [videoItemView addGestureRecognizer:tap];
-                videoItemView.playImageView.playBlock = ^(UIButton *button) {
-                    [self clickedPlayButton];
-                };
             }
         }
     }
@@ -101,10 +98,6 @@
         // 跳转到下一级界面需要参数 dishes_id,只有imageItem中的link含有有
         [self.delegate recommendVideoCellVideoItemViewClicked:itemView.imageItem];
     }
-}
-
-- (void)clickedPlayButton {
-    
 }
 
 - (UIView *)videoBigView {
@@ -205,7 +198,7 @@
 
 - (void)setVideoItem:(ZCRecommendWidgetItem *)videoItem {
     _videoItem = videoItem;
-    
+    self.playImageView.videoItem = videoItem;
 }
 
 - (void)setDescItem:(ZCRecommendWidgetItem *)descItem {

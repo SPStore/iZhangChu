@@ -54,6 +54,7 @@
         _searchBar.textAlignment = NSTextAlignmentCenter;
         _searchBar.textColor = [UIColor grayColor];
         _searchBar.borderStyle = UITextBorderStyleRoundedRect;
+        _searchBar.hidden = YES;
         UIView *leftView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 20, 15)];
         UIImageView *leftImageView = [[UIImageView alloc] initWithFrame:CGRectMake(5, 0, 15, 15)];
         [leftView addSubview:leftImageView];

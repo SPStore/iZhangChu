@@ -35,6 +35,7 @@
         ZCRecommendWidgetItem *item = model.widget_data[i];
         
         ZCRecommendWidgetItemImageView *imageview = [[ZCRecommendWidgetItemImageView alloc] init];
+        imageview.translatesAutoresizingMaskIntoConstraints = NO;
         imageview.showMaskView = NO;
         imageview.item = item;
         [self.myContentView addSubview:imageview];
@@ -56,6 +57,7 @@
 - (UIView *)myContentView {
     if (!_myContentView) {
         _myContentView = [[UIView alloc] init];
+        _myContentView.translatesAutoresizingMaskIntoConstraints = NO;
     }
     return _myContentView;
 }
@@ -77,16 +79,15 @@
         make.top.left.right.equalTo(0);
         make.bottom.equalTo(0);
     }];
-    
-    __block int i = 0;
-    
-    [self.myContentView.subviews makeConstraints:^(MASConstraintMaker *make) {
-        make.width.equalTo(kImageViewW);
-        make.left.equalTo(i*kImageViewW);
-        make.top.bottom.equalTo(0);
-        i++;
+
+    [self.myContentView.subviews enumerateObjectsUsingBlock:^(__kindof UIView * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        [obj makeConstraints:^(MASConstraintMaker *make) {
+            make.left.equalTo(idx * kImageViewW);
+            make.top.bottom.equalTo(0);
+            make.width.equalTo(kImageViewW);
+        }];
     }];
-    [self.myContentView makeConstraints:^(MASConstraintMaker *make) {
+    [self.myContentView remakeConstraints:^(MASConstraintMaker *make) {
         make.edges.equalTo(self.scrollview);
         make.height.equalTo(self.scrollview);
         if (self.myContentView.subviews.count != 0) {

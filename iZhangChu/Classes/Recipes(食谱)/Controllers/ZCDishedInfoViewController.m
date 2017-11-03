@@ -244,8 +244,9 @@
         });
         
     } else {
-        // 如果有动画为yes，则不会走scrollViewDidScroll的代理方法,否则会走
-        [self.scrollView setContentOffset:CGPointMake(_scrollView.frame.size.width * toIndex, 0) animated:YES];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self.scrollView setContentOffset:CGPointMake(_scrollView.frame.size.width * toIndex, 0) animated:YES];
+        });
     }
     if (!self.childViewControllers.count) {
         return;

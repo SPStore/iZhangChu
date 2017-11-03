@@ -114,7 +114,6 @@
 		094B475A1EC9886E0075EE9D /* ZCRegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 094B47581EC9886E0075EE9D /* ZCRegisterViewController.m */; };
 		094B475B1EC9886E0075EE9D /* ZCRegisterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 094B47591EC9886E0075EE9D /* ZCRegisterViewController.xib */; };
 		094D017D1EF7912400C3209E /* ZCSelectedWorksModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 094D017C1EF7912400C3209E /* ZCSelectedWorksModel.m */; };
-		094D01801EF79BD500C3209E /* ZCVideoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 094D017F1EF79BD500C3209E /* ZCVideoViewController.m */; };
 		094D01831EF79D4E00C3209E /* ZCCommunityRecommendViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 094D01821EF79D4E00C3209E /* ZCCommunityRecommendViewController.m */; };
 		094E77171EE8F0A300D7FFB1 /* UINavigationBar+NavAlpha.m in Sources */ = {isa = PBXBuildFile; fileRef = 094E77141EE8F0A300D7FFB1 /* UINavigationBar+NavAlpha.m */; };
 		094E77181EE8F0A300D7FFB1 /* UINavigationController+NavAlpha.m in Sources */ = {isa = PBXBuildFile; fileRef = 094E77161EE8F0A300D7FFB1 /* UINavigationController+NavAlpha.m */; };
@@ -138,6 +137,23 @@
 		0964B7DC1EEA9122008B787A /* ZCMaterialViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0964B7DB1EEA9122008B787A /* ZCMaterialViewController.m */; };
 		0964B7DF1EEA914C008B787A /* ZCCommensenseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0964B7DE1EEA914C008B787A /* ZCCommensenseViewController.m */; };
 		0964B7E21EEA916E008B787A /* ZCSuitableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0964B7E11EEA916E008B787A /* ZCSuitableViewController.m */; };
+		097F9FF51FAC15A1000B17C1 /* UITabBarController+SPPlayerRotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 097F9FD71FAC15A1000B17C1 /* UITabBarController+SPPlayerRotation.m */; };
+		097F9FF61FAC15A1000B17C1 /* UIWindow+CurrentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 097F9FDC1FAC15A1000B17C1 /* UIWindow+CurrentViewController.m */; };
+		097F9FF71FAC15A1000B17C1 /* UIViewController+SPPlayerRotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 097F9FDE1FAC15A1000B17C1 /* UIViewController+SPPlayerRotation.m */; };
+		097F9FF81FAC15A1000B17C1 /* UIView+CustomControlView.m in Sources */ = {isa = PBXBuildFile; fileRef = 097F9FDF1FAC15A1000B17C1 /* UIView+CustomControlView.m */; };
+		097F9FF91FAC15A1000B17C1 /* UIAlertController+SPPlayerRotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 097F9FE01FAC15A1000B17C1 /* UIAlertController+SPPlayerRotation.m */; };
+		097F9FFA1FAC15A1000B17C1 /* UINavigationController+SPPlayerRotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 097F9FE11FAC15A1000B17C1 /* UINavigationController+SPPlayerRotation.m */; };
+		097F9FFB1FAC15A1000B17C1 /* SPVideoPlayerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 097F9FE21FAC15A1000B17C1 /* SPVideoPlayerView.m */; };
+		097F9FFC1FAC15A1000B17C1 /* SPVideoPopView.m in Sources */ = {isa = PBXBuildFile; fileRef = 097F9FE31FAC15A1000B17C1 /* SPVideoPopView.m */; };
+		097F9FFD1FAC15A1000B17C1 /* SPBrightnessView.m in Sources */ = {isa = PBXBuildFile; fileRef = 097F9FE51FAC15A1000B17C1 /* SPBrightnessView.m */; };
+		097F9FFE1FAC15A1000B17C1 /* SPLoadingHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 097F9FE61FAC15A1000B17C1 /* SPLoadingHUD.m */; };
+		097F9FFF1FAC15A1000B17C1 /* SPVideoItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 097F9FE91FAC15A1000B17C1 /* SPVideoItem.m */; };
+		097FA0001FAC15A1000B17C1 /* SPVideoSlider.m in Sources */ = {isa = PBXBuildFile; fileRef = 097F9FEA1FAC15A1000B17C1 /* SPVideoSlider.m */; };
+		097FA0011FAC15A1000B17C1 /* SPVideoPlayer.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 097F9FED1FAC15A1000B17C1 /* SPVideoPlayer.bundle */; };
+		097FA0021FAC15A1000B17C1 /* SPNetworkReachabilityManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 097F9FF01FAC15A1000B17C1 /* SPNetworkReachabilityManager.m */; };
+		097FA0031FAC15A1000B17C1 /* SPVideoCutView.m in Sources */ = {isa = PBXBuildFile; fileRef = 097F9FF21FAC15A1000B17C1 /* SPVideoCutView.m */; };
+		097FA0041FAC15A1000B17C1 /* SPVideoPlayerControlView.m in Sources */ = {isa = PBXBuildFile; fileRef = 097F9FF31FAC15A1000B17C1 /* SPVideoPlayerControlView.m */; };
+		097FA00B1FAC182C000B17C1 /* ZCVideoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 097FA00A1FAC182C000B17C1 /* ZCVideoViewController.m */; };
 		09F1DD7A1EC80E2100CB288B /* ZCLohasHomeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 09F1DD791EC80E2100CB288B /* ZCLohasHomeTableViewCell.xib */; };
 		09F86F211EF772A300F4788D /* ZCRecommendMasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 09F86F201EF772A300F4788D /* ZCRecommendMasterViewController.m */; };
 		09F86F241EF775E500F4788D /* ZCSelectedWorksViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 09F86F231EF775E500F4788D /* ZCSelectedWorksViewController.m */; };
@@ -393,8 +409,6 @@
 		094B47591EC9886E0075EE9D /* ZCRegisterViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ZCRegisterViewController.xib; sourceTree = "<group>"; };
 		094D017B1EF7912400C3209E /* ZCSelectedWorksModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZCSelectedWorksModel.h; sourceTree = "<group>"; };
 		094D017C1EF7912400C3209E /* ZCSelectedWorksModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZCSelectedWorksModel.m; sourceTree = "<group>"; };
-		094D017E1EF79BD500C3209E /* ZCVideoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZCVideoViewController.h; sourceTree = "<group>"; };
-		094D017F1EF79BD500C3209E /* ZCVideoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZCVideoViewController.m; sourceTree = "<group>"; };
 		094D01811EF79D4E00C3209E /* ZCCommunityRecommendViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZCCommunityRecommendViewController.h; sourceTree = "<group>"; };
 		094D01821EF79D4E00C3209E /* ZCCommunityRecommendViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZCCommunityRecommendViewController.m; sourceTree = "<group>"; };
 		094E77121EE8E8FD00D7FFB1 /* ZCPrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZCPrefixHeader.pch; sourceTree = "<group>"; };
@@ -442,6 +456,41 @@
 		0964B7DE1EEA914C008B787A /* ZCCommensenseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZCCommensenseViewController.m; sourceTree = "<group>"; };
 		0964B7E01EEA916E008B787A /* ZCSuitableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZCSuitableViewController.h; sourceTree = "<group>"; };
 		0964B7E11EEA916E008B787A /* ZCSuitableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZCSuitableViewController.m; sourceTree = "<group>"; };
+		097F9FD31FAC15A1000B17C1 /* SPVideoSlider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPVideoSlider.h; sourceTree = "<group>"; };
+		097F9FD41FAC15A1000B17C1 /* SPVideoItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPVideoItem.h; sourceTree = "<group>"; };
+		097F9FD61FAC15A1000B17C1 /* UIWindow+CurrentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIWindow+CurrentViewController.h"; sourceTree = "<group>"; };
+		097F9FD71FAC15A1000B17C1 /* UITabBarController+SPPlayerRotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITabBarController+SPPlayerRotation.m"; sourceTree = "<group>"; };
+		097F9FD81FAC15A1000B17C1 /* UIAlertController+SPPlayerRotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIAlertController+SPPlayerRotation.h"; sourceTree = "<group>"; };
+		097F9FD91FAC15A1000B17C1 /* UIView+CustomControlView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+CustomControlView.h"; sourceTree = "<group>"; };
+		097F9FDA1FAC15A1000B17C1 /* UIViewController+SPPlayerRotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+SPPlayerRotation.h"; sourceTree = "<group>"; };
+		097F9FDB1FAC15A1000B17C1 /* UINavigationController+SPPlayerRotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINavigationController+SPPlayerRotation.h"; sourceTree = "<group>"; };
+		097F9FDC1FAC15A1000B17C1 /* UIWindow+CurrentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIWindow+CurrentViewController.m"; sourceTree = "<group>"; };
+		097F9FDD1FAC15A1000B17C1 /* UITabBarController+SPPlayerRotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITabBarController+SPPlayerRotation.h"; sourceTree = "<group>"; };
+		097F9FDE1FAC15A1000B17C1 /* UIViewController+SPPlayerRotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+SPPlayerRotation.m"; sourceTree = "<group>"; };
+		097F9FDF1FAC15A1000B17C1 /* UIView+CustomControlView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+CustomControlView.m"; sourceTree = "<group>"; };
+		097F9FE01FAC15A1000B17C1 /* UIAlertController+SPPlayerRotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIAlertController+SPPlayerRotation.m"; sourceTree = "<group>"; };
+		097F9FE11FAC15A1000B17C1 /* UINavigationController+SPPlayerRotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationController+SPPlayerRotation.m"; sourceTree = "<group>"; };
+		097F9FE21FAC15A1000B17C1 /* SPVideoPlayerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPVideoPlayerView.m; sourceTree = "<group>"; };
+		097F9FE31FAC15A1000B17C1 /* SPVideoPopView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPVideoPopView.m; sourceTree = "<group>"; };
+		097F9FE41FAC15A1000B17C1 /* SPNetworkReachabilityManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPNetworkReachabilityManager.h; sourceTree = "<group>"; };
+		097F9FE51FAC15A1000B17C1 /* SPBrightnessView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPBrightnessView.m; sourceTree = "<group>"; };
+		097F9FE61FAC15A1000B17C1 /* SPLoadingHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPLoadingHUD.m; sourceTree = "<group>"; };
+		097F9FE71FAC15A1000B17C1 /* SPVideoPlayerControlView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPVideoPlayerControlView.h; sourceTree = "<group>"; };
+		097F9FE81FAC15A1000B17C1 /* SPVideoCutView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPVideoCutView.h; sourceTree = "<group>"; };
+		097F9FE91FAC15A1000B17C1 /* SPVideoItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPVideoItem.m; sourceTree = "<group>"; };
+		097F9FEA1FAC15A1000B17C1 /* SPVideoSlider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPVideoSlider.m; sourceTree = "<group>"; };
+		097F9FEB1FAC15A1000B17C1 /* SPVideoPlayerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPVideoPlayerView.h; sourceTree = "<group>"; };
+		097F9FEC1FAC15A1000B17C1 /* SPVideoPlayerControlViewDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPVideoPlayerControlViewDelegate.h; sourceTree = "<group>"; };
+		097F9FED1FAC15A1000B17C1 /* SPVideoPlayer.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = SPVideoPlayer.bundle; sourceTree = "<group>"; };
+		097F9FEE1FAC15A1000B17C1 /* SPLoadingHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPLoadingHUD.h; sourceTree = "<group>"; };
+		097F9FEF1FAC15A1000B17C1 /* SPBrightnessView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPBrightnessView.h; sourceTree = "<group>"; };
+		097F9FF01FAC15A1000B17C1 /* SPNetworkReachabilityManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPNetworkReachabilityManager.m; sourceTree = "<group>"; };
+		097F9FF11FAC15A1000B17C1 /* SPVideoPopView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPVideoPopView.h; sourceTree = "<group>"; };
+		097F9FF21FAC15A1000B17C1 /* SPVideoCutView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPVideoCutView.m; sourceTree = "<group>"; };
+		097F9FF31FAC15A1000B17C1 /* SPVideoPlayerControlView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPVideoPlayerControlView.m; sourceTree = "<group>"; };
+		097F9FF41FAC15A1000B17C1 /* SPVideoPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPVideoPlayer.h; sourceTree = "<group>"; };
+		097FA0091FAC182C000B17C1 /* ZCVideoViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZCVideoViewController.h; sourceTree = "<group>"; };
+		097FA00A1FAC182C000B17C1 /* ZCVideoViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZCVideoViewController.m; sourceTree = "<group>"; };
 		09F1DD791EC80E2100CB288B /* ZCLohasHomeTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ZCLohasHomeTableViewCell.xib; sourceTree = "<group>"; };
 		09F86F1F1EF772A300F4788D /* ZCRecommendMasterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZCRecommendMasterViewController.h; sourceTree = "<group>"; };
 		09F86F201EF772A300F4788D /* ZCRecommendMasterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZCRecommendMasterViewController.m; sourceTree = "<group>"; };
@@ -592,8 +641,6 @@
 			children = (
 				0941BEB21EBC14E000F51A2D /* ZCCourseViewController.h */,
 				0941BEB31EBC14E000F51A2D /* ZCCourseViewController.m */,
-				094D017E1EF79BD500C3209E /* ZCVideoViewController.h */,
-				094D017F1EF79BD500C3209E /* ZCVideoViewController.m */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -942,6 +989,7 @@
 		0941BFE01EBC163800F51A2D /* Libs(依赖库) */ = {
 			isa = PBXGroup;
 			children = (
+				097F9FD21FAC15A1000B17C1 /* SPVideoPlayer */,
 				0941BFE11EBC163800F51A2D /* SPButton */,
 				0941BFE51EBC163800F51A2D /* SPCarouselView */,
 				0941BFE81EBC163800F51A2D /* SPHTTPSessionManager */,
@@ -1181,6 +1229,7 @@
 				0941BEA91EBC14E000F51A2D /* Community(社区) */,
 				0941BEC61EBC14E000F51A2D /* Lohas(乐活) */,
 				0941BEE21EBC14E000F51A2D /* Mine(我的) */,
+				097FA0051FAC17E3000B17C1 /* Video(视频) */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -1207,6 +1256,87 @@
 				094B47501EC9585E0075EE9D /* loginBackgroundImage.jpg */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		097F9FD21FAC15A1000B17C1 /* SPVideoPlayer */ = {
+			isa = PBXGroup;
+			children = (
+				097F9FED1FAC15A1000B17C1 /* SPVideoPlayer.bundle */,
+				097F9FD51FAC15A1000B17C1 /* Category */,
+				097F9FF41FAC15A1000B17C1 /* SPVideoPlayer.h */,
+				097F9FEB1FAC15A1000B17C1 /* SPVideoPlayerView.h */,
+				097F9FE21FAC15A1000B17C1 /* SPVideoPlayerView.m */,
+				097F9FE71FAC15A1000B17C1 /* SPVideoPlayerControlView.h */,
+				097F9FF31FAC15A1000B17C1 /* SPVideoPlayerControlView.m */,
+				097F9FEC1FAC15A1000B17C1 /* SPVideoPlayerControlViewDelegate.h */,
+				097F9FD41FAC15A1000B17C1 /* SPVideoItem.h */,
+				097F9FE91FAC15A1000B17C1 /* SPVideoItem.m */,
+				097F9FD31FAC15A1000B17C1 /* SPVideoSlider.h */,
+				097F9FEA1FAC15A1000B17C1 /* SPVideoSlider.m */,
+				097F9FEF1FAC15A1000B17C1 /* SPBrightnessView.h */,
+				097F9FE51FAC15A1000B17C1 /* SPBrightnessView.m */,
+				097F9FE81FAC15A1000B17C1 /* SPVideoCutView.h */,
+				097F9FF21FAC15A1000B17C1 /* SPVideoCutView.m */,
+				097F9FEE1FAC15A1000B17C1 /* SPLoadingHUD.h */,
+				097F9FE61FAC15A1000B17C1 /* SPLoadingHUD.m */,
+				097F9FF11FAC15A1000B17C1 /* SPVideoPopView.h */,
+				097F9FE31FAC15A1000B17C1 /* SPVideoPopView.m */,
+				097F9FE41FAC15A1000B17C1 /* SPNetworkReachabilityManager.h */,
+				097F9FF01FAC15A1000B17C1 /* SPNetworkReachabilityManager.m */,
+			);
+			path = SPVideoPlayer;
+			sourceTree = "<group>";
+		};
+		097F9FD51FAC15A1000B17C1 /* Category */ = {
+			isa = PBXGroup;
+			children = (
+				097F9FD61FAC15A1000B17C1 /* UIWindow+CurrentViewController.h */,
+				097F9FDC1FAC15A1000B17C1 /* UIWindow+CurrentViewController.m */,
+				097F9FDD1FAC15A1000B17C1 /* UITabBarController+SPPlayerRotation.h */,
+				097F9FD71FAC15A1000B17C1 /* UITabBarController+SPPlayerRotation.m */,
+				097F9FD81FAC15A1000B17C1 /* UIAlertController+SPPlayerRotation.h */,
+				097F9FE01FAC15A1000B17C1 /* UIAlertController+SPPlayerRotation.m */,
+				097F9FDA1FAC15A1000B17C1 /* UIViewController+SPPlayerRotation.h */,
+				097F9FDE1FAC15A1000B17C1 /* UIViewController+SPPlayerRotation.m */,
+				097F9FDB1FAC15A1000B17C1 /* UINavigationController+SPPlayerRotation.h */,
+				097F9FE11FAC15A1000B17C1 /* UINavigationController+SPPlayerRotation.m */,
+				097F9FD91FAC15A1000B17C1 /* UIView+CustomControlView.h */,
+				097F9FDF1FAC15A1000B17C1 /* UIView+CustomControlView.m */,
+			);
+			path = Category;
+			sourceTree = "<group>";
+		};
+		097FA0051FAC17E3000B17C1 /* Video(视频) */ = {
+			isa = PBXGroup;
+			children = (
+				097FA0071FAC17E3000B17C1 /* Controllers */,
+				097FA0061FAC17E3000B17C1 /* Models */,
+				097FA0081FAC17E3000B17C1 /* Views */,
+			);
+			path = "Video(视频)";
+			sourceTree = "<group>";
+		};
+		097FA0061FAC17E3000B17C1 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		097FA0071FAC17E3000B17C1 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				097FA0091FAC182C000B17C1 /* ZCVideoViewController.h */,
+				097FA00A1FAC182C000B17C1 /* ZCVideoViewController.m */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		097FA0081FAC17E3000B17C1 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		3DDC8A0948BF91E6B8CCE968 /* Frameworks */ = {
@@ -1354,6 +1484,7 @@
 				09F86F291EF777DE00F4788D /* ZCSelectedWorksCell.xib in Resources */,
 				0941C01B1EBC18FB00F51A2D /* ZCRecipesSearchResultCell.xib in Resources */,
 				0941C0421EBC195700F51A2D /* ZCRecommendHaveHeaderIconImageView.xib in Resources */,
+				097FA0011FAC15A1000B17C1 /* SPVideoPlayer.bundle in Resources */,
 				09FEE3151EF4216C00B7AD90 /* ZCMakeStepCell.xib in Resources */,
 				09FCE9721EF4F15000285F6A /* ZCCommensenseCell.xib in Resources */,
 				0952BFC91EA84DD3002DA69E /* LaunchScreen.storyboard in Resources */,
@@ -1467,6 +1598,7 @@
 				0941BF671EBC14E000F51A2D /* ZCTabBarController.m in Sources */,
 				0904B2311EC6197500DDC34E /* ZCMineHomeCell.m in Sources */,
 				0941BF741EBC14E000F51A2D /* ZCRecipesHomeViewController.m in Sources */,
+				097FA0021FAC15A1000B17C1 /* SPNetworkReachabilityManager.m in Sources */,
 				0941BF601EBC14E000F51A2D /* ZCCourseCommentCell.m in Sources */,
 				0941BFFD1EBC163800F51A2D /* UIView+Frame.m in Sources */,
 				0941BF711EBC14E000F51A2D /* ZCFoodLiveViewController.m in Sources */,
@@ -1479,6 +1611,7 @@
 				0941C04E1EBC19DD00F51A2D /* ZCSceneRecipesCell.m in Sources */,
 				0904B2241EC60AF900DDC34E /* ZCMineBasicModel.m in Sources */,
 				09FE0ED51EBCA39A00140EB0 /* ZCIngredientSqlite.m in Sources */,
+				097F9FF91FAC15A1000B17C1 /* UIAlertController+SPPlayerRotation.m in Sources */,
 				0941BF831EBC14E000F51A2D /* ZCRecommendEmptyModel.m in Sources */,
 				0941C0191EBC18FB00F51A2D /* ZCRecipesSearchResultBasicCell.m in Sources */,
 				0941C03D1EBC195700F51A2D /* ZCRecommendButtonCell.m in Sources */,
@@ -1488,19 +1621,25 @@
 				0941C0531EBC1A0600F51A2D /* ZCIngredientsCell.m in Sources */,
 				09472D2B1EC16D0200B5C741 /* ZCIngredientsCollocationBottomAlertView.m in Sources */,
 				0904B2271EC60F2600DDC34E /* ZCMineBasicGroup.m in Sources */,
+				097F9FFD1FAC15A1000B17C1 /* SPBrightnessView.m in Sources */,
 				096485B91EC2F6440068FA6D /* ZCIngredientsCollocationBottomCell.m in Sources */,
 				09FBE0A51EC74A6800DB8DD8 /* ZCLohasHomeTableViewCell.m in Sources */,
 				0941BF641EBC14E000F51A2D /* ZCLohasHomeViewController.m in Sources */,
 				09FEE3131EF4211100B7AD90 /* ZCMakeStepCell.m in Sources */,
+				097FA0031FAC15A1000B17C1 /* SPVideoCutView.m in Sources */,
 				096485B61EC2EDEE0068FA6D /* ZCIngredientsCollocationBottomToolBar.m in Sources */,
 				0941C0181EBC18FB00F51A2D /* ZCRecipesSearchCell.m in Sources */,
 				0941BF7C1EBC14E000F51A2D /* ZCRecipesAutoSearchModel.m in Sources */,
 				09FBE0831EC6F72100DB8DD8 /* ZCMineHomeHeaderView.m in Sources */,
+				097F9FFB1FAC15A1000B17C1 /* SPVideoPlayerView.m in Sources */,
 				0941BF891EBC14E100F51A2D /* ZCRecommendWidgetItem.m in Sources */,
+				097F9FF81FAC15A1000B17C1 /* UIView+CustomControlView.m in Sources */,
 				0964B7D91EEA90D8008B787A /* ZCMakeStepViewController.m in Sources */,
 				0941BF851EBC14E000F51A2D /* ZCRecommendImageVideoModel.m in Sources */,
+				097F9FF61FAC15A1000B17C1 /* UIWindow+CurrentViewController.m in Sources */,
 				0941BF721EBC14E000F51A2D /* ZCIngredientsCollocationViewController.m in Sources */,
 				0964B7DF1EEA914C008B787A /* ZCCommensenseViewController.m in Sources */,
+				097F9FFF1FAC15A1000B17C1 /* SPVideoItem.m in Sources */,
 				0941C0401EBC195700F51A2D /* ZCRecommendHaveHeaderIconImageCell.m in Sources */,
 				0941BF7E1EBC14E000F51A2D /* ZCRecipesSearchResultModel.m in Sources */,
 				0941BF7F1EBC14E000F51A2D /* ZCRecommendBannerModel.m in Sources */,
@@ -1513,6 +1652,7 @@
 				0941BF731EBC14E000F51A2D /* ZCIngredientsViewController.m in Sources */,
 				0941BF7D1EBC14E000F51A2D /* ZCRecipesSearchGroup.m in Sources */,
 				0941BF621EBC14E000F51A2D /* ZCCourseHeaderView.m in Sources */,
+				097F9FFA1FAC15A1000B17C1 /* UINavigationController+SPPlayerRotation.m in Sources */,
 				0941BF5C1EBC14E000F51A2D /* ZCCourseEpisodeModel.m in Sources */,
 				094865761EC440810009E879 /* ZCWebViewController.m in Sources */,
 				09FBE09F1EC741EF00DB8DD8 /* ZCMineSettingDataSource.m in Sources */,
@@ -1523,8 +1663,9 @@
 				094B475A1EC9886E0075EE9D /* ZCRegisterViewController.m in Sources */,
 				094B474F1EC9576A0075EE9D /* ZCLoginViewController.m in Sources */,
 				095006961EDFEDA100B3FB57 /* ZCRecommendTitleModel.m in Sources */,
+				097F9FFC1FAC15A1000B17C1 /* SPVideoPopView.m in Sources */,
+				097FA0041FAC15A1000B17C1 /* SPVideoPlayerControlView.m in Sources */,
 				09FCE9711EF4F15000285F6A /* ZCCommensenseCell.m in Sources */,
-				094D01801EF79BD500C3209E /* ZCVideoViewController.m in Sources */,
 				0941C0141EBC18FB00F51A2D /* ZCRecipesAutoSearchCell.m in Sources */,
 				0941BF6F1EBC14E000F51A2D /* ZCBasicIntroduceViewController.m in Sources */,
 				0941BF881EBC14E100F51A2D /* ZCRecommendVideoModel.m in Sources */,
@@ -1536,6 +1677,7 @@
 				09FCE9801EF4F77900285F6A /* ZCDishesSuitableModel.m in Sources */,
 				094D01831EF79D4E00C3209E /* ZCCommunityRecommendViewController.m in Sources */,
 				09FCE9641EF4D25200285F6A /* ZCMaterialItemCell.m in Sources */,
+				097FA00B1FAC182C000B17C1 /* ZCVideoViewController.m in Sources */,
 				094E77171EE8F0A300D7FFB1 /* UINavigationBar+NavAlpha.m in Sources */,
 				0941C03F1EBC195700F51A2D /* ZCRecommendEmptyCell.m in Sources */,
 				0941BF811EBC14E000F51A2D /* ZCRecommendButtonModel.m in Sources */,
@@ -1562,18 +1704,22 @@
 				0948AC4E1EF3C94700CA9B81 /* ZCDishesInfoHeaderContentView.m in Sources */,
 				09FBE0AB1EC7506E00DB8DD8 /* ZCLohasListModel.m in Sources */,
 				0941BF8A1EBC14E100F51A2D /* ZCSceneRecipesModel.m in Sources */,
+				097F9FF51FAC15A1000B17C1 /* UITabBarController+SPPlayerRotation.m in Sources */,
 				0941BF5E1EBC14E000F51A2D /* ZCCourseRelateModel.m in Sources */,
 				0941C03C1EBC195700F51A2D /* ZCRecommendBasicCell.m in Sources */,
 				0941BF5F1EBC14E000F51A2D /* ZCCourseZanModel.m in Sources */,
+				097F9FF71FAC15A1000B17C1 /* UIViewController+SPPlayerRotation.m in Sources */,
 				090A650E1EE7D50500DF3A16 /* UIBarButtonItem+Style.m in Sources */,
 				09F86F281EF777DE00F4788D /* ZCSelectedWorksCell.m in Sources */,
 				0941BF661EBC14E000F51A2D /* ZCNavigationController.m in Sources */,
 				0941C0171EBC18FB00F51A2D /* ZCRecipesSearchBasicCell.m in Sources */,
+				097F9FFE1FAC15A1000B17C1 /* SPLoadingHUD.m in Sources */,
 				0941C01A1EBC18FB00F51A2D /* ZCRecipesSearchResultCell.m in Sources */,
 				0941BFFB1EBC163800F51A2D /* NSString+Extension.m in Sources */,
 				0964B7BD1EEA4325008B787A /* ZCNavigationView.m in Sources */,
 				0941BF591EBC14E000F51A2D /* ZCCommunityHomeViewController.m in Sources */,
 				0941BF701EBC14E000F51A2D /* ZCCategoryViewController.m in Sources */,
+				097FA0001FAC15A1000B17C1 /* SPVideoSlider.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

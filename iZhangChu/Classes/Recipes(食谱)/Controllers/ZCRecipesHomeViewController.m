@@ -113,6 +113,14 @@
     return _pageMenu;
 }
 
+- (BOOL)shouldAutorotate {
+    return YES;
+}
+
+// 支持的方向 因为界面A我们只需要支持竖屏
+- (UIInterfaceOrientationMask)supportedInterfaceOrientations {
+    return UIInterfaceOrientationMaskPortrait;
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

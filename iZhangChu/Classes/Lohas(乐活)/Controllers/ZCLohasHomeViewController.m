@@ -321,7 +321,6 @@
         _pageMenu.tracker.backgroundColor = [UIColor orangeColor];
         _pageMenu.dividingLine.hidden = YES;
         _pageMenu.permutationWay = SPPageMenuPermutationWayNotScrollEqualWidths;
-        _pageMenu.bridgeScrollView = self.tableView;
         
     }
     return _pageMenu;

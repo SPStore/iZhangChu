@@ -8,6 +8,7 @@
 
 #import "ZCPlayImageView.h"
 #import <UIImageView+WebCache.h>
+#import "ZCVideoViewController.h"
 
 @interface ZCPlayImageView()
 @property (nonatomic, strong) UIButton *playButton;
@@ -20,8 +21,6 @@
     if (self = [super initWithFrame:frame]) {
         [self addSubControl];
         self.userInteractionEnabled = YES;
-        UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapAction:)];
-        [self addGestureRecognizer:tap];
     }
     return self;
 }
@@ -30,8 +29,6 @@
     if (self = [super initWithCoder:aDecoder]) {
         [self addSubControl];
         self.userInteractionEnabled = YES;
-        UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapAction:)];
-        [self addGestureRecognizer:tap];
     }
     return self;
 }
@@ -58,16 +55,20 @@
     [self layoutIfNeeded];
 }
 
-- (void)tapAction:(UITapGestureRecognizer *)tap {
-    if (self.tapBlock) {
-        self.tapBlock(tap);
-    }
+- (void)playButtonAction:(UIButton *)sender {
+    ZCVideoViewController *videoVc = [[ZCVideoViewController alloc] init];
+    videoVc.videoItem = self.videoItem;
+    [[self viewController] presentViewController:videoVc animated:YES completion:nil];
 }
 
-- (void)playButtonAction:(UIButton *)sender {
-    if (self.playBlock) {
-        self.playBlock(sender);
+- (UIViewController *)viewController {
+    for (UIView* next = [self superview]; next; next = next.superview) {
+        UIResponder *nextResponder = [next nextResponder];
+        if ([nextResponder isKindOfClass:[UIViewController class]]) {
+            return (UIViewController *)nextResponder;
+        }
     }
+    return nil;
 }
 
 - (void)layoutSubviews {

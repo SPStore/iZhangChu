@@ -61,8 +61,6 @@
     }
 }
 
-
-
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return self.sectionArray.count;
 }
@@ -92,7 +90,6 @@
     }
     return 10;
 }
-
 
 - (UITableView *)tableView {
     if (!_tableView) {

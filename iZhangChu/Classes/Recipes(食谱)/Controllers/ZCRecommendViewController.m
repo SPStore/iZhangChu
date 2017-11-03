@@ -98,11 +98,13 @@
     params[@"token"] = @"0";
     params[@"version"] = @4.92;
     
-    //[MBProgressHUD showMessage:@"加载中..."];
+    [MBProgressHUD showMessage:@"加载中..."];
     
     [[SPHTTPSessionManager shareInstance] POST:ZCHOSTURL params:params success:^(id  _Nonnull responseObject) {
         
         [MBProgressHUD hideHUD];
+        
+        self.headerView.searchBar.hidden = NO;
         
         // 头部轮播图数据
         self.banners = [ZCRecommendBannerModel mj_objectArrayWithKeyValuesArray:responseObject[@"data"][@"banner"]];
@@ -372,7 +374,14 @@
     return _sectionModels;
 }
 
+- (BOOL)shouldAutorotate {
+    return YES;
+}
 
+// 支持的方向 因为界面A我们只需要支持竖屏
+- (UIInterfaceOrientationMask)supportedInterfaceOrientations {
+    return UIInterfaceOrientationMaskPortrait;
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

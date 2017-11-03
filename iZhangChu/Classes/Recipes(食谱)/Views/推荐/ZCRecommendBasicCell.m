@@ -21,7 +21,6 @@
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
         self.selectionStyle = UITableViewCellSelectionStyleNone;
-        _titleViewW = 115;
     }
     return self;
 }
@@ -67,6 +66,7 @@
         _titleLabel.textColor = [UIColor blackColor];
         _titleLabel.alpha = 0.8;
         _titleLabel.userInteractionEnabled = YES;
+        [_titleLabel sizeToFit];
         
     }
     return _titleLabel;
@@ -84,12 +84,7 @@
 }
 
 - (void)layoutSubControl {
-    [self.bigView makeConstraints:^(MASConstraintMaker *make) {
-        make.width.equalTo(_titleViewW);
-        make.height.equalTo(kTitleHeight);
-        make.centerX.equalTo(self.contentView.centerX);
-        make.top.equalTo(0);
-    }];
+    
     [self.titleLabel makeConstraints:^(MASConstraintMaker *make) {
         make.left.top.bottom.equalTo(0);
         make.right.equalTo(self.moreImageView.left).offset(-15);
@@ -99,6 +94,16 @@
         make.left.equalTo(self.titleLabel.right).offset(15);
         make.right.equalTo(0);
         make.centerY.equalTo(self.bigView.centerY);
+    }];
+    // 父控件根据子控件布局
+    [self.bigView makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(self.titleLabel);
+        make.right.equalTo(self.moreImageView);
+        make.left.greaterThanOrEqualTo(10).priorityMedium();
+        make.right.greaterThanOrEqualTo(10).priorityMedium();
+        make.height.equalTo(kTitleHeight);
+        make.centerX.equalTo(self.contentView.centerX);
+        make.top.equalTo(0);
     }];
 }
 

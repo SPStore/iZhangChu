@@ -6,5 +6,5 @@ target 'iZhangChu' do
     pod 'MJExtension'
     pod 'MJRefresh'
     pod 'MBProgressHUD'
-    pod 'SPPageMenu', '~> 2.0.1'
+    pod 'SPPageMenu', '~> 2.5.0'
 end 

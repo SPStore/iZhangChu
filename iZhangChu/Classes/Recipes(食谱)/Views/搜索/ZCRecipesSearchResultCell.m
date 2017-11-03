@@ -55,10 +55,6 @@
     [super awakeFromNib];
     
     self.dishPlayImageView.playButtonPosition = ZCPlayImageViewPlayButtonPositionRightBottom;
-    self.dishPlayImageView.tapBlock = ^(UITapGestureRecognizer *tap) {
-        // do something
-        ZCLog(@"点击了imageView");
-    };
     
     self.headImageView.image = [UIImage imageNamed:@"难易度"];
     self.tasteImageView.image = [UIImage imageNamed:@"口味"];

@@ -29,7 +29,7 @@
         [self.containerView addSubview:self.leftImageView];
         [self.containerView addSubview:self.rightBigView];
         [self.containerView addSubview:self.descLabel];
-
+        
     }
     return self;
 }
@@ -81,6 +81,7 @@
     
     if (!_leftImageView) {
         _leftImageView = [[ZCRecommendWidgetItemImageView alloc] init];
+        _leftImageView.translatesAutoresizingMaskIntoConstraints = NO;
         _leftImageView.contentMode = UIViewContentModeScaleAspectFill;
         _leftImageView.clipsToBounds = YES;
         WEAKSELF;
@@ -120,13 +121,13 @@
         }
      
     }];
-    
+
     [self.rightBigView makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(self.leftImageView.right).offset(kMargin);
+        make.width.equalTo(kScreenW/3*2-kMargin);
         make.right.equalTo(0);
         make.bottom.equalTo(self.leftImageView);
         if (self.title.length) {
-            make.top.equalTo(kTitleHeight);
+            make.top.equalTo(self.leftImageView);
         } else {
             make.top.equalTo(0);
         }
@@ -136,7 +137,6 @@
         make.left.right.bottom.equalTo(0);
         make.height.equalTo(kDescLabelH);
     }];
-
 }
 
 
@@ -206,8 +206,8 @@
    
     __block int i = 0;
     
-    __block CGFloat imageViewW = (kScreenW / 3 * 2 - kMargin) * 0.5;
-    __block CGFloat imageViewH = ((kCellHeight - kTitleHeight - kDescLabelH) - kMargin) * 0.5;
+    __block CGFloat imageViewW = (kScreenW / 3 * 2 -  2 * kMargin) * 0.5;
+    __block CGFloat imageViewH = ((kCellHeight - kTitleHeight - kDescLabelH) - kMargin - 10) * 0.5;
     
     [self.subviews makeConstraints:^(MASConstraintMaker *make) {
         NSInteger col = i % 2; // 第几列
@@ -219,7 +219,7 @@
         make.top.equalTo(row * (imageViewH+kMargin));
         i++;
     }];
-    
+
 }
 
 @end
