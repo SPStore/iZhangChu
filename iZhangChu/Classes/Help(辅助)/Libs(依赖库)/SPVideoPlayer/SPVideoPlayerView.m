@@ -128,6 +128,7 @@ typedef NS_ENUM(NSInteger, PanDirection){
 @property (nonatomic, assign, getter=isProcessTerminaed) BOOL processTerminaed;
 
 @property (nonatomic, assign) BOOL canPlay;
+@property (nonatomic, assign) double dragedSeconds;
 
 @end
 
@@ -447,6 +448,7 @@ typedef NS_ENUM(NSInteger, PanDirection){
  *  @param dragedSeconds 视频跳转的秒数
  */
 - (void)seekToTime:(double)dragedSeconds completionHandler:(void (^)(BOOL finished))completionHandler {
+    self.dragedSeconds = dragedSeconds;
     if (self.player.currentItem.status == AVPlayerItemStatusReadyToPlay) {
         
         [self.player pause];
@@ -593,11 +595,15 @@ typedef NS_ENUM(NSInteger, PanDirection){
     __weak typeof(self) weakSelf = self;
     // 每1秒执行一次
     self.timeObserve = [self.player addPeriodicTimeObserverForInterval:CMTimeMakeWithSeconds(1, 1) queue:dispatch_get_main_queue() usingBlock:^(CMTime time){
-        
         AVPlayerItem *currentItem = weakSelf.playerItem;
+        
         NSArray *loadedRanges = currentItem.seekableTimeRanges;
         if (loadedRanges.count > 0 && currentItem.duration.timescale != 0) {
             CGFloat currentTime = CMTimeGetSeconds([currentItem currentTime]);
+            // 这个判断是解决当手滑屏幕快进或者使用滑动条快进时，当前秒回弹问题，比如滑到第7秒，然后滑动结束来到此方法时可能当前时间只是6秒，这时会有个回弹现象，不过只有总时间比较小的时候比较明显
+            if (currentTime <= self.dragedSeconds) {
+                currentTime = self.dragedSeconds;
+            }
             CGFloat totalTime     = (CGFloat)currentItem.duration.value / currentItem.duration.timescale;
             CGFloat value         = currentTime / totalTime;
             if (!weakSelf.isDragged) {
@@ -1914,7 +1920,7 @@ typedef NS_ENUM(NSInteger, PanDirection){
 
 /** 点击了下一个视频按钮的代理方法 */
 - (void)sp_controlViewNextButtonClicked:(UIButton *)sender {
-    
+    self.dragedSeconds = 0;
     if (self.videoItems.count == 0) {
         // 如果数组没有值，则下一集就设置为重播
         // 没有播放完
@@ -1978,7 +1984,7 @@ typedef NS_ENUM(NSInteger, PanDirection){
         //计算出拖动的当前秒数
         CGFloat dragedSeconds = floorf(totalTime * slider.value);
         
-        //转换成CMTime才能给player来控制播放进度
+        //转换成CMTime才能给player控制播放进度
         CMTime dragedCMTime   = CMTimeMake(dragedSeconds, 1);
         
         SPVideoPlayerPlayProgressState progressState;

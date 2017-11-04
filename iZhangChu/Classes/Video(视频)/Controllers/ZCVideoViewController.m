@@ -8,6 +8,7 @@
 
 #import "ZCVideoViewController.h"
 #import <AVFoundation/AVFoundation.h>
+#import "ZCVideoControlView.h"
 #import "SPVideoPlayer.h"
 #import <Masonry.h>
 
@@ -79,13 +80,8 @@
     return UIInterfaceOrientationLandscapeRight;
 }
 
-- (UIStatusBarStyle)preferredStatusBarStyle {
-    
-    return UIStatusBarStyleLightContent;
-}
-
 - (BOOL)prefersStatusBarHidden {
-    return SPPlayerShared.isStatusBarHidden;
+    return YES;
 }
 
 - (void)setVideoItem:(ZCRecommendWidgetItem *)videoItem {
@@ -117,8 +113,8 @@
 - (SPVideoPlayerView *)playerView {
     if (!_playerView) {
         _playerView = [[SPVideoPlayerView alloc] init];
-        
-        [_playerView configureControlView:nil videoItems:self.videoItems];
+        ZCVideoControlView *controlView = [ZCVideoControlView shareVideoControlView];
+        [_playerView configureControlView:controlView videoItems:self.videoItems];
         
         _playerView.resumePlayFromLastStopPoint = NO;
         

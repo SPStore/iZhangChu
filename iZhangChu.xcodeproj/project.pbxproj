@@ -11,6 +11,8 @@
 		0904B2271EC60F2600DDC34E /* ZCMineBasicGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = 0904B2261EC60F2600DDC34E /* ZCMineBasicGroup.m */; };
 		0904B2311EC6197500DDC34E /* ZCMineHomeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0904B2301EC6197500DDC34E /* ZCMineHomeCell.m */; };
 		090A650E1EE7D50500DF3A16 /* UIBarButtonItem+Style.m in Sources */ = {isa = PBXBuildFile; fileRef = 090A650D1EE7D50500DF3A16 /* UIBarButtonItem+Style.m */; };
+		0910BF621FADB9BE00B5B573 /* ZCVideoControlView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0910BF611FADB9BE00B5B573 /* ZCVideoControlView.m */; };
+		0910BF641FADBB3B00B5B573 /* ZCVideoControlView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0910BF631FADBB3B00B5B573 /* ZCVideoControlView.xib */; };
 		0941BF591EBC14E000F51A2D /* ZCCommunityHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0941BEAC1EBC14E000F51A2D /* ZCCommunityHomeViewController.m */; };
 		0941BF5A1EBC14E000F51A2D /* ZCCourseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0941BEB31EBC14E000F51A2D /* ZCCourseViewController.m */; };
 		0941BF5B1EBC14E000F51A2D /* ZCCourseCommentModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0941BEB61EBC14E000F51A2D /* ZCCourseCommentModel.m */; };
@@ -212,6 +214,9 @@
 		0904B2301EC6197500DDC34E /* ZCMineHomeCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZCMineHomeCell.m; sourceTree = "<group>"; };
 		090A650C1EE7D50500DF3A16 /* UIBarButtonItem+Style.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIBarButtonItem+Style.h"; sourceTree = "<group>"; };
 		090A650D1EE7D50500DF3A16 /* UIBarButtonItem+Style.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIBarButtonItem+Style.m"; sourceTree = "<group>"; };
+		0910BF601FADB9BE00B5B573 /* ZCVideoControlView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZCVideoControlView.h; sourceTree = "<group>"; };
+		0910BF611FADB9BE00B5B573 /* ZCVideoControlView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZCVideoControlView.m; sourceTree = "<group>"; };
+		0910BF631FADBB3B00B5B573 /* ZCVideoControlView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ZCVideoControlView.xib; sourceTree = "<group>"; };
 		0941BEAB1EBC14E000F51A2D /* ZCCommunityHomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZCCommunityHomeViewController.h; sourceTree = "<group>"; };
 		0941BEAC1EBC14E000F51A2D /* ZCCommunityHomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZCCommunityHomeViewController.m; sourceTree = "<group>"; };
 		0941BEB21EBC14E000F51A2D /* ZCCourseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZCCourseViewController.h; sourceTree = "<group>"; };
@@ -1335,6 +1340,9 @@
 		097FA0081FAC17E3000B17C1 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				0910BF601FADB9BE00B5B573 /* ZCVideoControlView.h */,
+				0910BF611FADB9BE00B5B573 /* ZCVideoControlView.m */,
+				0910BF631FADBB3B00B5B573 /* ZCVideoControlView.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -1470,6 +1478,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0941C0481EBC195700F51A2D /* ZCRecommendMasterListView.xib in Resources */,
+				0910BF641FADBB3B00B5B573 /* ZCVideoControlView.xib in Resources */,
 				0941C04F1EBC19DD00F51A2D /* ZCSceneRecipesCell.xib in Resources */,
 				094B475B1EC9886E0075EE9D /* ZCRegisterViewController.xib in Resources */,
 				09FBE0851EC6F75F00DB8DD8 /* ZCMineHomeHeaderView.xib in Resources */,
@@ -1612,6 +1621,7 @@
 				0904B2241EC60AF900DDC34E /* ZCMineBasicModel.m in Sources */,
 				09FE0ED51EBCA39A00140EB0 /* ZCIngredientSqlite.m in Sources */,
 				097F9FF91FAC15A1000B17C1 /* UIAlertController+SPPlayerRotation.m in Sources */,
+				0910BF621FADB9BE00B5B573 /* ZCVideoControlView.m in Sources */,
 				0941BF831EBC14E000F51A2D /* ZCRecommendEmptyModel.m in Sources */,
 				0941C0191EBC18FB00F51A2D /* ZCRecipesSearchResultBasicCell.m in Sources */,
 				0941C03D1EBC195700F51A2D /* ZCRecommendButtonCell.m in Sources */,
