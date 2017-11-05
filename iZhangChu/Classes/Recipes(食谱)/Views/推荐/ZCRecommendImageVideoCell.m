@@ -184,6 +184,7 @@
             playImagView.clipsToBounds = YES;
             playImagView.imageItem = imageItems[count];
             playImagView.videoItem = videoItems[count];
+            playImagView.videoUrlString = playImagView.videoItem.content;
             [self addSubview:playImagView];
         }
     }

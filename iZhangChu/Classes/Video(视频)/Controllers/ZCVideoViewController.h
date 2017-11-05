@@ -11,6 +11,7 @@
 
 @interface ZCVideoViewController : UIViewController
 
-@property (nonatomic, strong) ZCRecommendWidgetItem *videoItem;
+@property (nonatomic, copy) NSString *videoUrlString;
+@property (nonatomic, copy) NSString *title;
 
 @end

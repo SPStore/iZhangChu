@@ -41,6 +41,7 @@
 }
 
 - (void)initialize {
+    _imageRatio = 0.5;
     _imagePosition = SPButtonImagePositionDefault;
 }
 
@@ -48,7 +49,7 @@
 
 - (CGRect)imageRectForContentRect:(CGRect)contentRect {
     if (!self.currentTitle) { // 如果没有文字，则图片占据整个button，空格算一个文字
-        return contentRect;
+        return [super imageRectForContentRect:contentRect];
     }
     switch (self.imagePosition) {
         case SPButtonImagePositionDefault:
@@ -89,8 +90,8 @@
 }
 
 - (CGRect)titleRectForContentRect:(CGRect)contentRect {
-    if (!self.currentImage) {  // 如果有图片
-        return contentRect;
+    if (!self.currentImage) {  // 如果没有图片
+        return [super titleRectForContentRect:contentRect];
     }
     switch (self.imagePosition) {
         case SPButtonImagePositionDefault:

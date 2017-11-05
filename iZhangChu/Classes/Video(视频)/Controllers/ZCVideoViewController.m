@@ -84,13 +84,14 @@
     return YES;
 }
 
-- (void)setVideoItem:(ZCRecommendWidgetItem *)videoItem {
-    _videoItem = videoItem;
-    NSArray *urls = [videoItem.content componentsSeparatedByString:@"#"];
+- (void)setVideoUrlString:(NSString *)videoUrlString {
+    _videoUrlString = [videoUrlString copy];
+    NSArray *urls = [videoUrlString componentsSeparatedByString:@"#"];
     if (urls.count) {
         for (int i = 0; i < urls.count; i++) {
             NSString *urlString = urls[i];
             SPVideoItem *videoItem = [[SPVideoItem alloc] init];
+            videoItem.title = self.title;
             videoItem.videoURL = [NSURL URLWithString:urlString];
             videoItem.shouldAutorotate = NO;
             videoItem.fatherView = self.playerFatherView;

@@ -57,7 +57,8 @@
 
 - (void)playButtonAction:(UIButton *)sender {
     ZCVideoViewController *videoVc = [[ZCVideoViewController alloc] init];
-    videoVc.videoItem = self.videoItem;
+    videoVc.title = self.title;
+    videoVc.videoUrlString = self.videoUrlString;
     [[self viewController] presentViewController:videoVc animated:YES completion:nil];
 }
 

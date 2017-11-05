@@ -24,4 +24,8 @@ typedef void(^PlayBlock)(UIButton *button);
 
 @property (nonatomic, strong) ZCRecommendWidgetItem *imageItem;
 @property (nonatomic, strong) ZCRecommendWidgetItem *videoItem;
+
+@property (nonatomic, copy) NSString *videoUrlString;
+@property (nonatomic, copy) NSString *title;
+
 @end

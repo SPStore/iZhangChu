@@ -31,7 +31,11 @@
 
 - (void)setModel:(ZCSceneInfoListModel *)model {
     _model = model;
+
     [self.playImageView sd_setImageWithURL:[NSURL URLWithString:model.image] placeholderImage:nil];
+    self.playImageView.videoUrlString = [NSString stringWithFormat:@"%@#%@",model.material_video,model.process_video];
+    self.playImageView.title = model.dishes_name;
+    
     self.titleLabel.text = model.dishes_name;
     self.descLabel.text = model.dishes_desc;
     

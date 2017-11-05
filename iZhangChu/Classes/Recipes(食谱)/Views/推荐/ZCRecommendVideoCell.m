@@ -199,6 +199,9 @@
 - (void)setVideoItem:(ZCRecommendWidgetItem *)videoItem {
     _videoItem = videoItem;
     self.playImageView.videoItem = videoItem;
+    self.playImageView.imageItem = self.imageItem;
+    self.playImageView.videoUrlString = videoItem.content;
+    self.playImageView.title = self.textItem.content;
 }
 
 - (void)setDescItem:(ZCRecommendWidgetItem *)descItem {

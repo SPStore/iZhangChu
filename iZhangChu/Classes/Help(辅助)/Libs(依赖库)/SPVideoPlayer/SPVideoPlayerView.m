@@ -20,6 +20,7 @@ NSNotificationName const SPVideoPlayerDidJumpedNSNotification = @"SPVideoPlayerD
 NSNotificationName const SPVideoPlayerCutVideoFinishedNSNotification = @"SPVideoPlayerCutVideoFinishedNSNotification";
 NSNotificationName const SPVideoPlayerLoadStatusDidChangedNotification = @"SPVideoPlayerLoadStatusDidChangedNotification";
 NSNotificationName const SPVideoPlayerBufferProgressValueChangedNSNotification = @"SPVideoPlayerBufferProgressValueChangedNSNotification";
+NSNotificationName const SPVideoPlayerBrightnessOrVolumeDidChangedNotification = @"SPVideoPlayerBrightnessOrVolumeDidChangedNotification";
 
 // 忽略编译器的警告
 #pragma clang diagnostic push
@@ -165,6 +166,7 @@ typedef NS_ENUM(NSInteger, PanDirection){
     self.cellPlayerOnCenter = YES;
     self.stopPlayWhenPlayerHalfInvisable = YES;
     self.resumePlayFromLastStopPoint = YES;
+
 }
 
 - (void)dealloc {
@@ -465,7 +467,7 @@ typedef NS_ENUM(NSInteger, PanDirection){
         CMTime dragedCMTime = CMTimeMake(dragedSeconds, 1); //kCMTimeZero
         __weak typeof(self) weakSelf = self;
         [self.player seekToTime:dragedCMTime toleranceBefore:CMTimeMake(1,1) toleranceAfter:CMTimeMake(1,1) completionHandler:^(BOOL finished) {
-                // 跳转完毕的通知
+            // 跳转完毕的通知
             [[NSNotificationCenter defaultCenter] postNotificationName:SPVideoPlayerDidJumpedNSNotification object:nil];
             // 视频跳转回调
             if (completionHandler) { completionHandler(finished); }
@@ -495,6 +497,7 @@ typedef NS_ENUM(NSInteger, PanDirection){
  *  player添加到fatherView上
  */
 - (void)addPlayerToFatherView:(UIView *)view {
+    [view layoutIfNeeded];
     // 这里应该添加判断，因为view有可能为空，当view为空时[view addSubview:self]会crash
     if (view) {
         if (!self.nextBtnClicked) {
@@ -1345,10 +1348,7 @@ typedef NS_ENUM(NSInteger, PanDirection){
             [self _fullScreenAction];
         }
         else {
-            if (self.playDidEnd) { return; }
-            else {
-                [self.controlView sp_playerShowOrHideControlView];
-            }
+            [self.controlView sp_playerShowOrHideControlView];
         }
     }
 }
@@ -1361,7 +1361,6 @@ typedef NS_ENUM(NSInteger, PanDirection){
  *  @param gesture UITapGestureRecognizer
  */
 - (void)doubleTapAction:(UIGestureRecognizer *)gesture {
-    if (self.playDidEnd) { return;  }
     if (_isPauseByUser) { [self play]; }
     else { [self pause]; }
     if (!self.isAutoPlay) {
@@ -1523,6 +1522,8 @@ typedef NS_ENUM(NSInteger, PanDirection){
  */
 - (void)verticalMoved:(CGFloat)value {
     self.isVolume ? (self.volumeViewSlider.value -= value / 10000) : ([UIScreen mainScreen].brightness -= value / 10000);
+    
+    [[NSNotificationCenter defaultCenter] postNotificationName:SPVideoPlayerBrightnessOrVolumeDidChangedNotification object:nil userInfo:@{@"value":@(self.isVolume ? self.volumeViewSlider.value:[UIScreen mainScreen].brightness),@"isVolume":@(self.isVolume)}];
 }
 
 /**
@@ -1883,7 +1884,7 @@ typedef NS_ENUM(NSInteger, PanDirection){
     }
     if ([gestureRecognizer isKindOfClass:[UIPanGestureRecognizer class]] && gestureRecognizer != self.shrinkPanGesture) {
         // 在cell上播放且非全屏或者播放结束或者锁屏都不具有平移手势
-        if ((self.isCellVideo && !self.isFullScreen) || self.playDidEnd || self.isLocked){
+        if ((self.isCellVideo && !self.isFullScreen) || self.isLocked){
             return NO;
         }
     }
@@ -1943,6 +1944,30 @@ typedef NS_ENUM(NSInteger, PanDirection){
     // 播放新的视频
     [self resetToPlayNewVideo:videoItem];
     self.nextBtnClicked     = NO;
+}
+
+/** 点击了上一个视频按钮的代理方法 */
+- (void)sp_controlViewLastButtonClicked:(UIButton *)sender {
+    self.dragedSeconds = 0;
+    // 根据当前模型获取其在数组中的位置
+    NSInteger index = [self.videoItems indexOfObject:self.videoItem];
+    if (self.videoItems.count == 0 ||index-1 < 0) {
+        // 如果数组没有值，则下一集就设置为重播
+        // 没有播放完
+        self.playDidEnd   = NO;
+        // 重播改为NO
+        self.repeatToPlay = NO;
+        [self seekToTime:0 completionHandler:nil];
+        
+        return;
+    }
+    // 实际上是标记上一个按钮被点击
+    self.nextBtnClicked = YES;
+    // 取出下一个视频模型进行播放
+    SPVideoItem *videoItem = self.videoItems[index-1];
+    // 播放新的视频
+    [self resetToPlayNewVideo:videoItem];
+    self.nextBtnClicked = NO;
 }
 
 /** 全屏按钮的代理方法 */
@@ -2048,6 +2073,28 @@ typedef NS_ENUM(NSInteger, PanDirection){
     
     [self seekToTime:dragedSeconds completionHandler:^(BOOL finished) {}];
     
+}
+
+/** 快进的代理方法 */
+- (void)sp_controlViewFast_forward {
+    CGFloat currentTime = CMTimeGetSeconds([self.player currentTime]);
+    CGFloat total = (CGFloat)self.playerItem.duration.value / self.playerItem.duration.timescale;
+    currentTime += total/20;
+    if (currentTime >= total) {
+        currentTime = total;
+    }
+    [self seekToTime:currentTime completionHandler:^(BOOL finished) {}];
+}
+
+/** 快退的代理方法 */
+- (void)sp_controlViewFast_backward {
+    CGFloat currentTime = CMTimeGetSeconds([self.player currentTime]);
+    CGFloat total = (CGFloat)self.playerItem.duration.value / self.playerItem.duration.timescale;
+    currentTime -= total/20;
+    if (currentTime <= 0) {
+        currentTime = 0;
+    }
+    [self seekToTime:currentTime completionHandler:^(BOOL finished) {}];
 }
 
 /** 返回按钮的代理方法 */

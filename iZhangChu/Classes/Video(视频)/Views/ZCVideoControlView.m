@@ -9,6 +9,7 @@
 #import "ZCVideoControlView.h"
 #import "SPVideoPlayer.h"
 #import "SPLoadingHUD.h"
+#import <MediaPlayer/MediaPlayer.h>
 
 // 几秒后隐藏
 static const CGFloat SPPlayerAnimationTimeInterval             = 3.0f;
@@ -52,7 +53,7 @@ static const CGFloat SPPlayerControlBarAutoFadeOutTimeInterval = 0.15f;
     UITapGestureRecognizer *sliderTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapSliderAction:)];
     [self.slider addGestureRecognizer:sliderTap];
     
-    self.showing = YES;
+    [self sp_playerResetControlView];
     
     // 监听播放状态的改变
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(videoPlayerStateChanged:) name:SPVideoPlayerStateChangedNSNotification object:nil];
@@ -62,6 +63,8 @@ static const CGFloat SPPlayerControlBarAutoFadeOutTimeInterval = 0.15f;
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(videoPlayerWillJump:) name:SPVideoPlayerWillJumpNSNotification object:nil];
     // 视频播放进度条转完毕
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(videoPlayerDidJumped:) name:SPVideoPlayerDidJumpedNSNotification object:nil];
+    // 音量改变的通知
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(volumeDidChanged:) name:SPVideoPlayerBrightnessOrVolumeDidChangedNotification object:nil];
     // app退到后台
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(appDidEnterBackground) name:UIApplicationWillResignActiveNotification object:nil];
     // app进入前台
@@ -75,6 +78,18 @@ static const CGFloat SPPlayerControlBarAutoFadeOutTimeInterval = 0.15f;
     return self;
 }
 
+- (void)getSystemVolume {
+    MPVolumeView *volumeView = [[MPVolumeView alloc] init];
+    for (UIView *view in [volumeView subviews]){
+        if ([view.class.description isEqualToString:@"MPVolumeSlider"]){
+            UISlider *slider = (UISlider *)view;
+            slider.value = 0.5;
+            self.voiceProgressView.progress = slider.value;
+            break;
+        }
+    }
+}
+
 #pragma mark - 通知方法
 /** 播放状态发生了改变 */
 - (void)videoPlayerStateChanged:(NSNotification *)notification {
@@ -85,6 +100,7 @@ static const CGFloat SPPlayerControlBarAutoFadeOutTimeInterval = 0.15f;
         case SPVideoPlayerPlayStateReadyToPlay:    // 准备播放
             
             [self showHUDWithTitle:@"即将播放"];
+            [self getSystemVolume];
             
             break;
         case SPVideoPlayerPlayStatePlaying:        // 正在播放
@@ -113,8 +129,9 @@ static const CGFloat SPPlayerControlBarAutoFadeOutTimeInterval = 0.15f;
         {
             [self hideHUD];
             self.showing = NO;
-            // 隐藏controlView
-            [self hideControlView];
+            // 显示controlView
+            [self showControlView];
+            self.playOrPauseButton.selected = NO;
         }
             break;
         default:
@@ -178,11 +195,11 @@ static const CGFloat SPPlayerControlBarAutoFadeOutTimeInterval = 0.15f;
     self.totalTimeLabel.text = totalTimeString;
     
     if (playProgressState != SPVideoPlayerPlayProgressStateNomal) { // 快进或快退状态
-#warning UNDO 改成label
-        [self showHUDWithTitle:[NSString stringWithFormat:@"%.0f%%",value*100]];
+        [self showHUDWithTitle:nil];
+        self.hud.textLabel.text = [NSString stringWithFormat:@"%.0f%%",value*100];
         self.hud.activityIndicatorPosition = SPActivityIndicatorPositionNone;
         self.hud.margin = 10;
-        self.hud.minSize = CGSizeMake(40, 40);
+        self.hud.minSize = CGSizeMake(60, 40);
         self.hud.bezelView.appearance = SPLoadingHUDAppearanceRect;
     }
 }
@@ -198,6 +215,16 @@ static const CGFloat SPPlayerControlBarAutoFadeOutTimeInterval = 0.15f;
     // 滑动结束延时隐藏controlView
     [self autoFadeOutControlView];
     [self hideHUD];
+}
+
+/** 音量改变 */
+- (void)volumeDidChanged:(NSNotification *)noti {
+    
+    CGFloat value = [noti.userInfo[@"value"] floatValue];
+    BOOL isVolume = [noti.userInfo[@"isVolume"] boolValue];
+    if (isVolume) {
+        self.voiceProgressView.progress = value;
+    }
 }
 
 /**
@@ -226,7 +253,9 @@ static const CGFloat SPPlayerControlBarAutoFadeOutTimeInterval = 0.15f;
 }
 
 - (IBAction)fast_fowwardButtonAction:(UIButton *)sender {
-    
+    if ([self.delegate respondsToSelector:@selector(sp_controlViewFast_forward)]) {
+        [self.delegate sp_controlViewFast_forward];
+    }
 }
 
 - (IBAction)nextButtonAction:(UIButton *)sender {
@@ -236,11 +265,15 @@ static const CGFloat SPPlayerControlBarAutoFadeOutTimeInterval = 0.15f;
 }
 
 - (IBAction)fast_backwardButtonAction:(UIButton *)sender {
-    
+    if ([self.delegate respondsToSelector:@selector(sp_controlViewFast_backward)]) {
+        [self.delegate sp_controlViewFast_backward];
+    }
 }
 
 - (IBAction)lastButtonAction:(UIButton *)sender {
-    
+    if ([self.delegate respondsToSelector:@selector(sp_controlViewLastButtonClicked:)]) {
+        [self.delegate sp_controlViewLastButtonClicked:sender];
+    }
 }
 
 - (IBAction)sliderTouchBegan:(UISlider *)sender {
@@ -340,6 +373,7 @@ static const CGFloat SPPlayerControlBarAutoFadeOutTimeInterval = 0.15f;
     [NSObject cancelPreviousPerformRequestsWithTarget:self selector:@selector(sp_playerHideControlView) object:nil];
 }
 
+#pragma - public
 - (void)sp_playerShowOrHideControlView {
     
     if (self.showing) {
@@ -347,6 +381,19 @@ static const CGFloat SPPlayerControlBarAutoFadeOutTimeInterval = 0.15f;
     } else {
         [self sp_playerShowControlView];
     }
+}
+
+- (void)sp_setPlayerItem:(SPVideoItem *)videoItem playingUrlString:(NSString *)playingUrlString {
+    self.titleLabel.text = videoItem.title;
+}
+
+
+/**
+ *  重置ControlView，如播放新的视频，播放结束等都需要重置
+ */
+- (void)sp_playerResetControlView {
+    self.showing = YES;
+    self.slider.value = 0;
 }
 
 #pragma mark - UIGestureRecognizerDelegate
