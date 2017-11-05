@@ -14,10 +14,10 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = '29BC39686292E86C8B2453B7FD968F7A'
-               BlueprintName = 'SPPageMenu'
+               BlueprintIdentifier = '37F6949BB4A3EC79BDB2A93874FABFCC'
+               BlueprintName = 'SPCarouselView'
                ReferencedContainer = 'container:Pods.xcodeproj'
-               BuildableName = 'libSPPageMenu.a'>
+               BuildableName = 'libSPCarouselView.a'>
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>

@@ -63,8 +63,6 @@
 		0941BFFB1EBC163800F51A2D /* NSString+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 0941BFDB1EBC163800F51A2D /* NSString+Extension.m */; };
 		0941BFFC1EBC163800F51A2D /* UIImage+General.m in Sources */ = {isa = PBXBuildFile; fileRef = 0941BFDD1EBC163800F51A2D /* UIImage+General.m */; };
 		0941BFFD1EBC163800F51A2D /* UIView+Frame.m in Sources */ = {isa = PBXBuildFile; fileRef = 0941BFDF1EBC163800F51A2D /* UIView+Frame.m */; };
-		0941BFFE1EBC163800F51A2D /* SPButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 0941BFE31EBC163800F51A2D /* SPButton.m */; };
-		0941BFFF1EBC163800F51A2D /* SPCarouselView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0941BFE71EBC163800F51A2D /* SPCarouselView.m */; };
 		0941C0001EBC163800F51A2D /* SPHTTPSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 0941BFEA1EBC163800F51A2D /* SPHTTPSessionManager.m */; };
 		0941C0031EBC163800F51A2D /* ZCConst.m in Sources */ = {isa = PBXBuildFile; fileRef = 0941BFF41EBC163800F51A2D /* ZCConst.m */; };
 		0941C0041EBC163800F51A2D /* SaveSearchTextTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 0941BFF91EBC163800F51A2D /* SaveSearchTextTool.m */; };
@@ -315,10 +313,6 @@
 		0941BFDD1EBC163800F51A2D /* UIImage+General.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+General.m"; sourceTree = "<group>"; };
 		0941BFDE1EBC163800F51A2D /* UIView+Frame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Frame.h"; sourceTree = "<group>"; };
 		0941BFDF1EBC163800F51A2D /* UIView+Frame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Frame.m"; sourceTree = "<group>"; };
-		0941BFE21EBC163800F51A2D /* SPButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPButton.h; sourceTree = "<group>"; };
-		0941BFE31EBC163800F51A2D /* SPButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPButton.m; sourceTree = "<group>"; };
-		0941BFE61EBC163800F51A2D /* SPCarouselView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPCarouselView.h; sourceTree = "<group>"; };
-		0941BFE71EBC163800F51A2D /* SPCarouselView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPCarouselView.m; sourceTree = "<group>"; };
 		0941BFE91EBC163800F51A2D /* SPHTTPSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPHTTPSessionManager.h; sourceTree = "<group>"; };
 		0941BFEA1EBC163800F51A2D /* SPHTTPSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPHTTPSessionManager.m; sourceTree = "<group>"; };
 		0941BFF21EBC163800F51A2D /* Singleton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Singleton.h; sourceTree = "<group>"; };
@@ -995,29 +989,9 @@
 			isa = PBXGroup;
 			children = (
 				097F9FD21FAC15A1000B17C1 /* SPVideoPlayer */,
-				0941BFE11EBC163800F51A2D /* SPButton */,
-				0941BFE51EBC163800F51A2D /* SPCarouselView */,
 				0941BFE81EBC163800F51A2D /* SPHTTPSessionManager */,
 			);
 			path = "Libs(依赖库)";
-			sourceTree = "<group>";
-		};
-		0941BFE11EBC163800F51A2D /* SPButton */ = {
-			isa = PBXGroup;
-			children = (
-				0941BFE21EBC163800F51A2D /* SPButton.h */,
-				0941BFE31EBC163800F51A2D /* SPButton.m */,
-			);
-			path = SPButton;
-			sourceTree = "<group>";
-		};
-		0941BFE51EBC163800F51A2D /* SPCarouselView */ = {
-			isa = PBXGroup;
-			children = (
-				0941BFE61EBC163800F51A2D /* SPCarouselView.h */,
-				0941BFE71EBC163800F51A2D /* SPCarouselView.m */,
-			);
-			path = SPCarouselView;
 			sourceTree = "<group>";
 		};
 		0941BFE81EBC163800F51A2D /* SPHTTPSessionManager */ = {
@@ -1584,7 +1558,6 @@
 				0964B7D31EEA6CED008B787A /* ZCDishesInfoModel.m in Sources */,
 				09FCE95D1EF4CE3D00285F6A /* ZCDishesMaterialModel.m in Sources */,
 				0952C03A1EA84E41002DA69E /* AppDelegate.m in Sources */,
-				0941BFFF1EBC163800F51A2D /* SPCarouselView.m in Sources */,
 				094865721EC40C540009E879 /* MBProgressHUD+SP.m in Sources */,
 				0941C0031EBC163800F51A2D /* ZCConst.m in Sources */,
 				094D017D1EF7912400C3209E /* ZCSelectedWorksModel.m in Sources */,
@@ -1706,7 +1679,6 @@
 				0941BF861EBC14E100F51A2D /* ZCRecommendImageViewTitleModel.m in Sources */,
 				0941C0001EBC163800F51A2D /* SPHTTPSessionManager.m in Sources */,
 				0941C0041EBC163800F51A2D /* SaveSearchTextTool.m in Sources */,
-				0941BFFE1EBC163800F51A2D /* SPButton.m in Sources */,
 				0941BF791EBC14E000F51A2D /* ZCSceneRecipesViewController.m in Sources */,
 				0941C0151EBC18FB00F51A2D /* ZCRecipesAutoSearchTopListCell.m in Sources */,
 				0952BFBB1EA84DD3002DA69E /* main.m in Sources */,

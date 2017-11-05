@@ -112,7 +112,7 @@ typedef NS_ENUM(NSInteger, SPCarouseImagesDataStyle){
 // timer事件
 -(void)timerAction{
     // 定时器每次触发都让当前图片为轮播图的第三张ImageView的image
-    [_scrollView setContentOffset:CGPointMake(2*kWidth, 0) animated:YES];
+    [_scrollView setContentOffset:CGPointMake(kWidth*2, 0) animated:YES];
 }
 
 -(void)configure{
@@ -156,6 +156,7 @@ typedef NS_ENUM(NSInteger, SPCarouseImagesDataStyle){
 #pragma mark - setter
 // 本地图片
 - (void)setLocalImages:(NSArray<NSString *> *)localImages {
+    if (localImages.count == 0) return;
     if (![_localImages isEqualToArray:localImages]) {
         _localImages = nil;
         _localImages = [localImages copy];
@@ -172,6 +173,7 @@ typedef NS_ENUM(NSInteger, SPCarouseImagesDataStyle){
 
 // 网络图片
 - (void)setUrlImages:(NSArray<NSString *> *)urlImages {
+    if (urlImages.count == 0) return;
     if (![_urlImages isEqualToArray:urlImages]) {
         _urlImages = nil;
         _urlImages = [urlImages copy];
@@ -293,8 +295,9 @@ typedef NS_ENUM(NSInteger, SPCarouseImagesDataStyle){
 
 #pragma mark - scrollView代理方法
 -(void)scrollViewDidScroll:(UIScrollView *)scrollView{
+    
     // 到第一张图片时   (一上来，当前图片的x值是kWidth)
-    if (scrollView.contentOffset.x <= 0) {  // 右滑
+    if (ceil(scrollView.contentOffset.x) <= 0) {  // 右滑
         _nextImgView.image = _currentImgView.image;
         _currentImgView.image = _lastImgView.image;
         // 将轮播图的偏移量设回中间位置
@@ -315,7 +318,7 @@ typedef NS_ENUM(NSInteger, SPCarouseImagesDataStyle){
         [self setImageView:_lastImgView withSubscript:_lastPhotoIndex];
     }
     // 到最后一张图片时（最后一张就是轮播图的第三张）
-    if (scrollView.contentOffset.x  >= kWidth*2) {  // 左滑
+    if (ceil(scrollView.contentOffset.x)  >= kWidth*2) {  // 左滑
         _lastImgView.image = _currentImgView.image;
         _currentImgView.image = _nextImgView.image;
         // 将轮播图的偏移量设回中间位置
@@ -363,7 +366,14 @@ typedef NS_ENUM(NSInteger, SPCarouseImagesDataStyle){
 
 #pragma mark - 手势点击事件
 -(void)handleTapActionInImageView:(UITapGestureRecognizer *)tap {
-    if (_delegate && [_delegate respondsToSelector:@selector(carouselView:clickedImageAtIndex:)]) {
+    if (self.clickedImageBlock) {
+        // 如果_nextPhotoIndex == 0,那么中间那张图片一定是数组中最后一张，我们要传的就是中间那张图片在数组中的下标
+        if (_nextPhotoIndex == 0) {
+            self.clickedImageBlock(_kImageCount-1);
+        }else{
+            self.clickedImageBlock(_nextPhotoIndex-1);
+        }
+    } else if (_delegate && [_delegate respondsToSelector:@selector(carouselView:clickedImageAtIndex:)]) {
         // 如果_nextPhotoIndex == 0,那么中间那张图片一定是数组中最后一张，我们要传的就是中间那张图片在数组中的下标
         if (_nextPhotoIndex == 0) {
             [_delegate carouselView:self clickedImageAtIndex:_kImageCount-1];

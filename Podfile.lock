@@ -21,7 +21,10 @@ PODS:
   - SDWebImage (4.0.0):
     - SDWebImage/Core (= 4.0.0)
   - SDWebImage/Core (4.0.0)
-  - SPPageMenu (2.5.0)
+  - SPButton (1.0.0)
+  - SPCarouselView (1.0.0):
+    - SDWebImage
+  - SPPageMenu (2.5.1)
 
 DEPENDENCIES:
   - AFNetworking
@@ -30,7 +33,9 @@ DEPENDENCIES:
   - MJExtension
   - MJRefresh
   - SDWebImage
-  - SPPageMenu (~> 2.5.0)
+  - SPButton
+  - SPCarouselView
+  - SPPageMenu (~> 2.5.1)
 
 SPEC CHECKSUMS:
   AFNetworking: 5e0e199f73d8626b11e79750991f5d173d1f8b67
@@ -39,8 +44,10 @@ SPEC CHECKSUMS:
   MJExtension: 5932755f451458eefa24239358817f8d291240c7
   MJRefresh: b96cdb21c4aa75a7b07654311ab2f315c497e806
   SDWebImage: 76a6348bdc74eb5a55dd08a091ef298e56b55e41
-  SPPageMenu: 972bf747417fe7862b15515566f27cf3155fb7ce
+  SPButton: 4568312c1e75bee32898a5b15d9fa37b2a91774b
+  SPCarouselView: 88a04d61585e475ee1f96e8cb8ce8bef140dc766
+  SPPageMenu: 47a957ca115eb6e87f91e31e76287d6d2eb1c030
 
-PODFILE CHECKSUM: 32c11bda53b1de14093a51717b334e9b5e4acbe8
+PODFILE CHECKSUM: 7669afcb3dfe1e65887944536369f51e84ab1796
 
 COCOAPODS: 1.4.0.beta.2
