@@ -125,9 +125,9 @@
             
             switch (basicModdel.widget_type) {
                 case 1: {
-                    // 这里是要把basicModdel的所有属性赋值给buttonModel,于是先把basicModdel转成字典，然后字典转模型
-                    ZCRecommendButtonModel *buttonModel = [ZCRecommendButtonModel mj_objectWithKeyValues:basicModdel.mj_keyValues];
-                    [modelArray1 addObject:buttonModel];
+                    // 这里是要把basicModdel的所有属性赋值给model,于是先把basicModdel转成字典，然后字典转模型
+                    ZCRecommendButtonModel *model = [ZCRecommendButtonModel mj_objectWithKeyValues:basicModdel.mj_keyValues];
+                    [modelArray1 addObject:model];
                 }
                     break;
                 case 2:
@@ -340,8 +340,8 @@
 
 - (UITableView *)tableView {
     if (!_tableView) {
-        _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, kScreenW, kScreenH-64) style:UITableViewStyleGrouped];
-        _tableView.contentInset = UIEdgeInsetsMake(0, 0, 49, 0);
+        _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, kScreenW, kScreenH-64-49) style:UITableViewStyleGrouped];
+//        _tableView.contentInset = UIEdgeInsetsMake(0, 0, 49, 0);
         _tableView.dataSource = self;
         _tableView.delegate = self;
         _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;

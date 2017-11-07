@@ -7,7 +7,7 @@
 //
 
 #import "ZCIngredientsCollocationCell.h"
-#import "ZCIngredientsButtonModel.h"
+#import "ZCIngredientsModel.h"
 #import "ZCMacro.h"
 #import <UIImageView+WebCache.h>
 
@@ -29,12 +29,12 @@
     return self;
 }
 
-- (void)setButtonModel:(ZCIngredientsButtonModel *)buttonModel {
-    _buttonModel = buttonModel;
-    [self.dishImageView sd_setImageWithURL:[NSURL URLWithString:buttonModel.image] placeholderImage:nil];
-    self.titleLabel.text = buttonModel.text;
+- (void)setModel:(ZCIngredientsModel *)model {
+    _model = model;
+    [self.dishImageView sd_setImageWithURL:[NSURL URLWithString:model.image] placeholderImage:nil];
+    self.titleLabel.text = model.text;
     
-    self.coverView.hidden = !buttonModel.selected;
+    self.coverView.hidden = !model.selected;
 }
 
 - (void)setSelected:(BOOL)selected {

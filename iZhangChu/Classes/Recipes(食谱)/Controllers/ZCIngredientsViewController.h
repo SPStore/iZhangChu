@@ -13,3 +13,8 @@
 - (void)requestData:(NSMutableDictionary *)params;
 
 @end
+
+
+@interface ZCCollectionHeaderReusableView : UICollectionReusableView
+@property (nonatomic, strong) UILabel *titleLabel;
+@end

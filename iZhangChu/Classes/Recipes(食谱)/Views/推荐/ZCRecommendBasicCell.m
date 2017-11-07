@@ -66,8 +66,8 @@
         _titleLabel.textColor = [UIColor blackColor];
         _titleLabel.alpha = 0.8;
         _titleLabel.userInteractionEnabled = YES;
-        [_titleLabel sizeToFit];
-        
+        // 水平方向抗拉伸，紧抱
+        [_titleLabel setContentHuggingPriority:998 forAxis:UILayoutConstraintAxisHorizontal];
     }
     return _titleLabel;
 }
@@ -86,13 +86,12 @@
 - (void)layoutSubControl {
     
     [self.titleLabel makeConstraints:^(MASConstraintMaker *make) {
-        make.left.top.bottom.equalTo(0);
+        make.top.bottom.equalTo(0);
         make.right.equalTo(self.moreImageView.left).offset(-15);
     }];
     [self.moreImageView makeConstraints:^(MASConstraintMaker *make) {
         make.size.equalTo(CGSizeMake(20, 20));
         make.left.equalTo(self.titleLabel.right).offset(15);
-        make.right.equalTo(0);
         make.centerY.equalTo(self.bigView.centerY);
     }];
     // 父控件根据子控件布局

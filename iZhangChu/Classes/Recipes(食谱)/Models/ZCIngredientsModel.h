@@ -1,23 +1,21 @@
 //
-//  ZCIngredientsDataModel.h
+//  ZCIngredientsModel.h
 //  iZhangChu
 //
-//  Created by Shengping on 17/4/24.
+//  Created by Libo on 2017/11/7.
 //  Copyright © 2017年 iDress. All rights reserved.
-//  食材数据
+//
 
 #import <Foundation/Foundation.h>
+#import "ZCMacro.h"
 
-@interface ZCIngredientsDataModel : NSObject
+@interface ZCIngredientsModel : NSObject
 
 @property (nonatomic, assign) NSInteger id;
 @property (nonatomic, copy) NSString *image;
 @property (nonatomic, copy) NSString *text;
-@property (nonatomic, strong) NSArray *data;
 
-/**
- 用来标记该model对应的cell是否选中
- */
+// 标记此模型对应的cell是否选中
 @property (nonatomic, assign) BOOL selected;
 
 @end

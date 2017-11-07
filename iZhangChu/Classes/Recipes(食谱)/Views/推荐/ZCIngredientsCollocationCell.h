@@ -8,13 +8,13 @@
 
 #import <UIKit/UIKit.h>
 
-@class ZCIngredientsButtonModel;
+@class ZCIngredientsModel;
 
 @interface ZCIngredientsCollocationCell : UICollectionViewCell
 
 @property (nonatomic, strong) NSIndexPath *indexPath;
 
-@property (nonatomic, strong) ZCIngredientsButtonModel *buttonModel;
+@property (nonatomic, strong) ZCIngredientsModel *model;
 
 
 @end

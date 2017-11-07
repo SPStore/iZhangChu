@@ -9,7 +9,7 @@
 #import "ZCIngredientsCollocationViewController.h"
 #import "ZCIngredientsCollocationCell.h"
 #import "ZCIngredientsDataModel.h"
-#import "ZCIngredientsButtonModel.h"
+#import "ZCIngredientsModel.h"
 #import "ZCIngredientSqlite.h"
 #import "ZCIngredientsCollocationBottomAlertView.h"
 #import "ZCRecipesSearchResultModel.h"
@@ -105,9 +105,9 @@ static NSString * const ingredientsCollocationCellID = @"ZCIngredientsCollocatio
 
 - (__kindof UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     ZCIngredientsCollocationCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:ingredientsCollocationCellID forIndexPath:indexPath];
-    ZCIngredientsButtonModel *buttonModel = self.dataModelArrayForCollectionView[indexPath.row];
+    ZCIngredientsModel *model = self.dataModelArrayForCollectionView[indexPath.row];
     cell.indexPath = indexPath;
-    cell.buttonModel = buttonModel;
+    cell.model = model;
     
     return cell;
 }
@@ -115,20 +115,20 @@ static NSString * const ingredientsCollocationCellID = @"ZCIngredientsCollocatio
 #pragma mark - UICollectionView Delegate
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
-    ZCIngredientsButtonModel *buttonModel = self.dataModelArrayForCollectionView[indexPath.row];
+    ZCIngredientsModel *model = self.dataModelArrayForCollectionView[indexPath.row];
     
     NSInteger index = 0;
 
-    buttonModel.selected = !buttonModel.selected;
+    model.selected = !model.selected;
     
-    if (buttonModel.selected) {
+    if (model.selected) {
         // 将选中的模型存进数组
-        [self.selectedButtonModelArray addObject:buttonModel];
+        [self.selectedButtonModelArray addObject:model];
         
     } else {
-        index = [self.selectedButtonModelArray indexOfObject:buttonModel];
+        index = [self.selectedButtonModelArray indexOfObject:model];
         // 将未选中的模型移出数组
-        [self.selectedButtonModelArray removeObject:buttonModel];
+        [self.selectedButtonModelArray removeObject:model];
     }
     
     [self.collectionView reloadData];
@@ -139,14 +139,14 @@ static NSString * const ingredientsCollocationCellID = @"ZCIngredientsCollocatio
         [MBProgressHUD showMessageOnScreenBottom:@"最多只能选择3种食材哦~" hideAfterTime:2.0f];
 
         // 能进入这个if语句，说明数组中已经有4个模型了，需要删除最后一个模型，并把最后一个模型的selected还原为NO
-        ZCIngredientsButtonModel *lastModel = self.selectedButtonModelArray.lastObject;
+        ZCIngredientsModel *lastModel = self.selectedButtonModelArray.lastObject;
         lastModel.selected = NO;
         [self.selectedButtonModelArray removeObject:lastModel];
         return;
     }
     
-    if (buttonModel.selected) {
-        [self.bottomAlertView.toolBar addButtonWithTitle:buttonModel.text];
+    if (model.selected) {
+        [self.bottomAlertView.toolBar addButtonWithTitle:model.text];
     } else {
         [self.bottomAlertView.toolBar removeButtonWithIndex:index];
     }
@@ -154,8 +154,8 @@ static NSString * const ingredientsCollocationCellID = @"ZCIngredientsCollocatio
     if (self.selectedButtonModelArray.count >= 2) {
         
         NSMutableArray *ids = @[].mutableCopy;
-        for (ZCIngredientsButtonModel *buttonModel in self.selectedButtonModelArray) {
-            [ids addObject:@(buttonModel.id)];
+        for (ZCIngredientsModel *model in self.selectedButtonModelArray) {
+            [ids addObject:@(model.id)];
         }
         
         // 如果不延时，那么self.bottomAlertView的弹出动画将会与self.bottomAlertView添加子控件同时进行，这会导致添加子控件时也会有一个小动画，子控件会有一个从某个点飞出来的感觉，这种动画是masonry的效果，为了消除这种现象，延时0.1秒，当子控件添加完毕时，再去制造弹出动画.
@@ -346,10 +346,10 @@ static NSString * const ingredientsCollocationCellID = @"ZCIngredientsCollocatio
         
         WEAKSELF;
         _bottomAlertView.toolBar.dishButtonClickedBlock = ^(NSInteger index) {
-            ZCIngredientsButtonModel *buttonModel = weakSelf.selectedButtonModelArray[index];
-            buttonModel.selected = NO;
+            ZCIngredientsModel *model = weakSelf.selectedButtonModelArray[index];
+            model.selected = NO;
             // 将未选中的模型移出数组
-            [weakSelf.selectedButtonModelArray removeObject:buttonModel];
+            [weakSelf.selectedButtonModelArray removeObject:model];
             [weakSelf.collectionView reloadData];
             // 退出bottomView
             [weakSelf resignBottonBiew];

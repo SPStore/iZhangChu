@@ -78,7 +78,7 @@
     
     if (!_containerView) {
         _containerView = [[UIView alloc] init];
-        
+        _containerView.translatesAutoresizingMaskIntoConstraints = NO;
     }
     return _containerView;
 }
@@ -95,6 +95,10 @@
         }];
         
         [self.containerView.subviews mas_distributeViewsAlongAxis:MASAxisTypeVertical withFixedSpacing:10 leadSpacing:0 tailSpacing:0];
+    } else {
+        [self.containerView.subviews makeConstraints:^(MASConstraintMaker *make) {
+            make.left.right.top.bottom.equalTo(0);
+        }];
     }
 
     [super updateConstraints];
@@ -171,7 +175,6 @@
     
     if (!_photoView) {
         _photoView = [[UIImageView alloc] init];
-        
     }
     return _photoView;
 }

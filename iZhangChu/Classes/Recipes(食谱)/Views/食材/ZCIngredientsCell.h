@@ -8,15 +8,10 @@
 
 #import <UIKit/UIKit.h>
 #import "ZCIngredientsDataModel.h"
-#import "ZCIngredientsButtonModel.h"
 
-@interface ZCIngredientsCell : UITableViewCell
-@property (nonatomic, strong) ZCIngredientsDataModel *model;
+@class ZCIngredientsModel;
+
+@interface ZCIngredientsCell : UICollectionViewCell
+- (void)setModel:(ZCIngredientsDataModel *)dataModel indexPath:(NSIndexPath *)indexPath;
 @end
 
-
-
-
-@interface ZCIngredientsButton : UIButton
-@property (nonatomic, strong) ZCIngredientsButtonModel *btnModel;
-@end
