@@ -8,5 +8,5 @@ target 'iZhangChu' do
     pod 'MBProgressHUD'
     pod 'SPPageMenu','~> 2.5.3'
     pod 'SPButton'
-    pod 'SPCarouselView'
+    pod 'SPCarouselView','~> 1.0.1'
 end 
